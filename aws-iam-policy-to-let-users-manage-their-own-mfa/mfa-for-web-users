@@ -1,0 +1,85 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowUsersToCreateEnableResyncTheirOwnVirtualMFADevice",
+            "Effect": "Allow",
+            "Action": [
+                "iam:CreateVirtualMFADevice",
+                "iam:EnableMFADevice",
+                "iam:ResyncMFADevice"
+            ],
+            "Resource": [
+                "arn:aws:iam::137244175803:mfa/${aws:username}",
+                "arn:aws:iam::137244175803:user/${aws:username}"
+            ]
+        },
+        {
+            "Sid": "AllowUsersToDeactivateDeleteTheirOwnVirtualMFADevice",
+            "Effect": "Allow",
+            "Action": [
+                "iam:DeactivateMFADevice",
+                "iam:DeleteVirtualMFADevice"
+            ],
+            "Resource": [
+                "arn:aws:iam::137244175803:mfa/${aws:username}",
+                "arn:aws:iam::137244175803:user/${aws:username}"
+            ],
+            "Condition": {
+                "Bool": {
+                    "aws:MultiFactorAuthPresent": true
+                }
+            }
+        },
+        {
+            "Sid": "AllowUsersToMagaeTheiOwnAccessKey",
+            "Effect": "Allow",
+            "Action": [
+                "iam:CreateAccessKey",
+                "iam:UpdateAccessKey"
+            ],
+            "Resource": [
+                "arn:aws:iam::137244175803:mfa/${aws:username}",
+                "arn:aws:iam::137244175803:user/${aws:username}"
+            ],
+            "Condition": {
+                "Bool": {
+                    "aws:MultiFactorAuthPresent": true
+                }
+            }
+        },
+        {
+            "Sid": "AllowUsersToListMFADevicesandUsersForConsole",
+            "Effect": "Allow",
+            "Action": [
+                "iam:ListMFADevices",
+                "iam:ListVirtualMFADevices",
+                "iam:ListUsers"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "AllowUsersToChangePassword",
+            "Effect": "Allow",
+            "Action": [
+                "iam:ChangePassword",
+                "iam:GetAccountPasswordPolicy",
+                "iam:CreateLoginProfile"
+            ],
+            "Resource": "arn:aws:iam::137244175803:user/${aws:username}"
+        },
+        {
+            "Sid": "AllowUsersToHaveMFADisabledForIAM",
+            "Effect": "Allow",
+            "Action": [
+                "iam:*"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "Bool": {
+                    "aws:MultiFactorAuthPresent": false
+                }
+            }
+        }
+    ]
+}
