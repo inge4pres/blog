@@ -157,7 +157,7 @@ resource "aws_security_group" "client" {
 
 resource "aws_security_group" "sg_nfs" {
 	description  = "EFS access"
-	name = "client"
+	name = "sg_efs"
 	vpc_id = "${aws_vpc.app.id}"
 	
 	tags {
