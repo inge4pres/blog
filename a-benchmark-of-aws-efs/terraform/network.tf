@@ -4,12 +4,12 @@
 
 # ---- Base VPC named "app"
 resource "aws_vpc" "app" {
-	cidr_block = "${var.efs_vpc[cidr]}"
+	cidr_block = "${var.efs_vpc["cidr"]}"
 	enable_dns_support = true
 	enable_dns_hostnames = true
 	
 	tags {
-		Name = "${var.efs_vpc[name]}"
+		Name = "${var.efs_vpc["name"]}"
 	}
 }
 
@@ -18,7 +18,7 @@ resource "aws_internet_gateway" "igw" {
     vpc_id = "${aws_vpc.app.id}"
 
     tags {
-        Name = "${var.efs_vpc[name]}_igw"
+        Name = "${var.efs_vpc["name"]}_igw"
 		Scope = "public"
     }
 }
@@ -26,7 +26,7 @@ resource "aws_internet_gateway" "igw" {
 # ---- Subnets
 resource "aws_subnet" "public_a" {
 	vpc_id = "${aws_vpc.app.id}"
-	cidr_block = "${var.efs_vpc_subnet_cidr[public_a]}"
+	cidr_block = "${var.efs_vpc_subnet_cidr["public_a"]}"
     map_public_ip_on_launch = true
 	tags {
 		Name = "subnet_public_a"
@@ -37,7 +37,7 @@ resource "aws_subnet" "public_a" {
 
 resource "aws_subnet" "public_b" {
 	vpc_id = "${aws_vpc.app.id}"
-	cidr_block = "${var.efs_vpc_subnet_cidr[public_b]}"
+	cidr_block = "${var.efs_vpc_subnet_cidr["public_b"]}"
 	map_public_ip_on_launch = true
 	tags {
 		Name = "subnet_public_b"
@@ -83,42 +83,42 @@ resource "aws_security_group" "gluster_server" {
 		from_port = "22"
 		to_port = "22"
 		protocol = "tcp"
-		cidr_blocks = ["${var.efs_vpc[cidr]}"]
+		cidr_blocks = ["${var.efs_vpc["cidr"]}"]
 	}
 	
 	ingress {
 		from_port = "111"
 		to_port = "111"
 		protocol = "udp"
-		cidr_blocks = ["${var.efs_vpc[cidr]}"]
+		cidr_blocks = ["${var.efs_vpc["cidr"]}"]
 	}
 	
 	ingress {
 		from_port = "111"
 		to_port = "111"
 		protocol = "tcp"
-		cidr_blocks = ["${var.efs_vpc[cidr]}"]
+		cidr_blocks = ["${var.efs_vpc["cidr"]}"]
 	}
 	
 	ingress {
 		from_port = "24007"
 		to_port = "24010"
 		protocol = "tcp"
-		cidr_blocks = ["${var.efs_vpc[cidr]}"]
+		cidr_blocks = ["${var.efs_vpc["cidr"]}"]
 	}
 	
 	ingress {
 		from_port = "38465"
 		to_port = "38467"
 		protocol = "tcp"
-		cidr_blocks = ["${var.efs_vpc[cidr]}"]
+		cidr_blocks = ["${var.efs_vpc["cidr"]}"]
 	}
 	
 	ingress {
 		from_port = "49152"
 		to_port = "49153"
 		protocol = "tcp"
-		cidr_blocks = ["${var.efs_vpc[cidr]}"]
+		cidr_blocks = ["${var.efs_vpc["cidr"]}"]
 	}
 
 	egress {
@@ -170,7 +170,7 @@ resource "aws_security_group" "sg_nfs" {
 		from_port = "2049"
 		to_port = "2049"
 		protocol = "tcp"
-		cidr_blocks = ["${var.efs_vpc[cidr]}"]
+		cidr_blocks = ["${var.efs_vpc["cidr"]}"]
 	}
 
 	egress {

@@ -1,7 +1,7 @@
 resource "aws_instance" "gluster_a" {
-    ami = "${var.amzn_linux_ami[us-east-1]}"
+    ami = "${var.amzn_linux_ami["${var.aws_region}"]}"
     instance_type = "c4.large"
-	availability_zone = "${var.efs_vpc_az[a]}"
+	availability_zone = "${var.efs_vpc_az["a"]}"
 	subnet_id = "${aws_subnet.public_a.id}"
 	ebs_optimized = true
 	monitoring = false
@@ -24,9 +24,9 @@ resource "aws_instance" "gluster_a" {
 }
 
 resource "aws_instance" "gluster_b" {
-    ami = "${var.amzn_linux_ami[us-east-1]}"
+    ami = "${var.amzn_linux_ami["${var.aws_region}"]}"
     instance_type = "c4.large"
-	availability_zone = "${var.efs_vpc_az[b]}"
+	availability_zone = "${var.efs_vpc_az["b"]}"
 	subnet_id = "${aws_subnet.public_b.id}"
 	ebs_optimized = true
 	monitoring = false

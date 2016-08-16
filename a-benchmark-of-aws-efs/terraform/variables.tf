@@ -15,7 +15,7 @@ variable "aws_region" {
 variable "efs_vpc" {
 	description = "VPC-CIDR"
 	default = {
-		cidr = "172.20.0.0/16"
+		cidr = "172.30.0.0/16"
 		name = "efs-benchmark"
 	}
 }
@@ -34,9 +34,9 @@ variable "efs_vpc_subnet_cidr" {
   type = "map"
   description = "Map of CIDR for private/public subnets"
   default = {
-	public_a = "172.20.10.0/24"
-	public_b = "172.20.11.0/24"
-	public_c = "172.20.100.0/24"
+	public_a = "172.30.10.0/24"
+	public_b = "172.30.11.0/24"
+	public_c = "172.30.100.0/24"
   }
 }
 
