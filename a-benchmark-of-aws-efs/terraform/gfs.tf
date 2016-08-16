@@ -6,7 +6,7 @@ resource "aws_instance" "gluster_a" {
 	ebs_optimized = true
 	monitoring = false
 	vpc_security_group_ids  = ["${aws_security_group.gluster_server.id}","${aws_security_group.sg_nfs.id}"]
-	user_data = "${file("file/install_gluster.sh")}"
+	user_data = "${file("file/bootstrap_server.sh")}"
 	key_name = "${var.key_name}"
 	
 	ebs_block_device {
@@ -31,7 +31,7 @@ resource "aws_instance" "gluster_b" {
 	ebs_optimized = true
 	monitoring = false
 	vpc_security_group_ids  = ["${aws_security_group.gluster_server.id}","${aws_security_group.sg_nfs.id}"]
-	user_data = "${file("file/install_gluster.sh")}"
+	user_data = "${file("file/bootstrap_server.sh")}"
 	key_name = "${var.key_name}"
 	
 	ebs_block_device {

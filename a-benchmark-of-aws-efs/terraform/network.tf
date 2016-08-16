@@ -38,7 +38,7 @@ resource "aws_subnet" "public_a" {
 resource "aws_subnet" "public_b" {
 	vpc_id = "${aws_vpc.app.id}"
 	cidr_block = "${var.efs_vpc_subnet_cidr[public_b]}"
-	map_public_ip_on_launch = false
+	map_public_ip_on_launch = true
 	tags {
 		Name = "subnet_public_b"
 		Scope = "public"
