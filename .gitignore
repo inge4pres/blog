@@ -2,3 +2,5 @@ a-benchmark-of-aws-efs/terraform/terraform.tfstate
 *.backup
 a-benchmark-of-aws-efs/terraform/terraform.tfstate
 *.backup
+*.tfstate
+a-benchmark-of-aws-efs/terraform/terraform.tfstate.backup
