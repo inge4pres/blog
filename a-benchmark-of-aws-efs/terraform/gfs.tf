@@ -1,4 +1,4 @@
-resource "aws_instance" "gluster_a" {
+resource "aws_instance" "server_a" {
     ami = "${var.amzn_linux_ami["${var.aws_region}"]}"
     instance_type = "c4.large"
 	availability_zone = "${var.efs_vpc_az["a"]}"
@@ -17,13 +17,13 @@ resource "aws_instance" "gluster_a" {
 	}
 
 	tags {
-		Name = "GFS_1"
+		Name = "server_1"
     	TFmanaged = "true"
 		Server_id = 1
 	}
 }
 
-resource "aws_instance" "gluster_b" {
+resource "aws_instance" "server_b" {
     ami = "${var.amzn_linux_ami["${var.aws_region}"]}"
     instance_type = "c4.large"
 	availability_zone = "${var.efs_vpc_az["b"]}"
@@ -42,7 +42,7 @@ resource "aws_instance" "gluster_b" {
 	}
 
 	tags {
-		Name = "GFS_2"
+		Name = "server_2"
     	TFmanaged = "true"
 		Server_id = 2
 	}
