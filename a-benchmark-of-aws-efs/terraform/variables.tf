@@ -25,8 +25,8 @@ variable "efs_vpc" {
 variable "efs_vpc_az" {
   default = {
     a = "us-east-1b"
-    b = "us-east-1c"
-    c = "us-east-1d"
+    b = "us-east-1d"
+    c = "us-east-1e"
   }
 }
 

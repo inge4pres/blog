@@ -9,11 +9,10 @@ printf "o\nn\np\n1\n\n\nw\n" | fdisk /dev/sdf
 #format new partition
 mkfs.xfs -i size=512 /dev/sdf1
 #setup mount point 
-mkdir -p /export/gluster/brick
-#setup fstab for brick
-echo "/dev/sdf1 /export/gluster xfs defaults 1 2" >> /etc/fstab
+mkdir -p /export/gluster
 #mount
-mount -a
+mount -t xfs /dev/sdf1 /export/gluster
+mkdir -p /export/gluster/brick
 #install glusterfs repo for stable version
 wget -P /etc/yum.repos.d https://download.gluster.org/pub/gluster/glusterfs/3.7/LATEST/EPEL.repo/glusterfs-epel.repo
 #fix it for amazon linux
