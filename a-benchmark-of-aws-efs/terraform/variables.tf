@@ -25,8 +25,7 @@ variable "efs_vpc" {
 variable "efs_vpc_az" {
   default = {
     a = "us-east-1b"
-    b = "us-east-1d"
-    c = "us-east-1e"
+    b = "us-east-1e"
   }
 }
 
@@ -36,7 +35,6 @@ variable "efs_vpc_subnet_cidr" {
   default = {
 	public_a = "172.30.10.0/24"
 	public_b = "172.30.11.0/24"
-	public_c = "172.30.100.0/24"
   }
 }
 

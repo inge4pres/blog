@@ -1,5 +1,5 @@
-output "client-ip" {
-  value = "${aws_instance.client.dns_name}"
+output "client-public-ip" {
+  value = "${aws_instance.client.public_dns}"
 }
 
 output "server-a-ip" {
