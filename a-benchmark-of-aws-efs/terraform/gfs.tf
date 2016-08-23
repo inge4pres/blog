@@ -1,7 +1,6 @@
 resource "aws_instance" "server_a" {
     ami = "${var.amzn_linux_ami["${var.aws_region}"]}"
     instance_type = "c4.large"
-	availability_zone = "${var.efs_vpc_az["a"]}"
 	subnet_id = "${aws_subnet.public_a.id}"
 	ebs_optimized = true
 	monitoring = false
@@ -26,7 +25,6 @@ resource "aws_instance" "server_a" {
 resource "aws_instance" "server_b" {
     ami = "${var.amzn_linux_ami["${var.aws_region}"]}"
     instance_type = "c4.large"
-	availability_zone = "${var.efs_vpc_az["b"]}"
 	subnet_id = "${aws_subnet.public_b.id}"
 	ebs_optimized = true
 	monitoring = false

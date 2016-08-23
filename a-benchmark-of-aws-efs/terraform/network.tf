@@ -26,6 +26,7 @@ resource "aws_internet_gateway" "igw" {
 # ---- Subnets
 resource "aws_subnet" "public_a" {
 	vpc_id = "${aws_vpc.app.id}"
+	availability_zone = "${var.efs_vpc_az["a"]}"
 	cidr_block = "${var.efs_vpc_subnet_cidr["public_a"]}"
     map_public_ip_on_launch = true
 	tags {
@@ -37,6 +38,7 @@ resource "aws_subnet" "public_a" {
 
 resource "aws_subnet" "public_b" {
 	vpc_id = "${aws_vpc.app.id}"
+	availability_zone = "${var.efs_vpc_az["b"]}"
 	cidr_block = "${var.efs_vpc_subnet_cidr["public_b"]}"
 	map_public_ip_on_launch = true
 	tags {
