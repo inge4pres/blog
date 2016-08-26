@@ -1,0 +1,61 @@
+digraph {
+	compound = "true"
+	newrank = "true"
+	subgraph "root" {
+		"[root] aws_efs_file_system.efs" [label = "aws_efs_file_system.efs", shape = "box"]
+		"[root] aws_efs_mount_target.efs_mount" [label = "aws_efs_mount_target.efs_mount", shape = "box"]
+		"[root] aws_instance.client" [label = "aws_instance.client", shape = "box"]
+		"[root] aws_instance.server_a" [label = "aws_instance.server_a", shape = "box"]
+		"[root] aws_instance.server_b" [label = "aws_instance.server_b", shape = "box"]
+		"[root] aws_internet_gateway.igw" [label = "aws_internet_gateway.igw", shape = "box"]
+		"[root] aws_route_table.rt_main" [label = "aws_route_table.rt_main", shape = "box"]
+		"[root] aws_route_table_association.assoc_main_a" [label = "aws_route_table_association.assoc_main_a", shape = "box"]
+		"[root] aws_route_table_association.assoc_main_b" [label = "aws_route_table_association.assoc_main_b", shape = "box"]
+		"[root] aws_security_group.client" [label = "aws_security_group.client", shape = "box"]
+		"[root] aws_security_group.gluster_server" [label = "aws_security_group.gluster_server", shape = "box"]
+		"[root] aws_security_group.sg_nfs" [label = "aws_security_group.sg_nfs", shape = "box"]
+		"[root] aws_subnet.public_a" [label = "aws_subnet.public_a", shape = "box"]
+		"[root] aws_subnet.public_b" [label = "aws_subnet.public_b", shape = "box"]
+		"[root] aws_vpc.app" [label = "aws_vpc.app", shape = "box"]
+		"[root] provider.aws" [label = "provider.aws", shape = "diamond"]
+		"[root] aws_efs_file_system.efs" -> "[root] provider.aws"
+		"[root] aws_efs_mount_target.efs_mount" -> "[root] aws_efs_file_system.efs"
+		"[root] aws_efs_mount_target.efs_mount" -> "[root] aws_security_group.sg_nfs"
+		"[root] aws_efs_mount_target.efs_mount" -> "[root] aws_subnet.public_a"
+		"[root] aws_efs_mount_target.efs_mount" -> "[root] provider.aws"
+		"[root] aws_instance.client" -> "[root] aws_security_group.client"
+		"[root] aws_instance.client" -> "[root] aws_subnet.public_a"
+		"[root] aws_instance.client" -> "[root] provider.aws"
+		"[root] aws_instance.server_a" -> "[root] aws_security_group.gluster_server"
+		"[root] aws_instance.server_a" -> "[root] aws_security_group.sg_nfs"
+		"[root] aws_instance.server_a" -> "[root] aws_subnet.public_a"
+		"[root] aws_instance.server_a" -> "[root] provider.aws"
+		"[root] aws_instance.server_b" -> "[root] aws_security_group.gluster_server"
+		"[root] aws_instance.server_b" -> "[root] aws_security_group.sg_nfs"
+		"[root] aws_instance.server_b" -> "[root] aws_subnet.public_b"
+		"[root] aws_instance.server_b" -> "[root] provider.aws"
+		"[root] aws_internet_gateway.igw" -> "[root] aws_vpc.app"
+		"[root] aws_internet_gateway.igw" -> "[root] provider.aws"
+		"[root] aws_route_table.rt_main" -> "[root] aws_internet_gateway.igw"
+		"[root] aws_route_table.rt_main" -> "[root] aws_vpc.app"
+		"[root] aws_route_table.rt_main" -> "[root] provider.aws"
+		"[root] aws_route_table_association.assoc_main_a" -> "[root] aws_route_table.rt_main"
+		"[root] aws_route_table_association.assoc_main_a" -> "[root] aws_subnet.public_a"
+		"[root] aws_route_table_association.assoc_main_a" -> "[root] provider.aws"
+		"[root] aws_route_table_association.assoc_main_b" -> "[root] aws_route_table.rt_main"
+		"[root] aws_route_table_association.assoc_main_b" -> "[root] aws_subnet.public_b"
+		"[root] aws_route_table_association.assoc_main_b" -> "[root] provider.aws"
+		"[root] aws_security_group.client" -> "[root] aws_vpc.app"
+		"[root] aws_security_group.client" -> "[root] provider.aws"
+		"[root] aws_security_group.gluster_server" -> "[root] aws_vpc.app"
+		"[root] aws_security_group.gluster_server" -> "[root] provider.aws"
+		"[root] aws_security_group.sg_nfs" -> "[root] aws_vpc.app"
+		"[root] aws_security_group.sg_nfs" -> "[root] provider.aws"
+		"[root] aws_subnet.public_a" -> "[root] aws_vpc.app"
+		"[root] aws_subnet.public_a" -> "[root] provider.aws"
+		"[root] aws_subnet.public_b" -> "[root] aws_vpc.app"
+		"[root] aws_subnet.public_b" -> "[root] provider.aws"
+		"[root] aws_vpc.app" -> "[root] provider.aws"
+	}
+}
+
