@@ -9,7 +9,7 @@ printf "o\nn\np\n1\n\n\nw\n" | fdisk /dev/sdf
 #format new partition
 mkfs.xfs -i size=512 /dev/sdf1
 #setup mount point 
-mkdir -p /export/gluster
+mkdir -p /export/{nfs,gluster}
 #mount
 mount -t xfs /dev/sdf1 /export/gluster
 mkdir -p /export/gluster/brick
