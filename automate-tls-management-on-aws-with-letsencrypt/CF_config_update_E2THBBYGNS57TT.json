@@ -1,0 +1,113 @@
+{
+  "ETag": "E2HD0OPC92EPLE",
+  "DistributionConfig": {
+    "Comment": "",
+    "CacheBehaviors": {
+      "Quantity": 0
+    },
+    "IsIPV6Enabled": true,
+    "Logging": {
+      "Bucket": "",
+      "Prefix": "",
+      "Enabled": false,
+      "IncludeCookies": false
+    },
+    "WebACLId": "",
+    "Origins": {
+      "Items": [
+        {
+          "OriginPath": "",
+          "CustomOriginConfig": {
+            "OriginProtocolPolicy": "http-only",
+            "HTTPPort": 80,
+            "OriginSslProtocols": {
+              "Items": [
+                "TLSv1",
+                "TLSv1.1",
+                "TLSv1.2"
+              ],
+              "Quantity": 3
+            },
+            "HTTPSPort": 443
+          },
+          "CustomHeaders": {
+            "Quantity": 0
+          },
+          "Id": "inge.4pr.es-non-s3-origin",
+          "DomainName": "inge4pres-website.s3-website.eu-central-1.amazonaws.com"
+        }
+      ],
+      "Quantity": 1
+    },
+    "DefaultRootObject": "index.html",
+    "PriceClass": "PriceClass_100",
+    "Enabled": true,
+    "DefaultCacheBehavior": {
+      "TrustedSigners": {
+        "Enabled": false,
+        "Quantity": 0
+      },
+      "TargetOriginId": "inge.4pr.es-non-s3-origin",
+      "ViewerProtocolPolicy": "redirect-to-https",
+      "ForwardedValues": {
+        "Headers": {
+          "Items": [
+            "Origin",
+            "Referer"
+          ],
+          "Quantity": 2
+        },
+        "Cookies": {
+          "Forward": "none"
+        },
+        "QueryStringCacheKeys": {
+          "Quantity": 0
+        },
+        "QueryString": false
+      },
+      "MaxTTL": 31536000,
+      "SmoothStreaming": false,
+      "DefaultTTL": 86400,
+      "AllowedMethods": {
+        "Items": [
+          "HEAD",
+          "GET"
+        ],
+        "CachedMethods": {
+          "Items": [
+            "HEAD",
+            "GET"
+          ],
+          "Quantity": 2
+        },
+        "Quantity": 2
+      },
+      "MinTTL": 1800,
+      "Compress": true
+    },
+    "CallerReference": "1476362475332",
+    "ViewerCertificate": {
+      "SSLSupportMethod": "sni-only",
+      "MinimumProtocolVersion": "TLSv1",
+      "IAMCertificateId": "ASCAITMERTVMVZIKZV7NQ",
+      "Certificate": "ASCAITMERTVMVZIKZV7NQ",
+      "CertificateSource": "iam"
+    },
+    "CustomErrorResponses": {
+      "Quantity": 0
+    },
+    "HttpVersion": "http2",
+    "Restrictions": {
+      "GeoRestriction": {
+        "RestrictionType": "none",
+        "Quantity": 0
+      }
+    },
+    "Aliases": {
+      "Items": [
+        "inge.4pr.es"
+      ],
+      "Quantity": 1
+    }
+  }
+}
