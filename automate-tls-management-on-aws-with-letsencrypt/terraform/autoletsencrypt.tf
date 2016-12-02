@@ -5,13 +5,18 @@ provider "aws" {
 }
 
 data "template_file" "ud" {
-    template_file = "${file("files/user-data.tmpl")}"
+    template = "${file("files/user-data.tmpl")}"
 
     vars {
 		email = "${var.email}"
         domain  = "${var.domain}"
         san = "${var.san}"
+		cf_id = "${var.cf_distribution_id}"
     }
+}
+
+data "aws_region" "awsreg" {
+  current = true
 }
 
 resource "aws_iam_role" "updatetls" {
@@ -73,6 +78,24 @@ resource "aws_s3_bucket" "legostore" {
         Domain = "${var.domain}"
         Environment = "prod"
     }
+	
+	provisioner "local-exec" {
+        command = "aws sync ${var.lego-local-path}/.lego s3://${var.domain}-lego-account/"
+    }
+}
+
+resource "aws_launch_configuration" "updatetls_lc" {
+    name_prefix = "tf-autotls-"
+    image_id = "${lookup(var.amzn_linux_ami,data.aws_region.awsreg.name)}"
+    instance_type = "t2.small"
+	iam_instance_profile = "${aws_iam_role.updatetls.name}"
+	key_name = "${var.ssh-key-name}"
+	associate_public_ip_address = true
+	user_data = "${data.template_file.ud.rendered}"
+	
+	lifecycle {
+      create_before_destroy = true
+    }
 }
 
 resource "aws_autoscaling_group" "updatetls_as" {
@@ -102,24 +125,26 @@ resource "aws_autoscaling_group" "updatetls_as" {
   }
 }
 
-resource "aws_launch_configuration" "updatetls_lc" {
-    name_prefix = "tf-autotls-"
-    name = "auto-tls"
-    image_id = "${lookup(var.amzn_linux_ami,var.aws_region)}"
-    instance_type = "t2.small"
-	iam_instance_profile = "${aws_iam_role.updatetls.name}"
-	key_name = "${var.ssh-key-name}"
-	associate_public_ip_address = true
-	user_data = "${data.template_file.ud.rendered}"
-	
-	lifecycle {
-      create_before_destroy = true
-    }
+
+resource "aws_autoscaling_schedule" "autotls_up" {
+    scheduled_action_name = "autotls-up"
+    min_size = 1
+    max_size = 1
+    desired_capacity = 1
+	//run every 5th day of month
+	recurrence = "0 18 5 * *"
+    autoscaling_group_name = "${aws_autoscaling_group.updatetls_as.name}"
 }
 
-
-
-
+resource "aws_autoscaling_schedule" "autotls_down" {
+    scheduled_action_name = "autotls-down"
+    min_size = 0
+    max_size = 0
+    desired_capacity = 0
+	//run every 5th day of month
+	recurrence = "14 18 5 * *"
+    autoscaling_group_name = "${aws_autoscaling_group.updatetls_as.name}"
+}
 
 
 

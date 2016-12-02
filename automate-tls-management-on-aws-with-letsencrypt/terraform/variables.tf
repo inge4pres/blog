@@ -1,25 +1,25 @@
 variable "ssh-key-name" {
-	default = {
-		"inge4pres"
-	}
+	default = "inge4pres"
 }
 
 variable "domain" {
-	default = {
-		"4pr.es"
-	}
+	default = "4pr.es"
 }
 
 variable "san" {
-	default = {
-		"inge.4pr.es"
-	}
+	default = "inge.4pr.es"
 }
 
 variable "email" {
-	default = {
-		"fgualazzi@gmail.com"
-	}
+	default = "fgualazzi@gmail.com"
+}
+
+variable "lego-local-path" {
+	default = "%userprofile%"
+}
+
+variable "cf_distribution_id" {
+	default = "123"
 }
 
 variable "amzn_linux_ami" {
