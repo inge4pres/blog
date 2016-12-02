@@ -92,12 +92,12 @@ resource "aws_autoscaling_group" "updatetls_as" {
 	
   tag {
     key = "Domain"
-    value = "4pres"
+    value = "4pr.es"
     propagate_at_launch = true
   }
   tag {
     key = "TLS"
-    value = "Letsencrypt"
+    value = "letsencrypt"
     propagate_at_launch = false
   }
 }
