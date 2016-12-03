@@ -105,7 +105,7 @@ resource "aws_launch_configuration" "updatetls_lc" {
 resource "aws_autoscaling_group" "updatetls_as" {
   availability_zones = ["${data.aws_region.awsreg.name}a"]
   name = "${var.domain}-auto-tls"
-  max_size = 0
+  max_size = 1
   min_size = 0
   health_check_grace_period = 240
   health_check_type = "EC2"
@@ -146,7 +146,7 @@ resource "aws_autoscaling_schedule" "autotls_up" {
 
 resource "aws_autoscaling_schedule" "autotls_down" {
     scheduled_action_name = "autotls-down"
-    min_size = 0
+    min_size = 1
     max_size = 1
     desired_capacity = 1
 	//run every 5th day of month
