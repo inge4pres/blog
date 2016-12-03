@@ -29,6 +29,6 @@ variable "amzn_linux_ami" {
 	us-west-1 = "ami-31490d51"
 	us-west-2 = "ami-7172b611"
 	eu-west-1 = "ami-f9dd458a"
-	eu-central-1 = "ami-ea26ce85"
+	eu-central-1 = "ami-f9619996"
   }
 }

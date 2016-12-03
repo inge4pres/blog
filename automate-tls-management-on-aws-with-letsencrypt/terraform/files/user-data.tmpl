@@ -14,7 +14,7 @@ go get -u github.com/xenolf/lego
 
 lego --email="${email}" --domains="${domain}" --domains="${san}" --dns="route53" --path $HOME/.lego renew
 
-today=$(date +%Y%d%m)
+today=`date +%Y%d%m`
 aws iam upload-server-certificate --server-certificate-name $${today}-cf-${domain} --certificate-body file://$HOME/.lego/certificates/${domain}.crt --private-key file://$HOME/.lego/certificates/${domain}.key --path /cloudfront/inge4pres/ > upload-output.txt
 # Update Cert on API GW
 # aws apigateway update-domain-name --domain-name ${domain} --patch-operations op='replace',path='/certificateName',value='/cloudfront/inge4pres/$${today}-cf-${domain}'

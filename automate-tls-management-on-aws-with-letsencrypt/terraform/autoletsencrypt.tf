@@ -19,8 +19,8 @@ data "aws_region" "awsreg" {
   current = true
 }
 
-resource "aws_iam_role" "updatetls" {
-	name = "autotls-letsencrypt-update"
+resource "aws_iam_role" "tlslego" {
+	name = "autotls-lego"
 	assume_role_policy = <<EOF
 {
   "Version": "2012-10-17",
@@ -38,9 +38,9 @@ resource "aws_iam_role" "updatetls" {
 EOF
 }
 
-resource "aws_iam_role_policy" "updatetls_policy" {
-    name = "autotls-letsencrypt-update"
-    role = "${aws_iam_role.updatetls.id}"
+resource "aws_iam_role_policy" "tlslego_policy" {
+    name = "autotls-lego"
+    role = "${aws_iam_role.tlslego.id}"
     policy = <<EOF
 {
   "Version": "2012-10-17",
@@ -70,6 +70,11 @@ resource "aws_iam_role_policy" "updatetls_policy" {
 EOF
 }
 
+resource "aws_iam_instance_profile" "tlslego_profile" {
+    name = "autotls-lego"
+    roles = ["${aws_iam_role.tlslego.name}"]
+}
+
 resource "aws_s3_bucket" "legostore" {
 	bucket = "${var.domain}-lego-account"
     acl = "private"
@@ -80,17 +85,16 @@ resource "aws_s3_bucket" "legostore" {
     }
 	
 	provisioner "local-exec" {
-        command = "aws sync ${var.lego-local-path}/.lego s3://${var.domain}-lego-account/"
+        command = "aws s3 sync ${var.lego-local-path}/.lego s3://${var.domain}-lego-account/"
     }
 }
 
 resource "aws_launch_configuration" "updatetls_lc" {
-    name_prefix = "tf-autotls-"
+    name_prefix = "tf-autotls-lego"
     image_id = "${lookup(var.amzn_linux_ami,data.aws_region.awsreg.name)}"
     instance_type = "t2.small"
-	iam_instance_profile = "${aws_iam_role.updatetls.name}"
+	iam_instance_profile = "${aws_iam_instance_profile.tlslego_profile.name}"
 	key_name = "${var.ssh-key-name}"
-	associate_public_ip_address = true
 	user_data = "${data.template_file.ud.rendered}"
 	
 	lifecycle {
@@ -99,13 +103,13 @@ resource "aws_launch_configuration" "updatetls_lc" {
 }
 
 resource "aws_autoscaling_group" "updatetls_as" {
-  availability_zones = ["eu-central-1"]
-  name = "4pres-auto-tls"
-  max_size = 1
-  min_size = 1
+  availability_zones = ["${data.aws_region.awsreg.name}a"]
+  name = "${var.domain}-auto-tls"
+  max_size = 0
+  min_size = 0
   health_check_grace_period = 240
   health_check_type = "EC2"
-  desired_capacity = 1
+  desired_capacity = 0
   force_delete = true
   launch_configuration = "${aws_launch_configuration.updatetls_lc.name}"
 
@@ -115,7 +119,12 @@ resource "aws_autoscaling_group" "updatetls_as" {
 	
   tag {
     key = "Domain"
-    value = "4pr.es"
+    value = "${var.domain}"
+    propagate_at_launch = true
+  }
+  tag {
+    key = "SAN"
+    value = "${var.san}"
     propagate_at_launch = true
   }
   tag {
@@ -125,24 +134,23 @@ resource "aws_autoscaling_group" "updatetls_as" {
   }
 }
 
-
 resource "aws_autoscaling_schedule" "autotls_up" {
     scheduled_action_name = "autotls-up"
     min_size = 1
     max_size = 1
     desired_capacity = 1
 	//run every 5th day of month
-	recurrence = "0 18 5 * *"
+	recurrence = "0 18 15 * *"
     autoscaling_group_name = "${aws_autoscaling_group.updatetls_as.name}"
 }
 
 resource "aws_autoscaling_schedule" "autotls_down" {
     scheduled_action_name = "autotls-down"
     min_size = 0
-    max_size = 0
-    desired_capacity = 0
+    max_size = 1
+    desired_capacity = 1
 	//run every 5th day of month
-	recurrence = "14 18 5 * *"
+	recurrence = "14 18 15 * *"
     autoscaling_group_name = "${aws_autoscaling_group.updatetls_as.name}"
 }
 
