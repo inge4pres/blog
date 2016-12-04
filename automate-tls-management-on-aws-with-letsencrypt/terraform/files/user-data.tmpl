@@ -1,18 +1,20 @@
 #!/bin/bash
 yum update -y
-yum install -y aws-cli jq
+yum install -y aws-cli jq git
 aws configure set preview.cloudfront true
 
 # Install Golang
-wget https://raw.githubusercontent.com/canha/golang-tools-install-script/master/goinstall.sh
-bash ./goinstall.sh --64
-. $HOME/.bashrc
+export HOME=/root
+wget -O ./goinstall.sh https://raw.githubusercontent.com/canha/golang-tools-install-script/master/goinstall.sh
+chmod +x ./goinstall.sh
+./goinstall.sh --64
+source $HOME/.bashrc
 # Prepare lego
 mkdir $HOME/.lego
-aws s3 sync s3://${domain}-lego-account/ $HOME/.lego/
-go get -u github.com/xenolf/lego
+aws s3 sync s3://${domain}-lego-account/ $HOME/.lego/ --region ${region}
+$HOME/.go/bin/go get -u github.com/xenolf/lego
 # Renew cert
-lego --email="${email}" --domains="${domain}" --domains="${san}" --dns="route53" --path $HOME/.lego renew
+$HOME/go/bin/lego --email="${email}" --domains="${domain}" --domains="${san}" --dns="route53" --path $HOME/.lego renew
 # Install cert on AWS
 today=`date +%Y%d%m`
 aws iam upload-server-certificate --server-certificate-name $${today}-cf-${domain} --certificate-body file://$HOME/.lego/certificates/${domain}.crt --private-key file://$HOME/.lego/certificates/${domain}.key --path /cloudfront/inge4pres/ > upload-output.txt
