@@ -15,6 +15,7 @@ variable "email" {
 }
 
 variable "lego-local-path" {
+	//windows...
 	default = "%userprofile%"
 }
 

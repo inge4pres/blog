@@ -12,6 +12,7 @@ data "template_file" "ud" {
         domain  = "${var.domain}"
         san = "${var.san}"
 		cf_id = "${var.cf_distribution_id}"
+		region = "${data.aws_region.awsreg.name}"
     }
 }
 
