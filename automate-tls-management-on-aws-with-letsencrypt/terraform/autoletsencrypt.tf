@@ -109,14 +109,18 @@ resource "aws_autoscaling_group" "updatetls_as" {
   min_size = 0
   health_check_grace_period = 240
   health_check_type = "EC2"
-  desired_capacity = 0
+  desired_capacity = 1
   force_delete = true
   launch_configuration = "${aws_launch_configuration.updatetls_lc.name}"
 
   lifecycle {
     create_before_destroy = true
   }
-	
+  tag {
+    key = "Name"
+    value = "${var.domain}-autotls-lego"
+    propagate_at_launch = true
+  }
   tag {
     key = "Domain"
     value = "${var.domain}"
