@@ -110,7 +110,7 @@ resource "aws_autoscaling_group" "updatetls_as" {
   min_size = 0
   health_check_grace_period = 240
   health_check_type = "EC2"
-  desired_capacity = 1
+  desired_capacity = 0
   force_delete = true
   launch_configuration = "${aws_launch_configuration.updatetls_lc.name}"
 
@@ -141,8 +141,6 @@ resource "aws_autoscaling_group" "updatetls_as" {
 
 resource "aws_autoscaling_schedule" "autotls_up" {
     scheduled_action_name = "autotls-up"
-    min_size = 1
-    max_size = 1
     desired_capacity = 1
 	//run every 5th day of month
 	recurrence = "0 18 15 * *"
@@ -151,8 +149,6 @@ resource "aws_autoscaling_schedule" "autotls_up" {
 
 resource "aws_autoscaling_schedule" "autotls_down" {
     scheduled_action_name = "autotls-down"
-    min_size = 0
-    max_size = 1
     desired_capacity = 0
 	//run every 5th day of month
 	recurrence = "14 18 15 * *"
