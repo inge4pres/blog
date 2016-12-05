@@ -19,10 +19,10 @@ $HOME/go/bin/lego --email="${email}" --domains="${domain}" --domains="${san}" --
 today=`date +%Y%d%m`
 aws iam upload-server-certificate --server-certificate-name $${today}-cf-${domain} --certificate-body file://$HOME/.lego/certificates/${domain}.crt --private-key file://$HOME/.lego/certificates/${domain}.key --path /cloudfront/inge4pres/ > upload-output.txt
 # Update Cert on API GW
-# aws apigateway update-domain-name --domain-name ${domain} --patch-operations op='replace',path='/certificateName',value='/cloudfront/inge4pres/$${today}-cf-${domain}'
+aws apigateway update-domain-name --domain-name ${domain} --patch-operations op="replace",path="/certificateName",value="/cloudfront/inge4pres/$${today}-cf-${domain}" --region ${region}
 
-#aws cloudfront get-distribution-config --id ${cf_id} > CF_config_${cf_id}.json
-#certid=$(cat upload-output.txt | jq -rc .ServerCertificateMetadata.ServerCertificateId)
-#cat CF_config_${cf_id} | jq --arg CERTID $${certid} '.DistributionConfig.ViewerCertificate.IAMCertificateId |= $${certid}' | jq --arg CERTID $${certid} '.DistributionConfig.ViewerCertificate.Certificate |= $CERTID' > CF_config_update_${cf_id}.json
+aws cloudfront get-distribution-config --id ${cf_id} --region ${region} > CF_config_${cf_id}.json
+certid=`cat upload-output.txt | jq -rc .ServerCertificateMetadata.ServerCertificateId`
+cat CF_config_${cf_id}.json | jq --arg CERTID $${certid} '.DistributionConfig.ViewerCertificate.IAMCertificateId |= $${certid}' | jq --arg CERTID $${certid} '.DistributionConfig.ViewerCertificate.Certificate |= $CERTID' > CF_config_update_${cf_id}.json
    
 #aws cloudfront update-distribution --distribution-config file://CF_config_update_${cf_id}.json --id ${cf_id}

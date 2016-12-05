@@ -20,7 +20,7 @@ variable "lego-local-path" {
 }
 
 variable "cf_distribution_id" {
-	default = "123"
+	default = ""
 }
 
 variable "amzn_linux_ami" {
