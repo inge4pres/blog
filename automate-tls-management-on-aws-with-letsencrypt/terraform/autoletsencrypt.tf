@@ -52,6 +52,7 @@ resource "aws_iam_role_policy" "tlslego_policy" {
         "cloudfront:UpdateDistribution",
 		"iam:UploadServerCertificate",
 		"iam:DeleteServerCertificate",
+		"iam:ListServerCertificates",
 		"apigateway:*",
 		"route53:ChangeResourceRecordSets",
 		"route53:Get*",
@@ -142,6 +143,8 @@ resource "aws_autoscaling_group" "updatetls_as" {
 resource "aws_autoscaling_schedule" "autotls_up" {
     scheduled_action_name = "autotls-up"
     desired_capacity = 1
+	max_size = 1
+	min_size = 1
 	//run every 5th day of month
 	recurrence = "0 18 15 * *"
     autoscaling_group_name = "${aws_autoscaling_group.updatetls_as.name}"
@@ -149,22 +152,11 @@ resource "aws_autoscaling_schedule" "autotls_up" {
 
 resource "aws_autoscaling_schedule" "autotls_down" {
     scheduled_action_name = "autotls-down"
+	max_size = 0
+	min_size = 0
     desired_capacity = 0
 	//run every 5th day of month
 	recurrence = "14 18 15 * *"
     autoscaling_group_name = "${aws_autoscaling_group.updatetls_as.name}"
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
