@@ -145,7 +145,7 @@ resource "aws_autoscaling_schedule" "autotls_up" {
     desired_capacity = 1
 	max_size = 1
 	min_size = 1
-	//run every 5th day of month
+	//run every 15th day of month
 	recurrence = "0 18 15 * *"
     autoscaling_group_name = "${aws_autoscaling_group.updatetls_as.name}"
 }
@@ -155,8 +155,8 @@ resource "aws_autoscaling_schedule" "autotls_down" {
 	max_size = 0
 	min_size = 0
     desired_capacity = 0
-	//run every 5th day of month
-	recurrence = "14 18 15 * *"
+	//run every 15th day of month
+	recurrence = "24 18 15 * *"
     autoscaling_group_name = "${aws_autoscaling_group.updatetls_as.name}"
 }
 
