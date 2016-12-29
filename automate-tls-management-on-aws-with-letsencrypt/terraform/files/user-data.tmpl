@@ -14,7 +14,7 @@ mkdir $HOME/.lego
 aws s3 sync s3://${domain}-lego-account/ $HOME/.lego/ --region ${region}
 $HOME/.go/bin/go get -u github.com/xenolf/lego
 # Renew cert
-$HOME/go/bin/lego --email="${email}" --domains="${domain}" --domains="${san}" --dns="route53" --path $HOME/.lego renew
+$HOME/go/bin/lego --email="${email}" --domains="${domain}" --domains="${san}" --dns="route53" --path $HOME/.lego run
 # Install cert on AWS
 today=`date +%Y%d%m`
 aws iam upload-server-certificate --server-certificate-name $${today}-cf-${domain} --certificate-body file://$HOME/.lego/certificates/${domain}.crt --private-key file://$HOME/.lego/certificates/${domain}.key --path /cloudfront/inge4pres/ 2>&1 >  $HOME/upload-output.txt
