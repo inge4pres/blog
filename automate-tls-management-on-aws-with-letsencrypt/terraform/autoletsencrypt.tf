@@ -1,7 +1,7 @@
 provider "aws" {
     access_key = ""
     secret_key = ""
-    region = "eu-central-1"
+    region = "${var.aws_region}"
 }
 
 data "template_file" "ud" {
@@ -48,21 +48,21 @@ resource "aws_iam_role_policy" "tlslego_policy" {
   "Statement": [
     {
       "Action": [
-	    "cloudfront:GetDistributionConfig",
+	"cloudfront:GetDistributionConfig",
         "cloudfront:UpdateDistribution",
-		"iam:UploadServerCertificate",
-		"iam:DeleteServerCertificate",
-		"iam:ListServerCertificates",
-		"apigateway:*",
-		"route53:ChangeResourceRecordSets",
-		"route53:Get*",
-		"route53:List*",
-		"s3:Get*",
-		"s3:Put*",
-		"s3:List*",
-		"ses:Send*Email",
-		"ses:List*",
-		"ses:Get*"
+	"iam:UploadServerCertificate",
+	"iam:DeleteServerCertificate",
+	"iam:ListServerCertificates",
+	"apigateway:*",
+	"route53:ChangeResourceRecordSets",
+	"route53:Get*",
+	"route53:List*",
+	"s3:Get*",
+	"s3:Put*",
+	"s3:List*",
+	"ses:Send*Email",
+	"ses:List*",
+	"ses:Get*"
       ],
       "Effect": "Allow",
       "Resource": "*"
@@ -78,7 +78,7 @@ resource "aws_iam_instance_profile" "tlslego_profile" {
 }
 
 resource "aws_s3_bucket" "legostore" {
-	bucket = "${var.domain}-lego-account"
+    bucket = "${var.domain}-lego-account"
     acl = "private"
 
     tags {
@@ -95,9 +95,9 @@ resource "aws_launch_configuration" "updatetls_lc" {
     name_prefix = "tf-autotls-lego"
     image_id = "${lookup(var.amzn_linux_ami,data.aws_region.awsreg.name)}"
     instance_type = "t2.small"
-	iam_instance_profile = "${aws_iam_instance_profile.tlslego_profile.name}"
-	key_name = "${var.ssh-key-name}"
-	user_data = "${data.template_file.ud.rendered}"
+    iam_instance_profile = "${aws_iam_instance_profile.tlslego_profile.name}"
+    key_name = "${var.ssh-key-name}"
+    user_data = "${data.template_file.ud.rendered}"
 	
 	lifecycle {
       create_before_destroy = true

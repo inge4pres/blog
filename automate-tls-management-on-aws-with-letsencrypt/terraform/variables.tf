@@ -2,6 +2,10 @@ variable "ssh-key-name" {
 	default = "inge4pres"
 }
 
+variable "aws_region" {
+	default= "eu-central-1"
+}
+
 variable "domain" {
 	default = "4pr.es"
 }

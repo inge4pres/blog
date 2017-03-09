@@ -14,7 +14,7 @@ mkdir $HOME/.lego
 aws s3 sync s3://${domain}-lego-account/ $HOME/.lego/ --region ${region}
 $HOME/.go/bin/go get -u github.com/xenolf/lego
 # Renew cert
-$HOME/go/bin/lego --email="${email}" --domains="${domain}" --domains="${san}" --dns="route53" --path $HOME/.lego run
+$HOME/go/bin/lego --email="${email}" --domains="${domain} ${san}" --dns="route53" --path $HOME/.lego renew
 # Install cert on AWS
 today=`date +%Y%d%m`
 aws iam upload-server-certificate --server-certificate-name $${today}-cf-${domain} --certificate-body file://$HOME/.lego/certificates/${domain}.crt --private-key file://$HOME/.lego/certificates/${domain}.key --path /cloudfront/inge4pres/ 2>&1 >  $HOME/upload-output.txt
@@ -25,7 +25,6 @@ aws apigateway update-domain-name --domain-name ${domain} --patch-operations op=
 aws cloudfront get-distribution-config --id ${cf_id} --region ${region} 2>&1 > $HOME/CF_config_${cf_id}.json
 certid=$(cat $HOME/upload-output.txt | jq -rc .ServerCertificateMetadata.ServerCertificateId)
 echo "About to update CF distribution with new cert id $${certid}"
-jq --arg CERTID $${certid} '.DistributionConfig.ViewerCertificate.IAMCertificateId |= $CERTID' $HOME/CF_config_${cf_id}.json | \
-jq --indent 4 --arg CERTID $${certid} '.DistributionConfig.ViewerCertificate.Certificate |= $CERTID' > $HOME/CF_config_update_${cf_id}.json
+jq --arg CERTID $${certid} '.DistributionConfig.ViewerCertificate.IAMCertificateId |= $CERTID' $HOME/CF_config_${cf_id}.json | jq --indent 4 --arg CERTID $${certid} '.DistributionConfig.ViewerCertificate.Certificate |= $CERTID' > $HOME/CF_config_update_${cf_id}.json
 #Update Cloudfront
 #aws cloudfront update-distribution --distribution-config file://CF_config_update_${cf_id}.json --id ${cf_id}
