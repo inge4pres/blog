@@ -1,0 +1,40 @@
+title = "inge4pres"
+languageCode = "en-us"
+baseurl = "https://inge.4pr.es/"
+MetaDataFormat = "yaml"
+theme = "ghostwriter"
+copyright = "My Name"
+googleAnalytics = "UA-55252403-1"
+enableRobotsTXT = true
+
+[Author]
+    name = "francesco gualazzi"
+    profile = "https://twitter.com/inge4pres"
+
+[Taxonomies]
+    tag = "tags"
+
+[Params]
+    intro = true
+    headline = "inge4pres' rational thoughts"
+    description = "growing knowledge one post at a time"
+    github = "https://github.com/inge4pres"
+    linkedin = "https://linkedin.com/in/francescogualazzi/"
+    gplus = "https://plus.google.com/+FrancescoGualazzi"
+    twitter = "https://twitter.com/inge4pres"
+    stackoverflow = "http://stackoverflow.com/users/4628081/francesco-gualazzi"
+    opengraph = true
+
+[Permalinks]
+    post = "/:year/:month/:day/:filename/"
+
+[[menu.main]]
+    name = "blog"
+    url = "/"
+    weight = 1
+
+[[menu.main]]
+    name = "about"
+    url = "/page/about/"
+    weight = 2
+
