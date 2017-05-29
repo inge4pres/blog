@@ -1,7 +1,7 @@
 ---
 author: "inge4pres"
 date: 2016-12-03T15:34:48+01:00
-description: ""
+description: "TLS management on AWS"
 tags:
   - aws
   - tls
@@ -10,8 +10,8 @@ tags:
 categories:
   - tech
 
-draft: true
-title: automate tls management on aws with letsencrypt
+draft: false
+title: "Automate TLS management on AWS with LetsEncrypt"
 ---
 
 Letsencrypt is cool: automated, free TLS certificates for everybody! They are sponsored mainly by internet corps and recently they started a crowd-funding campaign to avoid the influence of this corps in the future of the project. I recently moved the blog to hugo on AWS and I'm now porting the TLS management scripts I wrote a while go on AWS: this is a nice exercise to give a proper TLS automation valid for everyone on AWS.
