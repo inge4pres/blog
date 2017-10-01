@@ -48,21 +48,22 @@ resource "aws_iam_role_policy" "tlslego_policy" {
   "Statement": [
     {
       "Action": [
-	"cloudfront:GetDistributionConfig",
-        "cloudfront:UpdateDistribution",
-	"iam:UploadServerCertificate",
-	"iam:DeleteServerCertificate",
-	"iam:ListServerCertificates",
-	"apigateway:*",
-	"route53:ChangeResourceRecordSets",
-	"route53:Get*",
-	"route53:List*",
-	"s3:Get*",
-	"s3:Put*",
-	"s3:List*",
-	"ses:Send*Email",
-	"ses:List*",
-	"ses:Get*"
+	        "cloudfront:GetDistributionConfig",
+          "cloudfront:UpdateDistribution",
+        	"iam:UploadServerCertificate",
+        	"iam:DeleteServerCertificate",
+        	"iam:ListServerCertificates",
+        	"apigateway:*",
+          "acm:ImportCertificate",
+        	"route53:ChangeResourceRecordSets",
+        	"route53:Get*",
+        	"route53:List*",
+        	"s3:Get*",
+        	"s3:Put*",
+        	"s3:List*",
+        	"ses:Send*Email",
+        	"ses:List*",
+        	"ses:Get*"
       ],
       "Effect": "Allow",
       "Resource": "*"
@@ -85,7 +86,7 @@ resource "aws_s3_bucket" "legostore" {
         Domain = "${var.domain}"
         Environment = "prod"
     }
-	
+
 	provisioner "local-exec" {
         command = "aws s3 sync ${var.lego-local-path}/.lego s3://${var.domain}-lego-account/"
     }
@@ -98,7 +99,7 @@ resource "aws_launch_configuration" "updatetls_lc" {
     iam_instance_profile = "${aws_iam_instance_profile.tlslego_profile.name}"
     key_name = "${var.ssh-key-name}"
     user_data = "${data.template_file.ud.rendered}"
-	
+
 	lifecycle {
       create_before_destroy = true
     }
@@ -159,4 +160,3 @@ resource "aws_autoscaling_schedule" "autotls_down" {
 	recurrence = "24 18 20 */2 *"
     autoscaling_group_name = "${aws_autoscaling_group.updatetls_as.name}"
 }
-

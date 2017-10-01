@@ -3,7 +3,7 @@ languageCode = "en-us"
 baseurl = "https://inge.4pr.es/"
 MetaDataFormat = "yaml"
 theme = "ghostwriter"
-copyright = "My Name"
+copyright = "Francesco Gualazzi"
 googleAnalytics = "UA-55252403-1"
 enableRobotsTXT = true
 
@@ -37,4 +37,3 @@ enableRobotsTXT = true
     name = "about"
     url = "/page/about/"
     weight = 2
-

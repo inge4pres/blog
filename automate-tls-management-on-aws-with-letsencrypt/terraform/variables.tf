@@ -18,6 +18,10 @@ variable "email" {
 	default = "fgualazzi@gmail.com"
 }
 
+variable "certificate_arn" {
+ default = "arn:aws:acm:us-east-1:ACCOUNTIDNUM:certificate/CERTID-GOES-HERE"
+}
+
 variable "lego-local-path" {
 	//windows...
 	default = "%userprofile%"
