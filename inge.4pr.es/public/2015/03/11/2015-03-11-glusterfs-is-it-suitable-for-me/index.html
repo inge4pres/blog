@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>GlusterFS: is it suitable for me? &middot; francesco gualazzi</title>
+        <meta name="description" content="During the last years I&#8217;ve been experimenting with GlusterFS and his functionalities as distributed object store; a lot has changed in the software, overall since Red Hat acquired it. I have been using it and find it useful for many projects but not for others: what I love is the community oriented approach with a very responsive team and support for any kind of users (meaning from the 2 nodes web server to a RAID10 Infiniband cluster for high end storage).">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="generator" content="Hugo 0.17" />
+        <meta name="robots" content="index,follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:title" content="GlusterFS: is it suitable for me?">
+<meta property="og:description" content="During the last years I&#8217;ve been experimenting with GlusterFS and his functionalities as distributed object store; a lot has changed in the software, overall since Red Hat acquired it. I have been using it and find it useful for many projects but not for others: what I love is the community oriented approach with a very responsive team and support for any kind of users (meaning from the 2 nodes web server to a RAID10 Infiniband cluster for high end storage).">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://inge.4pr.es/2015/03/11/2015-03-11-glusterfs-is-it-suitable-for-me/">
+        <link rel="stylesheet" href="https://inge.4pr.es/css/normalize.css">
+        <link rel="stylesheet" href="https://inge.4pr.es/css/highlight.css">
+        <link rel="stylesheet" href="https://inge.4pr.es/css/style.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    </head>
+    <body>
+        
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-55252403-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+        <div id="wrapper">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-title-wrapper">
+                        
+                            <h1 class="site-title">
+                                <a title="inge4pres" href="https://inge.4pr.es/">inge4pres</a>
+                            </h1>
+                        
+                        <a class="button-square" href="https://inge.4pr.es/index.xml"><i class="fa fa-rss"></i></a>
+                        
+                            <a class="button-square button-social hint--top" data-hint="Twitter" title="Twitter" href="https://twitter.com/inge4pres">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                        
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Github" title="Github" href="https://github.com/inge4pres">
+                                <i class="fa fa-github-alt"></i>
+                            </a>
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Stack Overflow" title="Stack Overflow" href="http://stackoverflow.com/users/4628081/francesco-gualazzi">
+                                <i class="fa fa-stack-overflow"></i>
+                            </a>
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="LinkedIn" title="LinkedIn" href="https://linkedin.com/in/francescogualazzi/">
+                                <i class="fa fa-linkedin"></i>
+                            </a>
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Google+" title="Google+" href="https://plus.google.com/&#43;FrancescoGualazzi">
+                                <i class="fa fa-google-plus"></i>
+                            </a>
+                        
+                    </div>
+
+                    <ul class="site-nav">
+                        
+    <li class="site-nav-item">
+        <a title="blog" href="/">blog</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a title="about" href="/page/about/">about</a>
+    </li>
+
+                    </ul>
+                </div>
+            </header>
+
+            <div id="container">
+
+
+<div class="container">
+    <article class="post-container">
+        <header class="post-header">
+    <h1 class="post-title">GlusterFS: is it suitable for me?</h1>
+    
+</header>
+
+        <div class="post-content clearfix">
+    
+
+    <p>During the last years I&#8217;ve been experimenting with <a title="GlusterFS" href="http://www.gluster.org/" target="_blank">GlusterFS</a> and his functionalities as distributed object store; a lot has changed in the software, overall since <a title="Red Hat acquires Gluster" href="http://www.redhat.com/promo/storage/press-release.html" target="_blank">Red Hat acquired it</a>. I have been using it and find it useful for many projects but not for others: what I love is the community oriented approach with a very responsive team and support for any kind of users (meaning from the 2 nodes web server to a RAID10 Infiniband cluster for high end storage).</p>
+
+<p>My personal story with Gluster starts with a porting of a on-premise architecture in the cloud: moving an existing application to the cloud, instead of redesigning it from scratch, involves a lot of engineering to adapt the current system settings to a scalable infrastructure. Gluster comes handy when talking about scaling: the latest milestone has a very simple and efficient way of reconfiguring the underlying hardware, adding and removing nodes in the storage pool is as simple as inputting a couple of commands from any of the peers in the cluster.</p>
+
+<p>If you&#8217;re unfamiliar with Gluster concepts (storage pool, peers, etc&#8230;) I suggest you RTFM on <a title="Gluster Docs" href="http://www.gluster.org/documentation/" target="_blank">Gluster&#8217;s website</a>; in this post I will detail a few points you won&#8217;t find on documentation and you should definetely know before starting to evaluate Gluster adoption.</p>
+
+<p><li style="padding-left: 30px;">
+  <span style="text-decoration: underline;">Gluster is not a replacement for disaster recovery and backups</span>
+</li></p>
+
+<p style="padding-left: 60px;">
+  If you think that data redundancy mechanisms built in Gluster (replication and georeplication) are substitutes for backups you&#8217;re doing it wrong: in Gluster there is no way of recovering data present only in failed drives or unavailable portions of the pool. There is no SPOF free implementation that will avoid you regular backups, unless you can tollerate loss of data.
+</p>
+
+<p><li style="padding-left: 30px;">
+  <span style="text-decoration: underline;">Gluster has limited configuration options</span>
+</li></p>
+
+<p style="padding-left: 60px;">
+  Gluster has been developed to &#8220;take common hardware and turn it into scalable high performance storage solution&#8221;. Gluster is great when availability and durability are performance indicators because it has been thinked for horizontal scalability, but scaling vertically in system resources will not have the desired outcome. There are phisycal thresholds in a node&#8217;s configuration that make huge hardware resources useless (eg, limit to the number of CPU threads for the transaltor).
+</p>
+
+<p><li style="padding-left: 30px;">
+  <span style="text-decoration: underline;">Do consider the application scenario</span>
+</li></p>
+
+<p style="padding-left: 60px;">
+  If you are uncertain about Gluster capabilities, <a title="Gluster getting started" href="http://www.gluster.org/documentation/quickstart/" target="_blank">try it out yourself</a> installing the software on at least two virtual machines and test if your application works well with the native FUSE module. As storage layer for I/O intensive applications Gluster is useful when average file size is bigger than the minimum size of the read cache (4MB). Currently the Gluster community is <a title="Gluster small files performance" href="http://www.gluster.org/community/documentation/index.php/Features/Feature_Smallfile_Perf#remove_io-threads_translator" target="_blank">discussing how (relatively) small files</a> should be handled in the next major release of milestone 3 (release 3.7) scheduled for the end of April 2015, but for now if your application scenario has lots of small files written frequently, Gluster may not be the right chioce.
+</p>
+
+<p>If you find Gluster is not suitable for your application, consider analizying  a different solution like <a title="DRBD" href="http://drbd.linbit.com/" target="_blank">DRBD</a>: it may not be as cutting edge as Gluster or <a title="Ceph" href="http://ceph.com/" target="_blank">Ceph</a> but may be the right solution for the job.</p>
+
+</div>
+
+        <footer class="post-footer clearfix">
+    
+        <p class="post-tags">
+            <span>Tagged:</span>
+            
+                 <a href="/tags/cloud/">cloud</a>
+            
+                 <a href="/tags/gluster/">gluster</a>
+            
+                 <a href="/tags/storage/">storage</a>
+            
+        </p>
+    
+
+    <div class="share">
+        <a class="icon-twitter" href="http://twitter.com/share?text=GlusterFS%3a%20is%20it%20suitable%20for%20me%3f&url=https%3a%2f%2finge.4pr.es%2f2015%2f03%2f11%2f2015-03-11-glusterfs-is-it-suitable-for-me%2f"
+            onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+            <i class="fa fa-twitter"></i>
+            <span class="hidden">Twitter</span>
+        </a>
+
+        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2finge.4pr.es%2f2015%2f03%2f11%2f2015-03-11-glusterfs-is-it-suitable-for-me%2f"
+            onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+            <i class="fa fa-facebook"></i>
+            <span class="hidden">Facebook</span>
+        </a>
+
+        <a class="icon-google-plus" href="https://plus.google.com/share?url=https%3a%2f%2finge.4pr.es%2f2015%2f03%2f11%2f2015-03-11-glusterfs-is-it-suitable-for-me%2f"
+           onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+           <i class="fa fa-google-plus"></i>
+            <span class="hidden">Google+</span>
+        </a>
+    </div>
+</footer>
+    </article>
+</div>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="site-title-wrapper">
+                    <h1 class="site-title">
+                        <a title="inge4pres" href="https://inge.4pr.es/">inge4pres</a>
+                    </h1>
+                    <a class="button-square button-jump-top js-jump-top" href="#">
+                        <i class="fa fa-angle-up"></i>
+                    </a>
+                </div>
+
+                <p class="footer-copyright">
+                    <span>&copy; 2016 / Powered by <a href="http://gohugo.io/">Hugo</a></span>
+                </p>
+                <p class="footer-copyright">
+                    <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
+                    <span>/ <a href="https://github.com/jbub/ghostwriter">Ported</a> to Hugo By <a href="https://github.com/jbub">jbub</a></span>
+                </p>
+            </div>
+        </footer>
+
+        <script src="https://inge.4pr.es/js/jquery-1.11.3.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
+        <script src="https://inge.4pr.es/js/jquery.fitvids.js"></script>
+        <script src="https://inge.4pr.es/js/scripts.js"></script>
+    </body>
+</html>
+

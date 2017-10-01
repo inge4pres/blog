@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Development on inge4pres</title>
+    <link>https://inge.4pr.es/tags/development/</link>
+    <description>Recent content in Development on inge4pres</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Francesco Gualazzi</copyright>
+    <lastBuildDate>Sun, 02 Aug 2015 16:25:54 +0000</lastBuildDate>
+    
+	<atom:link href="https://inge.4pr.es/tags/development/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Golang Message Queue: a simple TCP message bus</title>
+      <link>https://inge.4pr.es/2015/08/02/2015-08-02-golang-message-queue-a-simple-tcp-message-bus/</link>
+      <pubDate>Sun, 02 Aug 2015 16:25:54 +0000</pubDate>
+      
+      <guid>https://inge.4pr.es/2015/08/02/2015-08-02-golang-message-queue-a-simple-tcp-message-bus/</guid>
+      <description>[TL;DR]
+I wrote a Pub/Sub message queue in Go, branch &amp;#8220;master&amp;#8221; is stable but missing some interesting feature like distributed memory synchronization between nodes in a cluster and encryption. Code at
+https://github.com/inge4pres/gmq
+Being a cloud system engineer, my work is to design and implement distributed systems: one of the key principles in designing such architectures is decoupling, which means ensuring the many parts composing the system are able to share informations and complete a sequence of operations without being tied together.</description>
+    </item>
+    
+  </channel>
+</rss>

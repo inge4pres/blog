@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Zabbix: a powerful yet simple monitoring software &middot; francesco gualazzi</title>
+        <meta name="description" content="It may come in mind to any IT system engineer to know what is the status of the network, server by server, instance by instance; it happened to me when I was given the responsibility to manage my company&#8217;s infrastructure and I was wondering which tool could have helped to do the job.
+I chose Zabbix to monitor my infrastructure because:
+ despite it&#8217;s a bit difficult to install (you need a PHP enabled web server, a database and a C compiler), you will benefit a very user-friendly web interface with lots of functionalities native agents for major OS release are already complied: FreeBSD, Linux, Windows, etc&#8230; Compiling to other OS just requires a &#8220;configure &amp;&amp; make &amp;&amp; make install&#8221; it offers many monitoring methods via a unique interface: you can group SNMP, JMX, HTTP monitoring in one shot it has multi-step HTTP/HTTPS monitoring, simulating different browsers and clients you can build nice infographics bundling all kind of monitored datas you can manage users and roles to give access to the web interface at your company&#8217;s employees you can build custom monitoring scripts to your needs  Well let&#8217;s see some action now: I would like to post a short tutorial on how to build a custom script to monitor resources used by a Glassfish application server.">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="generator" content="Hugo 0.17" />
+        <meta name="robots" content="index,follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:title" content="Zabbix: a powerful yet simple monitoring software">
+<meta property="og:description" content="It may come in mind to any IT system engineer to know what is the status of the network, server by server, instance by instance; it happened to me when I was given the responsibility to manage my company&#8217;s infrastructure and I was wondering which tool could have helped to do the job.
+I chose Zabbix to monitor my infrastructure because:
+ despite it&#8217;s a bit difficult to install (you need a PHP enabled web server, a database and a C compiler), you will benefit a very user-friendly web interface with lots of functionalities native agents for major OS release are already complied: FreeBSD, Linux, Windows, etc&#8230; Compiling to other OS just requires a &#8220;configure &amp;&amp; make &amp;&amp; make install&#8221; it offers many monitoring methods via a unique interface: you can group SNMP, JMX, HTTP monitoring in one shot it has multi-step HTTP/HTTPS monitoring, simulating different browsers and clients you can build nice infographics bundling all kind of monitored datas you can manage users and roles to give access to the web interface at your company&#8217;s employees you can build custom monitoring scripts to your needs  Well let&#8217;s see some action now: I would like to post a short tutorial on how to build a custom script to monitor resources used by a Glassfish application server.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://inge.4pr.es/2013/10/07/2013-10-07-zabbix-a-powerful-yet-simple-monitoring-software/">
+        <link rel="stylesheet" href="https://inge.4pr.es/css/normalize.css">
+        <link rel="stylesheet" href="https://inge.4pr.es/css/highlight.css">
+        <link rel="stylesheet" href="https://inge.4pr.es/css/style.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    </head>
+    <body>
+        
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-55252403-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+        <div id="wrapper">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-title-wrapper">
+                        
+                            <h1 class="site-title">
+                                <a title="inge4pres" href="https://inge.4pr.es/">inge4pres</a>
+                            </h1>
+                        
+                        <a class="button-square" href="https://inge.4pr.es/index.xml"><i class="fa fa-rss"></i></a>
+                        
+                            <a class="button-square button-social hint--top" data-hint="Twitter" title="Twitter" href="https://twitter.com/inge4pres">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                        
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Github" title="Github" href="https://github.com/inge4pres">
+                                <i class="fa fa-github-alt"></i>
+                            </a>
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Stack Overflow" title="Stack Overflow" href="http://stackoverflow.com/users/4628081/francesco-gualazzi">
+                                <i class="fa fa-stack-overflow"></i>
+                            </a>
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="LinkedIn" title="LinkedIn" href="https://linkedin.com/in/francescogualazzi/">
+                                <i class="fa fa-linkedin"></i>
+                            </a>
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Google+" title="Google+" href="https://plus.google.com/&#43;FrancescoGualazzi">
+                                <i class="fa fa-google-plus"></i>
+                            </a>
+                        
+                    </div>
+
+                    <ul class="site-nav">
+                        
+    <li class="site-nav-item">
+        <a title="blog" href="/">blog</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a title="about" href="/page/about/">about</a>
+    </li>
+
+                    </ul>
+                </div>
+            </header>
+
+            <div id="container">
+
+
+<div class="container">
+    <article class="post-container">
+        <header class="post-header">
+    <h1 class="post-title">Zabbix: a powerful yet simple monitoring software</h1>
+    
+</header>
+
+        <div class="post-content clearfix">
+    
+
+    <p>It may come in mind to any IT system engineer to know what is the status of the network, server by server, instance by instance; it happened to me when I was given the responsibility to manage my company&#8217;s infrastructure and I was wondering which tool could have helped to do the job.</p>
+
+<p>I chose Zabbix to monitor my infrastructure because:</p>
+
+<ol>
+<li>despite it&#8217;s a bit difficult to install (you need a PHP enabled web server, a database and a C compiler), you will benefit a very user-friendly web interface with lots of functionalities</li>
+<li>native agents for major OS release are already complied: FreeBSD, Linux, Windows, etc&#8230; Compiling to other OS just requires a &#8220;configure &amp;&amp; make &amp;&amp; make install&#8221;</li>
+<li>it offers many monitoring methods via a unique interface: you can group SNMP, JMX, HTTP monitoring in one shot</li>
+<li>it has multi-step HTTP/HTTPS monitoring, simulating different browsers and clients</li>
+<li>you can build nice infographics bundling all kind of monitored datas</li>
+<li>you can manage users and roles to give access to the web interface at your company&#8217;s employees</li>
+<li>you can build custom monitoring scripts to your needs</li>
+</ol>
+
+<p>Well let&#8217;s see some action now: I would like to post a short tutorial on how to build a custom script to monitor resources used by a Glassfish application server. You can use this methodology for other application servers or services.</p>
+
+<p><strong>Requirements:</strong> you have installed Zabbix server, deployed an agent to a host, set up the necessary networking stuff</p>
+
+<p>On the host to be monitored, you will have a directory where the agent configuration file is located (usually /usr/local/etc or C:\Zabbix)</p>
+
+<p><strong>Step 1: enable custom parameters </strong>parsing****</p>
+
+<p>Edit the file zabbix_agent.conf or zabbix_agentd.conf (depending if you&#8217;re usgin the daemon or not) and uncommment/add the following line:</p>
+
+<p>_Include=/usr/local/etc/zabbix_agentd.conf.d/  _or_ _Include=/usr/local/etc/zabbix_agent.conf.d/__</p>
+
+<p><strong>Step 2: write the script</strong></p>
+
+<p>Create a file, name it as you please and insert the script you want to be executed by the agent: I needed a script that would inetract with Glassfish, so I used th following:</p>
+
+<blockquote>
+<p># Flexible parameter to grab global variables. On the frontend side, use keys like glassfish.status[server.jvm.heapsize-current].</p>
+
+<p># Key syntax is glassfish.status[monitoring-key].</p>
+
+<p>UserParameter=glassfish.status[*],/opt/glassfish/bin/asadmin get &#8211;user admin &#8211;passwordfile /opt/glassfish/bin/.pwd -m $1 | cut -d &#8220;=&#8221; -f 2 | tr -d &#8216; &#8216; | bc</p>
+</blockquote>
+
+<p>The script syntax is always UsrParameter=name.of.script[*] followed by the code to be executed. This one uses the Glassfish utility &#8220;<em>asadmin</em>&#8221; and a couple of shell commands to trim the string output and translate it into an integer value. You can see the arguments array can be retrieved using $ and index of argument. In this example you will call the script with one argument only (the monitoring data you want from Glassfish).</p>
+
+<p><strong>Step 3: start harvesting datas!</strong></p>
+
+<p>Once finished editing the script, go back to the Zabbix monitoring console and add an Item to the host you are monitoring. You will add the key as shown in the picture below:</p>
+
+<p>&nbsp;</p>
+
+<p><a href="https://inge.4pr.es/blog/wp-content/uploads/2013/10/zabbix_custom_script1.png"><img class="aligncenter wp-image-189 size-full" title="zabbix_custom_script" src="http://inge.4pr.es/blog/wp-content/uploads/2013/10/zabbix_custom_script1.png" alt="Custom script insert" width="663" height="438" /></a></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>Then go back to the dashboard and verify that the script just created is returning datas as expected. In the section <em>Monitoring-&gt;Latest Data</em> check if the item is giving the expected values. In this exemple I chose to monitor the current heap size used by the server. One cool thing is: once the script is done you can call it with all the parameters Glassfish has, and then combine datas in an infograph like the following:</p>
+
+<p>&nbsp;</p>
+
+<p><a href="https://inge.4pr.es/blog/wp-content/uploads/2013/10/zabbix_graphs1.png"><img class="aligncenter wp-image-190 size-full" title="zabbix_graphs" src="http://inge.4pr.es/blog/wp-content/uploads/2013/10/zabbix_graphs1.png" alt="Zabbix graph" width="536" height="392" /></a></p>
+
+<p>&nbsp;</p>
+
+<p>Here I put together two Glassfish parameters (JVM upper bound and current heap used) and a system parameter (free memory).</p>
+
+<p>To get a list of all parameters you can monitor via Glassfish <em>asadmin</em> command see Glassfish documentation <a title="Glassfish documentation" href="https://glassfish.java.net/documentation.html" target="_blank">here</a>.</p>
+
+<p>Cheers,</p>
+
+<p>inge4pres</p>
+
+<p>&nbsp;</p>
+
+</div>
+
+        <footer class="post-footer clearfix">
+    
+        <p class="post-tags">
+            <span>Tagged:</span>
+            
+                 <a href="/tags/cloud/">cloud</a>
+            
+                 <a href="/tags/infrastructure/">infrastructure</a>
+            
+                 <a href="/tags/monitoring/">monitoring</a>
+            
+                 <a href="/tags/software/">software</a>
+            
+                 <a href="/tags/zabbix/">zabbix</a>
+            
+        </p>
+    
+
+    <div class="share">
+        <a class="icon-twitter" href="http://twitter.com/share?text=Zabbix%3a%20a%20powerful%20yet%20simple%20monitoring%20software&url=https%3a%2f%2finge.4pr.es%2f2013%2f10%2f07%2f2013-10-07-zabbix-a-powerful-yet-simple-monitoring-software%2f"
+            onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+            <i class="fa fa-twitter"></i>
+            <span class="hidden">Twitter</span>
+        </a>
+
+        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2finge.4pr.es%2f2013%2f10%2f07%2f2013-10-07-zabbix-a-powerful-yet-simple-monitoring-software%2f"
+            onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+            <i class="fa fa-facebook"></i>
+            <span class="hidden">Facebook</span>
+        </a>
+
+        <a class="icon-google-plus" href="https://plus.google.com/share?url=https%3a%2f%2finge.4pr.es%2f2013%2f10%2f07%2f2013-10-07-zabbix-a-powerful-yet-simple-monitoring-software%2f"
+           onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+           <i class="fa fa-google-plus"></i>
+            <span class="hidden">Google+</span>
+        </a>
+    </div>
+</footer>
+    </article>
+</div>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="site-title-wrapper">
+                    <h1 class="site-title">
+                        <a title="inge4pres" href="https://inge.4pr.es/">inge4pres</a>
+                    </h1>
+                    <a class="button-square button-jump-top js-jump-top" href="#">
+                        <i class="fa fa-angle-up"></i>
+                    </a>
+                </div>
+
+                <p class="footer-copyright">
+                    <span>&copy; 2016 / Powered by <a href="http://gohugo.io/">Hugo</a></span>
+                </p>
+                <p class="footer-copyright">
+                    <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
+                    <span>/ <a href="https://github.com/jbub/ghostwriter">Ported</a> to Hugo By <a href="https://github.com/jbub">jbub</a></span>
+                </p>
+            </div>
+        </footer>
+
+        <script src="https://inge.4pr.es/js/jquery-1.11.3.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
+        <script src="https://inge.4pr.es/js/jquery.fitvids.js"></script>
+        <script src="https://inge.4pr.es/js/scripts.js"></script>
+    </body>
+</html>
+

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Letsencrypt on inge4pres</title>
+    <link>https://inge.4pr.es/tags/letsencrypt/</link>
+    <description>Recent content in Letsencrypt on inge4pres</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Francesco Gualazzi</copyright>
+    <lastBuildDate>Sat, 03 Dec 2016 15:34:48 +0100</lastBuildDate>
+    
+	<atom:link href="https://inge.4pr.es/tags/letsencrypt/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Automate TLS management on AWS with LetsEncrypt</title>
+      <link>https://inge.4pr.es/2016/12/03/2016-12-03-automate-tls-management-on-aws-with-letsencrypt/</link>
+      <pubDate>Sat, 03 Dec 2016 15:34:48 +0100</pubDate>
+      
+      <guid>https://inge.4pr.es/2016/12/03/2016-12-03-automate-tls-management-on-aws-with-letsencrypt/</guid>
+      <description>Letsencrypt is cool: automated, free TLS certificates for everybody! They are sponsored mainly by internet corps and they started a crowd-funding campaign to avoid the influence of this corps in the future of the project. I recently moved the blog to hugo on AWS and I&amp;rsquo;m now porting the TLS management scripts I wrote a while ago on AWS: this is a nice exercise to give a proper TLS automation valid for everyone on AWS.</description>
+    </item>
+    
+  </channel>
+</rss>

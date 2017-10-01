@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>My first Golang web project is online &middot; francesco gualazzi</title>
+        <meta name="description" content="It is true: I fell in love with Go, not because I love Google and his products, but because it really fits my ideology of simplicity and power in a programming language. I started experimenting with the language and thank to his web-oriented approach I quickly came up with one of the simplest single task web application I could write: a URL shortener.
+What is a URL shortener? It&#8217;s a service that will give you a short link for a long URL.">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="generator" content="Hugo 0.17" />
+        <meta name="robots" content="index,follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:title" content="My first Golang web project is online">
+<meta property="og:description" content="It is true: I fell in love with Go, not because I love Google and his products, but because it really fits my ideology of simplicity and power in a programming language. I started experimenting with the language and thank to his web-oriented approach I quickly came up with one of the simplest single task web application I could write: a URL shortener.
+What is a URL shortener? It&#8217;s a service that will give you a short link for a long URL.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://inge.4pr.es/2015/06/11/2015-06-11-my-first-golang-web-project/">
+        <link rel="stylesheet" href="https://inge.4pr.es/css/normalize.css">
+        <link rel="stylesheet" href="https://inge.4pr.es/css/highlight.css">
+        <link rel="stylesheet" href="https://inge.4pr.es/css/style.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    </head>
+    <body>
+        
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-55252403-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+        <div id="wrapper">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-title-wrapper">
+                        
+                            <h1 class="site-title">
+                                <a title="inge4pres" href="https://inge.4pr.es/">inge4pres</a>
+                            </h1>
+                        
+                        <a class="button-square" href="https://inge.4pr.es/index.xml"><i class="fa fa-rss"></i></a>
+                        
+                            <a class="button-square button-social hint--top" data-hint="Twitter" title="Twitter" href="https://twitter.com/inge4pres">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                        
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Github" title="Github" href="https://github.com/inge4pres">
+                                <i class="fa fa-github-alt"></i>
+                            </a>
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Stack Overflow" title="Stack Overflow" href="http://stackoverflow.com/users/4628081/francesco-gualazzi">
+                                <i class="fa fa-stack-overflow"></i>
+                            </a>
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="LinkedIn" title="LinkedIn" href="https://linkedin.com/in/francescogualazzi/">
+                                <i class="fa fa-linkedin"></i>
+                            </a>
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Google+" title="Google+" href="https://plus.google.com/&#43;FrancescoGualazzi">
+                                <i class="fa fa-google-plus"></i>
+                            </a>
+                        
+                    </div>
+
+                    <ul class="site-nav">
+                        
+    <li class="site-nav-item">
+        <a title="blog" href="/">blog</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a title="about" href="/page/about/">about</a>
+    </li>
+
+                    </ul>
+                </div>
+            </header>
+
+            <div id="container">
+
+
+<div class="container">
+    <article class="post-container">
+        <header class="post-header">
+    <h1 class="post-title">My first Golang web project is online</h1>
+    
+</header>
+
+        <div class="post-content clearfix">
+    
+
+    <p>It is true: I fell in love with <a href="http://golang.org" target="_blank">Go</a>, not because I love Google and his products, but because it really fits my ideology of simplicity and power in a programming language. I started experimenting with the language and thank to his web-oriented approach I quickly came up with one of the simplest single task web application I could write: a URL shortener.</p>
+
+<p>What is a URL shortener? It&#8217;s a service that will give you a short link for a long URL.</p>
+
+<p>Why should I use it? A short URL is easier to remember and to copy and paste, it lets you write more on social media where characters are limited (Twitter).</p>
+
+<p>Why writing one when there are plenty of them already? Other shortener have an expiration date on short links, <a href="http://4pr.es" target="_blank">4pr.es</a> doesn&#8217;t!</p>
+
+<p>Take a look at the <a href="http://4pr.es/rwfiwK" target="_blank">code</a> and you&#8217;ll see it is very simple: it takes a URL as text input filed of a form</p>
+
+<pre><span class="pl-smi">short</span>, <span class="pl-smi">err</span> <span class="pl-k">:=</span> <span class="pl-c1">createUrl</span>(req.<span class="pl-c1">FormValue</span>(<span class="pl-s"><span class="pl-pds">"</span>url<span class="pl-pds">"</span></span>))
+</pre>
+
+<p>generates a random string of 6 charachters, checking that the string is not in the database</p>
+
+<pre>...
+for urlPresent(coder.Shrt) {
+        coder.Shrt = shorten(coder.Length)
+}
+...
+func shorten(c uint) string {
+    rand.Seed(time.Now().UnixNano())
+    b := make([]rune, c)
+    for i := range b {
+        b[i] = letters[rand.Intn(len(letters))]
+    }
+    return string(b)
+}</pre>
+
+<p>and keep the URL &#8211; string association in the database for further redirection; once the random short URL is visited the client gets redirected to the origianl long URL!</p>
+
+<pre>...
+err := getUrl(params["short"], w, req)
+...
+func getUrl(short string, w http.ResponseWriter, req *http.Request) error {
+    var redir string
+    err := db.QueryRow("SELECT url FROM urls WHERE short = ?", short).Scan(&redir)
+    if err != nil {
+        return err
+    }
+    http.Redirect(w, req, redir, 301)
+    return nil
+}</pre>
+
+<p>So please try it and if you have any suggestion to increase performance or security please let me know!</p>
+
+<p>Cheers</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+</div>
+
+        <footer class="post-footer clearfix">
+    
+        <p class="post-tags">
+            <span>Tagged:</span>
+            
+                 <a href="/tags/go/">GO</a>
+            
+                 <a href="/tags/golang/">golang</a>
+            
+                 <a href="/tags/shortener/">shortener</a>
+            
+                 <a href="/tags/software/">software</a>
+            
+                 <a href="/tags/url/">URL</a>
+            
+        </p>
+    
+
+    <div class="share">
+        <a class="icon-twitter" href="http://twitter.com/share?text=My%20first%20Golang%20web%20project%20is%20online&url=https%3a%2f%2finge.4pr.es%2f2015%2f06%2f11%2f2015-06-11-my-first-golang-web-project%2f"
+            onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+            <i class="fa fa-twitter"></i>
+            <span class="hidden">Twitter</span>
+        </a>
+
+        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2finge.4pr.es%2f2015%2f06%2f11%2f2015-06-11-my-first-golang-web-project%2f"
+            onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+            <i class="fa fa-facebook"></i>
+            <span class="hidden">Facebook</span>
+        </a>
+
+        <a class="icon-google-plus" href="https://plus.google.com/share?url=https%3a%2f%2finge.4pr.es%2f2015%2f06%2f11%2f2015-06-11-my-first-golang-web-project%2f"
+           onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+           <i class="fa fa-google-plus"></i>
+            <span class="hidden">Google+</span>
+        </a>
+    </div>
+</footer>
+    </article>
+</div>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="site-title-wrapper">
+                    <h1 class="site-title">
+                        <a title="inge4pres" href="https://inge.4pr.es/">inge4pres</a>
+                    </h1>
+                    <a class="button-square button-jump-top js-jump-top" href="#">
+                        <i class="fa fa-angle-up"></i>
+                    </a>
+                </div>
+
+                <p class="footer-copyright">
+                    <span>&copy; 2016 / Powered by <a href="http://gohugo.io/">Hugo</a></span>
+                </p>
+                <p class="footer-copyright">
+                    <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
+                    <span>/ <a href="https://github.com/jbub/ghostwriter">Ported</a> to Hugo By <a href="https://github.com/jbub">jbub</a></span>
+                </p>
+            </div>
+        </footer>
+
+        <script src="https://inge.4pr.es/js/jquery-1.11.3.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
+        <script src="https://inge.4pr.es/js/jquery.fitvids.js"></script>
+        <script src="https://inge.4pr.es/js/scripts.js"></script>
+    </body>
+</html>
+

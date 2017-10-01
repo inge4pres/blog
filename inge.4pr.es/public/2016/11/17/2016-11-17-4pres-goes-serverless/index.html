@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>4pres goes #serverless &middot; francesco gualazzi</title>
+        <meta name="description" content="Moving 4pres URL shortener to a more modern architecture">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="generator" content="Hugo 0.30-DEV" />
+        <meta name="robots" content="index,follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:title" content="4pres goes #serverless">
+<meta property="og:description" content="Moving 4pres URL shortener to a more modern architecture">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://inge.4pr.es/2016/11/17/2016-11-17-4pres-goes-serverless/">
+        <link rel="stylesheet" href="https://inge.4pr.es/dist/styles.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+    </head>
+    <body>
+        
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-55252403-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+        <div id="wrapper">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-title-wrapper">
+                        
+                            <h1 class="site-title">
+                                <a title="inge4pres" href="https://inge.4pr.es/">inge4pres</a>
+                            </h1>
+                        
+                        <a class="button-square" href="https://inge.4pr.es/index.xml"><i class="fa fa-rss"></i></a>
+                        
+                            <a class="button-square button-social hint--top" data-hint="Twitter" title="Twitter" href="https://twitter.com/inge4pres">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                        
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Github" title="Github" href="https://github.com/inge4pres">
+                                <i class="fa fa-github-alt"></i>
+                            </a>
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Stack Overflow" title="Stack Overflow" href="http://stackoverflow.com/users/4628081/francesco-gualazzi">
+                                <i class="fa fa-stack-overflow"></i>
+                            </a>
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="LinkedIn" title="LinkedIn" href="https://linkedin.com/in/francescogualazzi/">
+                                <i class="fa fa-linkedin"></i>
+                            </a>
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Google+" title="Google+" href="https://plus.google.com/&#43;FrancescoGualazzi">
+                                <i class="fa fa-google-plus"></i>
+                            </a>
+                        
+                        
+                    </div>
+
+                    <ul class="site-nav">
+                        
+    <li class="site-nav-item">
+        <a title="blog" href="/">blog</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a title="about" href="/page/about/">about</a>
+    </li>
+
+                    </ul>
+                </div>
+            </header>
+
+            <div id="container">
+
+
+<div class="container">
+    <article class="post-container" itemscope="" itemtype="http://schema.org/BlogPosting">
+        <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">4pres goes #serverless</h1>
+    
+        <p class="post-description" itemprop="description">Moving 4pres URL shortener to a more modern architecture</p>
+    
+    <p class="post-date">
+        <span>Published <time datetime="2016-11-17" itemprop="datePublished">Thu, Nov 17, 2016</time></span>
+        <span>by</span>
+        <span itemscope="" itemprop="author" itemtype="https://schema.org/Person">
+            <span itemprop="name">
+                <a href="https://twitter.com/inge4pres" itemprop="url" rel="author">francesco gualazzi</a>
+            </span>
+        </span>
+    </p>
+</header>
+
+        <div class="post-content clearfix" itemprop="articleBody">
+    
+
+    
+
+<p>Last month I felt I was a little late for the <a href="https://charity.wtf/2016/05/31/wtf-is-operations-serverless/" title="#serverless">#serverless</a> party going on all over the internet and I started taking a look at what the pros and cons would be to actually not manage any server myself.
+Shutting down my VPS hosting my apps I will loose my mail server, my MySQL instances and my Docker registry but: who cares? There are cloud services I can use with hundreds of times more availability and for a fraction of the cost.</p>
+
+<h2 id="why-serverless">Why #serverless?</h2>
+
+<p>We are moving more and more rapidly to a developer friendly world: all cloud providers tend to relief companies from the burden of managing complex cluster architectures and it&rsquo;s not a coincidence that things like <a href="https://landing.google.com/sre/interview/ben-treynor.html" title="SRE at Google">SRE at Google</a> exist. Systadmins are no longer required where they can be substituted with far more performance by declarative syntax clusters (Kubernetes, Docker Data Center) and reliabile, consistent configuration deployment (Ansible, Puppet) in managing high volumes of phisycal or virtual machines.</p>
+
+<p>This shift to a developer-centric world forces who embraces it to &ldquo;trust&rdquo; the IaaS, PaaS and FaaS providers but in the same time let them focus on core and valuable development processes.</p>
+
+<p>That&rsquo;s why.</p>
+
+<p>Take the simplest app in the world: <a href="https://4pr.es">4pres</a>, a URL shortener. It needs a presentation, computation and data layer as most of apps. Traditionally and depending on your budget and needs, you would spin up one or more VPS and deploy software on them (containers or not, doesn&rsquo;t matter here). The setup of nginx as reverse proxy to your application already requires skills that most of developers don&rsquo;t have, but in first hand why should anybody have them when there is a service like AWS API Gateway that lets you deploy one in seconds?
+Having the possiility to do so, you <em>may</em> want to forget about everything not strictly related to your app, so focusing only on building and maintaining functionalities of your app.</p>
+
+<h2 id="how-you-can-migrate-your-app-today">How you can migrate your app today</h2>
+
+<p>In terms of cloud provider I have a lot of experience with AWS therefore my first thought is for them when trying to do something like this: they probably already have enough mature services supporting what I need. Don&rsquo;t take this as a sponsorship: you can do the same with any other provider.</p>
+
+<h4 id="traditional-architecture">Traditional Architecture</h4>
+
+<ul>
+<li>NGINX reverse proxy</li>
+<li>Golang application</li>
+<li>MySQL database</li>
+</ul>
+
+<p>NGINX terminates SSL and proxy back to app every request. The <a href="https://github.com/inge4pres/4pr.es" title="4pres/master">Golang app</a> finds out what to do from a combination of HTTP Method and URL Path:</p>
+
+<ul>
+<li><code>GET /</code> renders the landing page template</li>
+<li><code>GET /{url}</code> queries the DB and redirect to long url or render 404 template</li>
+<li><code>POST /</code> create a short link from <code>form-data url=http://alongurul/</code> and display the result template</li>
+</ul>
+
+<h4 id="serverless-architecture-aws">Serverless Architecture (AWS)</h4>
+
+<ul>
+<li>API Gateway expose a request/response mapping endpoint with integration to other services</li>
+<li>S3 to store and serve the static content</li>
+<li>Lambda executes Golang functions thanks to the amazing <a href="https://github.com/eawsy/aws-lambda-go" title="eawsy/aws-go-lambda">eawsy/aws-go-lambda</a> framework</li>
+<li>DynamoDB stores data in schema-less fashion (JSON)</li>
+</ul>
+
+<p>The API Gateway definition acts as proxy and:</p>
+
+<ul>
+<li><code>GET /</code> serves static page <code>index.html</code> from S3 bucket with &lsquo;Website Hosting&rsquo; option enabled</li>
+<li><code>GET /{url}</code> runs a Lamdba function <a href="https://github.com/inge4pres/4pr.es/blob/serverless/cmd/4pres_get/get.go" title="4pres_get">4pres_get</a> that fetches the URL Path parameter from DynamoDB and redirect the client or renders a 404 template</li>
+<li><code>GET /s?{urlencodedURL}</code> runs a Lambda function <a href="https://github.com/inge4pres/4pr.es/blob/serverless/cmd/4pres_post/post.go" title="4pres_post">4pres_post</a> that creates a short URL and tries to store it in DynamoDB, returning the result template or the 500 template.</li>
+</ul>
+
+<p>Not that big change in the overall design, but the code for the Golang app only shares a function to shorten the URL between the 2 implementations: that is understandable because we no longer manage HTTP requests attributes and delegate that to API Gateway, we don&rsquo;t display static content anymore and leave that to S3. At the core we only have 2 things to worry about:</p>
+
+<ul>
+<li>store a URL (4pres_post)</li>
+<li>get  URL to redirect the client</li>
+</ul>
+
+<p>and then we can focus on extending new features:</p>
+
+<ul>
+<li>URL expiration</li>
+<li>user registration</li>
+<li>whatever!</li>
+</ul>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Thanks to this development model our craftsmen effort can be 100% dedicated to building features and forget about the rest: this can be a great advantage at large scale. Recently I have come across another interesting framework for Function as a Service called <a href="https://www.iron.io/" title="iron.io">iron.io</a> and I am willing to try it as soon as possible so stay tuned!</p>
+
+</div>
+
+        <footer class="post-footer clearfix">
+    
+
+    <div class="share">
+        
+            <a class="icon-twitter" href="https://twitter.com/share?text=4pres%20goes%20%23serverless&url=https%3a%2f%2finge.4pr.es%2f2016%2f11%2f17%2f2016-11-17-4pres-goes-serverless%2f"
+                onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fa fa-twitter"></i>
+                <span class="hidden">Twitter</span>
+            </a>
+        
+
+        
+            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2finge.4pr.es%2f2016%2f11%2f17%2f2016-11-17-4pres-goes-serverless%2f"
+                onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                <i class="fa fa-facebook"></i>
+                <span class="hidden">Facebook</span>
+            </a>
+        
+
+        
+            <a class="icon-google-plus" href="https://plus.google.com/share?url=https%3a%2f%2finge.4pr.es%2f2016%2f11%2f17%2f2016-11-17-4pres-goes-serverless%2f"
+              onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+              <i class="fa fa-google-plus"></i>
+                <span class="hidden">Google+</span>
+            </a>
+        
+        
+    </div>
+</footer>
+
+        
+    </article>
+</div>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="site-title-wrapper">
+                    <h1 class="site-title">
+                        <a title="inge4pres" href="https://inge.4pr.es/">inge4pres</a>
+                    </h1>
+                    <a class="button-square button-jump-top js-jump-top" href="#">
+                        <i class="fa fa-angle-up"></i>
+                    </a>
+                </div>
+
+                <p class="footer-copyright">
+                    <span>&copy; 2017 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
+                </p>
+                <p class="footer-copyright">
+                    <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
+                    <span>/ <a href="https://github.com/jbub/ghostwriter">Ported</a> to Hugo By <a href="https://github.com/jbub">jbub</a></span>
+                </p>
+            </div>
+        </footer>
+
+        <script src="https://inge.4pr.es/js/jquery-1.11.3.min.js"></script>
+        <script src="https://inge.4pr.es/js/jquery.fitvids.js"></script>
+        
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        
+        
+        <script src="https://inge.4pr.es/js/scripts.js"></script>
+    </body>
+</html>
+

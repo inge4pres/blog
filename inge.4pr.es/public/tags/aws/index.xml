@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Aws on inge4pres</title>
+    <link>https://inge.4pr.es/tags/aws/</link>
+    <description>Recent content in Aws on inge4pres</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Francesco Gualazzi</copyright>
+    <lastBuildDate>Sat, 03 Dec 2016 15:34:48 +0100</lastBuildDate>
+    
+	<atom:link href="https://inge.4pr.es/tags/aws/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Automate TLS management on AWS with LetsEncrypt</title>
+      <link>https://inge.4pr.es/2016/12/03/2016-12-03-automate-tls-management-on-aws-with-letsencrypt/</link>
+      <pubDate>Sat, 03 Dec 2016 15:34:48 +0100</pubDate>
+      
+      <guid>https://inge.4pr.es/2016/12/03/2016-12-03-automate-tls-management-on-aws-with-letsencrypt/</guid>
+      <description>Letsencrypt is cool: automated, free TLS certificates for everybody! They are sponsored mainly by internet corps and they started a crowd-funding campaign to avoid the influence of this corps in the future of the project. I recently moved the blog to hugo on AWS and I&amp;rsquo;m now porting the TLS management scripts I wrote a while ago on AWS: this is a nice exercise to give a proper TLS automation valid for everyone on AWS.</description>
+    </item>
+    
+    <item>
+      <title>A benchmark of AWS EFS</title>
+      <link>https://inge.4pr.es/2016/09/18/2016-09-18-a-benchmark-of-aws-efs/</link>
+      <pubDate>Sun, 18 Sep 2016 17:26:17 +0000</pubDate>
+      
+      <guid>https://inge.4pr.es/2016/09/18/2016-09-18-a-benchmark-of-aws-efs/</guid>
+      <description>Amazon Web Services Elastic File System has been to my knowledge the service to have the longest beta testing period: reason for this may be that not as many client as expected tested it and AWS received too few feedback on it or that there were issues not to release GA. I don&amp;#8217;t want to speculate on which one is correct but now that it has been officially released I decided to give it a try and of course compare it to a self-managed solution on the same platform.</description>
+    </item>
+    
+    <item>
+      <title>AWS IAM policy to let users manage their own MFA</title>
+      <link>https://inge.4pr.es/2016/04/06/2016-04-06-aws-iam-policy-to-let-users-manage-their-own-mfa/</link>
+      <pubDate>Wed, 06 Apr 2016 19:51:33 +0000</pubDate>
+      
+      <guid>https://inge.4pr.es/2016/04/06/2016-04-06-aws-iam-policy-to-let-users-manage-their-own-mfa/</guid>
+      <description>If you&amp;#8217;re an AWS administrator you know that managing web console security is pretty tough unless you know what you want and you know what you&amp;#8217;re doing. So if what you want is let each AWS user manage their own MFA device configuration without you and force them to have MFA active to use the web console, here is your solution.
+TL;DR
+ Create one or more groups with your web users Create a new policy using this JSON Attach the policy to the group(s)  How does it work?</description>
+    </item>
+    
+    <item>
+      <title>Implement a generic data list structure</title>
+      <link>https://inge.4pr.es/2016/01/24/2016-01-24-implement-a-generic-data-list-structure/</link>
+      <pubDate>Sun, 24 Jan 2016 16:40:37 +0000</pubDate>
+      
+      <guid>https://inge.4pr.es/2016/01/24/2016-01-24-implement-a-generic-data-list-structure/</guid>
+      <description>As a coding challenge I was asked to provide a generic list implementation using a language of my choice and using only primitive types, avoiding the use of high level built-ins. I chose Go because I want to learn it and I know it can be useful to create an abstract, generic implementation.
+The challenge request to implement at least 4 methods on the generic type:
+ Filter() &amp;#8211; returns a subset of the List satisfying an operation Map() &amp;#8211; returns the List objects&amp;#8217; map Reverse() &amp;#8211; reverse the ordering of the List objects FoldLeft() &amp;#8211; join the objects from left to right using a join character  As a bonus question I was asked to code unit tests for the aforementioned methods and give an explanation on how the implementation guarantees concurrent access on resources.</description>
+    </item>
+    
+  </channel>
+</rss>

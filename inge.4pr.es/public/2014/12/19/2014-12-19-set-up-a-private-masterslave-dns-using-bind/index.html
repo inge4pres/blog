@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Set up a private master/slave DNS using BIND &middot; francesco gualazzi</title>
+        <meta name="description" content="One of the very basic need of any startup is setting up a LAN in the workspace and configuring the Internet most used service: DNS. Relying on a public DNS may give you full functionality towards WAN connectivity, but when you need to address some hosts inside your LAN it can be handy to use names instead of IPs (especially with IPv6).
+Here&#8217;s a straight forward guide to get you started with your private DNS in a few minutes.">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="generator" content="Hugo 0.17" />
+        <meta name="robots" content="index,follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:title" content="Set up a private master/slave DNS using BIND">
+<meta property="og:description" content="One of the very basic need of any startup is setting up a LAN in the workspace and configuring the Internet most used service: DNS. Relying on a public DNS may give you full functionality towards WAN connectivity, but when you need to address some hosts inside your LAN it can be handy to use names instead of IPs (especially with IPv6).
+Here&#8217;s a straight forward guide to get you started with your private DNS in a few minutes.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://inge.4pr.es/2014/12/19/2014-12-19-set-up-a-private-masterslave-dns-using-bind/">
+        <link rel="stylesheet" href="https://inge.4pr.es/css/normalize.css">
+        <link rel="stylesheet" href="https://inge.4pr.es/css/highlight.css">
+        <link rel="stylesheet" href="https://inge.4pr.es/css/style.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    </head>
+    <body>
+        
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-55252403-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+        <div id="wrapper">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-title-wrapper">
+                        
+                            <h1 class="site-title">
+                                <a title="inge4pres" href="https://inge.4pr.es/">inge4pres</a>
+                            </h1>
+                        
+                        <a class="button-square" href="https://inge.4pr.es/index.xml"><i class="fa fa-rss"></i></a>
+                        
+                            <a class="button-square button-social hint--top" data-hint="Twitter" title="Twitter" href="https://twitter.com/inge4pres">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                        
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Github" title="Github" href="https://github.com/inge4pres">
+                                <i class="fa fa-github-alt"></i>
+                            </a>
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Stack Overflow" title="Stack Overflow" href="http://stackoverflow.com/users/4628081/francesco-gualazzi">
+                                <i class="fa fa-stack-overflow"></i>
+                            </a>
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="LinkedIn" title="LinkedIn" href="https://linkedin.com/in/francescogualazzi/">
+                                <i class="fa fa-linkedin"></i>
+                            </a>
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Google+" title="Google+" href="https://plus.google.com/&#43;FrancescoGualazzi">
+                                <i class="fa fa-google-plus"></i>
+                            </a>
+                        
+                    </div>
+
+                    <ul class="site-nav">
+                        
+    <li class="site-nav-item">
+        <a title="blog" href="/">blog</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a title="about" href="/page/about/">about</a>
+    </li>
+
+                    </ul>
+                </div>
+            </header>
+
+            <div id="container">
+
+
+<div class="container">
+    <article class="post-container">
+        <header class="post-header">
+    <h1 class="post-title">Set up a private master/slave DNS using BIND</h1>
+    
+</header>
+
+        <div class="post-content clearfix">
+    
+
+    <p>One of the very basic need of any startup is setting up a LAN in the workspace and configuring the Internet most used service: DNS. Relying on a public DNS may give you full functionality towards WAN connectivity, but when you need to address some hosts inside your LAN it can be handy to use names instead of IPs (especially with IPv6).</p>
+
+<p>Here&#8217;s a straight forward guide to get you started with your private DNS in a few minutes.</p>
+
+<p>OS filesystem&#8217;s path and package management utility may vary with the flavour of your distro, here I use CentOS.</p>
+
+<hr />
+
+<p><strong>Requirements</strong></p>
+
+<ul>
+<li>a router with DHCP ad WAN connectivity already setup</li>
+<li>2 CentOS 6.x servers (physical or virtual with due availability concerns), enable to network with each others</li>
+
+<li><p>a desktop PC</p>
+
+<hr /></li>
+</ul>
+
+<p><strong>Some general info</strong></p>
+
+<p>I use this data as example, change them to your needs</p>
+
+<p><li style="text-align: left;">
+  <code>startup.me</code>             the domain name you want to use in your LAN
+</li>
+  * <code>10.20.30.0/24</code>        the subnet of your LAN
+  * <code>10.20.30.40</code>            the static IP address assigned to CentOS server 1, with hostname  <code>centos1.startup.me</code>
+  * <code>10.20.30.50</code>            the static IP address assigned to CentOS server 2, with hostname  <code>centos2.startup.me</code></p>
+
+<hr />
+
+<p><strong>Configuring the primary DNS server </strong></p>
+
+<p>On server <code>centos1</code></p>
+
+<p><code>[root@centos1 ~]# yum update &amp;&amp; yum -y install bind bind-libs bind-utils</code></p>
+
+<p>The BIND daemon is now installed; the base dir for the service is <code>/var/named</code> and the configuration file is <code>/etc/named.conf</code> ; modify the configuration file with your favourite editor</p>
+
+<p><code>[root@centos1 ~]# vim /etc/named.conf</code></p>
+
+<p>In the <code>options</code> section adjust the settings to your LAN configurations, changing the example values</p>
+
+<pre><code>options {
+       listen-on port 53 { 10.20.30.40 };             # inet address of centos1
+       listen-on-v6 port 53 { ::1; };                 # comment this out to use IPv4 only
+       directory &quot;/var/named&quot;;
+       recursion yes;
+       allow-recursion { 10.20.30.0/24; };            # recursion only in LAN, change this with your subnet
+       allow-transfer { localhost; 10.20.30.50; };    # enable zone transfers only to secondary DNS sever
+       forwarders {
+                  208.67.222.222;
+                  208.67.220.220;
+       };                                             # OpenDNS used here, Google 8.8.8.8, 8.8.4.4 can be used
+       dump-file &quot;/var/named/data/cache_dump.db&quot;;
+       statistics-file &quot;/var/named/data/named_stats.txt&quot;;
+       memstatistics-file &quot;/var/named/data/named_mem_stats.txt&quot;;
+       allow-query { 10.20.30.0/24; };                # accept queries only from LAN, change this with your subnet
+};
+</code></pre>
+
+<p>Now comment the <code>include</code> lines following the <code>options</code> section and comment out all the rest. The end of the file should be (modify the domain)</p>
+
+<pre><code># zone &quot;.&quot; IN {
+#       type hint;
+#       file &quot;named.ca&quot;;
+#};
+
+#include &quot;/etc/named.rfc1912.zones&quot;;
+#include &quot;/etc/named.root.key&quot;;
+
+zone &quot;startup.me&quot; IN {
+      type master;
+      file &quot;/var/named/startup.me.zone&quot;;
+      allow-update { none; };
+};
+</code></pre>
+
+<p>The latter lines create the definition of the domain and specify that DNS records should be looked up in the <code>/var/named/startup.me.zone </code>file which we are about to write. If you&#8217;re unfamiliar with DNS records and basic concepts, have a look at <a title="DNS IANA's guide" href="http://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml" target="_blank">this</a>. Now create and edit a new file</p>
+
+<p><code>[root@centos1 ~]# vim /var/named/startup.me.zone</code></p>
+
+<p>Insert this</p>
+
+<pre><code>$TTL 8H
+@      IN      SOA      centos1.startup.me. root.startup.me. (
+               1        ; serial
+               1D       ; refresh
+               1H       ; retry
+               1W       ; expire
+               1H )     ; minimum TTL
+; Name servers
+        IN      NS      centos1.startup.me.
+        IN      NS      centos2.startup.me.
+; Resolvers
+@       IN      A       10.50.30.10  ; default IP for your domain root startup.me
+centos1 IN      A       10.20.30.40  ; the primary DNS server centos1
+centos2 IN      A       10.20.30.50  ; the secondary DNS server centos2
+www     IN      A       10.20.30.20  ; a web server in your LAN
+ftp     IN      A       10.20.30.30  ; an FTP server in your LAN
+git     IN      A       10.20.30.5   ; a GIT server in your LAN
+</code></pre>
+
+<p>Be careful when copying the above snippet into the config file: indentation must be respected!</p>
+
+<p>You have configured the primary DNS with some DNS A records; the provided settings are not for a heavy load DNS server, nor they should be used in networks wih frequent IP address change: the time-to-live settings are high, therefore any IP mapping change should be followed by a clients&#8217; resolver cache flush, which may be inconvenient for most users.</p>
+
+<p>Now it&#8217;s time to enable the service; verify files permission</p>
+
+<p><code>[root@centos1 ~]# chown named /var/named/startup.me.zone</code></p>
+
+<p>and start the service</p>
+
+<p><code>[root@centos1 ~]# service named start</code></p>
+
+<p>If you want to have the service enabled at boot</p>
+
+<p><code>[root@centos1 ~]# chkconfig named on &amp;&amp; chkconfig save</code></p>
+
+<p>To test your primary DNS server you should first be sure to use it; check the resolver settings</p>
+
+<p><code>[root@centos1 ~]# vim /etc/resolv.conf</code></p>
+
+<p>it should contain only one line</p>
+
+<p><code>nameserver 10.20.30.40</code></p>
+
+<p>Verify the DNS is working with</p>
+
+<p><code>[root@centos1 ~]# dig www.startup.me</code></p>
+
+<p>if the output contains &#8220;AUTHORITY SECTION&#8221; you&#8217;re done.</p>
+
+<hr />
+
+<p><strong>Configuring the secondary DNS server </strong></p>
+
+<p>On server <code>centos2</code> install BIND as you did for <code>centos1</code>.</p>
+
+<p><code>[root@centos2 ~]# yum update &amp;&amp; yum -y install bind bind-libs bind-utils</code></p>
+
+<p>Secure-CoPy the configuration files from <code>centos1</code> to <code>centos2</code></p>
+
+<p><code>[root@centos2 ~]# scp centos1.startup.me:/etc/named.conf /etc/named.conf</code></p>
+
+<p><code>[root@centos2 ~]# scp centos1.startup.me:/var/named/startup.me.zone /var/named/startup.me.zone</code></p>
+
+<p>Edit the <code>/etc/named.conf</code> adjusting the IPv4 address of <code>centos2</code> in the <code>options</code> section, change <code>10.20.30.40</code> with <code>10.20.30.50</code>, and at the end of the file modify the zone settings to have a secondary (slave) DNS; as usual, change the IP with your actual primary DNS IP.</p>
+
+<pre><code>zone &quot;startup.me&quot; IN {
+      type slave;
+      masters { 10.20.30.40; }; 
+      file &quot;/var/named/startup.me.zone&quot;;
+};
+</code></pre>
+
+<p>Start the BIND daemon on <code>centos2</code> and enjoy!</p>
+
+<p><code>[root@centos2 ~]# chown named /var/named/startup.me.zone</code></p>
+
+<p><code>[root@centos2 ~]# service named start</code></p>
+
+<p>There it is! You are ready to test it from your desktop.</p>
+
+<p>In your router settings change the primary and secondary DNS servers for the DHCP server, renew all adresses and try browsing the domain with any software. So name, much fast, wow!</p>
+
+<p><em>Note: having a script doing an rsync to your secondary DNS will ease the pain when the primary DNS server goes down.</em></p>
+
+<p>Cheers 😀</p>
+
+</div>
+
+        <footer class="post-footer clearfix">
+    
+        <p class="post-tags">
+            <span>Tagged:</span>
+            
+                 <a href="/tags/bind/">BIND</a>
+            
+                 <a href="/tags/centos/">CentOS</a>
+            
+                 <a href="/tags/dns/">DNS</a>
+            
+                 <a href="/tags/linux/">Linux</a>
+            
+        </p>
+    
+
+    <div class="share">
+        <a class="icon-twitter" href="http://twitter.com/share?text=Set%20up%20a%20private%20master%2fslave%20DNS%20using%20BIND&url=https%3a%2f%2finge.4pr.es%2f2014%2f12%2f19%2f2014-12-19-set-up-a-private-masterslave-dns-using-bind%2f"
+            onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+            <i class="fa fa-twitter"></i>
+            <span class="hidden">Twitter</span>
+        </a>
+
+        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2finge.4pr.es%2f2014%2f12%2f19%2f2014-12-19-set-up-a-private-masterslave-dns-using-bind%2f"
+            onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+            <i class="fa fa-facebook"></i>
+            <span class="hidden">Facebook</span>
+        </a>
+
+        <a class="icon-google-plus" href="https://plus.google.com/share?url=https%3a%2f%2finge.4pr.es%2f2014%2f12%2f19%2f2014-12-19-set-up-a-private-masterslave-dns-using-bind%2f"
+           onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+           <i class="fa fa-google-plus"></i>
+            <span class="hidden">Google+</span>
+        </a>
+    </div>
+</footer>
+    </article>
+</div>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="site-title-wrapper">
+                    <h1 class="site-title">
+                        <a title="inge4pres" href="https://inge.4pr.es/">inge4pres</a>
+                    </h1>
+                    <a class="button-square button-jump-top js-jump-top" href="#">
+                        <i class="fa fa-angle-up"></i>
+                    </a>
+                </div>
+
+                <p class="footer-copyright">
+                    <span>&copy; 2016 / Powered by <a href="http://gohugo.io/">Hugo</a></span>
+                </p>
+                <p class="footer-copyright">
+                    <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
+                    <span>/ <a href="https://github.com/jbub/ghostwriter">Ported</a> to Hugo By <a href="https://github.com/jbub">jbub</a></span>
+                </p>
+            </div>
+        </footer>
+
+        <script src="https://inge.4pr.es/js/jquery-1.11.3.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
+        <script src="https://inge.4pr.es/js/jquery.fitvids.js"></script>
+        <script src="https://inge.4pr.es/js/scripts.js"></script>
+    </body>
+</html>
+

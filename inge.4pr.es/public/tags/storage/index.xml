@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Storage on inge4pres</title>
+    <link>https://inge.4pr.es/tags/storage/</link>
+    <description>Recent content in Storage on inge4pres</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Francesco Gualazzi</copyright>
+    <lastBuildDate>Wed, 11 Mar 2015 13:00:46 +0000</lastBuildDate>
+    
+	<atom:link href="https://inge.4pr.es/tags/storage/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>GlusterFS: is it suitable for me?</title>
+      <link>https://inge.4pr.es/2015/03/11/2015-03-11-glusterfs-is-it-suitable-for-me/</link>
+      <pubDate>Wed, 11 Mar 2015 13:00:46 +0000</pubDate>
+      
+      <guid>https://inge.4pr.es/2015/03/11/2015-03-11-glusterfs-is-it-suitable-for-me/</guid>
+      <description>During the last years I&amp;#8217;ve been experimenting with GlusterFS and his functionalities as distributed object store; a lot has changed in the software, overall since Red Hat acquired it. I have been using it and find it useful for many projects but not for others: what I love is the community oriented approach with a very responsive team and support for any kind of users (meaning from the 2 nodes web server to a RAID10 Infiniband cluster for high end storage).</description>
+    </item>
+    
+  </channel>
+</rss>
