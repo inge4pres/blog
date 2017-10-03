@@ -24,4 +24,17 @@ There is quite a good number of examples in the [cloud builder repository](https
 Now I want to build a container to run into GCP with confidence so that every time I make a build I will have a new container image tagged with the version and ready to roll it out.
 
 #### Using GCB
-All builds in GCB happen in a container, right now the only engine supported is Docker but more are going to be added. You can leverage Google pre-baked builders or use your own images as builders, in the example I am using Google's `golang-project` image to compile and `docker` to build the final docker image and push it to registry.
+All builds in GCB happen in a container, right now the only engine supported is Docker but more are going to be added. You can leverage Google pre-baked builders or use your own images as builders, in the example I am using Google's `golang-project` image to compile and `docker` to build the final docker image and push it to registry. Note how some environment variables are injected to the container, like `PROJECT_ID` is your GCP running project as configured via
+```
+gcloud auth login
+gcloud config set project your-gcp-project
+```
+
+##### _Side note for gophers_ #####
+The `golang-project` image does some checks at setup to determine the workspace structure: there need to be a `./src` folder or `GOPATH` must be passed, or the simplest way is to insert a comment next to `package main` in `main.go`
+
+#### Running the build
+```
+gcloud container builds submit --config cloudbuild.yaml .
+```
+[![asciicast](https://asciinema.org/a/Mb9JnmiUvmKrtDtDhHyww56VZ.png)](https://asciinema.org/a/Mb9JnmiUvmKrtDtDhHyww56VZ)
