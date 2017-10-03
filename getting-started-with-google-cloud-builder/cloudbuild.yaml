@@ -1,0 +1,8 @@
+steps:
+# Compiles the main to binary and builds an intermediate image
+- name: 'gcr.io/cloud-builders/golang-project'
+  args: ['randomint', '--tag=randomint_binary']
+# Uses the Dockerfile in the project to build the container
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '--tag=gcr.io/$PROJECT_ID/randomint', '.']
+images: 'gcr.io/$PROJECT_ID/randomint'
