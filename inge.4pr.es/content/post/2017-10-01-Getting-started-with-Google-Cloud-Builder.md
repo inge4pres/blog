@@ -31,7 +31,7 @@ gcloud config set project your-gcp-project
 ```
 
 ##### _Side note for gophers_ #####
-The `golang-project` image does some checks at setup to determine the workspace structure: there need to be a `./src` folder or `GOPATH` must be passed, or the simplest way is to insert a comment next to `package main` in `main.go`
+The `golang-project` image does some checks at setup to determine the workspace structure: there need to be a `./src` folder or `GOPATH` must be passed, or the simplest way is to [insert a comment next to `package main` in `main.go`](https://github.com/inge4pres/blog/blob/master/getting-started-with-google-cloud-builder/main.go#L1)
 
 #### Running the build
 ```
