@@ -11,7 +11,7 @@ tags:
 categories:
   - tech
 
-draft: true
+draft: false
 ---
 
 One of the advantages of containerized applications is the standardization, some would say "write it once, runs everywhere" but that's another motto for another product. Anyway with a new packaging technology the same problems are faced: build reproducibility, or the necessity for people doing Ops to know they are going to deploy the same exact piece of code the Dev team used in their tests. So to address this issue the container image needs to be immutable: once it's built, it's not going to be changed, ever. And the same image will be used for testing, QA, beta, preview, presales-demo, whatever environment you need to deploy the app to.
