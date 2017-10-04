@@ -76,6 +76,15 @@
     </item>
     
     <item>
+      <title>Cicd</title>
+      <link>https://inge.4pr.es/tags/cicd/</link>
+      <pubDate>Sun, 01 Oct 2017 21:31:52 +0200</pubDate>
+      
+      <guid>https://inge.4pr.es/tags/cicd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Cloud</title>
       <link>https://inge.4pr.es/tags/cloud/</link>
       <pubDate>Sun, 18 Sep 2016 17:26:17 +0000</pubDate>
@@ -123,7 +132,7 @@
     <item>
       <title>Development</title>
       <link>https://inge.4pr.es/tags/development/</link>
-      <pubDate>Sun, 02 Aug 2015 16:25:54 +0000</pubDate>
+      <pubDate>Sun, 01 Oct 2017 21:31:52 +0200</pubDate>
       
       <guid>https://inge.4pr.es/tags/development/</guid>
       <description></description>
@@ -189,6 +198,15 @@
       <pubDate>Sun, 18 Sep 2016 17:26:17 +0000</pubDate>
       
       <guid>https://inge.4pr.es/tags/filesystem/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gcp</title>
+      <link>https://inge.4pr.es/tags/gcp/</link>
+      <pubDate>Sun, 01 Oct 2017 21:31:52 +0200</pubDate>
+      
+      <guid>https://inge.4pr.es/tags/gcp/</guid>
       <description></description>
     </item>
     
