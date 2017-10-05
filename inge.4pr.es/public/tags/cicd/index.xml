@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cicd on inge4pres</title>
+    <link>https://inge.4pr.es/tags/cicd/</link>
+    <description>Recent content in Cicd on inge4pres</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Francesco Gualazzi</copyright>
+    <lastBuildDate>Sun, 01 Oct 2017 21:31:52 +0200</lastBuildDate>
+    
+	<atom:link href="https://inge.4pr.es/tags/cicd/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Getting Started With Google Cloud Builder</title>
+      <link>https://inge.4pr.es/2017/10/01/2017-10-01-getting-started-with-google-cloud-builder/</link>
+      <pubDate>Sun, 01 Oct 2017 21:31:52 +0200</pubDate>
+      
+      <guid>https://inge.4pr.es/2017/10/01/2017-10-01-getting-started-with-google-cloud-builder/</guid>
+      <description>One of the advantages of containerized applications is the standardization, some would say &amp;ldquo;write it once, runs everywhere&amp;rdquo; but that&amp;rsquo;s another motto for another product. Anyway with a new packaging technology the same problems are faced: build reproducibility, or the necessity for people doing Ops to know they are going to deploy the same exact piece of code the Dev team used in their tests. So to address this issue the container image needs to be immutable: once it&amp;rsquo;s built, it&amp;rsquo;s not going to be changed, ever.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -38,11 +38,11 @@ It's as easy as executing
 ```
 gcloud container builds submit --config cloudbuild.yaml .
 ```
-in the folder holding `main.go` or the root of your project.
+in the root of your project.
 
 See it in action!
 
-<script type="text/javascript" src="https://asciinema.org/a/US7J2mZlGcbCoqlW7zA66A1bh.js" id="asciicast-US7J2mZlGcbCoqlW7zA66A1bh" async></script>
+<script type="text/javascript" src="https://asciinema.org/a/vT8HIty3J6pJYKSEO5xxSBEBF.js" id="asciicast-vT8HIty3J6pJYKSEO5xxSBEBF" async></script>
 
 As you can see the current folder (`.` as last parameter) is compressed and shipped to a Cloud Storage random location, then GCB starts the steps listed in the configuration YAML file, running step by step the containers with their arguments.
 

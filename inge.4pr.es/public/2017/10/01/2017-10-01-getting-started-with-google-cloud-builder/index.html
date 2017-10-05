@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Getting Started With Google Cloud Builder &middot; francesco gualazzi</title>
+        <meta name="description" content="GCB is a build tool to automate the creation of containerized applications">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="generator" content="Hugo 0.30-DEV" />
+        <meta name="robots" content="index,follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:title" content="Getting Started With Google Cloud Builder">
+<meta property="og:description" content="GCB is a build tool to automate the creation of containerized applications">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://inge.4pr.es/2017/10/01/2017-10-01-getting-started-with-google-cloud-builder/">
+        <link rel="stylesheet" href="https://inge.4pr.es/dist/styles.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+    </head>
+    <body>
+        
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-55252403-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+        <div id="wrapper">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-title-wrapper">
+                        
+                            <h1 class="site-title">
+                                <a title="inge4pres" href="https://inge.4pr.es/">inge4pres</a>
+                            </h1>
+                        
+                        <a class="button-square" href="https://inge.4pr.es/index.xml"><i class="fa fa-rss"></i></a>
+                        
+                            <a class="button-square button-social hint--top" data-hint="Twitter" title="Twitter" href="https://twitter.com/inge4pres">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                        
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Github" title="Github" href="https://github.com/inge4pres">
+                                <i class="fa fa-github-alt"></i>
+                            </a>
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Stack Overflow" title="Stack Overflow" href="http://stackoverflow.com/users/4628081/francesco-gualazzi">
+                                <i class="fa fa-stack-overflow"></i>
+                            </a>
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="LinkedIn" title="LinkedIn" href="https://linkedin.com/in/francescogualazzi/">
+                                <i class="fa fa-linkedin"></i>
+                            </a>
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Google+" title="Google+" href="https://plus.google.com/&#43;FrancescoGualazzi">
+                                <i class="fa fa-google-plus"></i>
+                            </a>
+                        
+                        
+                    </div>
+
+                    <ul class="site-nav">
+                        
+    <li class="site-nav-item">
+        <a title="blog" href="/">blog</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a title="about" href="/page/about/">about</a>
+    </li>
+
+                    </ul>
+                </div>
+            </header>
+
+            <div id="container">
+
+
+<div class="container">
+    <article class="post-container" itemscope="" itemtype="http://schema.org/BlogPosting">
+        <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Getting Started With Google Cloud Builder</h1>
+    
+        <p class="post-description" itemprop="description">GCB is a build tool to automate the creation of containerized applications</p>
+    
+    <p class="post-date">
+        <span>Published <time datetime="2017-10-01" itemprop="datePublished">Sun, Oct 1, 2017</time></span>
+        <span>by</span>
+        <span itemscope="" itemprop="author" itemtype="https://schema.org/Person">
+            <span itemprop="name">
+                <a href="https://twitter.com/inge4pres" itemprop="url" rel="author">francesco gualazzi</a>
+            </span>
+        </span>
+    </p>
+</header>
+
+        <div class="post-content clearfix" itemprop="articleBody">
+    
+
+    
+
+<p>One of the advantages of containerized applications is the standardization, some would say &ldquo;write it once, runs everywhere&rdquo; but that&rsquo;s another motto for another product. Anyway with a new packaging technology the same problems are faced: build reproducibility, or the necessity for people doing Ops to know they are going to deploy the same exact piece of code the Dev team used in their tests. So to address this issue the container image needs to be immutable: once it&rsquo;s built, it&rsquo;s not going to be changed, ever. And the same image will be used for testing, QA, beta, preview, presales-demo, whatever environment you need to deploy the app to.</p>
+
+<h4 id="building-it">Building it</h4>
+
+<p>Docker has been around for a few years now, it&rsquo;s mature and stable, but ask anyone using it if they&rsquo;d allow images built on development workstation to run in production: not gonna happen! The artifact that will serve production traffic will pass through the CI/CD pipelines and pushed to the registry, this is the way of shipping containers. &ldquo;That&rsquo;s easy&rdquo;, you&rsquo;ll say, &ldquo;I&rsquo;ll stick my Dockerfile in the repo and let the build system do the magic!&rdquo;, but that&rsquo;s not the whole picture: there are lower layers to pull, tests to be run and <em>only after they succeed</em> you can build the container. So who is going to maintain all of this configurations? Can we store them into the repo too? Yes! With GCB you can write a declarative multi-step workflow that will compile, test and package the code in a container; the container will get immediately pushed to the Google Container Registry too, so it&rsquo;s ready to be consumed (maybe Kubernetes on GKE?).</p>
+
+<h4 id="a-simple-application">A simple application</h4>
+
+<p>There is quite a good number of examples in the <a href="https://github.com/GoogleCloudPlatform/cloud-builders" title="GCB on Github">cloud builder repository</a> but I&rsquo;d like to create a fresh one with Golang: a random number generator. The app will serve a random integer via HTTP, and you can see the code is <a href="https://github.com/inge4pres/blog/blob/master/getting-started-with-google-cloud-builder/main.go">very straightforward</a>.
+Now I want to build a container to run into GCP with confidence so that every time I make a build I will have a new container image tagged with the version and ready to roll it out.</p>
+
+<h4 id="using-gcb">Using GCB</h4>
+
+<p>All builds in GCB happen in a container, right now the only engine supported is Docker but more are going to be added. You can leverage Google pre-baked builders or use your own images as builders, in the example I am using Google&rsquo;s <code>golang-project</code> image to compile and <code>docker</code> to build the final docker image and push it to registry. Note how some environment variables are injected to the container, like <code>PROJECT_ID</code> is your GCP running project as configured via</p>
+
+<pre><code>gcloud auth login
+gcloud config set project your-gcp-project
+</code></pre>
+
+<h5 id="side-note-for-gophers"><em>Side note for gophers</em></h5>
+
+<p>The <code>golang-project</code> image does some checks at setup to determine the workspace structure: there need to be a <code>./src</code> folder or <code>GOPATH</code> must be passed, or the simplest way is to <a href="https://github.com/inge4pres/blog/blob/master/getting-started-with-google-cloud-builder/main.go#L1">insert a comment next to <code>package main</code> in <code>main.go</code></a></p>
+
+<h4 id="running-the-build">Running the build</h4>
+
+<p>It&rsquo;s as easy as executing</p>
+
+<pre><code>gcloud container builds submit --config cloudbuild.yaml .
+</code></pre>
+
+<p>in the root of your project.</p>
+
+<p>See it in action!</p>
+
+<script type="text/javascript" src="https://asciinema.org/a/vT8HIty3J6pJYKSEO5xxSBEBF.js" id="asciicast-vT8HIty3J6pJYKSEO5xxSBEBF" async></script>
+
+<p>As you can see the current folder (<code>.</code> as last parameter) is compressed and shipped to a Cloud Storage random location, then GCB starts the steps listed in the configuration YAML file, running step by step the containers with their arguments.</p>
+
+<h4 id="conclusion">Conclusion</h4>
+
+<p>GCB is fast and very easy to use but for what I&rsquo;ve been able to test is bound to GCP right now, so if you are willing to deliver a service from Google Cloud and your application is containerized or <em>&ldquo;cloud native&rdquo;</em> you have a lightweight build system ready to go, but if you have a private registry or other integrations to do, GCB might still be a too small niche.</p>
+
+<p>I&rsquo;ll make more tests and try to hack a bit GCB in the future so stay tuned!</p>
+
+</div>
+
+        <footer class="post-footer clearfix">
+    
+        <p class="post-tags">
+            <span>Tagged:</span>
+            
+            
+                <a href="/tags/gcp/">gcp</a>, 
+            
+                <a href="/tags/cicd/">cicd</a>, 
+            
+                <a href="/tags/development/">development</a>
+            
+        </p>
+    
+
+    <div class="share">
+        
+            <a class="icon-twitter" href="https://twitter.com/share?text=Getting%20Started%20With%20Google%20Cloud%20Builder&url=https%3a%2f%2finge.4pr.es%2f2017%2f10%2f01%2f2017-10-01-getting-started-with-google-cloud-builder%2f"
+                onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fa fa-twitter"></i>
+                <span class="hidden">Twitter</span>
+            </a>
+        
+
+        
+            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2finge.4pr.es%2f2017%2f10%2f01%2f2017-10-01-getting-started-with-google-cloud-builder%2f"
+                onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                <i class="fa fa-facebook"></i>
+                <span class="hidden">Facebook</span>
+            </a>
+        
+
+        
+            <a class="icon-google-plus" href="https://plus.google.com/share?url=https%3a%2f%2finge.4pr.es%2f2017%2f10%2f01%2f2017-10-01-getting-started-with-google-cloud-builder%2f"
+              onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+              <i class="fa fa-google-plus"></i>
+                <span class="hidden">Google+</span>
+            </a>
+        
+        
+    </div>
+</footer>
+
+        
+    </article>
+</div>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="site-title-wrapper">
+                    <h1 class="site-title">
+                        <a title="inge4pres" href="https://inge.4pr.es/">inge4pres</a>
+                    </h1>
+                    <a class="button-square button-jump-top js-jump-top" href="#">
+                        <i class="fa fa-angle-up"></i>
+                    </a>
+                </div>
+
+                <p class="footer-copyright">
+                    <span>&copy; 2017 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
+                </p>
+                <p class="footer-copyright">
+                    <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
+                    <span>/ <a href="https://github.com/jbub/ghostwriter">Ported</a> to Hugo By <a href="https://github.com/jbub">jbub</a></span>
+                </p>
+            </div>
+        </footer>
+
+        <script src="https://inge.4pr.es/js/jquery-1.11.3.min.js"></script>
+        <script src="https://inge.4pr.es/js/jquery.fitvids.js"></script>
+        
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        
+        
+        <script src="https://inge.4pr.es/js/scripts.js"></script>
+    </body>
+</html>
+
