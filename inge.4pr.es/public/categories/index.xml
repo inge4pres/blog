@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on inge4pres rational thoughts</title>
+    <link>http://inge.4pr.es/categories/</link>
+    <description>Recent content in Categories on inge4pres rational thoughts</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	<atom:link href="http://inge.4pr.es/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Culture</title>
+      <link>http://inge.4pr.es/categories/culture/</link>
+      <pubDate>Sun, 24 Jan 2016 15:42:29 +0000</pubDate>
+      
+      <guid>http://inge.4pr.es/categories/culture/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Music</title>
+      <link>http://inge.4pr.es/categories/music/</link>
+      <pubDate>Mon, 26 Nov 2012 16:14:41 +0000</pubDate>
+      
+      <guid>http://inge.4pr.es/categories/music/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Politics</title>
+      <link>http://inge.4pr.es/categories/politics/</link>
+      <pubDate>Mon, 20 Aug 2012 17:45:06 +0000</pubDate>
+      
+      <guid>http://inge.4pr.es/categories/politics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Social</title>
+      <link>http://inge.4pr.es/categories/social/</link>
+      <pubDate>Sun, 28 May 2017 17:04:10 +0200</pubDate>
+      
+      <guid>http://inge.4pr.es/categories/social/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tech</title>
+      <link>http://inge.4pr.es/categories/tech/</link>
+      <pubDate>Sun, 01 Oct 2017 21:31:52 +0200</pubDate>
+      
+      <guid>http://inge.4pr.es/categories/tech/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Uncategorized</title>
+      <link>http://inge.4pr.es/categories/uncategorized/</link>
+      <pubDate>Fri, 18 May 2012 00:39:03 +0000</pubDate>
+      
+      <guid>http://inge.4pr.es/categories/uncategorized/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Work</title>
+      <link>http://inge.4pr.es/categories/work/</link>
+      <pubDate>Sun, 28 May 2017 17:04:10 +0200</pubDate>
+      
+      <guid>http://inge.4pr.es/categories/work/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

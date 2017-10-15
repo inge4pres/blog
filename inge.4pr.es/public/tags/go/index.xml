@@ -1,23 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Go on inge4pres</title>
-    <link>https://inge.4pr.es/tags/go/</link>
-    <description>Recent content in Go on inge4pres</description>
+    <title>GO on inge4pres rational thoughts</title>
+    <link>http://inge.4pr.es/tags/go/</link>
+    <description>Recent content in GO on inge4pres rational thoughts</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>Francesco Gualazzi</copyright>
     <lastBuildDate>Thu, 11 Jun 2015 12:15:34 +0000</lastBuildDate>
     
-	<atom:link href="https://inge.4pr.es/tags/go/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://inge.4pr.es/tags/go/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>My first Golang web project is online</title>
-      <link>https://inge.4pr.es/2015/06/11/2015-06-11-my-first-golang-web-project/</link>
+      <link>http://inge.4pr.es/2015/06/11/2015-06-11-my-first-golang-web-project/</link>
       <pubDate>Thu, 11 Jun 2015 12:15:34 +0000</pubDate>
       
-      <guid>https://inge.4pr.es/2015/06/11/2015-06-11-my-first-golang-web-project/</guid>
+      <guid>http://inge.4pr.es/2015/06/11/2015-06-11-my-first-golang-web-project/</guid>
       <description>It is true: I fell in love with Go, not because I love Google and his products, but because it really fits my ideology of simplicity and power in a programming language. I started experimenting with the language and thank to his web-oriented approach I quickly came up with one of the simplest single task web application I could write: a URL shortener.
 What is a URL shortener? It&amp;#8217;s a service that will give you a short link for a long URL.</description>
     </item>

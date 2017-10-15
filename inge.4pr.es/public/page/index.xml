@@ -1,35 +1,31 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Pages on inge4pres</title>
-    <link>https://inge.4pr.es/page/</link>
-    <description>Recent content in Pages on inge4pres</description>
+    <title>Pages on inge4pres rational thoughts</title>
+    <link>http://inge.4pr.es/page/</link>
+    <description>Recent content in Pages on inge4pres rational thoughts</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>Francesco Gualazzi</copyright>
-    <lastBuildDate>Wed, 12 Oct 2016 15:28:09 +0200</lastBuildDate>
+    <lastBuildDate>Sat, 14 Oct 2017 15:27:36 +0200</lastBuildDate>
     
-	<atom:link href="https://inge.4pr.es/page/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://inge.4pr.es/page/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>contact</title>
-      <link>https://inge.4pr.es/page/contact/</link>
-      <pubDate>Wed, 12 Oct 2016 15:28:09 +0200</pubDate>
+      <title>resume</title>
+      <link>http://inge.4pr.es/resume/</link>
+      <pubDate>Sat, 14 Oct 2017 15:27:36 +0200</pubDate>
       
-      <guid>https://inge.4pr.es/page/contact/</guid>
-      <description>MAIL
-SKYPE
-PHONE</description>
+      <guid>http://inge.4pr.es/resume/</guid>
+      <description>Work experiences 9&amp;frasl;2017 - now() » DevOps Engineer @ lastminute.com I am contributing to the development of a CI/CD platform to enable developers to test and deploy code easily and with confidence; we collaborate with SRE team to provide automated services to consume infrastructure. The end-user platform runs on Kubernetes and we leverage Jenkins and Docker to shorten the feedback loop and aid the software improvement cycle from dev to production.</description>
     </item>
     
     <item>
       <title>about</title>
-      <link>https://inge.4pr.es/page/about/</link>
+      <link>http://inge.4pr.es/about/</link>
       <pubDate>Wed, 12 Oct 2016 15:27:36 +0200</pubDate>
       
-      <guid>https://inge.4pr.es/page/about/</guid>
-      <description>Bio I&amp;rsquo;m a passionate technology enthusiast, a Systems Engineer in love with Cloud Computing and a part-time musician and writer; I became a Go developer on 2013 when approaching distributed systems. I like to study how things work, understand the mechanics of technology products. In my spare time I play drums, bass guitar and acoustic guitar, and sometimes try and write some music; writing small poems is also interesting to me, as it helps me find a different meaning for anything I see.</description>
+      <guid>http://inge.4pr.es/about/</guid>
+      <description>Bio I&amp;rsquo;m a passionate technology enthusiast, an engineer in love with Computer Science and a part-time musician and writer; I started my career in IT as a sysadmin and became a Go developer in 2013 when approaching distributed systems. I like to study how things work, understand the mechanics of technology products. In my spare time I play drums, bass guitar and acoustic guitar, and sometimes try and write some music; writing small poems is also a passion of mine, as it helps me find a different meaning to things.</description>
     </item>
     
   </channel>

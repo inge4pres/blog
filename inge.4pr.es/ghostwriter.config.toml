@@ -37,3 +37,8 @@ enableRobotsTXT = true
     name = "about"
     url = "/page/about/"
     weight = 2
+
+[[menu.main]]
+    name = "resume"
+    url = "/page/resume/"
+    weight = 3

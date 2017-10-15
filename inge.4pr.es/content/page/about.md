@@ -1,6 +1,6 @@
 ---
 title: "about"
-description: "you are what you is"
+description: "You are what you is"
 author: "inge4pres"
 tags:
 date: 2016-10-12T15:27:36+02:00
