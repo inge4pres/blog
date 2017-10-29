@@ -6,7 +6,7 @@ import (
 	"testing"
 )
 
-func TestUnbufferedChannelRange(t *testing.T) {
+func TestChannelIterateOverRange(t *testing.T) {
 	numbers := make(chan int)
 	go func(nums <-chan int) {
 		for n := range nums {
@@ -19,26 +19,7 @@ func TestUnbufferedChannelRange(t *testing.T) {
 	close(numbers)
 }
 
-func TestUnbufferedChannelRangeOnGoroutines(t *testing.T) {
-	var wg sync.WaitGroup
-	numbers := make(chan int)
-	go func(nums <-chan int) {
-		for n := range nums {
-			fmt.Println(printNumber(n))
-		}
-	}(numbers)
-	for i := 0; i < nums; i++ {
-		wg.Add(1)
-		go func(c int) {
-			defer wg.Done()
-			numbers <- c
-		}(i)
-	}
-	wg.Wait()
-	close(numbers)
-}
-
-func TestBufferedChannel(t *testing.T) {
+func TestChannelBuffered(t *testing.T) {
 	numbers := make(chan int, 5)
 	go func(nums <-chan int) {
 		for n := range nums {
@@ -90,4 +71,23 @@ func TestMultipleChannelsSelect(t *testing.T) {
 	<-done
 	// exit from first goroutine
 	finish <- true
+}
+
+func TestChannelRangeOnGoroutines(t *testing.T) {
+	var wg sync.WaitGroup
+	numbers := make(chan int)
+	go func(nums <-chan int) {
+		for n := range nums {
+			fmt.Println(printNumber(n))
+		}
+	}(numbers)
+	for i := 0; i < nums; i++ {
+		wg.Add(1)
+		go func(c int) {
+			defer wg.Done()
+			numbers <- c
+		}(i)
+	}
+	wg.Wait()
+	close(numbers)
 }

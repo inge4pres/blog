@@ -29,8 +29,12 @@ _Channels are a typed conduit through which you can send and receive values with
 So what are they good for? They are actually not very helpful without goroutines: a goroutine is a lightweigth thread managed by the Go runtime ([definition](https://tour.golang.org/concurrency/1)), think like a background process that can be spawned and does not need to be managed directly by you, I like the concept of _"run and forget"_.
 The easiest concurrency pattern available is thinking of a goroutine processing some data in the background and returning them through a channel to the main thread executing our code; this can be very powerful and scale well to multiple functions and channels.
 
-#### Synchronization via WaitGroups
-[WaitGroups](https://golang.org/pkg/sync/#WaitGroup) are part of the `sync` package from the Go standard lib: they are a way for waiting the execution of goroutines to ends properly and ensure all the work done in the background is completed. WaitGroups are often used with `defer` 
+#### WaitGroups
+[WaitGroups](https://golang.org/pkg/sync/#WaitGroup) are part of the `sync` package from the Go standard lib: they are a way for waiting the execution of goroutines to end properly and ensure all the work done in the background is completed. WaitGroups are often used with `defer` to fill in the wait queue when the goroutine exits.
+
+#### Some examples
+For me the most difficult thing to understand when approaching concurrency was how to ensure all of my goroutines completed execution: to do this the easiest way is using WaitGroups as in [waitgroup_test.go](https://github.com/inge4pres/blog/blob/master/golang-concurrency-patterns/waitgroup_test.go): if you run the tests with `go test -v . -race  -run ^TestWaitGroup` you can see the execution time when using concurrency or not. Changing the value of `ops` variable in [functions_test.go](https://github.com/inge4pres/blog/blob/master/golang-concurrency-patterns/functions_test.go#L3) will make the tests process less or more items.
+
 
 #### References
 [Concurrency made easy - Dave Cheney](https://www.youtube.com/watch?v=yKQOunhhf4A)
