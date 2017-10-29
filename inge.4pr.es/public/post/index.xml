@@ -5,10 +5,19 @@
     <link>http://inge.4pr.es/post/</link>
     <description>Recent content in Posts on inge4pres rational thoughts</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 01 Oct 2017 21:31:52 +0200</lastBuildDate>
+    <lastBuildDate>Sat, 28 Oct 2017 19:40:09 +0200</lastBuildDate>
     
 	<atom:link href="http://inge.4pr.es/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Golang Concurrency Patterns</title>
+      <link>http://inge.4pr.es/2017/10/28/2017-10-28-golang-concurrency-pattern/</link>
+      <pubDate>Sat, 28 Oct 2017 19:40:09 +0200</pubDate>
+      
+      <guid>http://inge.4pr.es/2017/10/28/2017-10-28-golang-concurrency-pattern/</guid>
+      <description>In the early days of Go the language was often tailored towards &amp;ldquo;system programming&amp;rdquo; due to its C-stlye syntax and ability to write high-performance applications. Not long time after Go adoption was starting to gain traction for distributed systems development and projects like etcd, docker and kubernetes revealed the power of the networking capabilities offered by the internals. Along the way a lot of libraries have been built around the powerful primitives offered by Go but in my opinion there is not enough use literature around the Communicating Sequential Processes implementation available through channels and goroutines, they are not even widely used in the standard library.</description>
+    </item>
     
     <item>
       <title>Getting Started With Google Cloud Builder</title>
