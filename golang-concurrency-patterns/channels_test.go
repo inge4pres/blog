@@ -33,6 +33,25 @@ func TestChannelBuffered(t *testing.T) {
 	}
 }
 
+func TestChannelBufferedWithMultipleFunctions(t *testing.T) {
+	output := make(chan string)
+	go func() {
+		for out := range output {
+			fmt.Println(out)
+		}
+	}()
+	for _, c := range decimals {
+		go func(in string) {
+			num, err := numberConvert(in)
+			if err != nil {
+				output <- err.Error()
+				return
+			}
+			output <- printNumber(num)
+		}(c)
+	}
+}
+
 func TestMultipleChannelsSelect(t *testing.T) {
 	numbers := make(chan string)
 	greets := make(chan string)

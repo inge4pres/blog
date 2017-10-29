@@ -39,8 +39,10 @@ If you run the tests with `go test -v . -race  -run ^TestWaitGroup` you can see 
 With channels there are more features and gotchas that need to be taken into account:
 * a read from a closed channel returns the type's zero-value
 * a send to a closed channel will `panic`
-* a read and a send alone to an unbuffered channel are blocking: they will generate a deadlock if there is not a corresponding send/read operation no the other side of the channel
-* a send on a buffered channel will be blocked when the buffer is full and no other read is happening
+* a read and a send alone to an unbuffered channel are blocking: they will generate a deadlock if there is not a corresponding send/read operation on the other side of the channel
+* a send on a buffered channel will block when the buffer is full and no other read is happening on the other side
+
+That being said, there are a couple of notable usages that I like to include in my concurrency-enabled Go software: the [fanout pattern](https://github.com/inge4pres/blog/blob/master/golang-concurrency-patterns/channels_test.go#L22) where an input generates multiple goroutines that perform operations in the background and the output of the concurrent goroutines is fetched by a channel in the main thread: this is amazingly powerful for networked systems as the function running in the goroutine can either return one single value or multiple values (like an error). 
 
 
 #### References
