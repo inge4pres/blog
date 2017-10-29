@@ -42,12 +42,16 @@ With channels there are more features and gotchas that need to be taken into acc
 * a read and a send alone to an unbuffered channel are blocking: they will generate a deadlock if there is not a corresponding send/read operation on the other side of the channel
 * a send on a buffered channel will block when the buffer is full and no other read is happening on the other side
 
-That being said, there are a couple of notable usages that I like to include in my concurrency-enabled Go software: the [fanout pattern](https://github.com/inge4pres/blog/blob/master/golang-concurrency-patterns/channels_test.go#L22) where an input generates multiple goroutines that perform operations in the background and the output of the concurrent goroutines is fetched by a channel in the main thread: this is amazingly powerful for networked systems as the function running in the goroutine can either return one single value or multiple values (like an error). 
+That being said, there are a couple of notable usages that I like to include in my concurrency-enabled Go software: the [fan-out pattern](https://github.com/inge4pres/blog/blob/master/golang-concurrency-patterns/channels_test.go#L22) where an input generates multiple goroutines that perform operations in the background and the output of the concurrent goroutines is fetched by a channel in the main thread. Another pattern is [fan-in](https://github.com/inge4pres/blog/blob/master/golang-concurrency-patterns/channels_test.go#L36): multiple functions can return values to a channel as long as the type is consistent. Run tests with `go test -timeout 30s -run ^TestChannelBuffered` to see fan-out/fan-in patterns in action.
 
+Another interesting feature is powered by the `select` statement: you can read from multiple channels in the same function and define behavior for any given channel message, it is another sample of fan-in pattern. Using `select` will block until one of the send/receive operation is available, the operation gets chosen randomly if multiple are available at the same time. `select` has a similar syntax to `switch` so `case` and `default` are the scenario selector. Running [multiple channels](https://github.com/inge4pres/blog/blob/master/golang-concurrency-patterns/channels_test.go#L55) lets you manage multiple types in a single point: run the test with `go test -timeout 30s -run ^TestMultipleChannelsSelect$` to check the execution.
+
+#### Conclusions
+My experience with Go concurrency primitives is still forming, I hope I can read and experiment more on the topic as it's one of Go's most powerful and at the same time less documented features! I'd really love to hear feedback from the read so if you get up to this point, take a step forward and leave a comment below, I'd really love to discuss.
 
 #### References
+[Worker pools](https://gobyexample.com/worker-pools)
+[Channels](https://golangbot.com/channels/)
 [Concurrency made easy - Dave Cheney](https://www.youtube.com/watch?v=yKQOunhhf4A)
 [Share memory by communicating - Codewalk](https://golang.org/doc/codewalk/sharemem/)
 [Go channels are bad and you should feel bad](http://www.jtolds.com/writing/2016/03/go-channels-are-bad-and-you-should-feel-bad/)
-[Worker pools](https://gobyexample.com/worker-pools)
-[Chhanels](https://golangbot.com/channels/)
