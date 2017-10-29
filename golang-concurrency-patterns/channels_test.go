@@ -52,10 +52,11 @@ func TestBufferedChannel(t *testing.T) {
 	}
 }
 
-func TestMultipleChannels(t *testing.T) {
+func TestMultipleChannelsSelect(t *testing.T) {
 	numbers := make(chan int)
 	greets := make(chan string)
 	done := make(chan bool)
+	finish := make(chan bool)
 	// reading all in the background, exiting when done
 	go func() {
 		for {
@@ -64,15 +65,15 @@ func TestMultipleChannels(t *testing.T) {
 				fmt.Println(printNumber(n))
 			case p := <-greets:
 				fmt.Println(sayHello(p))
+			case <-finish:
+				return
 			}
 		}
 	}()
 	// sending numbers
 	go func() {
 		for i := 0; i < nums; i++ {
-			go func(c int) {
-				numbers <- c
-			}(i)
+			numbers <- i
 		}
 		done <- true
 	}()
@@ -84,7 +85,9 @@ func TestMultipleChannels(t *testing.T) {
 		done <- true
 	}()
 
-	// wait reading from done
+	// read to block until goroutines complete
 	<-done
 	<-done
+	// exit from first goroutine
+	finish <- true
 }
