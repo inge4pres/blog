@@ -10,7 +10,7 @@ tags:
 categories:
   - tech
 
-draft: true
+draft: false
 ---
 
 In the early days of Go the language was often tailored towards "system programming" due to its C-stlye syntax and ability to write high-performance applications. Not long time after Go adoption was starting to gain traction for distributed systems development and projects like etcd, docker and kubernetes revealed the power of the networking capabilities offered by the internals. Along the way a lot of libraries have been built around the powerful primitives offered by Go but in my opinion there is not enough use literature around the *[Communicating Sequential Processes](https://en.wikipedia.org/wiki/Communicating_sequential_processes)* implementation available through channels and goroutines, they are not even widely used in the standard library. I'll detail here some concurrency patterns that I found useful and hopefully they'll be idiomatic enough to represent a good use case for you.
