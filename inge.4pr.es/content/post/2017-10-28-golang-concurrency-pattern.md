@@ -33,10 +33,19 @@ The easiest concurrency pattern available is thinking of a goroutine processing 
 [WaitGroups](https://golang.org/pkg/sync/#WaitGroup) are part of the `sync` package from the Go standard lib: they are a way for waiting the execution of goroutines to end properly and ensure all the work done in the background is completed. WaitGroups are often used with `defer` to fill in the wait queue when the goroutine exits.
 
 #### Some examples
-For me the most difficult thing to understand when approaching concurrency was how to ensure all of my goroutines completed execution: to do this the easiest way is using WaitGroups as in [waitgroup_test.go](https://github.com/inge4pres/blog/blob/master/golang-concurrency-patterns/waitgroup_test.go): if you run the tests with `go test -v . -race  -run ^TestWaitGroup` you can see the execution time when using concurrency or not. Changing the value of `ops` variable in [functions_test.go](https://github.com/inge4pres/blog/blob/master/golang-concurrency-patterns/functions_test.go#L3) will make the tests process less or more items.
+For me the most difficult thing to understand when approaching concurrency was how to ensure all of my goroutines completed execution: to do this the easiest way is using WaitGroups as in [waitgroup_test.go](https://github.com/inge4pres/blog/blob/master/golang-concurrency-patterns/waitgroup_test.go): `wg.Add(1)` adds one item in th wiat queue and `wg.Done()` remove one item; using `wg.Wait()` in the main process makes the process wait until the wait group is emptied.
+If you run the tests with `go test -v . -race  -run ^TestWaitGroup` you can see the execution time when using concurrency or not. Changing the value of `ops` variable in [functions_test.go](https://github.com/inge4pres/blog/blob/master/golang-concurrency-patterns/functions_test.go#L3) will make the tests process less or more items.
+
+With channels there are more features and gotchas that need to be taken into account:
+* a read from a closed channel returns the type's zero-value
+* a send to a closed channel will `panic`
+* a read and a send alone to an unbuffered channel are blocking: they will generate a deadlock if there is not a corresponding send/read operation no the other side of the channel
+* a send on a buffered channel will be blocked when the buffer is full and no other read is happening
 
 
 #### References
 [Concurrency made easy - Dave Cheney](https://www.youtube.com/watch?v=yKQOunhhf4A)
 [Share memory by communicating - Codewalk](https://golang.org/doc/codewalk/sharemem/)
 [Go channels are bad and you should feel bad](http://www.jtolds.com/writing/2016/03/go-channels-are-bad-and-you-should-feel-bad/)
+[Worker pools](https://gobyexample.com/worker-pools)
+[Chhanels](https://golangbot.com/channels/)

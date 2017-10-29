@@ -20,21 +20,21 @@ func TestChannelIterateOverRange(t *testing.T) {
 }
 
 func TestChannelBuffered(t *testing.T) {
-	numbers := make(chan int, 5)
-	go func(nums <-chan int) {
+	numbers := make(chan string, 5)
+	go func(nums <-chan string) {
 		for n := range nums {
-			fmt.Println(printNumber(n))
+			fmt.Println(n)
 		}
 	}(numbers)
 	for i := 0; i < nums; i++ {
 		go func(c int) {
-			numbers <- c
+			numbers <- printNumber(c)
 		}(i)
 	}
 }
 
 func TestMultipleChannelsSelect(t *testing.T) {
-	numbers := make(chan int)
+	numbers := make(chan string)
 	greets := make(chan string)
 	done := make(chan bool)
 	finish := make(chan bool)
@@ -43,9 +43,9 @@ func TestMultipleChannelsSelect(t *testing.T) {
 		for {
 			select {
 			case n := <-numbers:
-				fmt.Println(printNumber(n))
+				fmt.Println(n)
 			case p := <-greets:
-				fmt.Println(sayHello(p))
+				fmt.Println(p)
 			case <-finish:
 				return
 			}
@@ -54,14 +54,14 @@ func TestMultipleChannelsSelect(t *testing.T) {
 	// sending numbers
 	go func() {
 		for i := 0; i < nums; i++ {
-			numbers <- i
+			numbers <- printNumber(i)
 		}
 		done <- true
 	}()
 	// sending strings
 	go func() {
 		for _, person := range people {
-			greets <- person
+			greets <- sayHello(person)
 		}
 		done <- true
 	}()
@@ -75,17 +75,17 @@ func TestMultipleChannelsSelect(t *testing.T) {
 
 func TestChannelRangeOnGoroutines(t *testing.T) {
 	var wg sync.WaitGroup
-	numbers := make(chan int)
-	go func(nums <-chan int) {
+	numbers := make(chan string)
+	go func(nums <-chan string) {
 		for n := range nums {
-			fmt.Println(printNumber(n))
+			fmt.Println(n)
 		}
 	}(numbers)
 	for i := 0; i < nums; i++ {
 		wg.Add(1)
 		go func(c int) {
 			defer wg.Done()
-			numbers <- c
+			numbers <- printNumber(c)
 		}(i)
 	}
 	wg.Wait()
