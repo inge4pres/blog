@@ -43,6 +43,7 @@ go test -v . -race -run ^TestWaitGroup
 you can see the execution time when using concurrency or not. Changing the value of `ops` variable in [functions_test.go](https://github.com/inge4pres/blog/blob/master/golang-concurrency-patterns/functions_test.go#L3) will make the tests process less or more items.
 
 With channels there are more features and gotchas that need to be taken into account:
+
 * a read from a closed channel returns the type's zero-value
 * a send to a closed channel will `panic`
 * a read and a send alone to an unbuffered channel are blocking: they will generate a deadlock if there is not a corresponding send/read operation on the other side of the channel
