@@ -19,7 +19,7 @@ In the early days of Go the language was often tailored towards "system programm
 CSP it's kind of a similar feature to threading but there are some differences; to know more on CSP I really recommend watching Rob Pike's [excellent talk on the topic](https://vimeo.com/49718712).
 
 #### My experience
-Personally it took me a while to find my way out of the issues I ran into when first using concurrency features in Go: they are definitely the most complicated part of Go usage, which is on average simpler that any other language I tried. So for me, the biggest problem was to understand what it means to have a goroutine spawned and how to control its execution or get data out of it, so I put together a list of examples on how concurrent programs flow can be controlled with the primitives built in the language.
+Personally it took me a while to find my way out of the issues I ran into when first using concurrency features in Go: they are definitely the most complicated part of using Go, which is on average simpler that any other language I tried. So for me, the biggest problem was to understand what it means to have a goroutine spawned and how to control its execution or get data out of it, so I put together a list of examples on how concurrent programs flow can be controlled with the primitives built in the language.
 
 #### Channel, channels, channels everywhere
 A channel in Go is a way to pass messages between functions and goroutines, the official definition from [A Tour of Go](https://tour.golang.org/concurrency/2) is:
@@ -69,8 +69,9 @@ to check the execution of the multiple goroutines.
 My experience with Go concurrency primitives is still forming, I hope I can read and experiment more on the topic as it's one of Go's most powerful and at the same time less documented features! I'd really love to hear feedback from the read so if you get up to this point, take a step forward and leave a comment below, I'd really love to discuss.
 
 #### References
-[Worker pools](https://gobyexample.com/worker-pools)
-[Channels](https://golangbot.com/channels/)
-[Concurrency made easy - Dave Cheney](https://www.youtube.com/watch?v=yKQOunhhf4A)
-[Share memory by communicating - Codewalk](https://golang.org/doc/codewalk/sharemem/)
-[Go channels are bad and you should feel bad](http://www.jtolds.com/writing/2016/03/go-channels-are-bad-and-you-should-feel-bad/)
+
+* [Worker pools](https://gobyexample.com/worker-pools)
+* [Channels](https://golangbot.com/channels/)
+* [Concurrency made easy - Dave Cheney](https://www.youtube.com/watch?v=yKQOunhhf4A)
+* [Share memory by communicating - Codewalk](https://golang.org/doc/codewalk/sharemem/)
+* [Go channels are bad and you should feel bad](http://www.jtolds.com/writing/2016/03/go-channels-are-bad-and-you-should-feel-bad/)
