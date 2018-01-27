@@ -1,0 +1,11 @@
+name: storejson
+version: 0.0.5
+runtime: go
+entrypoint: ./func
+path: /storejson
+expects:
+  config:
+  - name: REDIS_SERVER_ADDR
+    required: true
+  - name: REDIS_SERVER_PWD
+    required: true
