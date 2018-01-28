@@ -36,7 +36,22 @@ Now there might be others, but this 4 are the ones I mostly heard of in the last
 
 #### Comparison criteria
 This is not a technical benchmark on the capabilities of this 4 frameworks: it's a _"look Ma, I can serverless on k8s"_ post where I try and highlight the pros and cons of adopting one or the other; the criteria will be ease of installation (client and server), languages support, cluster interoperability and developer experience, voted from 0 to 5, the higher the better.
-I will use Kubernetes 1.8.6 that is, at the moment of writing, the latest available stable version; the function to deploy will be a super-serious analytics and business intelligence tool that will the incoming HTTP request body and the time it occurred and store them on a REDIS for further analysis, in the format of a JSON document.
+I will use Kubernetes 1.8.6 that is, at the moment of writing, the latest available stable version.
+
+The target function to deploy will be a super-serious analytics and business intelligence tool that will read the incoming HTTP request body and save it in a JSON document alongside with a timestamp. The JSON will be stored on a REDIS using a random UUIDv4 as key. All the code that will be deployed as functions is in [Github](https://github.com/inge4pres/blog/tree/master/serverless-on-kubernetes), while for installing the GCP cluster and REDIS I used the following
+
+```
+gcloud beta container --project "${GCP_PROJECT}" clusters create "serverless-k8s" \
+  --zone "europe-west2-c" --username "admin" --cluster-version "1.8.6-gke.0" \
+  --machine-type "g1-small" --image-type "COS" --disk-size "100" --num-nodes "3"
+
+gcloud container clusters get-credentials serverless-k8s \
+  --zone europe-west2-a --project "${GCP_PROJECT}"
+
+helm init
+
+helm install stable/redis
+```
 
 #### Fn Project
 ###### Features
