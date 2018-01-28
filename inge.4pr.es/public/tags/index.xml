@@ -139,7 +139,7 @@
     <item>
       <title>Development</title>
       <link>http://inge.4pr.es/tags/development/</link>
-      <pubDate>Sat, 28 Oct 2017 19:40:09 +0200</pubDate>
+      <pubDate>Sun, 21 Jan 2018 12:31:34 +0100</pubDate>
       
       <guid>http://inge.4pr.es/tags/development/</guid>
       <description></description>
@@ -281,6 +281,15 @@
     </item>
     
     <item>
+      <title>Kubernetes</title>
+      <link>http://inge.4pr.es/tags/kubernetes/</link>
+      <pubDate>Sun, 21 Jan 2018 12:31:34 +0100</pubDate>
+      
+      <guid>http://inge.4pr.es/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Letsencrypt</title>
       <link>http://inge.4pr.es/tags/letsencrypt/</link>
       <pubDate>Sat, 03 Dec 2016 15:34:48 +0100</pubDate>
@@ -335,6 +344,15 @@
     </item>
     
     <item>
+      <title>Platform</title>
+      <link>http://inge.4pr.es/tags/platform/</link>
+      <pubDate>Sun, 21 Jan 2018 12:31:34 +0100</pubDate>
+      
+      <guid>http://inge.4pr.es/tags/platform/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Policy</title>
       <link>http://inge.4pr.es/tags/policy/</link>
       <pubDate>Wed, 06 Apr 2016 19:51:33 +0000</pubDate>
@@ -358,6 +376,15 @@
       <pubDate>Thu, 11 Dec 2014 16:57:14 +0000</pubDate>
       
       <guid>http://inge.4pr.es/tags/server/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Serverless</title>
+      <link>http://inge.4pr.es/tags/serverless/</link>
+      <pubDate>Sun, 21 Jan 2018 12:31:34 +0100</pubDate>
+      
+      <guid>http://inge.4pr.es/tags/serverless/</guid>
       <description></description>
     </item>
     
