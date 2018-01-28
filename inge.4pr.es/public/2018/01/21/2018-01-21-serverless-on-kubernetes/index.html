@@ -96,7 +96,7 @@ ga('send', 'pageview');
   <polyline points="12 6 12 12 15 15"/> 
   
 </svg>
-8 mins read
+9 mins read
 </span>
 
 
@@ -136,7 +136,21 @@ ga('send', 'pageview');
 <h4 id="comparison-criteria">Comparison criteria</h4>
 
 <p>This is not a technical benchmark on the capabilities of this 4 frameworks: it&rsquo;s a <em>&ldquo;look Ma, I can serverless on k8s&rdquo;</em> post where I try and highlight the pros and cons of adopting one or the other; the criteria will be ease of installation (client and server), languages support, cluster interoperability and developer experience, voted from 0 to 5, the higher the better.
-I will use Kubernetes 1.8.6 that is, at the moment of writing, the latest available stable version; the function to deploy will be a super-serious analytics and business intelligence tool that will the incoming HTTP request body and the time it occurred and store them on a REDIS for further analysis, in the format of a JSON document.</p>
+I will use Kubernetes 1.8.6 that is, at the moment of writing, the latest available stable version.</p>
+
+<p>The target function to deploy will be a super-serious analytics and business intelligence tool that will read the incoming HTTP request body and save it in a JSON document alongside with a timestamp. The JSON will be stored on a REDIS using a random UUIDv4 as key. All the code that will be deployed as functions is in <a href="https://github.com/inge4pres/blog/tree/master/serverless-on-kubernetes" target="_blank">Github</a>, while for installing the GCP cluster and REDIS I used the following</p>
+
+<pre><code>gcloud beta container --project &quot;${GCP_PROJECT}&quot; clusters create &quot;serverless-k8s&quot; \
+  --zone &quot;europe-west2-c&quot; --username &quot;admin&quot; --cluster-version &quot;1.8.6-gke.0&quot; \
+  --machine-type &quot;g1-small&quot; --image-type &quot;COS&quot; --disk-size &quot;100&quot; --num-nodes &quot;3&quot;
+
+gcloud container clusters get-credentials serverless-k8s \
+  --zone europe-west2-a --project &quot;${GCP_PROJECT}&quot;
+
+helm init
+
+helm install stable/redis
+</code></pre>
 
 <h4 id="fn-project">Fn Project</h4>
 
