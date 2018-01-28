@@ -32,7 +32,7 @@ It seems like a natural evolution for distributed systems to be composed by smal
 * [Kubeless](https://github.com/kubeless/kubeless)
 * [Fn Project](https://github.com/fnproject/fn)
 
-Now there might be others, but this 4 are the ones I mostly heard of in the last 6 months, so they must be the right ones :).
+Now there might be others, but this 4 are the ones I mostly heard of in the last 6 months, so they must be the right ones 😁.
 
 #### Comparison criteria
 This is not a technical benchmark on the capabilities of this 4 frameworks: it's a _"look Ma, I can serverless on k8s"_ post where I try and highlight the pros and cons of adopting one or the other; the criteria will be ease of installation (client and server), languages support, cluster interoperability and developer experience, voted from 0 to 5, the higher the better.
