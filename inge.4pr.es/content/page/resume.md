@@ -8,8 +8,8 @@ date: 2017-10-14T15:27:36+02:00
 
 ### Work experiences
 
-###### 9/2017 - now()   » DevOps Engineer @ [lastminute.com](http://lastminute.com "lastminute")
-I am contributing to the development of a CI/CD platform to enable developers to test and deploy code easily and with confidence; we collaborate with SRE team to provide automated services to consume infrastructure. The end-user platform runs on Kubernetes and we leverage Jenkins and Docker to shorten the feedback loop and aid the software improvement cycle from dev to production.
+###### 9/2017 - now()   » DevOps Engineer @ [lastminute group](http://www.lastminutegroup.com/ "lastminute group")
+I am contributing mainly to the development of a CI/CD platform to enable developers to test, build and deploy software easily and with confidence; we are part of Platform team and we collaborate with SREs and DBAs to provide developers automated services to consume infrastructure. The end-user platform runs on Kubernetes and we leverage Jenkins and Docker to shorten the feedback loop and continuously improve product quality.
 
 ###### 11/2016 - 8/2017  » DevOps Tech Lead @ [Accenture DVO](http://www.accenture.com/us-en/accenture-digital-video)
 Within a team of 7, I was to define a medium term strategy on monitoring tools and have it implemented. We aim to reduce the MTTR, improve the incident detection and the application performance analysis; we write plugins and APIs to make this tools interact seamlessly between each others and with other teams.
