@@ -1,5 +1,5 @@
 ---
-date: "2018-01-21T12:31:34+01:00"
+date: "2018-01-30T20:31:34+01:00"
 title: "Serverless on Kubernetes"
 description: "An overview of the options to run functions as a service on k8s"
 author: "inge4pres"
@@ -20,7 +20,7 @@ draft: false
 Kubernetes is the _de facto_ platform for running modern applications: its broad adoption in 2017 and the velocity of the project made it so and it's been accepted as the standard for many companies, from small to planet scale. It was impossible that such an extensible platform would be left out the serverless party, so here are the 4 main players offering FaaS to be run via k8s.
 
 #### A premise
-If you're new to serverless and FaaS and all the previous buzzwords sound like cacophony to your ears, I really recommend reading [this post](https://martinfowler.com/articles/serverless.html) and watching [this talk](https://www.youtube.com/watch?v=LAWjdZYrUgI). You could also notice how I put FaaS and serverless under the same hat here, this is just a personal opinion: historically I approached the topic using AWS Lambda, and I really tied the idea of writing functions and let someone else manage the infrastructure to the _serverless_ concept. Someone pointed out that the term was confusing because, you know, *there are actual servers* running those functions, so the acronym FaaS (Function as a Service) was born.
+If you're new to serverless and FaaS and all the previous buzzwords sound like cacophony to your ears, I really recommend reading [this post](https://martinfowler.com/articles/serverless.html) and watching [this talk](https://www.youtube.com/watch?v=LAWjdZYrUgI). You could also notice how I put FaaS and serverless under the same hat here, this is just a personal opinion although some might argue that FaaS is a subset of serverless: historically I approached the serverless world using AWS Lambda, and I really tied the idea of writing functions and let someone else manage the infrastructure to the _serverless_ concept. Also Sam Newman gave a [good talk on serverless](https://youtu.be/CrS0HVQZiQI) that I really recommend watching.
 
 #### Why serverless on k8s
 It seems like a natural evolution for distributed systems to be composed by smaller and smaller parts. When moving from SOA to microservices the size of the service was reduced to enable development of more fine-grained functionalities into smaller and more maintainable components; taken to the extreme, you can reduce a microservice to be dedicated to just one task or to be  made of just one function, that's where FaaS fits into. Kubernetes is a great activator for such modularity as it creates a very powerful abstraction over infrastructure, so when developing a function as a separate module of a distributed system you can scale both vertically and horizontally any building block, each one independently from another, or you could even let Kubernetes manage that (think [Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)).
@@ -35,7 +35,7 @@ It seems like a natural evolution for distributed systems to be composed by smal
 Now there might be others, but this 4 are the ones I mostly heard of in the last 6 months, so they must be the right ones 😁.
 
 #### Comparison criteria
-This is not a technical benchmark on the capabilities of this 4 frameworks: it's a _"look Ma, I can serverless on k8s"_ post where I try and highlight the pros and cons of adopting one or the other; the criteria will be ease of installation (client and server), languages support, cluster interoperability and developer experience, voted from 0 to 5, the higher the better.
+This is not a technical benchmark on the capabilities of this 4 frameworks: it's a _"look Ma, I can serverless on k8s"_ post where I try and highlight the pros and cons of adopting one or the other; the criteria will be  installation methodology (client and server), languages support, cluster interoperability and developer experience, voted from 0 to 5 the higher the better.
 I will use Kubernetes 1.8.6 that is, at the moment of writing, the latest available stable version.
 
 The target function to deploy will be a super-serious analytics and business intelligence tool that will read the incoming HTTP request body and save it in a JSON document alongside with a timestamp. The JSON will be stored on a REDIS using a random UUIDv4 as key. All the code that will be deployed as functions is in [Github](https://github.com/inge4pres/blog/tree/master/serverless-on-kubernetes), while for installing the GCP cluster and REDIS I used the following
@@ -43,10 +43,10 @@ The target function to deploy will be a super-serious analytics and business int
 ```
 gcloud beta container --project "${GCP_PROJECT}" clusters create "serverless-k8s" \
   --zone "europe-west2-c" --username "admin" --cluster-version "1.8.6-gke.0" \
-  --machine-type "g1-small" --image-type "COS" --disk-size "100" --num-nodes "3"
+  --machine-type "g1-small" --image-type "COS" --disk-size "50" --num-nodes "3"
 
 gcloud container clusters get-credentials serverless-k8s \
-  --zone europe-west2-a --project "${GCP_PROJECT}"
+  --zone europe-west2-c --project "${GCP_PROJECT}"
 
 helm init
 
@@ -157,6 +157,6 @@ Monitoring provided via Prometheus integration; all backend services are run int
 Everything worked great even when running an experimental feature such as custom environment: I was able to inject configuration via environment variables, get the function logs either via `kubeless` CLI or `kubectl` and debug my way out of the configuration error I put into my first image. Second deploy I did I was able to call my function and I validated the results connecting to REDIS afterwards.
 
 ### Wrapping up
-There are lots of people investing in serverless right now, almost as many as there are for Kubernetes and the integrations between the two will bring a new exciting technology scenario for the next years. To my experience building this post none of the previously listed framework is ready for production usage, to be honest most of them are not even ready for the average developer weekend project usage. You need to know Kubernetes quite a bit to troubleshoot issues happening during deployment and/or execution of your functions and this makes the whole serverless idea crumble, as you'll be forced to dig into infrastructure details to have your code running.
+There are lots of people investing in serverless right now, almost as many as there are for Kubernetes; the integrations between the two will bring a new exciting technology scenario in the next years. To my experience building this post none of the previously listed framework is ready for production usage, to be honest most of them are not even ready for the average developer weekend project usage. You need to know Kubernetes quite a bit to troubleshoot issues happening during deployment and/or execution of your functions and this makes the whole serverless idea crumble, as you'll be forced to dig into infrastructure details to have your code running.
 
-If I'd have to bet on one of the project I tried so far, I'd do so on Kubeless; it's been definitely the smoothest setup  among all and the tight Kubernetes integration makes it a perfect candidate for community-driven growth.
+If I'd have to bet on one of the project I tried so far, I'd do so on Kubeless; it's been definitely the smoothest setup  among all and the tight Kubernetes integration makes it a perfect candidate for community-driven growth. If you know any other framework that should be in this post please let me know it in the comments! I am always curious to see what's around in all things serverless so don't keep it for yourself!
