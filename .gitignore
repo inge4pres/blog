@@ -2,4 +2,4 @@
 *.tfstate.backup
 ./inge4pres/themes
 *DS_store*
-.vscode
+./.vscode
