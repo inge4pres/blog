@@ -5,10 +5,20 @@
     <link>http://inge.4pr.es/categories/tech/</link>
     <description>Recent content in Tech on inge4pres rational thoughts</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 28 Oct 2017 19:40:09 +0200</lastBuildDate>
+    <copyright>Francesco Gualazzi</copyright>
+    <lastBuildDate>Sun, 25 Feb 2018 16:47:05 +0100</lastBuildDate>
     
 	<atom:link href="http://inge.4pr.es/categories/tech/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Continuous Delivery with Drone</title>
+      <link>http://inge.4pr.es/2018/02/25/continuous-delivery-with-drone/</link>
+      <pubDate>Sun, 25 Feb 2018 16:47:05 +0100</pubDate>
+      
+      <guid>http://inge.4pr.es/2018/02/25/continuous-delivery-with-drone/</guid>
+      <description>Continuous Delivery should be a solved issue: the practice is well-defined and there is a plethora of tools implementing it with more or less peculiarities, but still many struggle implementing it. The dream of a perfect continuous deployment flow from the developer to the production environment with software quality gates based on automated tests is still alive in me, I tried and tried several times with multiple implementations on multiple platforms and never got to the point where I could say: &amp;ldquo;I&amp;rsquo;m done, this works exactly as I wanted&amp;rdquo;.</description>
+    </item>
     
     <item>
       <title>Golang Concurrency Patterns</title>

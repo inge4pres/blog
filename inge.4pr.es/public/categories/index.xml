@@ -5,6 +5,7 @@
     <link>http://inge.4pr.es/categories/</link>
     <description>Recent content in Categories on inge4pres rational thoughts</description>
     <generator>Hugo -- gohugo.io</generator>
+    <copyright>Francesco Gualazzi</copyright>
     
 	<atom:link href="http://inge.4pr.es/categories/index.xml" rel="self" type="application/rss+xml" />
     
@@ -66,7 +67,7 @@
     <item>
       <title>Tech</title>
       <link>http://inge.4pr.es/categories/tech/</link>
-      <pubDate>Sat, 28 Oct 2017 19:40:09 +0200</pubDate>
+      <pubDate>Sun, 25 Feb 2018 16:47:05 +0100</pubDate>
       
       <guid>http://inge.4pr.es/categories/tech/</guid>
       <description></description>

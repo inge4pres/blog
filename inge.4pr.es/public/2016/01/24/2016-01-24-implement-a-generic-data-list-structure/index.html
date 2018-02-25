@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='As a coding challenge I was asked to provide a generic list implementation using a language of my choice and using only primitive types, avoiding the use of high level built-ins. I chose Go because I want to learn it and I know it can be useful to create an abstract, generic implementation.
+The challenge request to implement at least 4 methods on the generic type:
+ Filter() &#8211; returns a subset of the List satisfying an operation Map() &#8211; returns the List objects&#8217; map Reverse() &#8211; reverse the ordering of the List objects FoldLeft() &#8211; join the objects from left to right using a join character  As a bonus question I was asked to code unit tests for the aforementioned methods and give an explanation on how the implementation guarantees concurrent access on resources.'>
+
+<meta property='og:title' content='Implement a generic data list structure » inge4pres rational thoughts'>
+<meta property='og:description' content='As a coding challenge I was asked to provide a generic list implementation using a language of my choice and using only primitive types, avoiding the use of high level built-ins. I chose Go because I want to learn it and I know it can be useful to create an abstract, generic implementation.
+The challenge request to implement at least 4 methods on the generic type:
+ Filter() &#8211; returns a subset of the List satisfying an operation Map() &#8211; returns the List objects&#8217; map Reverse() &#8211; reverse the ordering of the List objects FoldLeft() &#8211; join the objects from left to right using a join character  As a bonus question I was asked to code unit tests for the aforementioned methods and give an explanation on how the implementation guarantees concurrent access on resources.'>
+<meta property='og:url' content='http://inge.4pr.es/2016/01/24/2016-01-24-implement-a-generic-data-list-structure/'>
+<meta property='og:site_name' content='inge4pres rational thoughts'>
+<meta property='og:type' content='article'><meta property='article:publisher' content='358809487873346'><meta property='article:section' content='Post'><meta property='article:tag' content='aws'><meta property='article:tag' content='challenge'><meta property='article:tag' content='coding'><meta property='article:tag' content='design'><meta property='article:tag' content='golang'><meta property='article:tag' content='software'><meta property='article:published_time' content='2016-01-24T16:40:37Z'/><meta property='article:modified_time' content='2016-01-24T16:40:37Z'/><meta property='fb:app_id' content='1845367892442473'><meta property='fb:admins' content='francesco.inge'>
+
+<meta name="generator" content="Hugo 0.36" />
+
+  <title>Implement a generic data list structure » inge4pres rational thoughts</title>
+  <link rel='canonical' href='http://inge.4pr.es/2016/01/24/2016-01-24-implement-a-generic-data-list-structure/'>
+  
+  
+  <link rel='icon' href='/favicon.ico'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Ubuntu:400,400i,700&subset=latin'>
+<link rel='stylesheet' href='/assets/css/main.77da63e1.css'>
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-55252403-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+</head>
+
+
+<body class='page type-post layout-post'>
+  <div class='site'>
+
+    <a class='screen-reader' href='#main'>Skip to Content</a>
+
+    <header id='header' class='header-container'>
+      <div class='header site-header'>
+        <nav id='main-menu' class='main-menu-container' aria-label='Main Menu'>
+  <ul class='main-menu'>
+  <li>
+      <a href='/'>/</a>
+    </li>
+  <li>
+      <a href='/about'>/about</a>
+    </li>
+  <li>
+      <a href='/resume'>/resume</a>
+    </li>
+  
+  </ul>
+</nav>
+
+        <div class='header-info'>
+          
+          <p class='site-title title'>inge4pres rational thoughts</p>
+          
+          <p class='site-description subtitle'>Growing knowledge one post at a time</p>
+        </div>
+      </div>
+    </header>
+
+
+<main id='main' class='main'>
+  <article lang='en' class='entry'>
+    <header class='header-container'>
+  <div class='header entry-header'>
+    <div class='header-info'>
+      <h1 class='title'>Implement a generic data list structure</h1>
+      
+
+    </div>
+    
+<div class='meta'>
+  <span class='posted-on'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+  
+</svg>
+<span class='screen-reader'>Posted on </span>
+  <time class='date' datetime='2016-01-24T16:40:37Z'>24 Jan 2016</time>
+</span>
+
+  
+  
+<span class='reading-time'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <circle cx="12" cy="12" r="10"/>
+  <polyline points="12 6 12 12 15 15"/> 
+  
+</svg>
+3 mins read
+</span>
+
+
+</div>
+
+
+  </div>
+</header>
+
+    
+    
+
+    <div class='entry-content'>
+  <p>As a coding challenge I was asked to provide a generic list implementation using a language of my choice and using only primitive types, avoiding the use of high level built-ins. I chose <a href="https://golang.org/" target="_blank">Go</a> because I want to learn it and I know it can be useful to create an abstract, generic implementation.</p>
+
+<p>The challenge request to implement at least 4 methods on the generic type:</p>
+
+<ul>
+<li>Filter() &#8211;  returns a subset of the List satisfying an operation</li>
+<li>Map() &#8211; returns the List objects&#8217; map</li>
+<li>Reverse() &#8211; reverse the ordering of the List objects</li>
+<li>FoldLeft() &#8211; join the objects from left to right using a join character</li>
+</ul>
+
+<p>As a bonus question I was asked to code unit tests for the aforementioned methods and give an explanation on how the implementation guarantees concurrent access on resources.</p>
+
+<p>So here is my implementation: the type List has only one attribute, an array of type <code>interface{}</code></p>
+
+<pre class="theme:sublime-text font:consolas lang:go decode:true" title="List">type List struct {
+    data []interface{}
+}</pre>
+
+<p>Every type will be convertible to the <code>interface{}</code> type, but as Golang has strong types the conversion is not implicit and must be declared.</p>
+
+<p>Reverse() will create a new array of <code>interface{}</code> to hold the reversed list</p>
+
+<pre class="theme:sublime-text font:consolas lang:go decode:true" title="Reverse">func (m *List) Reverse() *List {
+    var ret []interface{}
+    for i := 1; i &lt;= len(m.data); i++ {
+        ret = append(ret, m.data[len(m.data)-i])
+    }
+    return &List{
+        data: ret,
+    }
+}</pre>
+
+<p>Map() returns the List elements&#8217; array, so it can be accessed as a whole</p>
+
+<pre class="theme:sublime-text font:consolas lang:go decode:true " title="Map">func (m *List) Map() []interface{} {
+    return m.data
+}
+</pre>
+
+<p>This two function types will help define a custom operation to be used in Filter() and FoldLeft(): <a href="http://jordanorelli.com/post/42369331748/function-types-in-go-golang" target="_blank">functions are types</a> in Go and this enable a great level of abstraction.</p>
+
+<pre class="theme:sublime-text font:consolas lang:go decode:true " title="">type filterFn func(interface{}) interface{}
+type foldFn func([]interface{}) interface{}
+</pre>
+
+<p>Filter() will use a filter function, without the need to define it (!), and return a portion of the List data array.</p>
+
+<pre class="theme:sublime-text font:consolas lang:go decode:true " title="Filter">func (m *List) Filter(filter filterFn) *List {
+    var ret []interface{}
+    for d := range m.data {
+        if data := filter(m.data[d]); data != nil {
+            ret = append(ret, data)
+        }
+    }
+    return &List{
+        data: ret,
+    }
+}</pre>
+
+<p>FoldLeft() will use a fold function, again not yet defined, the return a single element made of the entire list.</p>
+
+<pre class="theme:sublime-text font:consolas lang:go decode:true " title="FoldLeft">func (m *List) FoldLeft(fold foldFn) *List {
+    var ret []interface{}
+    ret = append(ret, fold(m.data))
+    return &List{
+        data: ret,
+    }
+}</pre>
+
+<p>You can find all the code <a href="https://github.com/inge4pres/blog/tree/master/implement-a-generic-data-list-structure" target="_blank">here</a>, any comment is welcome on how to improve the abstraction or efficiency of the implementation.</p>
+
+<p>The opportunity to dig into the language ability to abstract is a very helpful way to better understand the language itself, so this coding challenge was a great opportunity to learn a little bit more Go!</p>
+
+</div>
+
+    
+<footer class='entry-footer-container'>
+  <div class='entry-footer'>
+  <div class='categories'>
+  <span class='taxonomyTerm-icon'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"/>
+  
+</svg>
+</span>
+  <span class='screen-reader'>Categories: </span><a class='category' href='/categories/social'>Social</a>, <a class='category' href='/categories/tech'>Tech</a></div>
+<div class='tags'>
+  <span class='taxonomyTerm-icon'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"/>
+  <line x1="7" y1="7" x2="7" y2="7"/>
+  
+</svg>
+</span>
+  <span class='screen-reader'>Tags: </span><a class='tag' href='/tags/aws'>Aws</a>, <a class='tag' href='/tags/challenge'>Challenge</a>, <a class='tag' href='/tags/coding'>Coding</a>, <a class='tag' href='/tags/design'>Design</a>, <a class='tag' href='/tags/golang'>Golang</a>, <a class='tag' href='/tags/software'>Software</a></div>
+
+  </div>
+</footer>
+
+
+  </article>
+  
+<nav class='entry-nav-container'>
+  <div class='entry-nav'><div class='prev-entry'>
+      <a href='/2016/01/24/2016-01-24-virtualize-an-old-windows-pc/'>
+        <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="20" y1="12" x2="4" y2="12"/>
+  <polyline points="10 18 4 12 10 6"/>
+  
+</svg>
+ Previous</span>
+        <span class='screen-reader'>Previous post: </span>Virtualize an old Windows PC</a>
+    </div><div class='next-entry'>
+      <a href='/2016/04/06/2016-04-06-aws-iam-policy-to-let-users-manage-their-own-mfa/'>
+        <span class='screen-reader'>Next post: </span>AWS IAM policy to let users manage their own MFA<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="4" y1="12" x2="20" y2="12"/>
+  <polyline points="14 6 20 12 14 18"/>
+  
+</svg>
+</span>
+      </a>
+    </div></div>
+</nav>
+
+  
+<div class='comments-container'>
+  <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "inge4pres" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+</main>
+
+    <footer id='footer' class='footer-container'>
+      <div class='footer'>
+        <div class='social-menu-container'>
+  <nav aria-label='Social Menu'>
+    <ul class='social-menu'><li>
+        <a href='#ZgotmplZ' target='_blank' rel='noopener'>
+          <span class='screen-reader'>Open Config account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='mailto:fgualazzi@gmail.com' target='_blank' rel='noopener'>
+          <span class='screen-reader'>Contact via Email</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+  <polyline points="22,6 12,13 2,6"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='https://facebook.com/inge4pres' target='_blank' rel='noopener'>
+          <span class='screen-reader'>Open Facebook account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='https://github.com/inge4pres' target='_blank' rel='noopener'>
+          <span class='screen-reader'>Open Github account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='https://instagram.com/inge4pres' target='_blank' rel='noopener'>
+          <span class='screen-reader'>Open Instagram account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+  <line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='https://linkedin.com/in/francescogualazzi' target='_blank' rel='noopener'>
+          <span class='screen-reader'>Open Linkedin account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path stroke-width="1.8" d="m5.839218,4.101561c0,1.211972 -0.974141,2.194011 -2.176459,2.194011s-2.176459,-0.982039 -2.176459,-2.194011c0,-1.211094 0.974141,-2.194011 2.176459,-2.194011s2.176459,0.982917 2.176459,2.194011zm0.017552,3.94922l-4.388022,0l0,14.04167l4.388022,0l0,-14.04167zm7.005038,0l-4.359939,0l0,14.04167l4.360816,0l0,-7.370999c0,-4.098413 5.291077,-4.433657 5.291077,0l0,7.370999l4.377491,0l0,-8.89101c0,-6.915523 -7.829986,-6.66365 -9.669445,-3.259423l0,-1.891237z"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='https://twitter.com/inge4pres' target='_blank' rel='noopener'>
+          <span class='screen-reader'>Open Twitter account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+  
+</svg>
+</a>
+      </li></ul>
+  </nav>
+</div>
+        <div class='copyright'>
+  <p>Francesco Gualazzi
+  </p>
+</div>
+
+      </div>
+    </footer>
+
+  </div><script src='/assets/js/main.f29c93b9.js'></script></body>
+
+</html>
+

@@ -1,6 +1,6 @@
 ---
 title: "Continuous Delivery with Drone"
-date: 2018-02-18T16:47:05+01:00
+date: 2018-02-25T16:47:05+01:00
 description: "Getting started with a new CD tool based on containers"
 author: "inge4pres"
 draft: false

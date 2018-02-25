@@ -5,6 +5,7 @@
     <link>http://inge.4pr.es/tags/letsencrypt/</link>
     <description>Recent content in Letsencrypt on inge4pres rational thoughts</description>
     <generator>Hugo -- gohugo.io</generator>
+    <copyright>Francesco Gualazzi</copyright>
     <lastBuildDate>Sat, 03 Dec 2016 15:34:48 +0100</lastBuildDate>
     
 	<atom:link href="http://inge.4pr.es/tags/letsencrypt/index.xml" rel="self" type="application/rss+xml" />

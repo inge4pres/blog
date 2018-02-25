@@ -5,6 +5,7 @@
     <link>http://inge.4pr.es/tags/</link>
     <description>Recent content in Tags on inge4pres rational thoughts</description>
     <generator>Hugo -- gohugo.io</generator>
+    <copyright>Francesco Gualazzi</copyright>
     <lastBuildDate>Thu, 11 Dec 2014 16:57:14 +0000</lastBuildDate>
     
 	<atom:link href="http://inge.4pr.es/tags/index.xml" rel="self" type="application/rss+xml" />
@@ -101,6 +102,15 @@
     </item>
     
     <item>
+      <title>Containers</title>
+      <link>http://inge.4pr.es/tags/containers/</link>
+      <pubDate>Sun, 25 Feb 2018 16:47:05 +0100</pubDate>
+      
+      <guid>http://inge.4pr.es/tags/containers/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Cron</title>
       <link>http://inge.4pr.es/tags/cron/</link>
       <pubDate>Mon, 11 Nov 2013 10:27:38 +0000</pubDate>
@@ -148,9 +158,18 @@
     <item>
       <title>Devops</title>
       <link>http://inge.4pr.es/tags/devops/</link>
-      <pubDate>Sun, 28 May 2017 17:04:10 +0200</pubDate>
+      <pubDate>Sun, 25 Feb 2018 16:47:05 +0100</pubDate>
       
       <guid>http://inge.4pr.es/tags/devops/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Docker</title>
+      <link>http://inge.4pr.es/tags/docker/</link>
+      <pubDate>Sun, 25 Feb 2018 16:47:05 +0100</pubDate>
+      
+      <guid>http://inge.4pr.es/tags/docker/</guid>
       <description></description>
     </item>
     
@@ -346,7 +365,7 @@
     <item>
       <title>Platform</title>
       <link>http://inge.4pr.es/tags/platform/</link>
-      <pubDate>Tue, 30 Jan 2018 20:31:34 +0100</pubDate>
+      <pubDate>Sun, 25 Feb 2018 16:47:05 +0100</pubDate>
       
       <guid>http://inge.4pr.es/tags/platform/</guid>
       <description></description>
