@@ -1,0 +1,18 @@
+pipeline:
+  test-and-build:
+    image: golang
+    commands:
+      - go test -v ./...
+      - GOOS=linux GOARCH=amd64 go build -a -ldflags '-extldflags "-static"' -o helloApp
+    
+  publish:
+    image: plugins/docker
+    repo: inge4pres/hello-drone
+    tags: latest
+    auto_tag: true
+    secrets: [ docker_username, docker_password ]
+  
+  deploy:
+    image: vallard/drone-kube
+    template: k8s/deployment.yaml
+    server: https://192.168.64.8:8443
