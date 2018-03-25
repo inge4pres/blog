@@ -1,5 +1,5 @@
 ---
-title: "about"
+title: "ABOUT"
 description: "You are what you is"
 author: "inge4pres"
 tags:
