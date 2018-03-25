@@ -353,6 +353,12 @@
   </url>
   
   <url>
+    <loc>http://inge.4pr.es/</loc>
+    <lastmod>2018-02-25T16:47:05+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://inge.4pr.es/tags/iam/</loc>
     <lastmod>2016-04-06T19:51:33+00:00</lastmod>
     <priority>0</priority>
@@ -559,12 +565,6 @@
   <url>
     <loc>http://inge.4pr.es/tags/zabbix/</loc>
     <lastmod>2013-10-07T15:50:25+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://inge.4pr.es/</loc>
-    <lastmod>2018-02-25T16:47:05+01:00</lastmod>
     <priority>0</priority>
   </url>
   

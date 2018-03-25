@@ -1,7 +1,7 @@
 baseURL = "http://inge.4pr.es/"
-title = "inge4pres rational thoughts"
+title = "INGE4PRES RATIONAL THOUGHTS"
 # for smart copyright line, leave this blank and check [params.copyright]
-copyright = "Francesco Gualazzi"
+copyright = ""
 
 theme = "minimo"
 
@@ -33,9 +33,20 @@ suffix = ""
 [params.settings]
 # date & time format: https://golang.org/pkg/time/
 dateFormat = "2 Jan 2006"
+listDateFormat = "2 Jan 2006"
+archiveDateFormat = "2 Jan 2006"
 hideEntryNavigation = false
 hideSocialMenu = false
 showReadingTime = true
+taxonomyCloudShuffle = true
+
+[params.sidebar]
+enable = true
+sticky = true
+
+[params.widgets]
+homepage = ["recent_posts"]
+sidebar = ["about"]
 
 [params.opengraph.facebook]
 admins = ["francesco.inge"] # array of Facebook IDs
@@ -52,12 +63,11 @@ github = "inge4pres"
 twitter = "inge4pres"
 linkedin = "francescogualazzi"
 instagram = "inge4pres"
-codepen = ""
 email = "fgualazzi@gmail.com"
 facebook = "inge4pres"
 
 [params.social.config]
-platforms = ["github","twitter","linkedin","email","instagram","facebook","codepen"]
+platforms = ["github","twitter","linkedin","email","facebook","instagram"]
 
 [taxonomies]
 #author = "authors"

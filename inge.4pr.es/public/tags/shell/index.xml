@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Shell on inge4pres rational thoughts</title>
+    <title>Shell on INGE4PRES RATIONAL THOUGHTS</title>
     <link>http://inge.4pr.es/tags/shell/</link>
-    <description>Recent content in Shell on inge4pres rational thoughts</description>
+    <description>Recent content in Shell on INGE4PRES RATIONAL THOUGHTS</description>
     <generator>Hugo -- gohugo.io</generator>
-    <copyright>Francesco Gualazzi</copyright>
     <lastBuildDate>Mon, 11 Nov 2013 10:27:38 +0000</lastBuildDate>
     
 	<atom:link href="http://inge.4pr.es/tags/shell/index.xml" rel="self" type="application/rss+xml" />

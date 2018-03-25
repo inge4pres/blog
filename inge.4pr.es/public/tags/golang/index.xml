@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Golang on inge4pres rational thoughts</title>
+    <title>Golang on INGE4PRES RATIONAL THOUGHTS</title>
     <link>http://inge.4pr.es/tags/golang/</link>
-    <description>Recent content in Golang on inge4pres rational thoughts</description>
+    <description>Recent content in Golang on INGE4PRES RATIONAL THOUGHTS</description>
     <generator>Hugo -- gohugo.io</generator>
-    <copyright>Francesco Gualazzi</copyright>
     <lastBuildDate>Sat, 28 Oct 2017 19:40:09 +0200</lastBuildDate>
     
 	<atom:link href="http://inge.4pr.es/tags/golang/index.xml" rel="self" type="application/rss+xml" />
