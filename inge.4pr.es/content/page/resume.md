@@ -1,5 +1,5 @@
 ---
-title: "resume"
+title: "RESUME"
 description: "❤️ your job or die trying"
 author: "inge4pres"
 tags:
