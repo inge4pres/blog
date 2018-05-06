@@ -149,13 +149,13 @@ ga('send', 'pageview');
 
 <p>Recently RedHat acquired CoreOS, bold move if you ask me. CoreOS since the M&amp;A has been very quite until a week ago when the <a href="https://github.com/operator-framework" target="_blank">operator-framework</a> was announced through a <a href="https://coreos.com/blog/introducing-operator-framework" target="_blank">blog post</a>; this is a huge step forward for everyone as this new toolkit will empower the average developer with the ability to run operators on Kubernetes and package their applications as extensions to the Kubernetes API.</p>
 
-<p>Never heard of <a href="https://kubernetes.io/docs/concepts/api-extension/custom-resources/#customresourcedefinitions" target="_blank">Custom Resource Definitions</a>? You&rsquo;d better get on track as this will be driving the next-gen wave of applications that will run <em>as part</em> of the platform that delivers them, with the ability to automate their management and simplify dramatically thei operations which will be tightly integrated with the cluster management itself.</p>
+<p>Never heard of <a href="https://kubernetes.io/docs/concepts/api-extension/custom-resources/#customresourcedefinitions" target="_blank">Custom Resource Definitions</a>? You&rsquo;d better get on track as this will be driving the next-gen wave of applications that will run <em>as part</em> of the platform that delivers them, with the ability to automate their management and simplify dramatically their operations which will be tightly integrated with the cluster management itself.</p>
 
-<p>And as usual I&rsquo;m not losing a minute to try out this new toy and see what can be done with it: I want to build a cloud-native software delivery application that will enable CI/CD jobs to be running inside the cluster and managed by the same API server! Using a CRD for the &ldquo;Pipeline&rdquo; kind I can control the build/test/release flow of my application and moreover monitor the whole thing with the same tools with which I will monitor my application.</p>
+<p>And as usual I&rsquo;m eager to try out this new toy and see what can be done with it: I want to build a cloud-native software delivery application that will enable CI/CD jobs to be running inside the cluster and managed by the same API server! Using a CRD for the &ldquo;Pipeline&rdquo; kind I can control the build/test/release flow of my application and moreover monitor the whole thing with the same tools with which I will monitor my application.</p>
 
 <h3 id="creating-cd³">Creating CD³</h3>
 
-<p>I decided to start a new project called <a href="https://github.com/inge4pres/cdkube" target="_blank">CD³ (cd kube)</a>: it will be a Continouos-* software that will run in Kubernetes and will be dedicated to deliver software <em>through</em> Kubernetes. I found Weaveworks did something similar with <a href="https://github.com/weaveworks/flux/" target="_blank">Flux</a> and since I don&rsquo;t want to reinvent the wheel I&rsquo;ll just try and replicate some functionality of running a continer in an operator.</p>
+<p>I decided to start a new project called <a href="https://github.com/inge4pres/cdkube" target="_blank">CD³ (cd kube)</a>: it will be a Continuous-* software that will run in Kubernetes and will be dedicated to deliver software <em>through</em> Kubernetes. I found Weaveworks did something similar with <a href="https://github.com/weaveworks/flux/" target="_blank">Flux</a> and since I don&rsquo;t want to reinvent the wheel I&rsquo;ll just try and replicate some functionality of running a continer in an operator.</p>
 
 <p>First things first: I installed the <a href="https://github.com/operator-framework/operator-sdk" target="_blank">operator-sdk</a> and I have the binary in my <code>$GOPATH/bin</code>.
 Running</p>
@@ -177,7 +177,7 @@ docker push inge4pres/cdkube:v0.0.1
 gcloud container clusters get-credentials operator-framework-test --zone europe-west1-b --project inge4pres-gcp
 </code></pre>
 
-<p>and when it&rsquo;s ready I can deploy the auto-generated resources in the cluster.
+<p>and when it&rsquo;s ready I can deploy the auto-generated resources to the cluster.
 An amazing result is that once the depoloyment is done I can create my CRD with the <code>kubectl</code> command and see my custom-type declared, running <code>kubectl create -f deploy/crd.yaml</code> I have a new object created in k8s</p>
 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">➜  ~ kubectl get pipeline
@@ -213,7 +213,7 @@ Spec:
 Events:            &lt;none&gt;
 ➜  ~</code></pre></div>
 
-<p>When I deploy my operator and a create the custom resource applying the manifest for a pipeline the operator picks it up and starts a container with the name of the pipeline</p>
+<p>When I deploy my operator and create the custom resource applying the manifest for a pipeline, the operator picks it up and starts a container with the name of the pipeline</p>
 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">➜  cdkube git:<span style="color:#f92672">(</span>master<span style="color:#f92672">)</span> ✗ kubectl apply -f deploy/cr.yaml
 ➜  cdkube git:<span style="color:#f92672">(</span>master<span style="color:#f92672">)</span> ✗ kubectl get po

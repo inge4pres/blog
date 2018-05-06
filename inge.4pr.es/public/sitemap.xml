@@ -256,14 +256,14 @@
   </url>
   
   <url>
-    <loc>http://inge.4pr.es/tags/culture/</loc>
-    <lastmod>2017-05-28T17:04:10+02:00</lastmod>
+    <loc>http://inge.4pr.es/categories/culture/</loc>
+    <lastmod>2016-01-24T15:42:29+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://inge.4pr.es/categories/culture/</loc>
-    <lastmod>2016-01-24T15:42:29+00:00</lastmod>
+    <loc>http://inge.4pr.es/tags/culture/</loc>
+    <lastmod>2017-05-28T17:04:10+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -388,13 +388,13 @@
   </url>
   
   <url>
-    <loc>http://inge.4pr.es/tags/kubernetes/</loc>
+    <loc>http://inge.4pr.es/categories/kubernetes/</loc>
     <lastmod>2018-01-30T20:31:34+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://inge.4pr.es/categories/kubernetes/</loc>
+    <loc>http://inge.4pr.es/tags/kubernetes/</loc>
     <lastmod>2018-01-30T20:31:34+01:00</lastmod>
     <priority>0</priority>
   </url>
@@ -484,13 +484,13 @@
   </url>
   
   <url>
-    <loc>http://inge.4pr.es/tags/serverless/</loc>
+    <loc>http://inge.4pr.es/categories/serverless/</loc>
     <lastmod>2018-01-30T20:31:34+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://inge.4pr.es/categories/serverless/</loc>
+    <loc>http://inge.4pr.es/tags/serverless/</loc>
     <lastmod>2018-01-30T20:31:34+01:00</lastmod>
     <priority>0</priority>
   </url>
