@@ -12,7 +12,7 @@
 <meta property='og:site_name' content='INGE4PRES RATIONAL THOUGHTS'>
 <meta property='og:type' content='article'><meta property='article:publisher' content='358809487873346'><meta property='article:section' content='Post'><meta property='article:tag' content='devops'><meta property='article:tag' content='docker'><meta property='article:tag' content='containers'><meta property='article:tag' content='platform'><meta property='article:published_time' content='2018-02-25T16:47:05&#43;01:00'/><meta property='article:modified_time' content='2018-02-25T16:47:05&#43;01:00'/><meta property='fb:app_id' content='1845367892442473'><meta property='fb:admins' content='francesco.inge'><meta name='twitter:card' content='summary'>
 
-<meta name="generator" content="Hugo 0.37.1" />
+<meta name="generator" content="Hugo 0.38.2" />
 
   <title>Continuous Delivery with Drone » INGE4PRES RATIONAL THOUGHTS</title>
   <link rel='canonical' href='http://inge.4pr.es/2018/02/25/continuous-delivery-with-drone/'>
@@ -141,7 +141,7 @@ ga('send', 'pageview');
 
 <p>Continuous Delivery should be a solved issue: the practice is well-defined and there is a plethora of tools implementing it with more or less peculiarities, but still many struggle implementing it. The dream of a perfect continuous deployment flow from the developer to the production environment with software quality gates based on automated tests is still alive in me, I tried and tried several times with multiple implementations on multiple platforms and never got to the point where I could say: &ldquo;I&rsquo;m done, this works exactly as I wanted&rdquo;.</p>
 
-<p>So I stumbled on <a href="drone.io" target="_blank">drone</a> and decided to give it a go: it&rsquo;s an open-source project, written in Go and with a SaaS offering via their website. The concept I like is that every step of the build/deployment process is run through a container and this is very close to my idea of a modern CD tool, a platform where I can compose pipelines by chaining containers execution on a shared workspace. Love it already.</p>
+<p>So I stumbled on <a href="https://drone.io" target="_blank">drone</a> and decided to give it a go: it&rsquo;s an open-source project, written in Go and with a SaaS offering via their website. The concept I like is that every step of the build/deployment process runs through a container and this is very close to my idea of a modern CD tool, a platform where I can compose pipelines by chaining containers execution on a shared workspace. Love it already.</p>
 
 <h4 id="installing-the-stack">Installing the stack</h4>
 
@@ -271,6 +271,16 @@ drone secret add -repository=inge/goapp -image=plugins/docker -name=docker_passw
 </svg>
  Previous</span>
         <span class='screen-reader-text'>Previous post: </span>Serverless on Kubernetes</a>
+    </div><div class='next-entry sep-before'>
+      <a href='/2018/05/05/cloud-native-software-delivery/'>
+        <span class='screen-reader-text'>Next post: </span>Cloud-native applications: Operator-Framework<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="4" y1="12" x2="20" y2="12"/>
+  <polyline points="14 6 20 12 14 18"/>
+  
+</svg>
+</span>
+      </a>
     </div></div>
 </nav>
 

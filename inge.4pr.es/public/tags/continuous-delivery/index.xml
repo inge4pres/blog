@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Continuous-delivery on INGE4PRES RATIONAL THOUGHTS</title>
+    <link>http://inge.4pr.es/tags/continuous-delivery/</link>
+    <description>Recent content in Continuous-delivery on INGE4PRES RATIONAL THOUGHTS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 05 May 2018 15:08:30 +0200</lastBuildDate>
+    
+	<atom:link href="http://inge.4pr.es/tags/continuous-delivery/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Cloud-native applications: Operator-Framework</title>
+      <link>http://inge.4pr.es/2018/05/05/cloud-native-software-delivery/</link>
+      <pubDate>Sat, 05 May 2018 15:08:30 +0200</pubDate>
+      
+      <guid>http://inge.4pr.es/2018/05/05/cloud-native-software-delivery/</guid>
+      <description>Cloud-native: sounds attractive right? What does it even mean? Wikipedia has no page on it already so anyone can give its own definition&amp;hellip; Here&amp;rsquo;s mine:
+A Cloud-native application has only concern on the functionalities that it has to deliver as it is completely decoupled from the infrastructure it runs on
+So how can software delivery be cloud-native? Isn&amp;rsquo;t software delivery supposed to &amp;ldquo;install&amp;rdquo; software onto some infrastructure? Well if your infrastructure provider is cloud-native, you can transitively deliver software on it in a cloud-native way (counts of cloud-native is over 9000, so stopping here)!</description>
+    </item>
+    
+  </channel>
+</rss>
