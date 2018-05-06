@@ -19,16 +19,16 @@ So how can software delivery be cloud-native? Isn't software delivery supposed t
 
 Recently RedHat acquired CoreOS, bold move if you ask me. CoreOS since the M&A has been very quite until a week ago when the [operator-framework](https://github.com/operator-framework) was announced through a [blog post](https://coreos.com/blog/introducing-operator-framework); this is a huge step forward for everyone as this new toolkit will empower the average developer with the ability to run operators on Kubernetes and package their applications as extensions to the Kubernetes API. 
 
-Never heard of [Custom Resource Definitions](https://kubernetes.io/docs/concepts/api-extension/custom-resources/#customresourcedefinitions)? You'd better get on track as this will be driving the next-gen wave of applications that will run _as part_ of the platform that delivers them, with the ability to automate their management and simplify dramatically thei operations which will be tightly integrated with the cluster management itself.
+Never heard of [Custom Resource Definitions](https://kubernetes.io/docs/concepts/api-extension/custom-resources/#customresourcedefinitions)? You'd better get on track as this will be driving the next-gen wave of applications that will run _as part_ of the platform that delivers them, with the ability to automate their management and simplify dramatically their operations which will be tightly integrated with the cluster management itself.
 
-And as usual I'm not losing a minute to try out this new toy and see what can be done with it: I want to build a cloud-native software delivery application that will enable CI/CD jobs to be running inside the cluster and managed by the same API server! Using a CRD for the "Pipeline" kind I can control the build/test/release flow of my application and moreover monitor the whole thing with the same tools with which I will monitor my application.
+And as usual I'm eager to try out this new toy and see what can be done with it: I want to build a cloud-native software delivery application that will enable CI/CD jobs to be running inside the cluster and managed by the same API server! Using a CRD for the "Pipeline" kind I can control the build/test/release flow of my application and moreover monitor the whole thing with the same tools with which I will monitor my application.
 
 ### Creating CD³
 
-I decided to start a new project called [CD³ (cd kube)](https://github.com/inge4pres/cdkube): it will be a Continouos-* software that will run in Kubernetes and will be dedicated to deliver software _through_ Kubernetes. I found Weaveworks did something similar with [Flux](https://github.com/weaveworks/flux/) and since I don't want to reinvent the wheel I'll just try and replicate some functionality of running a continer in an operator.
+I decided to start a new project called [CD³ (cd kube)](https://github.com/inge4pres/cdkube): it will be a Continuous-* software that will run in Kubernetes and will be dedicated to deliver software _through_ Kubernetes. I found Weaveworks did something similar with [Flux](https://github.com/weaveworks/flux/) and since I don't want to reinvent the wheel I'll just try and replicate some functionality of running a continer in an operator.
 
 First things first: I installed the [operator-sdk](https://github.com/operator-framework/operator-sdk) and I have the binary in my `$GOPATH/bin`.
-Running 
+Running
 
 ```
 $GOPATH/bin/operator-sdk new cdkube --api-version=delivery.inge.4pr.es/v1alpha1 --kind=Pipeline
@@ -42,7 +42,7 @@ operator-sdk build inge4pres/cdkube:v0.0.1
 docker push inge4pres/cdkube:v0.0.1
 ```
 
-My operator is built, pushed to dockerhub and ready to be kicked in a k8s cluster, so I fire up one in GKE 
+My operator is built, pushed to dockerhub and ready to be kicked in a k8s cluster, so I fire up one in GKE
 
 ```
 gcloud beta container --project "inge4pres-gcp" clusters create "operator-framework-test" --zone "europe-west1-b" --machine-type "g1-small" --image-type "COS" --disk-size "25"
@@ -50,7 +50,7 @@ gcloud beta container --project "inge4pres-gcp" clusters create "operator-framew
 gcloud container clusters get-credentials operator-framework-test --zone europe-west1-b --project inge4pres-gcp
 ```
 
-and when it's ready I can deploy the auto-generated resources in the cluster. 
+and when it's ready I can deploy the auto-generated resources to the cluster. 
 An amazing result is that once the depoloyment is done I can create my CRD with the `kubectl` command and see my custom-type declared, running `kubectl create -f deploy/crd.yaml` I have a new object created in k8s
 
 {{< highlight shell >}}
@@ -88,7 +88,7 @@ Events:            <none>
 ➜  ~
 {{< /highlight >}}
 
-When I deploy my operator and a create the custom resource applying the manifest for a pipeline the operator picks it up and starts a container with the name of the pipeline
+When I deploy my operator and create the custom resource applying the manifest for a pipeline, the operator picks it up and starts a container with the name of the pipeline
 
 {{< highlight shell >}}
 ➜  cdkube git:(master) ✗ kubectl apply -f deploy/cr.yaml

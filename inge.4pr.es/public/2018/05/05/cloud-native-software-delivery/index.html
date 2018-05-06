@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='Cloud-native: sounds attractive right? What does it even mean? Wikipedia has no page on it already so anyone can give its own definition&hellip; Here&rsquo;s mine:
+A Cloud-native application has only concern on the functionalities that it has to deliver as it is completely decoupled from the infrastructure it runs on
+So how can software delivery be cloud-native? Isn&rsquo;t software delivery supposed to &ldquo;install&rdquo; software onto some infrastructure? Well if your infrastructure provider is cloud-native, you can transitively deliver software on it in a cloud-native way (counts of cloud-native is over 9000, so stopping here)!'>
+
+<meta property='og:title' content='Cloud-native applications: Operator-Framework » INGE4PRES RATIONAL THOUGHTS'>
+<meta property='og:description' content='Cloud-native: sounds attractive right? What does it even mean? Wikipedia has no page on it already so anyone can give its own definition&hellip; Here&rsquo;s mine:
+A Cloud-native application has only concern on the functionalities that it has to deliver as it is completely decoupled from the infrastructure it runs on
+So how can software delivery be cloud-native? Isn&rsquo;t software delivery supposed to &ldquo;install&rdquo; software onto some infrastructure? Well if your infrastructure provider is cloud-native, you can transitively deliver software on it in a cloud-native way (counts of cloud-native is over 9000, so stopping here)!'>
+<meta property='og:url' content='http://inge.4pr.es/2018/05/05/cloud-native-software-delivery/'>
+<meta property='og:site_name' content='INGE4PRES RATIONAL THOUGHTS'>
+<meta property='og:type' content='article'><meta property='article:publisher' content='358809487873346'><meta property='article:section' content='Post'><meta property='article:tag' content='platform'><meta property='article:tag' content='continuous-delivery'><meta property='article:tag' content='software'><meta property='article:published_time' content='2018-05-05T15:08:30&#43;02:00'/><meta property='article:modified_time' content='2018-05-05T15:08:30&#43;02:00'/><meta property='fb:app_id' content='1845367892442473'><meta property='fb:admins' content='francesco.inge'><meta name='twitter:card' content='summary'>
+
+<meta name="generator" content="Hugo 0.38.2" />
+
+  <title>Cloud-native applications: Operator-Framework » INGE4PRES RATIONAL THOUGHTS</title>
+  <link rel='canonical' href='http://inge.4pr.es/2018/05/05/cloud-native-software-delivery/'>
+  
+  
+  <link rel='icon' href='/favicon.ico'>
+<link rel='stylesheet' href='/assets/css/main.98e51475.css'>
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-55252403-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+</head>
+
+
+<body class='page type-post has-sidebar'>
+
+  <div class='site'>
+
+    <a class='screen-reader-text' href='#main-menu'>Skip to Main Menu</a>
+
+<div id='sidebar' class='sidebar'>
+  <div class='container'><section class='widget widget-about sep-after'>
+  <header>
+    
+    <div class='logo'>
+      <a href='/'>
+        <img src='/avatar.png'>
+      </a>
+    </div>
+    
+    <h2 class='title site-title '>
+     
+    </h2>
+    <div class='desc'>
+    
+    </div>
+  </header>
+
+</section>
+</div>
+</div>
+
+    <div class='main'>
+
+      <nav id='main-menu' class='main-menu' aria-label='Main Menu'>
+  <div class='container'>
+    <a class='screen-reader-text' href='#content'>Skip to Content</a>
+
+<button id='sidebar-toggler' class='hamburger hamburger--arrow sidebar-toggler' type='button' aria-controls='sidebar' aria-expanded='false'>
+  <span class='screen-reader-text'>Toggle Sidebar</span>
+  <span class="hamburger-box">
+    <span class="hamburger-inner"></span>
+  </span>
+</button>
+    <ul><li class='item'>
+        <a href='/'>/</a>
+      </li><li class='item'>
+        <a href='/about'>/about</a>
+      </li><li class='item'>
+        <a href='/resume'>/resume</a>
+      </li></ul>
+  </div>
+</nav>
+
+
+      <header id='header' class='header site-header'>
+        <div class='container sep-after'>
+          <div class='header-info'><p class='site-title title'>INGE4PRES RATIONAL THOUGHTS</p><p class='desc site-desc'>Growing knowledge one post at a time</p>
+          </div>
+        </div>
+      </header>
+
+      <main id='content'>
+
+
+<article lang='en' class='entry'>
+  <header class='header entry-header'>
+  <div class='container sep-after'>
+    <div class='header-info'>
+      <h1 class='title'>Cloud-native applications: Operator-Framework</h1>
+      
+
+    </div>
+    
+<div class='entry-meta'>
+  <span class='posted-on'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+  
+</svg>
+<span class='screen-reader-text'>Posted on </span>
+  <time class='entry-date' datetime='2018-05-05T15:08:30&#43;02:00'>5 May 2018</time>
+</span>
+
+  
+  
+<span class='reading-time'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <circle cx="12" cy="12" r="10"/>
+  <polyline points="12 6 12 12 15 15"/>
+  
+</svg>
+5 mins read
+</span>
+
+
+</div>
+
+
+  </div>
+</header>
+
+  
+  
+
+  <div class='container entry-content'>
+  
+
+<p><strong>Cloud-native</strong>: sounds attractive right? What does it even mean? <a href="https://en.wikipedia.org/wiki/Cloud-native" target="_blank">Wikipedia</a> has no page on it already so anyone can give its own definition&hellip; Here&rsquo;s mine:</p>
+
+<p><em>A Cloud-native application has only concern on the functionalities that it has to deliver as it is completely decoupled from the infrastructure it runs on</em></p>
+
+<p>So how can software delivery be cloud-native? Isn&rsquo;t software delivery supposed to &ldquo;install&rdquo; software onto some infrastructure? Well if your infrastructure provider <em>is</em> cloud-native, you can transitively deliver software on it in a cloud-native way (counts of cloud-native is over 9000, so stopping here)!</p>
+
+<p>Recently RedHat acquired CoreOS, bold move if you ask me. CoreOS since the M&amp;A has been very quite until a week ago when the <a href="https://github.com/operator-framework" target="_blank">operator-framework</a> was announced through a <a href="https://coreos.com/blog/introducing-operator-framework" target="_blank">blog post</a>; this is a huge step forward for everyone as this new toolkit will empower the average developer with the ability to run operators on Kubernetes and package their applications as extensions to the Kubernetes API.</p>
+
+<p>Never heard of <a href="https://kubernetes.io/docs/concepts/api-extension/custom-resources/#customresourcedefinitions" target="_blank">Custom Resource Definitions</a>? You&rsquo;d better get on track as this will be driving the next-gen wave of applications that will run <em>as part</em> of the platform that delivers them, with the ability to automate their management and simplify dramatically their operations which will be tightly integrated with the cluster management itself.</p>
+
+<p>And as usual I&rsquo;m eager to try out this new toy and see what can be done with it: I want to build a cloud-native software delivery application that will enable CI/CD jobs to be running inside the cluster and managed by the same API server! Using a CRD for the &ldquo;Pipeline&rdquo; kind I can control the build/test/release flow of my application and moreover monitor the whole thing with the same tools with which I will monitor my application.</p>
+
+<h3 id="creating-cd³">Creating CD³</h3>
+
+<p>I decided to start a new project called <a href="https://github.com/inge4pres/cdkube" target="_blank">CD³ (cd kube)</a>: it will be a Continuous-* software that will run in Kubernetes and will be dedicated to deliver software <em>through</em> Kubernetes. I found Weaveworks did something similar with <a href="https://github.com/weaveworks/flux/" target="_blank">Flux</a> and since I don&rsquo;t want to reinvent the wheel I&rsquo;ll just try and replicate some functionality of running a continer in an operator.</p>
+
+<p>First things first: I installed the <a href="https://github.com/operator-framework/operator-sdk" target="_blank">operator-sdk</a> and I have the binary in my <code>$GOPATH/bin</code>.
+Running</p>
+
+<pre><code>$GOPATH/bin/operator-sdk new cdkube --api-version=delivery.inge.4pr.es/v1alpha1 --kind=Pipeline
+</code></pre>
+
+<p>I am resulting in an auto-generated project with some scaffold code, as in <a href="https://github.com/inge4pres/cdkube/commit/bd7a1cf8790cf02169057f759e40272993673181" target="_blank">this commit</a>.
+Next I add some details which I think are at the core of a pipeline: the repository with code and configurations, the image to build the software and what version/name give to the resulting application artifact. When adding new items to the Spec and Status of CRD I will modify the <a href="https://github.com/inge4pres/cdkube/blob/master/pkg/apis/delivery/v1alpha1/types.go" target="_blank">pkg/apis/delivery/v1alpha1/types.go</a> file, then the guide suggests to run <code>operator-sdk generate k8s</code> to update the code, in fact the <code>zz_generated_deepcopy.go</code> is updated, but I don&rsquo;t see the <a href="https://github.com/inge4pres/cdkube/commit/5a17429d206475bcef85077d1f9aeb6fdda50357#diff-5cd8fbaa4e3fbb473c3e57c6fabca2f9" target="_blank">deploy/cr.yaml</a> changed as it should so probably there&rsquo;s a bug&hellip; Moving forward I have my operator logic to be defined now: I add some check whether the building pod is succeded and build the operator</p>
+
+<pre><code>operator-sdk build inge4pres/cdkube:v0.0.1
+docker push inge4pres/cdkube:v0.0.1
+</code></pre>
+
+<p>My operator is built, pushed to dockerhub and ready to be kicked in a k8s cluster, so I fire up one in GKE</p>
+
+<pre><code>gcloud beta container --project &quot;inge4pres-gcp&quot; clusters create &quot;operator-framework-test&quot; --zone &quot;europe-west1-b&quot; --machine-type &quot;g1-small&quot; --image-type &quot;COS&quot; --disk-size &quot;25&quot;
+
+gcloud container clusters get-credentials operator-framework-test --zone europe-west1-b --project inge4pres-gcp
+</code></pre>
+
+<p>and when it&rsquo;s ready I can deploy the auto-generated resources to the cluster.
+An amazing result is that once the depoloyment is done I can create my CRD with the <code>kubectl</code> command and see my custom-type declared, running <code>kubectl create -f deploy/crd.yaml</code> I have a new object created in k8s</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">➜  ~ kubectl get pipeline
+NAME            AGE
+doing-nothing   16s
+➜  ~ kubectl describe pipeline
+Name:         doing-nothing
+Namespace:    default
+Labels:       &lt;none&gt;
+Annotations:  &lt;none&gt;
+API Version:  delivery.inge.4pr.es/v1alpha1
+Kind:         Pipeline
+Metadata:
+  Cluster Name:
+  Creation Timestamp:             <span style="color:#ae81ff">2018</span>-05-05T18:08:31Z
+  Deletion Grace Period Seconds:  &lt;nil&gt;
+  Deletion Timestamp:             &lt;nil&gt;
+  Initializers:                   &lt;nil&gt;
+  Resource Version:               <span style="color:#ae81ff">1528</span>
+  Self Link:                      /apis/delivery.inge.4pr.es/v1alpha1/namespaces/default/pipelines/doing-nothing
+  UID:                            5160a990-508f-11e8-8f06-42010a8401f8
+Spec:
+Spec:
+  Build Arguments:
+    building something...
+    now I<span style="color:#960050;background-color:#1e0010">&#39;</span>m <span style="color:#66d9ef">done</span>
+  Build Commands:
+    echo
+  Build Image:     busybox
+  Repo:            http://github.com/inge4pres/just-a-test
+  Target Name:     tesApp
+  Target Version:  <span style="color:#ae81ff">0</span>.1
+Events:            &lt;none&gt;
+➜  ~</code></pre></div>
+
+<p>When I deploy my operator and create the custom resource applying the manifest for a pipeline, the operator picks it up and starts a container with the name of the pipeline</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">➜  cdkube git:<span style="color:#f92672">(</span>master<span style="color:#f92672">)</span> ✗ kubectl apply -f deploy/cr.yaml
+➜  cdkube git:<span style="color:#f92672">(</span>master<span style="color:#f92672">)</span> ✗ kubectl get po
+NAME                      READY     STATUS    RESTARTS   AGE
+cdkube-57bcf65584-sbvd6   <span style="color:#ae81ff">1</span>/1       Running   <span style="color:#ae81ff">0</span>          12s
+➜  cdkube git:<span style="color:#f92672">(</span>master<span style="color:#f92672">)</span> ✗ kubectl apply -f deploy/cr.yaml
+pipeline <span style="color:#e6db74">&#34;doing-nothing&#34;</span> created
+➜  cdkube git:<span style="color:#f92672">(</span>master<span style="color:#f92672">)</span> ✗ kubectl get po
+NAME                      READY     STATUS              RESTARTS   AGE
+cdkube-57bcf65584-sbvd6   <span style="color:#ae81ff">1</span>/1       Running             <span style="color:#ae81ff">0</span>          29s
+testapp                   <span style="color:#ae81ff">0</span>/1       ContainerCreating   <span style="color:#ae81ff">0</span>          2s
+➜  cdkube git:<span style="color:#f92672">(</span>master<span style="color:#f92672">)</span> ✗ kubectl logs cdkube-57bcf65584-sbvd6
+time<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;2018-05-05T18:42:59Z&#34;</span> level<span style="color:#f92672">=</span>info msg<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Go Version: go1.10.2&#34;</span>
+time<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;2018-05-05T18:42:59Z&#34;</span> level<span style="color:#f92672">=</span>info msg<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Go OS/Arch: linux/amd64&#34;</span>
+time<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;2018-05-05T18:42:59Z&#34;</span> level<span style="color:#f92672">=</span>info msg<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;operator-sdk Version: 0.0.5+git&#34;</span>
+time<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;2018-05-05T18:42:59Z&#34;</span> level<span style="color:#f92672">=</span>info msg<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;starting pipelines controller&#34;</span>
+time<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;2018-05-05T18:43:21Z&#34;</span> level<span style="color:#f92672">=</span>info msg<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;build still running, status of builder container: Pending&#34;</span>
+➜  cdkube git:<span style="color:#f92672">(</span>master<span style="color:#f92672">)</span> ✗ kubectl get po
+NAME                      READY     STATUS      RESTARTS   AGE
+cdkube-57bcf65584-sbvd6   <span style="color:#ae81ff">1</span>/1       Running     <span style="color:#ae81ff">0</span>          49s
+testapp                   <span style="color:#ae81ff">0</span>/1       Completed   <span style="color:#ae81ff">2</span>          22s</code></pre></div>
+
+<p>and if I get the <code>testapp</code> logs I can see the pipeline execution</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">➜  cdkube git:<span style="color:#f92672">(</span>master<span style="color:#f92672">)</span> ✗ kubectl logs testapp
+building something... now I<span style="color:#960050;background-color:#1e0010">&#39;</span>m <span style="color:#66d9ef">done</span></code></pre></div>
+
+<p>Bonus: if the custom resource is deleted with <code>kubectl delete -f deploy/cr.yaml</code> the pod <code>testapp</code> gets terminated automatically! I don&rsquo;t know if this magic is done by Kubernetes or by the Operator Framework, but sure I love it as it will enable my resources to be managed with the k8s API just like any other.</p>
+
+<p>I still need to tune the logic of handling the container as I didn&rsquo;t expect the restarts to happen, but hey this looks amazing! In a couple of hours I have an operator that can spawn containers when instructed to do so by custom manifests representing a pipeline!</p>
+
+<p>Stay tuned 😎</p>
+
+</div>
+
+  
+<footer class='entry-footer'>
+  <div class='container sep-before'>
+  <div class='categories'>
+  <span class='taxonomy-icon'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"/>
+  
+</svg>
+</span>
+  <span class='screen-reader-text'>Categories: </span><a class='category' href='/categories/tech'>Tech</a></div>
+<div class='tags'>
+  <span class='taxonomy-icon'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"/>
+  <line x1="7" y1="7" x2="7" y2="7"/>
+  
+</svg>
+</span>
+  <span class='screen-reader-text'>Tags: </span><a class='tag' href='/tags/platform'>Platform</a>, <a class='tag' href='/tags/continuous-delivery'>Continuous-delivery</a>, <a class='tag' href='/tags/software'>Software</a></div>
+
+  </div>
+</footer>
+
+
+</article>
+
+<nav class='entry-nav'>
+  <div class='container'><div class='prev-entry sep-before'>
+      <a href='/2018/02/25/continuous-delivery-with-drone/'>
+        <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="20" y1="12" x2="4" y2="12"/>
+  <polyline points="10 18 4 12 10 6"/>
+  
+</svg>
+ Previous</span>
+        <span class='screen-reader-text'>Previous post: </span>Continuous Delivery with Drone</a>
+    </div></div>
+</nav>
+
+
+<section class='comments'>
+  <div class='container sep-before'>
+    <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "inge4pres" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+</section>
+
+
+      </main>
+
+      <footer id='footer' class='footer'>
+        <div class='container sep-before'>
+          <section class='widget widget-social_menu sep-after'><nav aria-label='Social Menu'>
+    <ul><li>
+        <a href='https://github.com/inge4pres' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Open Github account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='https://facebook.com/inge4pres' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Open Facebook account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='https://twitter.com/inge4pres' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Open Twitter account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='https://instagram.com/inge4pres' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Open Instagram account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+  <line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='mailto:fgualazzi@gmail.com' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Contact via Email</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+  <polyline points="22,6 12,13 2,6"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='https://linkedin.com/in/francescogualazzi' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Open Linkedin account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+  <rect x="2" y="9" width="4" height="12"/>
+  <circle cx="4" cy="4" r="2"/>
+  
+</svg>
+</a>
+      </li></ul>
+  </nav>
+</section>
+
+          <div class='copyright'>
+  <p>inge4pres &copy; 2012-2018 Francesco Gualazzi </p>
+</div>
+
+        </div>
+      </footer>
+
+    </div>
+  </div><div class='sidebar-overlay'></div><script src='/assets/js/main.6408c3fa.js'></script>
+</body>
+
+</html>
+
