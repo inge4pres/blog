@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://inge.4pr.es/2018/10/23/golab-2018-wrap-up/</loc>
+    <lastmod>2018-10-23T18:07:07+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://inge.4pr.es/2018/05/05/cloud-native-software-delivery/</loc>
     <lastmod>2018-05-05T15:08:30+02:00</lastmod>
   </url>
@@ -238,6 +243,12 @@
   </url>
   
   <url>
+    <loc>http://inge.4pr.es/tags/conferences/</loc>
+    <lastmod>2018-10-23T18:07:07+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://inge.4pr.es/tags/containers/</loc>
     <lastmod>2018-02-25T16:47:05+01:00</lastmod>
     <priority>0</priority>
@@ -257,7 +268,7 @@
   
   <url>
     <loc>http://inge.4pr.es/categories/culture/</loc>
-    <lastmod>2016-01-24T15:42:29+00:00</lastmod>
+    <lastmod>2018-10-23T18:07:07+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -353,7 +364,7 @@
   
   <url>
     <loc>http://inge.4pr.es/tags/golang/</loc>
-    <lastmod>2017-10-28T19:40:09+02:00</lastmod>
+    <lastmod>2018-10-23T18:07:07+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -365,7 +376,7 @@
   
   <url>
     <loc>http://inge.4pr.es/</loc>
-    <lastmod>2018-05-05T15:08:30+02:00</lastmod>
+    <lastmod>2018-10-23T18:07:07+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -467,7 +478,7 @@
   
   <url>
     <loc>http://inge.4pr.es/post/</loc>
-    <lastmod>2018-05-05T15:08:30+02:00</lastmod>
+    <lastmod>2018-10-23T18:07:07+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -533,7 +544,7 @@
   
   <url>
     <loc>http://inge.4pr.es/categories/tech/</loc>
-    <lastmod>2018-05-05T15:08:30+02:00</lastmod>
+    <lastmod>2018-10-23T18:07:07+02:00</lastmod>
     <priority>0</priority>
   </url>
   
