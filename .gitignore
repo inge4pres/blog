@@ -3,3 +3,5 @@
 ./inge4pres/themes
 *DS_store*
 ./.vscode
+.idea
+serverless-on-kubernetes/fnproject/fn-helm
