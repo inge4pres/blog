@@ -1,9 +1,16 @@
 [about]
-title = " "                            # default: .Site.Title
-description = " "                      # default: .Site.Params.info.description
+title = "Francesco Gualazzi"                            # default: .Site.Title
+description = "infrastructure-aware developer"                      # default: .Site.Params.info.description
 logo = "/avatar.png"             # default: "/images/logo.png"
 
 [recent_posts]
 title = "Latest posts"
 length = 8
 excludeTypes = ["page"]
+
+[search]
+title = "Search"
+
+[social_menu]
+title = "Stay Tuned"
+platforms = ["github","gitlab","twitter","email","linkedin","instagram"]

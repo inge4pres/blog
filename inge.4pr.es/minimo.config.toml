@@ -14,6 +14,9 @@ preserveTaxonomyNames = true
 # Syntax Highlighting ( https://gohugo.io/content-management/syntax-highlighting/ )
 pygmentsCodefences = true
 
+# emojis!
+enableEmoji = true
+
 [params.info]
 description = "Growing knowledge one post at a time"
 title404 = "Got lost?"
@@ -30,6 +33,9 @@ holder = "Francesco Gualazzi"
 startYear = "2012"
 suffix = ""
 
+[params.comments]
+enable = true   
+
 [params.settings]
 # date & time format: https://golang.org/pkg/time/
 dateFormat = "2 Jan 2006"
@@ -42,16 +48,19 @@ taxonomyCloudShuffle = true
 
 [params.sidebar]
 enable = true
-sticky = false
 
 [params.widgets]
 homepage = ["recent_posts"]
-sidebar = ["about"]
+sidebar = ["about", "search"]
+footer = ["social_menu"]
 
 [params.opengraph.facebook]
 admins = ["francesco.inge"] # array of Facebook IDs
 appID = "1845367892442473"
 pageID = "358809487873346"
+
+[params.opengraph.twitter]
+page = "inge4pres" # Twitter page username
 
 [params.seo]
 # Title Separator: - – — · • * ⋆ | ~ « » < >
@@ -60,14 +69,15 @@ titleSeparator = "»"
 
 [params.social]
 github = "inge4pres"
+gitlab = "inge4pres"
 twitter = "inge4pres"
 linkedin = "francescogualazzi"
 instagram = "inge4pres"
 email = "fgualazzi@gmail.com"
 facebook = "inge4pres"
 
-[params.social.config]
-platforms = ["github","twitter","linkedin","email","facebook","instagram"]
+[params.search]
+client = "fuse" # algolia / fuse / lunr
 
 [taxonomies]
 #author = "authors"
