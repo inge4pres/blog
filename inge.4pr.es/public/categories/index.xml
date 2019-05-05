@@ -5,12 +5,13 @@
     <link>http://inge.4pr.es/categories/</link>
     <description>Recent content in Categories on INGE4PRES RATIONAL THOUGHTS</description>
     <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 23 Oct 2018 18:07:07 +0200</lastBuildDate>
     
 	<atom:link href="http://inge.4pr.es/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Culture</title>
+      <title>culture</title>
       <link>http://inge.4pr.es/categories/culture/</link>
       <pubDate>Tue, 23 Oct 2018 18:07:07 +0200</pubDate>
       
@@ -19,7 +20,16 @@
     </item>
     
     <item>
-      <title>Kubernetes</title>
+      <title>tech</title>
+      <link>http://inge.4pr.es/categories/tech/</link>
+      <pubDate>Tue, 23 Oct 2018 18:07:07 +0200</pubDate>
+      
+      <guid>http://inge.4pr.es/categories/tech/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kubernetes</title>
       <link>http://inge.4pr.es/categories/kubernetes/</link>
       <pubDate>Tue, 30 Jan 2018 20:31:34 +0100</pubDate>
       
@@ -28,25 +38,7 @@
     </item>
     
     <item>
-      <title>Music</title>
-      <link>http://inge.4pr.es/categories/music/</link>
-      <pubDate>Mon, 26 Nov 2012 16:14:41 +0000</pubDate>
-      
-      <guid>http://inge.4pr.es/categories/music/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Politics</title>
-      <link>http://inge.4pr.es/categories/politics/</link>
-      <pubDate>Mon, 20 Aug 2012 17:45:06 +0000</pubDate>
-      
-      <guid>http://inge.4pr.es/categories/politics/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Serverless</title>
+      <title>serverless</title>
       <link>http://inge.4pr.es/categories/serverless/</link>
       <pubDate>Tue, 30 Jan 2018 20:31:34 +0100</pubDate>
       
@@ -55,7 +47,7 @@
     </item>
     
     <item>
-      <title>Social</title>
+      <title>social</title>
       <link>http://inge.4pr.es/categories/social/</link>
       <pubDate>Sun, 28 May 2017 17:04:10 +0200</pubDate>
       
@@ -64,11 +56,29 @@
     </item>
     
     <item>
-      <title>Tech</title>
-      <link>http://inge.4pr.es/categories/tech/</link>
-      <pubDate>Tue, 23 Oct 2018 18:07:07 +0200</pubDate>
+      <title>work</title>
+      <link>http://inge.4pr.es/categories/work/</link>
+      <pubDate>Sun, 28 May 2017 17:04:10 +0200</pubDate>
       
-      <guid>http://inge.4pr.es/categories/tech/</guid>
+      <guid>http://inge.4pr.es/categories/work/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>music</title>
+      <link>http://inge.4pr.es/categories/music/</link>
+      <pubDate>Mon, 26 Nov 2012 16:14:41 +0000</pubDate>
+      
+      <guid>http://inge.4pr.es/categories/music/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>politics</title>
+      <link>http://inge.4pr.es/categories/politics/</link>
+      <pubDate>Mon, 20 Aug 2012 17:45:06 +0000</pubDate>
+      
+      <guid>http://inge.4pr.es/categories/politics/</guid>
       <description></description>
     </item>
     
@@ -78,15 +88,6 @@
       <pubDate>Fri, 18 May 2012 00:39:03 +0000</pubDate>
       
       <guid>http://inge.4pr.es/categories/uncategorized/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Work</title>
-      <link>http://inge.4pr.es/categories/work/</link>
-      <pubDate>Sun, 28 May 2017 17:04:10 +0200</pubDate>
-      
-      <guid>http://inge.4pr.es/categories/work/</guid>
       <description></description>
     </item>
     
