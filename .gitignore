@@ -2,6 +2,6 @@
 *.tfstate.backup
 ./inge4pres/themes
 *DS_store*
-./.vscode
+.vscode
 .idea
 serverless-on-kubernetes/fnproject/fn-helm
