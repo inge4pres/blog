@@ -2,6 +2,7 @@
 title: "RESUME"
 description: "❤️ your job or die trying"
 author: "inge4pres"
+emoji: true
 tags:
 date: 2017-10-14T15:27:36+02:00
 ---
