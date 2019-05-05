@@ -5,10 +5,28 @@
     <link>http://inge.4pr.es/categories/</link>
     <description>Recent content in Categories on INGE4PRES RATIONAL THOUGHTS</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 23 Oct 2018 18:07:07 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 05 May 2019 15:00:51 +0200</lastBuildDate>
     
 	<atom:link href="http://inge.4pr.es/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>tech</title>
+      <link>http://inge.4pr.es/categories/tech/</link>
+      <pubDate>Sun, 05 May 2019 15:00:51 +0200</pubDate>
+      
+      <guid>http://inge.4pr.es/categories/tech/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>work</title>
+      <link>http://inge.4pr.es/categories/work/</link>
+      <pubDate>Sun, 05 May 2019 15:00:51 +0200</pubDate>
+      
+      <guid>http://inge.4pr.es/categories/work/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>culture</title>
@@ -16,15 +34,6 @@
       <pubDate>Tue, 23 Oct 2018 18:07:07 +0200</pubDate>
       
       <guid>http://inge.4pr.es/categories/culture/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tech</title>
-      <link>http://inge.4pr.es/categories/tech/</link>
-      <pubDate>Tue, 23 Oct 2018 18:07:07 +0200</pubDate>
-      
-      <guid>http://inge.4pr.es/categories/tech/</guid>
       <description></description>
     </item>
     
@@ -52,15 +61,6 @@
       <pubDate>Sun, 28 May 2017 17:04:10 +0200</pubDate>
       
       <guid>http://inge.4pr.es/categories/social/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>work</title>
-      <link>http://inge.4pr.es/categories/work/</link>
-      <pubDate>Sun, 28 May 2017 17:04:10 +0200</pubDate>
-      
-      <guid>http://inge.4pr.es/categories/work/</guid>
       <description></description>
     </item>
     
