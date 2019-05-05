@@ -8,9 +8,6 @@ title = "Latest posts"
 length = 8
 excludeTypes = ["page"]
 
-[search]
-title = "Search"
-
 [social_menu]
 title = "Stay Tuned"
 platforms = ["github","gitlab","twitter","email","linkedin","instagram"]
