@@ -3,32 +3,55 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://inge.4pr.es/2019/11/01/cka-exam-experience/</loc>
+    <lastmod>2019-11-01T15:56:42+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://inge.4pr.es/categories/</loc>
-    <lastmod>2019-05-05T15:00:51+02:00</lastmod>
+    <lastmod>2019-11-01T15:56:42+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://inge.4pr.es/</loc>
-    <lastmod>2019-05-05T15:00:51+02:00</lastmod>
+    <lastmod>2019-11-01T15:56:42+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://inge.4pr.es/post/</loc>
-    <lastmod>2019-05-05T15:00:51+02:00</lastmod>
+    <lastmod>2019-11-01T15:56:42+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://inge.4pr.es/tags/</loc>
+    <lastmod>2019-11-01T15:56:42+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://inge.4pr.es/tags/cka/</loc>
+    <lastmod>2019-11-01T15:56:42+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://inge.4pr.es/tags/kubernetes/</loc>
+    <lastmod>2019-11-01T15:56:42+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://inge.4pr.es/categories/tech/</loc>
+    <lastmod>2019-11-01T15:56:42+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://inge.4pr.es/2019/05/05/progressive-delivery-with-kubernetes/</loc>
     <lastmod>2019-05-05T15:00:51+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://inge.4pr.es/tags/</loc>
-    <lastmod>2019-05-05T15:00:51+02:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -44,19 +67,7 @@
   </url>
   
   <url>
-    <loc>http://inge.4pr.es/tags/kubernetes/</loc>
-    <lastmod>2019-05-05T15:00:51+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>http://inge.4pr.es/tags/platform/</loc>
-    <lastmod>2019-05-05T15:00:51+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://inge.4pr.es/categories/tech/</loc>
     <lastmod>2019-05-05T15:00:51+02:00</lastmod>
     <priority>0</priority>
   </url>
@@ -136,13 +147,13 @@
   </url>
   
   <url>
-    <loc>http://inge.4pr.es/tags/serverless/</loc>
+    <loc>http://inge.4pr.es/categories/serverless/</loc>
     <lastmod>2018-01-30T20:31:34+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://inge.4pr.es/categories/serverless/</loc>
+    <loc>http://inge.4pr.es/tags/serverless/</loc>
     <lastmod>2018-01-30T20:31:34+01:00</lastmod>
     <priority>0</priority>
   </url>

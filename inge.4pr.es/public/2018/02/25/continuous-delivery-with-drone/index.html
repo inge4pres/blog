@@ -11,7 +11,7 @@
 <meta property='og:site_name' content='INGE4PRES RATIONAL THOUGHTS'>
 <meta property='og:type' content='article'><meta property='article:publisher' content='358809487873346'><meta property='article:section' content='post'><meta property='article:tag' content='devops'><meta property='article:tag' content='docker'><meta property='article:tag' content='containers'><meta property='article:tag' content='platform'><meta property='article:published_time' content='2018-02-25T16:47:05&#43;01:00'/><meta property='article:modified_time' content='2018-02-25T16:47:05&#43;01:00'/><meta property='fb:app_id' content='1845367892442473'><meta property='fb:admins' content='francesco.inge'><meta name='twitter:card' content='summary'><meta name='twitter:site' content='@inge4pres'>
 
-<meta name="generator" content="Hugo 0.55.5" />
+<meta name="generator" content="Hugo 0.56.3" />
 
   <title>Continuous Delivery with Drone » INGE4PRES RATIONAL THOUGHTS</title>
   <link rel='canonical' href='http://inge.4pr.es/2018/02/25/continuous-delivery-with-drone/'>
@@ -157,7 +157,7 @@ if (!doNotTrack) {
 
 <p>So I stumbled on <a href="https://drone.io" target="_blank">drone</a> and decided to give it a go: it&rsquo;s an open-source project, written in Go and with a SaaS offering via their website. The concept I like is that every step of the build/deployment process runs through a container and this is very close to my idea of a modern CD tool, a platform where I can compose pipelines by chaining containers execution on a shared workspace. Love it already.</p>
 
-<h4 id="installing-the-stack">Installing the stack</h4>
+<h3 id="installing-the-stack">Installing the stack</h3>
 
 <p>You can run the drone server and agent locally on your laptop with <code>docker-compose</code> as detailed <a href="http://docs.drone.io/installation/" target="_blank">here</a>. Only issue is: for integrating with any of the big Git cloud provider (Github and Gitlab) you will need to expose your service to the internet, so I&rsquo;ll use a local instance of <a href="https://gogs.io/" target="_blank">gogs</a> running in a docker container from the <a href="https://github.com/gogits/gogs/tree/master/docker" target="_blank">official image</a>. All I need is in the <code>docker-compose.yml</code> file: I added just a couple of <code>volumes</code> directive compared to the <a href="http://docs.drone.io/install-for-gogs/" target="_blank">original one</a> and I am using the docker-for-mac internal hostname to resolve the bridge IP internally as detailed <a href="https://docs.docker.com/docker-for-mac/networking/#use-cases-and-workarounds" target="_blank">here</a>. This is a lab setup and having a production-ready installation will require database setup and filesystem persistence, but I don&rsquo;t have this requirement now. After a <code>docker-compose up -d</code> my stack is ready.</p>
 
@@ -165,7 +165,7 @@ if (!doNotTrack) {
 
 <p>As easy as following <a href="http://docs.drone.io/cli-installation/" target="_blank">this guide</a>. Once logged to the web UI I navigate to the <code>${DRONE_HOST}/account/token</code> page where I can get a token to configure the CLI.</p>
 
-<h4 id="adding-secrets">Adding secrets</h4>
+<h3 id="adding-secrets">Adding secrets</h3>
 
 <p>There is a nice feature in drone: I can <a href="http://docs.drone.io/manage-secrets/" target="_blank">manage secrets</a> directly from the command line and they can be scoped globally or be available only to one pipeline step (corresponding to an image). I will need to add Dockerhub username and password to the <code>plugin/docker</code> image to be able to push the image, so I add this 2 secrets with the following</p>
 
@@ -173,7 +173,7 @@ if (!doNotTrack) {
 drone secret add -repository=inge/goapp -image=plugins/docker -name=docker_password -value=***************
 </code></pre>
 
-<h4 id="a-sample-pipeline">A sample pipeline</h4>
+<h3 id="a-sample-pipeline">A sample pipeline</h3>
 
 <p>As many of the continuous delivery tools available on the market, drone uses a YAML configuration file in the root of the repository, so adding a <code>.drone.yml</code> hidden file is enough to start hooking every commit to the build system. I configured a <a href="https://github.com/inge4pres/blog/blob/master/continuous-delivery-with-drone/test-app/.drone.yml" target="_blank">3 stages pipeline</a>:</p>
 

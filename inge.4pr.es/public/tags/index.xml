@@ -5,10 +5,28 @@
     <link>http://inge.4pr.es/tags/</link>
     <description>Recent content in Tags on INGE4PRES RATIONAL THOUGHTS</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 05 May 2019 15:00:51 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 01 Nov 2019 15:56:42 +0100</lastBuildDate>
     
 	<atom:link href="http://inge.4pr.es/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>cka</title>
+      <link>http://inge.4pr.es/tags/cka/</link>
+      <pubDate>Fri, 01 Nov 2019 15:56:42 +0100</pubDate>
+      
+      <guid>http://inge.4pr.es/tags/cka/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kubernetes</title>
+      <link>http://inge.4pr.es/tags/kubernetes/</link>
+      <pubDate>Fri, 01 Nov 2019 15:56:42 +0100</pubDate>
+      
+      <guid>http://inge.4pr.es/tags/kubernetes/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>containers</title>
@@ -25,15 +43,6 @@
       <pubDate>Sun, 05 May 2019 15:00:51 +0200</pubDate>
       
       <guid>http://inge.4pr.es/tags/continuous-delivery/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>kubernetes</title>
-      <link>http://inge.4pr.es/tags/kubernetes/</link>
-      <pubDate>Sun, 05 May 2019 15:00:51 +0200</pubDate>
-      
-      <guid>http://inge.4pr.es/tags/kubernetes/</guid>
       <description></description>
     </item>
     
