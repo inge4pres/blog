@@ -19,13 +19,13 @@ draft: false
 
 Kubernetes is the _de facto_ platform for running modern applications: its broad adoption in 2017 and the velocity of the project made it so and it's been accepted as the standard for many companies, from small to planet scale. It was impossible that such an extensible platform would be left out the serverless party, so here are the 4 main players offering FaaS to be run via k8s.
 
-#### A premise
+### A premise
 If you're new to serverless and FaaS and all the previous buzzwords sound like cacophony to your ears, I really recommend reading [this post](https://martinfowler.com/articles/serverless.html) and watching [this talk](https://www.youtube.com/watch?v=LAWjdZYrUgI). You could also notice how I put FaaS and serverless under the same hat here, this is just a personal opinion although some might argue that FaaS is a subset of serverless: historically I approached the serverless world using AWS Lambda, and I really tied the idea of writing functions and let someone else manage the infrastructure to the _serverless_ concept. Also Sam Newman gave a [good talk on serverless](https://youtu.be/CrS0HVQZiQI) that I really recommend watching.
 
-#### Why serverless on k8s
+### Why serverless on k8s
 It seems like a natural evolution for distributed systems to be composed by smaller and smaller parts. When moving from SOA to microservices the size of the service was reduced to enable development of more fine-grained functionalities into smaller and more maintainable components; taken to the extreme, you can reduce a microservice to be dedicated to just one task or to be  made of just one function, that's where FaaS fits into. Kubernetes is a great activator for such modularity as it creates a very powerful abstraction over infrastructure, so when developing a function as a separate module of a distributed system you can scale both vertically and horizontally any building block, each one independently from another, or you could even let Kubernetes manage that (think [Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)).
 
-#### Four players offering FaaS on k8s
+### Four players offering FaaS on k8s
 
 * [OpenFaaS](https://github.com/openfaas/faas)
 * [Fission](https://github.com/fission/fission)

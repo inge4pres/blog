@@ -19,13 +19,13 @@ Continuous Delivery should be a solved issue: the practice is well-defined and t
 
 So I stumbled on [drone](https://drone.io) and decided to give it a go: it's an open-source project, written in Go and with a SaaS offering via their website. The concept I like is that every step of the build/deployment process runs through a container and this is very close to my idea of a modern CD tool, a platform where I can compose pipelines by chaining containers execution on a shared workspace. Love it already.
 
-#### Installing the stack
+### Installing the stack
 You can run the drone server and agent locally on your laptop with `docker-compose` as detailed [here](http://docs.drone.io/installation/). Only issue is: for integrating with any of the big Git cloud provider (Github and Gitlab) you will need to expose your service to the internet, so I'll use a local instance of [gogs](https://gogs.io/) running in a docker container from the [official image](https://github.com/gogits/gogs/tree/master/docker). All I need is in the `docker-compose.yml` file: I added just a couple of `volumes` directive compared to the [original one](http://docs.drone.io/install-for-gogs/) and I am using the docker-for-mac internal hostname to resolve the bridge IP internally as detailed [here](https://docs.docker.com/docker-for-mac/networking/#use-cases-and-workarounds). This is a lab setup and having a production-ready installation will require database setup and filesystem persistence, but I don't have this requirement now. After a `docker-compose up -d` my stack is ready.
 
 #### Installing the CLI
 As easy as following [this guide](http://docs.drone.io/cli-installation/). Once logged to the web UI I navigate to the `${DRONE_HOST}/account/token` page where I can get a token to configure the CLI.
 
-#### Adding secrets
+### Adding secrets
 There is a nice feature in drone: I can [manage secrets](http://docs.drone.io/manage-secrets/) directly from the command line and they can be scoped globally or be available only to one pipeline step (corresponding to an image). I will need to add Dockerhub username and password to the `plugin/docker` image to be able to push the image, so I add this 2 secrets with the following
 
 ```
@@ -33,7 +33,7 @@ drone secret add -repository=inge/goapp -image=plugins/docker -name=docker_usern
 drone secret add -repository=inge/goapp -image=plugins/docker -name=docker_password -value=***************
 ```
 
-#### A sample pipeline
+### A sample pipeline
 As many of the continuous delivery tools available on the market, drone uses a YAML configuration file in the root of the repository, so adding a `.drone.yml` hidden file is enough to start hooking every commit to the build system. I configured a [3 stages pipeline](https://github.com/inge4pres/blog/blob/master/continuous-delivery-with-drone/test-app/.drone.yml):
 
 * test and build artifact
