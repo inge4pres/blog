@@ -5,10 +5,20 @@
     <link>http://inge.4pr.es/categories/tech/</link>
     <description>Recent content in tech on INGE4PRES RATIONAL THOUGHTS</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 05 May 2019 15:00:51 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 01 Nov 2019 15:56:42 +0100</lastBuildDate>
     
 	<atom:link href="http://inge.4pr.es/categories/tech/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>CKA exam experience and preparation</title>
+      <link>http://inge.4pr.es/2019/11/01/cka-exam-experience/</link>
+      <pubDate>Fri, 01 Nov 2019 15:56:42 +0100</pubDate>
+      
+      <guid>http://inge.4pr.es/2019/11/01/cka-exam-experience/</guid>
+      <description>Yes! Yesterday I received an awesome email stating that I cleared the Certified Kubernetes Administrator exam! 😎 Here I want to report my experience in preparing and taking the exam, hopefully this info can help others Kubernetes practitioners get the certification too.
+Preparation I consider myself lucky because for the past two years I had the chance to use Kubernetes working at lastminute.com; on top this on-the-job training I went through a lot of studying and practicing because the exam itself has a lot of content.</description>
+    </item>
     
     <item>
       <title>Progressive Delivery with Kubernetes</title>
