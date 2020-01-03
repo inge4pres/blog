@@ -70,7 +70,7 @@ _Scientific Lyceum “Falcone e Borsellino” - Arese (Milan, Italy)_
 
 * __DB__ MySQL, Oracle 11gR2, REDIS
 
-* __Product__ HTTPd, NGINX, Varnish, Jenkins, GOCD, ELK, Zabbix, Splunk, Ansible, Packer, Terraform, Consul, Docker, Kubernetes
+* __Product__ HTTPd, NGINX, Varnish, Jenkins, GOCD, ELK, Zabbix, Splunk, Ansible, Packer, Terraform, Consul, Docker
 
 ### Interests and Hobbies
 I play drums quite well and bass guitar at a low level, I listen to lots of music and I am trying to expand my musical culture more and more, with discs from the 70s-80s and also contemporary artists. I love running, it makes me feel free, and enjoy swimming in pool and sea.
