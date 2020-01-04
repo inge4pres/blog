@@ -41,7 +41,7 @@ Working with audio equipment to achieve best audio quality for live events; I wa
 
 ### Education and certifications
 
-###### 10/2012 Certificate Kubernetes Administrator
+###### 10/2019 Certificate Kubernetes Administrator
 _Cloud Native Computing Foundation_
 
 ###### 2/2017 AWS SysOps Administrator - Associate Level
