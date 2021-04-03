@@ -9,7 +9,12 @@ date: 2017-10-14T15:27:36+02:00
 
 ### Work experiences
 
-###### 9/2018 - now()   » Site Reliability Engineer @ [lastminute.com](https://careers.lastminute.com/ "lastminute.com careers") 
+###### 7/2020 - now()  » Senior Software Engineer @ [optimyze.cloud](https://optimyze.cloud/)
+We are a startup building Prodfiler: the lowest-overhead, always-on continuous-profiling tool for all your software stacks.
+Prodfiler gives a holistic view of CPU consumption across all your fleets, supporting multiple platforms and languages.
+I contribute to the product and leverage my previous working to bake reliability into our product and architectural decisions.
+
+###### 9/2018 - 6/2020  » Site Reliability Engineer @ [lastminute.com](https://careers.lastminute.com/ "lastminute.com careers") 
 Joined the SRE team within Platform to work more closely on the company cloud platforms both on-premise and in public clouds.
 Main focus is developing software in Go to automate the platform based on Linux, containers and Kubernetes.
 
@@ -28,7 +33,7 @@ We aim at 0% downtime for our clients using high-availability techniques and con
 We develop our own monitoring, analytics and intelligence tool based on Splunk. 
 We provide developers isolated test environments on AWS cloud and manage continuous delivery pipelines with automated testing and deployment.
 
-###### 6/2010 - 10/2015 » Systems Engineer @ [Metel](http://www.metel.it)
+###### 6/2010 - 10/2015  » Systems Engineer @ [Metel](http://www.metel.it)
 Working on an e-procurement platform and a proprietary EDI format to help businesses digitalize supply chain management. 
 My job is to manage and maintain the IT infrastructure serving the core-business services both on-premise and on the Amazon AWS cloud platform. 
 Daily activities span from infrastructure event monitoring to middleware and application deployment. 
