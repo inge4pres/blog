@@ -152,5 +152,79 @@ Remember the famous jewelery slogan _"a diamond is forever"_? A valid statement 
 
 #### A practical example
 
+I'll use the history of the repository in which I'm writing this page 😎.
+If I run `git log` now I have
+
+```git
+commit 91dc03e493fc9ff9426c7250de9d6dd168d58b2b (HEAD -> master, tag: ready-for-conclusion)
+Author: inge4pres <xxx@gmail.com>
+Date:   Sat May 1 18:18:10 2021 +0200
+
+    refinement before example
+
+commit aaafc4030dae80baa1a6c15905111a69484b9e6d
+Author: inge4pres <xxx@gmail.com>
+Date:   Tue Apr 6 22:40:58 2021 +0200
+
+    refined central section
+
+commit 1ef9ec1e6b70a61dd1772df3db69cb219dc4609e
+Author: inge4pres <xxx@gmail.com>
+Date:   Sat Apr 3 19:28:17 2021 +0200
+
+    Resume: update page
+
+commit 869e15fd7c85dcaef1e3e1865f2dcb62a5c06966
+Author: inge4pres <xxx@gmail.com>
+Date:   Sat Apr 3 17:23:37 2021 +0200
+
+    fixed typos and intro section
+
+commit aa25b348a6a0aa61cc6482beacbe4b96ec96e79f
+Author: inge4pres <xxx@gmail.com>
+Date:   Sat Apr 3 17:08:21 2021 +0200
+
+    second section: peer review
+
+commit f368028b3dcb38aed86893139ee9230d32fc7f2a
+Author: inge4pres <xxx@gmail.com>
+Date:   Fri Apr 2 21:25:16 2021 +0200
+
+    first draft: completed intro
+```
+
+where we can note the following:
+
+* there's a tag to be removed (`ready-for-conclusion`)
+* commit `1ef9ec1e6b70a61dd1772df3db69cb219dc4609e` is unrelated to the post I'm writing so I'll move it
+* commits `869e15fd7c85dcaef1e3e1865f2dcb62a5c06966` and `91dc03e493fc9ff9426c7250de9d6dd168d58b2b` can be squashed
+* the article can probably be split in 2: the initial draft (the 3 commits at the bottom, the first in chronological order)
+  and the final part (the first 2 commits in the list, the last in chronological order)
+  
+It's time to run a `git rebase -i origin/master` to rebase interactively my local branch on top of the remote repository.
+The output is the following:
+
+```git
+pick f368028 first draft: completed intro
+pick aa25b34 second section: peer review
+pick 869e15f fixed typos and intro section
+pick 1ef9ec1 Resume: update page
+pick aaafc40 refined central section
+pick 91dc03e refinement before example
+
+# Rebase 01ff245..91dc03e onto 01ff245 (7 commands)
+```
+
+With the considerations done earlier, in the editor I will change the history like so:
+
+```git
+pick 1ef9ec1 Resume: update page
+pick f368028 first draft: completed intro
+squash aa25b34 second section: peer review
+fixup 869e15f fixed typos and intro section
+reword aaafc40 refined central section
+fixup 91dc03e refinement before example
+```
+
 
 ### Credits
