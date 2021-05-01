@@ -1,15 +1,11 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>social on INGE4PRES RATIONAL THOUGHTS</title>
     <link>http://inge.4pr.es/categories/social/</link>
     <description>Recent content in social on INGE4PRES RATIONAL THOUGHTS</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 28 May 2017 17:04:10 +0200</lastBuildDate>
-    
-	<atom:link href="http://inge.4pr.es/categories/social/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 28 May 2017 17:04:10 +0200</lastBuildDate><atom:link href="http://inge.4pr.es/categories/social/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>DevOps: you&#39;re doing it wrong</title>
       <link>http://inge.4pr.es/2017/05/28/2017-05-28-devops-you-re-doing-it-wrong/</link>
@@ -44,7 +40,7 @@ So instead of a bare VPS I am moving my blog to AWS S3 + Cloudfront CDN. This wi
       <pubDate>Sun, 18 Sep 2016 17:26:17 +0000</pubDate>
       
       <guid>http://inge.4pr.es/2016/09/18/2016-09-18-a-benchmark-of-aws-efs/</guid>
-      <description>Amazon Web Services Elastic File System has been to my knowledge the service to have the longest beta testing period: reason for this may be that not as many client as expected tested it and AWS received too few feedback on it or that there were issues not to release GA. I don&amp;#8217;t want to speculate on which one is correct but now that it has been officially released I decided to give it a try and of course compare it to a self-managed solution on the same platform.</description>
+      <description>Amazon Web Services Elastic File Systemhas been to my knowledge the service to have the longest beta testing period: reason for this may be that not as many client as expected tested it and AWS received too few feedback on it or that there were issues not to release GA. I don’t want to speculate on which one is correct but now that it has been officially releasedI decided to give it a try and of course compare it to a self-managed solution on the same platform.</description>
     </item>
     
     <item>
@@ -53,9 +49,9 @@ So instead of a bare VPS I am moving my blog to AWS S3 + Cloudfront CDN. This wi
       <pubDate>Sun, 24 Jan 2016 16:40:37 +0000</pubDate>
       
       <guid>http://inge.4pr.es/2016/01/24/2016-01-24-implement-a-generic-data-list-structure/</guid>
-      <description>As a coding challenge I was asked to provide a generic list implementation using a language of my choice and using only primitive types, avoiding the use of high level built-ins. I chose Go because I want to learn it and I know it can be useful to create an abstract, generic implementation.
+      <description>As a coding challenge I was asked to provide a generic list implementation using a language of my choice and using only primitive types, avoiding the use of high level built-ins. I chose Gobecause I want to learn it and I know it can be useful to create an abstract, generic implementation.
 The challenge request to implement at least 4 methods on the generic type:
- Filter() &amp;#8211; returns a subset of the List satisfying an operation Map() &amp;#8211; returns the List objects&amp;#8217; map Reverse() &amp;#8211; reverse the ordering of the List objects FoldLeft() &amp;#8211; join the objects from left to right using a join character  As a bonus question I was asked to code unit tests for the aforementioned methods and give an explanation on how the implementation guarantees concurrent access on resources.</description>
+ Filter() – returns a subset of the List satisfying an operation Map() – returns the List objects’ map Reverse() – reverse the ordering of the List objects FoldLeft() – join the objects from left to right using a join character  As a bonus question I was asked to code unit tests for the aforementioned methods and give an explanation on how the implementation guarantees concurrent access on resources.</description>
     </item>
     
     <item>
@@ -65,9 +61,8 @@ The challenge request to implement at least 4 methods on the generic type:
       
       <guid>http://inge.4pr.es/2015/08/02/2015-08-02-golang-message-queue-a-simple-tcp-message-bus/</guid>
       <description>[TL;DR]
-I wrote a Pub/Sub message queue in Go, branch &amp;#8220;master&amp;#8221; is stable but missing some interesting feature like distributed memory synchronization between nodes in a cluster and encryption. Code at
-https://github.com/inge4pres/gmq
-Being a cloud system engineer, my work is to design and implement distributed systems: one of the key principles in designing such architectures is decoupling, which means ensuring the many parts composing the system are able to share informations and complete a sequence of operations without being tied together.</description>
+I wrote a Pub/Sub message queue in Go, branch “master” is stable but missing some interesting feature like distributed memory synchronization between nodes in a cluster and encryption. Code at
+https://github.com/inge4pres/gmqBeing a cloud system engineer, my work is to design and implement distributed systems: one of the key principles in designing such architectures is decoupling, which means ensuring the many parts composing the system are able to share informations and complete a sequence of operations without being tied together.</description>
     </item>
     
     <item>
@@ -77,7 +72,7 @@ Being a cloud system engineer, my work is to design and implement distributed sy
       
       <guid>http://inge.4pr.es/2015/06/11/2015-06-11-my-first-golang-web-project/</guid>
       <description>It is true: I fell in love with Go, not because I love Google and his products, but because it really fits my ideology of simplicity and power in a programming language. I started experimenting with the language and thank to his web-oriented approach I quickly came up with one of the simplest single task web application I could write: a URL shortener.
-What is a URL shortener? It&amp;#8217;s a service that will give you a short link for a long URL.</description>
+What is a URL shortener? It’s a service that will give you a short link for a long URL.</description>
     </item>
     
     <item>
@@ -86,9 +81,9 @@ What is a URL shortener? It&amp;#8217;s a service that will give you a short lin
       <pubDate>Mon, 26 Nov 2012 16:14:41 +0000</pubDate>
       
       <guid>http://inge.4pr.es/2012/11/26/2012-11-26-ipad-mini-la-musica-dello-spot-tv/</guid>
-      <description>Ieri mi sono trovato con parte della mia famiglia nella loro sala a suonare un po&amp;#8217; il pianoforte, mio fratello Gianmaria e io ci siamo esibiti riproducendo la semplice (ma efficace) musica che accompagna la pubblicità dell&amp;#8217;iPad Mini.
+      <description>Ieri mi sono trovato con parte della mia famiglia nella loro sala a suonare un po’ il pianoforte, mio fratello Gianmaria e io ci siamo esibiti riproducendo la semplice (ma efficace) musica che accompagna la pubblicità dell’iPad Mini.
 Il motivetto è in Do maggiore così come viene proposto suonando i due iPad nella pubblicità, di seguito il video. Enjoy!
-&amp;nbsp;</description>
+ </description>
     </item>
     
     <item>
@@ -97,7 +92,7 @@ Il motivetto è in Do maggiore così come viene proposto suonando i due iPad nel
       <pubDate>Fri, 05 Oct 2012 16:40:53 +0000</pubDate>
       
       <guid>http://inge.4pr.es/2012/10/05/2012-10-05-universita-facolta-di-psicologia/</guid>
-      <description>In Italia abbiamo molti problemi, ma l&amp;#8217;ultimo dei nostri problemi era l&amp;#8217;istruzione che vantava uno dei primi posti al mondo fino a pochi anni fa. Ora invece il declino strutturale del nostro Paese ha colpito anche questo settore che era di valore. Parlo di mancanza di fondi per università e ricerca, di formazione non orientata al lavoro e tutto ciò che ne consegue: l&amp;#8217;aumento della disoccupazione giovanile e della sfiducia nel futuro è preoccupante perché è nella stesso ordine di grandezza di stati molto indietro rispetto alla media europea.</description>
+      <description>In Italia abbiamo molti problemi, ma l’ultimo dei nostri problemi era l’istruzione che vantava uno dei primi posti al mondo fino a pochi anni fa. Ora invece il declino strutturale del nostro Paese ha colpito anche questo settore che era di valore. Parlo di mancanza di fondi per università e ricerca, di formazione non orientata al lavoro e tutto ciò che ne consegue: l’aumento della disoccupazione giovanile e della sfiducia nel futuro è preoccupante perché è nella stesso ordine di grandezza di stati molto indietro rispetto alla media europea.</description>
     </item>
     
     <item>
@@ -106,8 +101,8 @@ Il motivetto è in Do maggiore così come viene proposto suonando i due iPad nel
       <pubDate>Mon, 20 Aug 2012 17:45:06 +0000</pubDate>
       
       <guid>http://inge.4pr.es/2012/08/20/2012-08-20-ho-capito-il-significato-della-parola-islam/</guid>
-      <description>Stamattina ho lavorato all&amp;#8217;Arena Civica di Milano come tecnico del suono. La manifestazione che ho seguito era la cerimonia di chiusura del Ramadan islamico, l&amp;#8217;equivalente della Pasqua cristiana. La cerimonia di per sè è stata breve, circa un&amp;#8217;ora, ed è stato affascinante assistere a una manifestazione religiosa a cui non avevo mai assistito prima. Il programma è stato il seguente:
- raduno dei fedeli nel campo dell&amp;#8217;Arena presentazione dei celebranti del rito preghiera sermone sfollaggio  Innanzitutto ciò che mi ha colpito è stata la mole di persone che erano presenti: circa 15000 tra uomini donne e bambini; da notare che la religione islamica non conta solo fedeli dal medio oriente, gran parte infatti erano di origine africana e indonesiana.</description>
+      <description>Stamattina ho lavorato all’Arena Civica di Milano come tecnico del suono. La manifestazione che ho seguito era la cerimonia di chiusura del Ramadan islamico, l’equivalente della Pasqua cristiana. La cerimonia di per sè è stata breve, circa un’ora, ed è stato affascinante assistere a una manifestazione religiosa a cui non avevo mai assistito prima. Il programma è stato il seguente:
+ raduno dei fedeli nel campo dell’Arena presentazione dei celebranti del rito preghiera sermone sfollaggio  Innanzitutto ciò che mi ha colpito è stata la mole di persone che erano presenti: circa 15000 tra uomini donne e bambini; da notare che la religione islamica non conta solo fedeli dal medio oriente, gran parte infatti erano di origine africana e indonesiana.</description>
     </item>
     
     <item>
@@ -118,8 +113,7 @@ Il motivetto è in Do maggiore così come viene proposto suonando i due iPad nel
       <guid>http://inge.4pr.es/2012/07/10/2012-07-10-discorsi-economici-finiti-in-un-mashup/</guid>
       <description>Ed eccolo!!
 Il mashup che stavate aspettando dopo la cena con più argomenti di economia della mia vita!
-Impressionante&amp;#8230;
-http://inge.4pr.es/files/2014/07/tranx-mashup.ogg</description>
+Impressionante…</description>
     </item>
     
   </channel>

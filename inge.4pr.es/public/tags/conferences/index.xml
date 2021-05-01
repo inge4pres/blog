@@ -1,15 +1,11 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>conferences on INGE4PRES RATIONAL THOUGHTS</title>
     <link>http://inge.4pr.es/tags/conferences/</link>
     <description>Recent content in conferences on INGE4PRES RATIONAL THOUGHTS</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 23 Oct 2018 18:07:07 +0200</lastBuildDate>
-    
-	<atom:link href="http://inge.4pr.es/tags/conferences/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 23 Oct 2018 18:07:07 +0200</lastBuildDate><atom:link href="http://inge.4pr.es/tags/conferences/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>GoLab 2018: Wrap Up</title>
       <link>http://inge.4pr.es/2018/10/23/golab-2018-wrap-up/</link>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang='en'><head>
+<html lang='en' dir='auto'><head>
   <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta name='description' content='Moving 4pres URL shortener to a more modern architecture'>
@@ -11,14 +11,14 @@
 <meta property='og:site_name' content='INGE4PRES RATIONAL THOUGHTS'>
 <meta property='og:type' content='article'><meta property='article:publisher' content='358809487873346'><meta property='article:section' content='post'><meta property='article:published_time' content='2016-11-17T18:28:23&#43;01:00'/><meta property='article:modified_time' content='2016-11-17T18:28:23&#43;01:00'/><meta property='fb:app_id' content='1845367892442473'><meta property='fb:admins' content='francesco.inge'><meta name='twitter:card' content='summary'><meta name='twitter:site' content='@inge4pres'>
 
-<meta name="generator" content="Hugo 0.56.3" />
+<meta name="generator" content="Hugo 0.82.0" />
 
   <title>4pres goes #serverless » INGE4PRES RATIONAL THOUGHTS</title>
   <link rel='canonical' href='http://inge.4pr.es/2016/11/17/2016-11-17-4pres-goes-serverless/'>
   
   
   <link rel='icon' href='/favicon.ico'>
-<link rel='stylesheet' href='/assets/css/main.dd2efce5.css'><style>
+<link rel='stylesheet' href='/assets/css/main.ab98e12b.css'><style>
 :root{--color-accent:#ffcd00;}
 </style>
 
@@ -51,7 +51,9 @@ if (!doNotTrack) {
     </div>
     
     <h2 class='title site-title '>
-    Francesco Gualazzi
+      <a href='/'>
+      Francesco Gualazzi
+      </a>
     </h2>
     <div class='desc'>
     infrastructure-aware developer
@@ -68,19 +70,21 @@ if (!doNotTrack) {
 
 <button id='sidebar-toggler' class='sidebar-toggler' aria-controls='sidebar'>
   <span class='screen-reader-text'>Toggle Sidebar</span>
-  <span class='open'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
+  <span class='open'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
   <line x1="3" y1="12" x2="21" y2="12" />
   <line x1="3" y1="6" x2="21" y2="6" />
   <line x1="3" y1="18" x2="21" y2="18" />
-  
+
 </svg>
 </span>
-  <span class='close'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
+  <span class='close'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
   <line x1="18" y1="6" x2="6" y2="18" />
   <line x1="6" y1="6" x2="18" y2="18" />
-  
+
 </svg>
 </span>
 </button>
@@ -117,13 +121,14 @@ if (!doNotTrack) {
 
     </div>
     <div class='entry-meta'>
-  <span class='posted-on'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
+  <span class='posted-on'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
   <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
   <line x1="16" y1="2" x2="16" y2="6"/>
   <line x1="8" y1="2" x2="8" y2="6"/>
   <line x1="3" y1="10" x2="21" y2="10"/>
-  
+
 </svg>
 <span class='screen-reader-text'>Posted on </span>
   <time class='entry-date' datetime='2016-11-17T18:28:23&#43;01:00'>17 Nov 2016</time>
@@ -131,11 +136,12 @@ if (!doNotTrack) {
 
   
   
-<span class='reading-time'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
+<span class='reading-time'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
   <circle cx="12" cy="12" r="10"/>
   <polyline points="12 6 12 12 15 15"/>
-  
+
 </svg>
 4 mins read
 </span>
@@ -151,86 +157,64 @@ if (!doNotTrack) {
   
 
   <div class='container entry-content'>
-  
-
-<p>Last month I felt I was a little late for the <a href="https://charity.wtf/2016/05/31/wtf-is-operations-serverless/" title="#serverless" target="_blank">#serverless</a> party going on all over the internet and I started taking a look at what the pros and cons would be to actually not manage any server myself.
+  <p>Last month I felt I was a little late for the <a href="https://charity.wtf/2016/05/31/wtf-is-operations-serverless/" title="#serverless">#serverless</a> party going on all over the internet and I started taking a look at what the pros and cons would be to actually not manage any server myself.
 Shutting down my VPS hosting my apps I will loose my mail server, my MySQL instances and my Docker registry but: who cares? There are cloud services I can use with hundreds of times more availability and for a fraction of the cost.</p>
-
 <h2 id="why-serverless">Why #serverless?</h2>
-
-<p>We are moving more and more rapidly to a developer friendly world: all cloud providers tend to relief companies from the burden of managing complex cluster architectures and it&rsquo;s not a coincidence that things like <a href="https://landing.google.com/sre/interview/ben-treynor.html" title="SRE at Google" target="_blank">SRE at Google</a> exist. Systadmins are no longer required where they can be substituted with far more performance by declarative syntax clusters (Kubernetes, Docker Data Center) and reliabile, consistent configuration deployment (Ansible, Puppet) in managing high volumes of phisycal or virtual machines.</p>
-
+<p>We are moving more and more rapidly to a developer friendly world: all cloud providers tend to relief companies from the burden of managing complex cluster architectures and it&rsquo;s not a coincidence that things like <a href="https://landing.google.com/sre/interview/ben-treynor.html" title="SRE at Google">SRE at Google</a> exist. Systadmins are no longer required where they can be substituted with far more performance by declarative syntax clusters (Kubernetes, Docker Data Center) and reliabile, consistent configuration deployment (Ansible, Puppet) in managing high volumes of phisycal or virtual machines.</p>
 <p>This shift to a developer-centric world forces who embraces it to &ldquo;trust&rdquo; the IaaS, PaaS and FaaS providers but in the same time let them focus on core and valuable development processes.</p>
-
 <p>That&rsquo;s why.</p>
-
-<p>Take the simplest app in the world: <a href="https://4pr.es" target="_blank">4pres</a>, a URL shortener. It needs a presentation, computation and data layer as most of apps. Traditionally and depending on your budget and needs, you would spin up one or more VPS and deploy software on them (containers or not, doesn&rsquo;t matter here). The setup of nginx as reverse proxy to your application already requires skills that most of developers don&rsquo;t have, but in first hand why should anybody have them when there is a service like AWS API Gateway that lets you deploy one in seconds?
+<p>Take the simplest app in the world: <a href="https://4pr.es">4pres</a>, a URL shortener. It needs a presentation, computation and data layer as most of apps. Traditionally and depending on your budget and needs, you would spin up one or more VPS and deploy software on them (containers or not, doesn&rsquo;t matter here). The setup of nginx as reverse proxy to your application already requires skills that most of developers don&rsquo;t have, but in first hand why should anybody have them when there is a service like AWS API Gateway that lets you deploy one in seconds?
 Having the possiility to do so, you <em>may</em> want to forget about everything not strictly related to your app, so focusing only on building and maintaining functionalities of your app.</p>
-
 <h2 id="how-you-can-migrate-your-app-today">How you can migrate your app today</h2>
-
 <p>In terms of cloud provider I have a lot of experience with AWS therefore my first thought is for them when trying to do something like this: they probably already have enough mature services supporting what I need. Don&rsquo;t take this as a sponsorship: you can do the same with any other provider.</p>
-
 <h4 id="traditional-architecture">Traditional Architecture</h4>
-
 <ul>
 <li>NGINX reverse proxy</li>
 <li>Golang application</li>
 <li>MySQL database</li>
 </ul>
-
-<p>NGINX terminates SSL and proxy back to app every request. The <a href="https://github.com/inge4pres/4pr.es" title="4pres/master" target="_blank">Golang app</a> finds out what to do from a combination of HTTP Method and URL Path:</p>
-
+<p>NGINX terminates SSL and proxy back to app every request. The <a href="https://github.com/inge4pres/4pr.es" title="4pres/master">Golang app</a> finds out what to do from a combination of HTTP Method and URL Path:</p>
 <ul>
 <li><code>GET /</code> renders the landing page template</li>
 <li><code>GET /{url}</code> queries the DB and redirect to long url or render 404 template</li>
 <li><code>POST /</code> create a short link from <code>form-data url=http://alongurul/</code> and display the result template</li>
 </ul>
-
 <h4 id="serverless-architecture-aws">Serverless Architecture (AWS)</h4>
-
 <ul>
 <li>API Gateway expose a request/response mapping endpoint with integration to other services</li>
 <li>S3 to store and serve the static content</li>
-<li>Lambda executes Golang functions thanks to the amazing <a href="https://github.com/eawsy/aws-lambda-go" title="eawsy/aws-go-lambda" target="_blank">eawsy/aws-go-lambda</a> framework</li>
+<li>Lambda executes Golang functions thanks to the amazing <a href="https://github.com/eawsy/aws-lambda-go" title="eawsy/aws-go-lambda">eawsy/aws-go-lambda</a> framework</li>
 <li>DynamoDB stores data in schema-less fashion (JSON)</li>
 </ul>
-
 <p>The API Gateway definition acts as proxy and:</p>
-
 <ul>
 <li><code>GET /</code> serves static page <code>index.html</code> from S3 bucket with &lsquo;Website Hosting&rsquo; option enabled</li>
-<li><code>GET /{url}</code> runs a Lamdba function <a href="https://github.com/inge4pres/4pr.es/blob/serverless/cmd/4pres_get/get.go" title="4pres_get" target="_blank">4pres_get</a> that fetches the URL Path parameter from DynamoDB and redirect the client or renders a 404 template</li>
-<li><code>GET /s?{urlencodedURL}</code> runs a Lambda function <a href="https://github.com/inge4pres/4pr.es/blob/serverless/cmd/4pres_post/post.go" title="4pres_post" target="_blank">4pres_post</a> that creates a short URL and tries to store it in DynamoDB, returning the result template or the 500 template.</li>
+<li><code>GET /{url}</code> runs a Lamdba function <a href="https://github.com/inge4pres/4pr.es/blob/serverless/cmd/4pres_get/get.go" title="4pres_get">4pres_get</a> that fetches the URL Path parameter from DynamoDB and redirect the client or renders a 404 template</li>
+<li><code>GET /s?{urlencodedURL}</code> runs a Lambda function <a href="https://github.com/inge4pres/4pr.es/blob/serverless/cmd/4pres_post/post.go" title="4pres_post">4pres_post</a> that creates a short URL and tries to store it in DynamoDB, returning the result template or the 500 template.</li>
 </ul>
-
 <p>Not that big change in the overall design, but the code for the Golang app only shares a function to shorten the URL between the 2 implementations: that is understandable because we no longer manage HTTP requests attributes and delegate that to API Gateway, we don&rsquo;t display static content anymore and leave that to S3. At the core we only have 2 things to worry about:</p>
-
 <ul>
 <li>store a URL (4pres_post)</li>
 <li>get  URL to redirect the client</li>
 </ul>
-
 <p>and then we can focus on extending new features:</p>
-
 <ul>
 <li>URL expiration</li>
 <li>user registration</li>
 <li>whatever!</li>
 </ul>
-
 <h2 id="conclusion">Conclusion</h2>
-
-<p>Thanks to this development model our craftsmen effort can be 100% dedicated to building features and forget about the rest: this can be a great advantage at large scale. Recently I have come across another interesting framework for Function as a Service called <a href="https://www.iron.io/" title="iron.io" target="_blank">iron.io</a> and I am willing to try it as soon as possible so stay tuned!</p>
+<p>Thanks to this development model our craftsmen effort can be 100% dedicated to building features and forget about the rest: this can be a great advantage at large scale. Recently I have come across another interesting framework for Function as a Service called <a href="https://www.iron.io/" title="iron.io">iron.io</a> and I am willing to try it as soon as possible so stay tuned!</p>
 
 </div>
 
   
 <footer class='entry-footer'>
-  <div class='container sep-before'><div class='categories'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"/>
-  
+  <div class='container sep-before'><div class='categories'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+    <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"/>
+
 </svg>
 <span class='screen-reader-text'>Categories: </span><a class='category' href='/categories/social/'>social</a>, <a class='category' href='/categories/tech/'>tech</a></div>
 
@@ -243,21 +227,23 @@ Having the possiility to do so, you <em>may</em> want to forget about everything
 <nav class='entry-nav'>
   <div class='container'><div class='prev-entry sep-before'>
       <a href='/2016/10/10/2016-10-10-moving-the-blog-to-hugo/'>
-        <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
+        <span aria-hidden='true'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
   <line x1="20" y1="12" x2="4" y2="12"/>
   <polyline points="10 18 4 12 10 6"/>
-  
+
 </svg>
  Previous</span>
         <span class='screen-reader-text'>Previous post: </span>Moving the blog to hugo</a>
     </div><div class='next-entry sep-before'>
       <a href='/2016/12/03/2016-12-03-automate-tls-management-on-aws-with-letsencrypt/'>
-        <span class='screen-reader-text'>Next post: </span>Automate TLS management on AWS with LetsEncrypt<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
+        <span class='screen-reader-text'>Next post: </span>Automate TLS management on AWS with LetsEncrypt<span aria-hidden='true'>Next <svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
   <line x1="4" y1="12" x2="20" y2="12"/>
   <polyline points="14 6 20 12 14 18"/>
-  
+
 </svg>
 </span>
       </a>
@@ -298,71 +284,65 @@ Having the possiility to do so, you <em>may</em> want to forget about everything
     <h4 class='title widget-title'>Stay Tuned</h4>
   </header><nav aria-label='Social Menu'>
     <ul><li>
-        <a href='https://github.com/inge4pres' target='_blank' rel='noopener'>
-          <span class='screen-reader-text'>Open Github account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-  
+        <a href='https://github.com/inge4pres' target='_blank' rel='noopener me'>
+          <span class='screen-reader-text'>Open Github account in new tab</span><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+
 </svg>
 </a>
       </li><li>
-        <a href='https://gitlab.com/inge4pres' target='_blank' rel='noopener'>
-          <span class='screen-reader-text'>Open Gitlab account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <path d="M22.65 14.39L12 22.13 1.35 14.39a.84.84 0 0 1-.3-.94l1.22-3.78 2.44-7.51A.42.42 0 0 1 4.82 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.49h8.1l2.44-7.51A.42.42 0 0 1 18.6 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.51L23 13.45a.84.84 0 0 1-.35.94z"/>
-  
+        <a href='https://gitlab.com/inge4pres' target='_blank' rel='noopener me'>
+          <span class='screen-reader-text'>Open Gitlab account in new tab</span><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <title>GitLab icon</title>  <path d="M22.65 14.39L12 22.13 1.35 14.39a.84.84 0 0 1-.3-.94l1.22-3.78 2.44-7.51A.42.42 0 0 1 4.82 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.49h8.1l2.44-7.51A.42.42 0 0 1 18.6 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.51L23 13.45a.84.84 0 0 1-.35.94z"/>
 </svg>
 </a>
       </li><li>
-        <a href='https://twitter.com/inge4pres' target='_blank' rel='noopener'>
-          <span class='screen-reader-text'>Open Twitter account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
-  
+        <a href='https://twitter.com/inge4pres' target='_blank' rel='noopener me'>
+          <span class='screen-reader-text'>Open Twitter account in new tab</span><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+  <title>Twitter icon</title>
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+
 </svg>
 </a>
       </li><li>
-        <a href='mailto:fgualazzi@gmail.com' target='_blank' rel='noopener'>
-          <span class='screen-reader-text'>Contact via Email</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-  <polyline points="22,6 12,13 2,6"/>
-  
+        <a href='mailto:fgualazzi@gmail.com' target='_blank' rel='noopener me'>
+          <span class='screen-reader-text'>Contact via Email</span><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline>
 </svg>
 </a>
       </li><li>
-        <a href='https://linkedin.com/in/francescogualazzi' target='_blank' rel='noopener'>
-          <span class='screen-reader-text'>Open Linkedin account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-  <rect x="2" y="9" width="4" height="12"/>
-  <circle cx="4" cy="4" r="2"/>
-  
+        <a href='https://linkedin.com/in/francescogualazzi' target='_blank' rel='noopener me'>
+          <span class='screen-reader-text'>Open Linkedin account in new tab</span><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle>
 </svg>
 </a>
       </li><li>
-        <a href='https://instagram.com/inge4pres' target='_blank' rel='noopener'>
-          <span class='screen-reader-text'>Open Instagram account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-  <line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/>
-  
+        <a href='https://instagram.com/inge4pres' target='_blank' rel='noopener me'>
+          <span class='screen-reader-text'>Open Instagram account in new tab</span><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
 </svg>
 </a>
       </li></ul>
   </nav>
 </section><div class='copyright'>
-  <p>inge4pres &copy; 2012-2020 Francesco Gualazzi </p>
+  <p>inge4pres &copy; 2012-2021 Francesco Gualazzi </p>
 </div>
 
         </div>
       </footer>
 
     </div>
-  </div><script>window.__public_path__='\/assets\/js\/'</script>
+  </div><script>window.__assets_js_src="/assets/js/"</script>
 
-<script src='/assets/js/main.00df04b7.js'></script>
+<script src='/assets/js/main.c3bcf2df.js'></script>
 
 </body>
 

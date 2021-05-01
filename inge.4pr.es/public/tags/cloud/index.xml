@@ -1,22 +1,18 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>cloud on INGE4PRES RATIONAL THOUGHTS</title>
     <link>http://inge.4pr.es/tags/cloud/</link>
     <description>Recent content in cloud on INGE4PRES RATIONAL THOUGHTS</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 18 Sep 2016 17:26:17 +0000</lastBuildDate>
-    
-	<atom:link href="http://inge.4pr.es/tags/cloud/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 18 Sep 2016 17:26:17 +0000</lastBuildDate><atom:link href="http://inge.4pr.es/tags/cloud/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>A benchmark of AWS EFS</title>
       <link>http://inge.4pr.es/2016/09/18/2016-09-18-a-benchmark-of-aws-efs/</link>
       <pubDate>Sun, 18 Sep 2016 17:26:17 +0000</pubDate>
       
       <guid>http://inge.4pr.es/2016/09/18/2016-09-18-a-benchmark-of-aws-efs/</guid>
-      <description>Amazon Web Services Elastic File System has been to my knowledge the service to have the longest beta testing period: reason for this may be that not as many client as expected tested it and AWS received too few feedback on it or that there were issues not to release GA. I don&amp;#8217;t want to speculate on which one is correct but now that it has been officially released I decided to give it a try and of course compare it to a self-managed solution on the same platform.</description>
+      <description>Amazon Web Services Elastic File Systemhas been to my knowledge the service to have the longest beta testing period: reason for this may be that not as many client as expected tested it and AWS received too few feedback on it or that there were issues not to release GA. I don’t want to speculate on which one is correct but now that it has been officially releasedI decided to give it a try and of course compare it to a self-managed solution on the same platform.</description>
     </item>
     
     <item>
@@ -25,7 +21,7 @@
       <pubDate>Wed, 06 Apr 2016 19:51:33 +0000</pubDate>
       
       <guid>http://inge.4pr.es/2016/04/06/2016-04-06-aws-iam-policy-to-let-users-manage-their-own-mfa/</guid>
-      <description>If you&amp;#8217;re an AWS administrator you know that managing web console security is pretty tough unless you know what you want and you know what you&amp;#8217;re doing. So if what you want is let each AWS user manage their own MFA device configuration without you and force them to have MFA active to use the web console, here is your solution.
+      <description>If you’re an AWS administrator you know that managing web console security is pretty tough unless you know what you want and you know what you’re doing. So if what you want is let each AWS user manage their own MFA device configuration without you and force them to have MFA active to use the web console, here is your solution.
 TL;DR
  Create one or more groups with your web users Create a new policy using this JSON Attach the policy to the group(s)  How does it work?</description>
     </item>
@@ -37,9 +33,8 @@ TL;DR
       
       <guid>http://inge.4pr.es/2015/08/02/2015-08-02-golang-message-queue-a-simple-tcp-message-bus/</guid>
       <description>[TL;DR]
-I wrote a Pub/Sub message queue in Go, branch &amp;#8220;master&amp;#8221; is stable but missing some interesting feature like distributed memory synchronization between nodes in a cluster and encryption. Code at
-https://github.com/inge4pres/gmq
-Being a cloud system engineer, my work is to design and implement distributed systems: one of the key principles in designing such architectures is decoupling, which means ensuring the many parts composing the system are able to share informations and complete a sequence of operations without being tied together.</description>
+I wrote a Pub/Sub message queue in Go, branch “master” is stable but missing some interesting feature like distributed memory synchronization between nodes in a cluster and encryption. Code at
+https://github.com/inge4pres/gmqBeing a cloud system engineer, my work is to design and implement distributed systems: one of the key principles in designing such architectures is decoupling, which means ensuring the many parts composing the system are able to share informations and complete a sequence of operations without being tied together.</description>
     </item>
     
     <item>
@@ -48,7 +43,7 @@ Being a cloud system engineer, my work is to design and implement distributed sy
       <pubDate>Wed, 11 Mar 2015 13:00:46 +0000</pubDate>
       
       <guid>http://inge.4pr.es/2015/03/11/2015-03-11-glusterfs-is-it-suitable-for-me/</guid>
-      <description>During the last years I&amp;#8217;ve been experimenting with GlusterFS and his functionalities as distributed object store; a lot has changed in the software, overall since Red Hat acquired it. I have been using it and find it useful for many projects but not for others: what I love is the community oriented approach with a very responsive team and support for any kind of users (meaning from the 2 nodes web server to a RAID10 Infiniband cluster for high end storage).</description>
+      <description>During the last years I’ve been experimenting with GlusterFSand his functionalities as distributed object store; a lot has changed in the software, overall since Red Hat acquired it. I have been using it and find it useful for many projects but not for others: what I love is the community oriented approach with a very responsive team and support for any kind of users (meaning from the 2 nodes web server to a RAID10 Infiniband cluster for high end storage).</description>
     </item>
     
     <item>
@@ -57,9 +52,9 @@ Being a cloud system engineer, my work is to design and implement distributed sy
       <pubDate>Mon, 07 Oct 2013 15:50:25 +0000</pubDate>
       
       <guid>http://inge.4pr.es/2013/10/07/2013-10-07-zabbix-a-powerful-yet-simple-monitoring-software/</guid>
-      <description>It may come in mind to any IT system engineer to know what is the status of the network, server by server, instance by instance; it happened to me when I was given the responsibility to manage my company&amp;#8217;s infrastructure and I was wondering which tool could have helped to do the job.
+      <description>It may come in mind to any IT system engineer to know what is the status of the network, server by server, instance by instance; it happened to me when I was given the responsibility to manage my company’s infrastructure and I was wondering which tool could have helped to do the job.
 I chose Zabbix to monitor my infrastructure because:
- despite it&amp;#8217;s a bit difficult to install (you need a PHP enabled web server, a database and a C compiler), you will benefit a very user-friendly web interface with lots of functionalities native agents for major OS release are already complied: FreeBSD, Linux, Windows, etc&amp;#8230; Compiling to other OS just requires a &amp;#8220;configure &amp;amp;&amp;amp; make &amp;amp;&amp;amp; make install&amp;#8221; it offers many monitoring methods via a unique interface: you can group SNMP, JMX, HTTP monitoring in one shot it has multi-step HTTP/HTTPS monitoring, simulating different browsers and clients you can build nice infographics bundling all kind of monitored datas you can manage users and roles to give access to the web interface at your company&amp;#8217;s employees you can build custom monitoring scripts to your needs  Well let&amp;#8217;s see some action now: I would like to post a short tutorial on how to build a custom script to monitor resources used by a Glassfish application server.</description>
+ despite it’s a bit difficult to install (you need a PHP enabled web server, a database and a C compiler), you will benefit a very user-friendly web interface with lots of functionalities native agents for major OS release are already complied: FreeBSD, Linux, Windows, etc… Compiling to other OS just requires a “configure &amp;amp;&amp;amp; make &amp;amp;&amp;amp; make install” it offers many monitoring methods via a unique interface: you can group SNMP, JMX, HTTP monitoring in one shot it has multi-step HTTP/HTTPS monitoring, simulating different browsers and clients you can build nice infographics bundling all kind of monitored datas you can manage users and roles to give access to the web interface at your company’s employees you can build custom monitoring scripts to your needs  Well let’s see some action now: I would like to post a short tutorial on how to build a custom script to monitor resources used by a Glassfish application server.</description>
     </item>
     
   </channel>

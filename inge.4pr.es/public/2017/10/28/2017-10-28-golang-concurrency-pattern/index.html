@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang='en'><head>
+<html lang='en' dir='auto'><head>
   <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta name='description' content='Some interesting insights on concurrency primitives offered by Go'>
@@ -11,14 +11,14 @@
 <meta property='og:site_name' content='INGE4PRES RATIONAL THOUGHTS'>
 <meta property='og:type' content='article'><meta property='article:publisher' content='358809487873346'><meta property='article:section' content='post'><meta property='article:tag' content='golang'><meta property='article:tag' content='development'><meta property='article:published_time' content='2017-10-28T19:40:09&#43;02:00'/><meta property='article:modified_time' content='2017-10-28T19:40:09&#43;02:00'/><meta property='fb:app_id' content='1845367892442473'><meta property='fb:admins' content='francesco.inge'><meta name='twitter:card' content='summary'><meta name='twitter:site' content='@inge4pres'>
 
-<meta name="generator" content="Hugo 0.56.3" />
+<meta name="generator" content="Hugo 0.82.0" />
 
   <title>Golang Concurrency Patterns » INGE4PRES RATIONAL THOUGHTS</title>
   <link rel='canonical' href='http://inge.4pr.es/2017/10/28/2017-10-28-golang-concurrency-pattern/'>
   
   
   <link rel='icon' href='/favicon.ico'>
-<link rel='stylesheet' href='/assets/css/main.dd2efce5.css'><style>
+<link rel='stylesheet' href='/assets/css/main.ab98e12b.css'><style>
 :root{--color-accent:#ffcd00;}
 </style>
 
@@ -51,7 +51,9 @@ if (!doNotTrack) {
     </div>
     
     <h2 class='title site-title '>
-    Francesco Gualazzi
+      <a href='/'>
+      Francesco Gualazzi
+      </a>
     </h2>
     <div class='desc'>
     infrastructure-aware developer
@@ -68,19 +70,21 @@ if (!doNotTrack) {
 
 <button id='sidebar-toggler' class='sidebar-toggler' aria-controls='sidebar'>
   <span class='screen-reader-text'>Toggle Sidebar</span>
-  <span class='open'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
+  <span class='open'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
   <line x1="3" y1="12" x2="21" y2="12" />
   <line x1="3" y1="6" x2="21" y2="6" />
   <line x1="3" y1="18" x2="21" y2="18" />
-  
+
 </svg>
 </span>
-  <span class='close'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
+  <span class='close'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
   <line x1="18" y1="6" x2="6" y2="18" />
   <line x1="6" y1="6" x2="18" y2="18" />
-  
+
 </svg>
 </span>
 </button>
@@ -117,13 +121,14 @@ if (!doNotTrack) {
 
     </div>
     <div class='entry-meta'>
-  <span class='posted-on'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
+  <span class='posted-on'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
   <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
   <line x1="16" y1="2" x2="16" y2="6"/>
   <line x1="8" y1="2" x2="8" y2="6"/>
   <line x1="3" y1="10" x2="21" y2="10"/>
-  
+
 </svg>
 <span class='screen-reader-text'>Posted on </span>
   <time class='entry-date' datetime='2017-10-28T19:40:09&#43;02:00'>28 Oct 2017</time>
@@ -131,11 +136,12 @@ if (!doNotTrack) {
 
   
   
-<span class='reading-time'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
+<span class='reading-time'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
   <circle cx="12" cy="12" r="10"/>
   <polyline points="12 6 12 12 15 15"/>
-  
+
 </svg>
 5 mins read
 </span>
@@ -151,93 +157,64 @@ if (!doNotTrack) {
   
 
   <div class='container entry-content'>
-  
-
-<p>In the early days of Go the language was often tailored towards &ldquo;system programming&rdquo; due to its C-stlye syntax and ability to write high-performance applications. Few time after, Go adoption was starting to gain traction for distributed systems development and projects like etcd, docker and kubernetes revealed the power of the networking capabilities offered by the internals in the language. Along the way a lot of libraries have been built around the powerful primitives offered by Go but in my opinion there is not enough use literature around the <em><a href="https://en.wikipedia.org/wiki/Communicating_sequential_processes" target="_blank">Communicating Sequential Processes</a></em> implementation available through channels and goroutines, they are not even widely used in the standard library. I&rsquo;ll detail here some concurrency patterns that I found useful and hopefully they&rsquo;ll be idiomatic enough to represent a good use case for you.</p>
-
+  <p>In the early days of Go the language was often tailored towards &ldquo;system programming&rdquo; due to its C-stlye syntax and ability to write high-performance applications. Few time after, Go adoption was starting to gain traction for distributed systems development and projects like etcd, docker and kubernetes revealed the power of the networking capabilities offered by the internals in the language. Along the way a lot of libraries have been built around the powerful primitives offered by Go but in my opinion there is not enough use literature around the <em><a href="https://en.wikipedia.org/wiki/Communicating_sequential_processes">Communicating Sequential Processes</a></em> implementation available through channels and goroutines, they are not even widely used in the standard library. I&rsquo;ll detail here some concurrency patterns that I found useful and hopefully they&rsquo;ll be idiomatic enough to represent a good use case for you.</p>
 <h5 id="a-premise">A premise</h5>
-
-<p>CSP it&rsquo;s kind of a similar feature to threading but there are some differences; to know more on CSP I really recommend watching Rob Pike&rsquo;s <a href="https://vimeo.com/49718712" target="_blank">excellent talk on the topic</a>.</p>
-
+<p>CSP it&rsquo;s kind of a similar feature to threading but there are some differences; to know more on CSP I really recommend watching Rob Pike&rsquo;s <a href="https://vimeo.com/49718712">excellent talk on the topic</a>.</p>
 <h4 id="my-experience">My experience</h4>
-
 <p>Personally it took me a while to find my way out of the issues I ran into when first using concurrency features in Go: they are definitely the most complicated part of using Go, which is on average simpler that any other language I tried. So for me, the biggest problem was to understand what it means to have a goroutine spawned and how to control its execution or get data out of it, so I put together a list of examples on how concurrent programs flow can be controlled with the primitives built in the language.</p>
-
 <h4 id="channel-channels-channels-everywhere">Channel, channels, channels everywhere</h4>
-
-<p>A channel in Go is a way to pass messages between functions and goroutines, the official definition from <a href="https://tour.golang.org/concurrency/2" target="_blank">A Tour of Go</a> is:</p>
-
+<p>A channel in Go is a way to pass messages between functions and goroutines, the official definition from <a href="https://tour.golang.org/concurrency/2">A Tour of Go</a> is:</p>
 <p><em>Channels are a typed conduit through which you can send and receive values with the channel operator, <code>&lt;-</code></em></p>
-
-<p>So what are they good for? They are actually not very helpful without goroutines: a goroutine is a lightweigth thread managed by the Go runtime (<a href="https://tour.golang.org/concurrency/1" target="_blank">definition</a>), think like a background process that can be spawned and does not need to be managed directly by you, I like the concept of <em>&ldquo;run and forget&rdquo;</em>.
+<p>So what are they good for? They are actually not very helpful without goroutines: a goroutine is a lightweigth thread managed by the Go runtime (<a href="https://tour.golang.org/concurrency/1">definition</a>), think like a background process that can be spawned and does not need to be managed directly by you, I like the concept of <em>&ldquo;run and forget&rdquo;</em>.
 The easiest concurrency pattern available is thinking of a goroutine processing some data in the background and returning them through a channel to the main thread executing our code; this can be very powerful and scale well to multiple functions and channels.</p>
-
 <h4 id="waitgroups">WaitGroups</h4>
-
-<p><a href="https://golang.org/pkg/sync/#WaitGroup" target="_blank">WaitGroups</a> are part of the <code>sync</code> package from the Go standard lib: they are a way for waiting the execution of goroutines to end properly and ensure all the work done in the background is completed. WaitGroups are often used with <code>defer</code> to fill in the wait queue when the goroutine exits.</p>
-
+<p><a href="https://golang.org/pkg/sync/#WaitGroup">WaitGroups</a> are part of the <code>sync</code> package from the Go standard lib: they are a way for waiting the execution of goroutines to end properly and ensure all the work done in the background is completed. WaitGroups are often used with <code>defer</code> to fill in the wait queue when the goroutine exits.</p>
 <h4 id="some-examples">Some examples</h4>
-
-<p>For me the most difficult thing to understand when approaching concurrency was how to ensure all of my goroutines completed execution: to do this the easiest way is using WaitGroups as in <a href="https://github.com/inge4pres/blog/blob/master/golang-concurrency-patterns/waitgroup_test.go" target="_blank">waitgroup_test.go</a>: <code>wg.Add(1)</code> adds one item in the wait queue and <code>wg.Done()</code> removes one item from it; using <code>wg.Wait()</code> in the main process makes the process wait until the wait group is emptied.
+<p>For me the most difficult thing to understand when approaching concurrency was how to ensure all of my goroutines completed execution: to do this the easiest way is using WaitGroups as in <a href="https://github.com/inge4pres/blog/blob/master/golang-concurrency-patterns/waitgroup_test.go">waitgroup_test.go</a>: <code>wg.Add(1)</code> adds one item in the wait queue and <code>wg.Done()</code> removes one item from it; using <code>wg.Wait()</code> in the main process makes the process wait until the wait group is emptied.
 If you run the tests with</p>
-
 <pre><code>go test -v . -race -run ^TestWaitGroup
-</code></pre>
-
-<p>you can see the execution time when using concurrency or not. Changing the value of <code>ops</code> variable in <a href="https://github.com/inge4pres/blog/blob/master/golang-concurrency-patterns/functions_test.go#L3" target="_blank">functions_test.go</a> will make the tests process less or more items.</p>
-
+</code></pre><p>you can see the execution time when using concurrency or not. Changing the value of <code>ops</code> variable in <a href="https://github.com/inge4pres/blog/blob/master/golang-concurrency-patterns/functions_test.go#L3">functions_test.go</a> will make the tests process less or more items.</p>
 <p>With channels there are more features and gotchas that need to be taken into account:</p>
-
 <ul>
 <li>a read from a closed channel returns the type&rsquo;s zero-value</li>
 <li>a send to a closed channel will <code>panic</code></li>
 <li>a read and a send alone to an unbuffered channel are blocking: they will generate a deadlock if there is not a corresponding send/read operation on the other side of the channel</li>
 <li>a send on a buffered channel will block when the buffer is full and no other read is happening on the other side</li>
 </ul>
-
-<p>That being said, there are a couple of notable usages that I like to include in my concurrency-enabled Go software: the <a href="https://github.com/inge4pres/blog/blob/master/golang-concurrency-patterns/channels_test.go#L22" target="_blank">fan-out pattern</a> where an input generates multiple goroutines that perform operations in the background and the output of the concurrent goroutines is fetched by a channel in the main thread. Another pattern is <a href="https://github.com/inge4pres/blog/blob/master/golang-concurrency-patterns/channels_test.go#L36" target="_blank">fan-in</a>: multiple functions can return values to a channel as long as the type is consistent. Run tests with</p>
-
+<p>That being said, there are a couple of notable usages that I like to include in my concurrency-enabled Go software: the <a href="https://github.com/inge4pres/blog/blob/master/golang-concurrency-patterns/channels_test.go#L22">fan-out pattern</a> where an input generates multiple goroutines that perform operations in the background and the output of the concurrent goroutines is fetched by a channel in the main thread. Another pattern is <a href="https://github.com/inge4pres/blog/blob/master/golang-concurrency-patterns/channels_test.go#L36">fan-in</a>: multiple functions can return values to a channel as long as the type is consistent. Run tests with</p>
 <pre><code>go test -v . -race -run ^TestChannelBuffered
-</code></pre>
-
-<p>to see fan-out/fan-in patterns in action.</p>
-
-<p>Another interesting feature is powered by the <code>select</code> statement: you can read from multiple channels in the same function and define behavior for any given channel message, it is another sample of fan-in pattern. Using <code>select</code> will block until one of the send/receive operation is available, the operation gets chosen randomly if multiple are available at the same time. <code>select</code> has a similar syntax to <code>switch</code> so <code>case</code> and <code>default</code> are the scenario selector. Running <a href="https://github.com/inge4pres/blog/blob/master/golang-concurrency-patterns/channels_test.go#L55" target="_blank">multiple channels</a> lets you manage multiple types in a single point: run the test with</p>
-
+</code></pre><p>to see fan-out/fan-in patterns in action.</p>
+<p>Another interesting feature is powered by the <code>select</code> statement: you can read from multiple channels in the same function and define behavior for any given channel message, it is another sample of fan-in pattern. Using <code>select</code> will block until one of the send/receive operation is available, the operation gets chosen randomly if multiple are available at the same time. <code>select</code> has a similar syntax to <code>switch</code> so <code>case</code> and <code>default</code> are the scenario selector. Running <a href="https://github.com/inge4pres/blog/blob/master/golang-concurrency-patterns/channels_test.go#L55">multiple channels</a> lets you manage multiple types in a single point: run the test with</p>
 <pre><code>go test -v . -race -run ^TestMultipleChannelsSelect$
-</code></pre>
-
-<p>to check the execution of the multiple goroutines.</p>
-
+</code></pre><p>to check the execution of the multiple goroutines.</p>
 <h4 id="conclusions">Conclusions</h4>
-
 <p>My experience with Go concurrency primitives is still forming, I hope I can read and experiment more on the topic as it&rsquo;s one of Go&rsquo;s most powerful and at the same time less documented features! I&rsquo;d really love to hear feedback from the read so if you get up to this point, take a step forward and leave a comment below, I&rsquo;d really love to discuss.</p>
-
 <h4 id="references">References</h4>
-
 <ul>
-<li><a href="https://gobyexample.com/worker-pools" target="_blank">Worker pools</a></li>
-<li><a href="https://golangbot.com/channels/" target="_blank">Channels</a></li>
-<li><a href="https://www.youtube.com/watch?v=yKQOunhhf4A" target="_blank">Concurrency made easy - Dave Cheney</a></li>
-<li><a href="https://golang.org/doc/codewalk/sharemem/" target="_blank">Share memory by communicating - Codewalk</a></li>
-<li><a href="http://www.jtolds.com/writing/2016/03/go-channels-are-bad-and-you-should-feel-bad/" target="_blank">Go channels are bad and you should feel bad</a></li>
+<li><a href="https://gobyexample.com/worker-pools">Worker pools</a></li>
+<li><a href="https://golangbot.com/channels/">Channels</a></li>
+<li><a href="https://www.youtube.com/watch?v=yKQOunhhf4A">Concurrency made easy - Dave Cheney</a></li>
+<li><a href="https://golang.org/doc/codewalk/sharemem/">Share memory by communicating - Codewalk</a></li>
+<li><a href="http://www.jtolds.com/writing/2016/03/go-channels-are-bad-and-you-should-feel-bad/">Go channels are bad and you should feel bad</a></li>
 </ul>
 
 </div>
 
   
 <footer class='entry-footer'>
-  <div class='container sep-before'><div class='categories'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"/>
-  
+  <div class='container sep-before'><div class='categories'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+    <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"/>
+
 </svg>
 <span class='screen-reader-text'>Categories: </span><a class='category' href='/categories/tech/'>tech</a></div>
-<div class='tags'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
+<div class='tags'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
   <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"/>
   <line x1="7" y1="7" x2="7" y2="7"/>
-  
+
 </svg>
 <span class='screen-reader-text'>Tags: </span><a class='tag' href='/tags/golang/'>golang</a>, <a class='tag' href='/tags/development/'>development</a></div>
 
@@ -250,21 +227,23 @@ If you run the tests with</p>
 <nav class='entry-nav'>
   <div class='container'><div class='prev-entry sep-before'>
       <a href='/2017/10/01/2017-10-01-getting-started-with-google-cloud-builder/'>
-        <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
+        <span aria-hidden='true'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
   <line x1="20" y1="12" x2="4" y2="12"/>
   <polyline points="10 18 4 12 10 6"/>
-  
+
 </svg>
  Previous</span>
         <span class='screen-reader-text'>Previous post: </span>Getting Started With Google Cloud Builder</a>
     </div><div class='next-entry sep-before'>
       <a href='/2018/01/30/serverless-on-kubernetes/'>
-        <span class='screen-reader-text'>Next post: </span>Serverless on Kubernetes<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
+        <span class='screen-reader-text'>Next post: </span>Serverless on Kubernetes<span aria-hidden='true'>Next <svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
   <line x1="4" y1="12" x2="20" y2="12"/>
   <polyline points="14 6 20 12 14 18"/>
-  
+
 </svg>
 </span>
       </a>
@@ -305,71 +284,65 @@ If you run the tests with</p>
     <h4 class='title widget-title'>Stay Tuned</h4>
   </header><nav aria-label='Social Menu'>
     <ul><li>
-        <a href='https://github.com/inge4pres' target='_blank' rel='noopener'>
-          <span class='screen-reader-text'>Open Github account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-  
+        <a href='https://github.com/inge4pres' target='_blank' rel='noopener me'>
+          <span class='screen-reader-text'>Open Github account in new tab</span><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+
 </svg>
 </a>
       </li><li>
-        <a href='https://gitlab.com/inge4pres' target='_blank' rel='noopener'>
-          <span class='screen-reader-text'>Open Gitlab account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <path d="M22.65 14.39L12 22.13 1.35 14.39a.84.84 0 0 1-.3-.94l1.22-3.78 2.44-7.51A.42.42 0 0 1 4.82 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.49h8.1l2.44-7.51A.42.42 0 0 1 18.6 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.51L23 13.45a.84.84 0 0 1-.35.94z"/>
-  
+        <a href='https://gitlab.com/inge4pres' target='_blank' rel='noopener me'>
+          <span class='screen-reader-text'>Open Gitlab account in new tab</span><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <title>GitLab icon</title>  <path d="M22.65 14.39L12 22.13 1.35 14.39a.84.84 0 0 1-.3-.94l1.22-3.78 2.44-7.51A.42.42 0 0 1 4.82 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.49h8.1l2.44-7.51A.42.42 0 0 1 18.6 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.51L23 13.45a.84.84 0 0 1-.35.94z"/>
 </svg>
 </a>
       </li><li>
-        <a href='https://twitter.com/inge4pres' target='_blank' rel='noopener'>
-          <span class='screen-reader-text'>Open Twitter account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
-  
+        <a href='https://twitter.com/inge4pres' target='_blank' rel='noopener me'>
+          <span class='screen-reader-text'>Open Twitter account in new tab</span><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+  <title>Twitter icon</title>
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+
 </svg>
 </a>
       </li><li>
-        <a href='mailto:fgualazzi@gmail.com' target='_blank' rel='noopener'>
-          <span class='screen-reader-text'>Contact via Email</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-  <polyline points="22,6 12,13 2,6"/>
-  
+        <a href='mailto:fgualazzi@gmail.com' target='_blank' rel='noopener me'>
+          <span class='screen-reader-text'>Contact via Email</span><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline>
 </svg>
 </a>
       </li><li>
-        <a href='https://linkedin.com/in/francescogualazzi' target='_blank' rel='noopener'>
-          <span class='screen-reader-text'>Open Linkedin account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-  <rect x="2" y="9" width="4" height="12"/>
-  <circle cx="4" cy="4" r="2"/>
-  
+        <a href='https://linkedin.com/in/francescogualazzi' target='_blank' rel='noopener me'>
+          <span class='screen-reader-text'>Open Linkedin account in new tab</span><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle>
 </svg>
 </a>
       </li><li>
-        <a href='https://instagram.com/inge4pres' target='_blank' rel='noopener'>
-          <span class='screen-reader-text'>Open Instagram account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-  <line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/>
-  
+        <a href='https://instagram.com/inge4pres' target='_blank' rel='noopener me'>
+          <span class='screen-reader-text'>Open Instagram account in new tab</span><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
 </svg>
 </a>
       </li></ul>
   </nav>
 </section><div class='copyright'>
-  <p>inge4pres &copy; 2012-2020 Francesco Gualazzi </p>
+  <p>inge4pres &copy; 2012-2021 Francesco Gualazzi </p>
 </div>
 
         </div>
       </footer>
 
     </div>
-  </div><script>window.__public_path__='\/assets\/js\/'</script>
+  </div><script>window.__assets_js_src="/assets/js/"</script>
 
-<script src='/assets/js/main.00df04b7.js'></script>
+<script src='/assets/js/main.c3bcf2df.js'></script>
 
 </body>
 

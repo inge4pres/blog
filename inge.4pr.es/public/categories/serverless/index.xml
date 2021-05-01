@@ -1,15 +1,11 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>serverless on INGE4PRES RATIONAL THOUGHTS</title>
     <link>http://inge.4pr.es/categories/serverless/</link>
     <description>Recent content in serverless on INGE4PRES RATIONAL THOUGHTS</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 30 Jan 2018 20:31:34 +0100</lastBuildDate>
-    
-	<atom:link href="http://inge.4pr.es/categories/serverless/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 30 Jan 2018 20:31:34 +0100</lastBuildDate><atom:link href="http://inge.4pr.es/categories/serverless/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Serverless on Kubernetes</title>
       <link>http://inge.4pr.es/2018/01/30/serverless-on-kubernetes/</link>

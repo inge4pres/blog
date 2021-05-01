@@ -1,15 +1,11 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>software on INGE4PRES RATIONAL THOUGHTS</title>
     <link>http://inge.4pr.es/tags/software/</link>
     <description>Recent content in software on INGE4PRES RATIONAL THOUGHTS</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 05 May 2018 15:08:30 +0200</lastBuildDate>
-    
-	<atom:link href="http://inge.4pr.es/tags/software/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 05 May 2018 15:08:30 +0200</lastBuildDate><atom:link href="http://inge.4pr.es/tags/software/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Cloud-native applications: Operator-Framework</title>
       <link>http://inge.4pr.es/2018/05/05/cloud-native-software-delivery/</link>
@@ -27,9 +23,9 @@ So how can software delivery be cloud-native? Isn&amp;rsquo;t software delivery 
       <pubDate>Sun, 24 Jan 2016 16:40:37 +0000</pubDate>
       
       <guid>http://inge.4pr.es/2016/01/24/2016-01-24-implement-a-generic-data-list-structure/</guid>
-      <description>As a coding challenge I was asked to provide a generic list implementation using a language of my choice and using only primitive types, avoiding the use of high level built-ins. I chose Go because I want to learn it and I know it can be useful to create an abstract, generic implementation.
+      <description>As a coding challenge I was asked to provide a generic list implementation using a language of my choice and using only primitive types, avoiding the use of high level built-ins. I chose Gobecause I want to learn it and I know it can be useful to create an abstract, generic implementation.
 The challenge request to implement at least 4 methods on the generic type:
- Filter() &amp;#8211; returns a subset of the List satisfying an operation Map() &amp;#8211; returns the List objects&amp;#8217; map Reverse() &amp;#8211; reverse the ordering of the List objects FoldLeft() &amp;#8211; join the objects from left to right using a join character  As a bonus question I was asked to code unit tests for the aforementioned methods and give an explanation on how the implementation guarantees concurrent access on resources.</description>
+ Filter() – returns a subset of the List satisfying an operation Map() – returns the List objects’ map Reverse() – reverse the ordering of the List objects FoldLeft() – join the objects from left to right using a join character  As a bonus question I was asked to code unit tests for the aforementioned methods and give an explanation on how the implementation guarantees concurrent access on resources.</description>
     </item>
     
     <item>
@@ -39,9 +35,8 @@ The challenge request to implement at least 4 methods on the generic type:
       
       <guid>http://inge.4pr.es/2015/08/02/2015-08-02-golang-message-queue-a-simple-tcp-message-bus/</guid>
       <description>[TL;DR]
-I wrote a Pub/Sub message queue in Go, branch &amp;#8220;master&amp;#8221; is stable but missing some interesting feature like distributed memory synchronization between nodes in a cluster and encryption. Code at
-https://github.com/inge4pres/gmq
-Being a cloud system engineer, my work is to design and implement distributed systems: one of the key principles in designing such architectures is decoupling, which means ensuring the many parts composing the system are able to share informations and complete a sequence of operations without being tied together.</description>
+I wrote a Pub/Sub message queue in Go, branch “master” is stable but missing some interesting feature like distributed memory synchronization between nodes in a cluster and encryption. Code at
+https://github.com/inge4pres/gmqBeing a cloud system engineer, my work is to design and implement distributed systems: one of the key principles in designing such architectures is decoupling, which means ensuring the many parts composing the system are able to share informations and complete a sequence of operations without being tied together.</description>
     </item>
     
     <item>
@@ -51,7 +46,7 @@ Being a cloud system engineer, my work is to design and implement distributed sy
       
       <guid>http://inge.4pr.es/2015/06/11/2015-06-11-my-first-golang-web-project/</guid>
       <description>It is true: I fell in love with Go, not because I love Google and his products, but because it really fits my ideology of simplicity and power in a programming language. I started experimenting with the language and thank to his web-oriented approach I quickly came up with one of the simplest single task web application I could write: a URL shortener.
-What is a URL shortener? It&amp;#8217;s a service that will give you a short link for a long URL.</description>
+What is a URL shortener? It’s a service that will give you a short link for a long URL.</description>
     </item>
     
     <item>
@@ -60,9 +55,9 @@ What is a URL shortener? It&amp;#8217;s a service that will give you a short lin
       <pubDate>Mon, 07 Oct 2013 15:50:25 +0000</pubDate>
       
       <guid>http://inge.4pr.es/2013/10/07/2013-10-07-zabbix-a-powerful-yet-simple-monitoring-software/</guid>
-      <description>It may come in mind to any IT system engineer to know what is the status of the network, server by server, instance by instance; it happened to me when I was given the responsibility to manage my company&amp;#8217;s infrastructure and I was wondering which tool could have helped to do the job.
+      <description>It may come in mind to any IT system engineer to know what is the status of the network, server by server, instance by instance; it happened to me when I was given the responsibility to manage my company’s infrastructure and I was wondering which tool could have helped to do the job.
 I chose Zabbix to monitor my infrastructure because:
- despite it&amp;#8217;s a bit difficult to install (you need a PHP enabled web server, a database and a C compiler), you will benefit a very user-friendly web interface with lots of functionalities native agents for major OS release are already complied: FreeBSD, Linux, Windows, etc&amp;#8230; Compiling to other OS just requires a &amp;#8220;configure &amp;amp;&amp;amp; make &amp;amp;&amp;amp; make install&amp;#8221; it offers many monitoring methods via a unique interface: you can group SNMP, JMX, HTTP monitoring in one shot it has multi-step HTTP/HTTPS monitoring, simulating different browsers and clients you can build nice infographics bundling all kind of monitored datas you can manage users and roles to give access to the web interface at your company&amp;#8217;s employees you can build custom monitoring scripts to your needs  Well let&amp;#8217;s see some action now: I would like to post a short tutorial on how to build a custom script to monitor resources used by a Glassfish application server.</description>
+ despite it’s a bit difficult to install (you need a PHP enabled web server, a database and a C compiler), you will benefit a very user-friendly web interface with lots of functionalities native agents for major OS release are already complied: FreeBSD, Linux, Windows, etc… Compiling to other OS just requires a “configure &amp;amp;&amp;amp; make &amp;amp;&amp;amp; make install” it offers many monitoring methods via a unique interface: you can group SNMP, JMX, HTTP monitoring in one shot it has multi-step HTTP/HTTPS monitoring, simulating different browsers and clients you can build nice infographics bundling all kind of monitored datas you can manage users and roles to give access to the web interface at your company’s employees you can build custom monitoring scripts to your needs  Well let’s see some action now: I would like to post a short tutorial on how to build a custom script to monitor resources used by a Glassfish application server.</description>
     </item>
     
   </channel>

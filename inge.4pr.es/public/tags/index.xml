@@ -1,14 +1,28 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on INGE4PRES RATIONAL THOUGHTS</title>
     <link>http://inge.4pr.es/tags/</link>
     <description>Recent content in Tags on INGE4PRES RATIONAL THOUGHTS</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 01 Nov 2019 15:56:42 +0100</lastBuildDate>
+    <lastBuildDate>Sat, 03 Apr 2021 17:10:26 +0100</lastBuildDate><atom:link href="http://inge.4pr.es/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>practices</title>
+      <link>http://inge.4pr.es/tags/practices/</link>
+      <pubDate>Sat, 03 Apr 2021 17:10:26 +0100</pubDate>
+      
+      <guid>http://inge.4pr.es/tags/practices/</guid>
+      <description></description>
+    </item>
     
-	<atom:link href="http://inge.4pr.es/tags/index.xml" rel="self" type="application/rss+xml" />
-    
+    <item>
+      <title>software-engineering</title>
+      <link>http://inge.4pr.es/tags/software-engineering/</link>
+      <pubDate>Sat, 03 Apr 2021 17:10:26 +0100</pubDate>
+      
+      <guid>http://inge.4pr.es/tags/software-engineering/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>cka</title>
@@ -182,15 +196,6 @@
     </item>
     
     <item>
-      <title>EFS</title>
-      <link>http://inge.4pr.es/tags/efs/</link>
-      <pubDate>Sun, 18 Sep 2016 17:26:17 +0000</pubDate>
-      
-      <guid>http://inge.4pr.es/tags/efs/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>benchmark</title>
       <link>http://inge.4pr.es/tags/benchmark/</link>
       <pubDate>Sun, 18 Sep 2016 17:26:17 +0000</pubDate>
@@ -205,6 +210,15 @@
       <pubDate>Sun, 18 Sep 2016 17:26:17 +0000</pubDate>
       
       <guid>http://inge.4pr.es/tags/cloud/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>EFS</title>
+      <link>http://inge.4pr.es/tags/efs/</link>
+      <pubDate>Sun, 18 Sep 2016 17:26:17 +0000</pubDate>
+      
+      <guid>http://inge.4pr.es/tags/efs/</guid>
       <description></description>
     </item>
     
@@ -326,20 +340,20 @@
     </item>
     
     <item>
-      <title>URL</title>
-      <link>http://inge.4pr.es/tags/url/</link>
-      <pubDate>Thu, 11 Jun 2015 12:15:34 +0000</pubDate>
-      
-      <guid>http://inge.4pr.es/tags/url/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>shortener</title>
       <link>http://inge.4pr.es/tags/shortener/</link>
       <pubDate>Thu, 11 Jun 2015 12:15:34 +0000</pubDate>
       
       <guid>http://inge.4pr.es/tags/shortener/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>URL</title>
+      <link>http://inge.4pr.es/tags/url/</link>
+      <pubDate>Thu, 11 Jun 2015 12:15:34 +0000</pubDate>
+      
+      <guid>http://inge.4pr.es/tags/url/</guid>
       <description></description>
     </item>
     
@@ -488,20 +502,20 @@
     </item>
     
     <item>
-      <title>Equitalia</title>
-      <link>http://inge.4pr.es/tags/equitalia/</link>
-      <pubDate>Tue, 22 May 2012 20:37:58 +0000</pubDate>
-      
-      <guid>http://inge.4pr.es/tags/equitalia/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>ecopass</title>
       <link>http://inge.4pr.es/tags/ecopass/</link>
       <pubDate>Tue, 22 May 2012 20:37:58 +0000</pubDate>
       
       <guid>http://inge.4pr.es/tags/ecopass/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Equitalia</title>
+      <link>http://inge.4pr.es/tags/equitalia/</link>
+      <pubDate>Tue, 22 May 2012 20:37:58 +0000</pubDate>
+      
+      <guid>http://inge.4pr.es/tags/equitalia/</guid>
       <description></description>
     </item>
     

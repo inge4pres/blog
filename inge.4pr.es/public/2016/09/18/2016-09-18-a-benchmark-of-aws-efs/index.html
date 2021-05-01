@@ -1,24 +1,24 @@
 <!DOCTYPE html>
-<html lang='en'><head>
+<html lang='en' dir='auto'><head>
   <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
-<meta name='description' content='Amazon Web Services Elastic File System has been to my knowledge the service to have the longest beta testing period: reason for this may be that not as many client as expected tested it and AWS received too few feedback on it or that there were issues not to release GA. I don&#8217;t want to speculate on which one is correct but now that it has been officially released I decided to give it a try and of course compare it to a self-managed solution on the same platform.'>
+<meta name='description' content='Amazon Web Services Elastic File Systemhas been to my knowledge the service to have the longest beta testing period: reason for this may be that not as many client as expected tested it and AWS received too few feedback on it or that there were issues not to release GA. I don’t want to speculate on which one is correct but now that it has been officially releasedI decided to give it a try and of course compare it to a self-managed solution on the same platform.'>
 <meta name='theme-color' content='#ffcd00'>
 
 <meta property='og:title' content='A benchmark of AWS EFS » INGE4PRES RATIONAL THOUGHTS'>
-<meta property='og:description' content='Amazon Web Services Elastic File System has been to my knowledge the service to have the longest beta testing period: reason for this may be that not as many client as expected tested it and AWS received too few feedback on it or that there were issues not to release GA. I don&#8217;t want to speculate on which one is correct but now that it has been officially released I decided to give it a try and of course compare it to a self-managed solution on the same platform.'>
+<meta property='og:description' content='Amazon Web Services Elastic File Systemhas been to my knowledge the service to have the longest beta testing period: reason for this may be that not as many client as expected tested it and AWS received too few feedback on it or that there were issues not to release GA. I don’t want to speculate on which one is correct but now that it has been officially releasedI decided to give it a try and of course compare it to a self-managed solution on the same platform.'>
 <meta property='og:url' content='http://inge.4pr.es/2016/09/18/2016-09-18-a-benchmark-of-aws-efs/'>
 <meta property='og:site_name' content='INGE4PRES RATIONAL THOUGHTS'>
 <meta property='og:type' content='article'><meta property='article:publisher' content='358809487873346'><meta property='article:section' content='post'><meta property='article:tag' content='aws'><meta property='article:tag' content='benchmark'><meta property='article:tag' content='cloud'><meta property='article:tag' content='EFS'><meta property='article:tag' content='filesystem'><meta property='article:published_time' content='2016-09-18T17:26:17Z'/><meta property='article:modified_time' content='2016-09-18T17:26:17Z'/><meta property='fb:app_id' content='1845367892442473'><meta property='fb:admins' content='francesco.inge'><meta name='twitter:card' content='summary'><meta name='twitter:site' content='@inge4pres'>
 
-<meta name="generator" content="Hugo 0.56.3" />
+<meta name="generator" content="Hugo 0.82.0" />
 
   <title>A benchmark of AWS EFS » INGE4PRES RATIONAL THOUGHTS</title>
   <link rel='canonical' href='http://inge.4pr.es/2016/09/18/2016-09-18-a-benchmark-of-aws-efs/'>
   
   
   <link rel='icon' href='/favicon.ico'>
-<link rel='stylesheet' href='/assets/css/main.dd2efce5.css'><style>
+<link rel='stylesheet' href='/assets/css/main.ab98e12b.css'><style>
 :root{--color-accent:#ffcd00;}
 </style>
 
@@ -51,7 +51,9 @@ if (!doNotTrack) {
     </div>
     
     <h2 class='title site-title '>
-    Francesco Gualazzi
+      <a href='/'>
+      Francesco Gualazzi
+      </a>
     </h2>
     <div class='desc'>
     infrastructure-aware developer
@@ -68,19 +70,21 @@ if (!doNotTrack) {
 
 <button id='sidebar-toggler' class='sidebar-toggler' aria-controls='sidebar'>
   <span class='screen-reader-text'>Toggle Sidebar</span>
-  <span class='open'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
+  <span class='open'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
   <line x1="3" y1="12" x2="21" y2="12" />
   <line x1="3" y1="6" x2="21" y2="6" />
   <line x1="3" y1="18" x2="21" y2="18" />
-  
+
 </svg>
 </span>
-  <span class='close'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
+  <span class='close'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
   <line x1="18" y1="6" x2="6" y2="18" />
   <line x1="6" y1="6" x2="18" y2="18" />
-  
+
 </svg>
 </span>
 </button>
@@ -115,13 +119,14 @@ if (!doNotTrack) {
 
     </div>
     <div class='entry-meta'>
-  <span class='posted-on'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
+  <span class='posted-on'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
   <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
   <line x1="16" y1="2" x2="16" y2="6"/>
   <line x1="8" y1="2" x2="8" y2="6"/>
   <line x1="3" y1="10" x2="21" y2="10"/>
-  
+
 </svg>
 <span class='screen-reader-text'>Posted on </span>
   <time class='entry-date' datetime='2016-09-18T17:26:17Z'>18 Sep 2016</time>
@@ -129,13 +134,14 @@ if (!doNotTrack) {
 
   
   
-<span class='reading-time'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
+<span class='reading-time'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
   <circle cx="12" cy="12" r="10"/>
   <polyline points="12 6 12 12 15 15"/>
-  
+
 </svg>
-6 mins read
+4 mins read
 </span>
 
 
@@ -149,178 +155,65 @@ if (!doNotTrack) {
   
 
   <div class='container entry-content'>
-  
-
-<p>Amazon Web Services <a href="https://aws.amazon.com/efs/" target="_blank">Elastic File System</a> has been to my knowledge the service to have the longest beta testing period: reason for this may be that not as many client as expected tested it and AWS received too few feedback on it or that there were issues not to release GA. I don&#8217;t want to speculate on which one is correct but now that it has been <a href="https://aws.amazon.com/about-aws/whats-new/2016/06/amazon-elastic-file-system-efs-is-now-generally-available/" target="_blank">officially released</a> I decided to give it a try and of course compare it to a self-managed solution on the same platform.</p>
-
-<p>If you followed AWS evolution you may agree that EFS has been introduced to fill the gap between EBS storage and S3: before EFS was live there was no &#8220;easy&#8221; way of having a distributed file system in AWS, you could only <a href="http://inge.4pr.es/blog/?p=318" target="_blank">set up your own</a> using  a combination of EC2 instances mounting Elastic Block Storage volumes and S3. Now with EFS you can have a AWS-managed distributed file system to be used in your cloud environment or even across the internet (will try that on a public subnet) with all the benefits of offloading the high-availability and replication burden to Amazon, and at a reasonable price. Will performance be enough compared to a self-managed solution?</p>
-
+  <p>Amazon Web Services <!-- raw HTML omitted -->Elastic File System<!-- raw HTML omitted --> has been to my knowledge the service to have the longest beta testing period: reason for this may be that not as many client as expected tested it and AWS received too few feedback on it or that there were issues not to release GA. I don’t want to speculate on which one is correct but now that it has been <!-- raw HTML omitted -->officially released<!-- raw HTML omitted --> I decided to give it a try and of course compare it to a self-managed solution on the same platform.</p>
+<p>If you followed AWS evolution you may agree that EFS has been introduced to fill the gap between EBS storage and S3: before EFS was live there was no “easy” way of having a distributed file system in AWS, you could only <!-- raw HTML omitted -->set up your own<!-- raw HTML omitted --> using  a combination of EC2 instances mounting Elastic Block Storage volumes and S3. Now with EFS you can have a AWS-managed distributed file system to be used in your cloud environment or even across the internet (will try that on a public subnet) with all the benefits of offloading the high-availability and replication burden to Amazon, and at a reasonable price. Will performance be enough compared to a self-managed solution?</p>
 <h5 id="playground">Playground</h5>
-
-<p>I use <a href="https://www.terraform.io/" target="_blank">terraform</a> to create an infrastructure template to run the tests, you can see it <a href="https://github.com/inge4pres/blog/tree/master/a-benchmark-of-aws-efs/terraform" target="_blank">here</a>. Once</p>
-
-<pre class="">terraform apply</pre>
-
-<p>has finished, you&#8217;ll end up with:</p>
-
+<p>I use <!-- raw HTML omitted -->terraform<!-- raw HTML omitted --> to create an infrastructure template to run the tests, you can see it <!-- raw HTML omitted -->here<!-- raw HTML omitted -->. Once</p>
+<!-- raw HTML omitted -->
+<p>has finished, you’ll end up with:</p>
 <ul>
 <li>An EFS with General Purpose performance mode</li>
 <li>An EFS mount target for 1 Availability Zone</li>
-<li>1 EC2 instance named &#8220;client&#8221; to mount remote file systems</li>
-<li>2 EC2 instances named &#8220;server_X&#8221; each one with a 10 GB General Purpose EBS, they will serve a self-managed distributed, replicated file system</li>
+<li>1 EC2 instance named “client” to mount remote file systems</li>
+<li>2 EC2 instances named “server_X” each one with a 10 GB General Purpose EBS, they will serve a self-managed distributed, replicated file system</li>
 </ul>
-
-<p>This is the terraform output and the steps to run on the 2 server nodes to have a running GlusterFS replicated volume; to configure the NFS export on server1, I used <a href="http://www.tldp.org/HOWTO/NFS-HOWTO/server.html" target="_blank">this guide</a>.</p>
-
-<pre class="theme:github lang:sh decode:true " title="Terraform output">Apply complete! Resources: 15 added, 0 changed, 0 destroyed.
-
-The state of your infrastructure has been saved to the path
-below. This state is required to modify and destroy your
-infrastructure, so keep it safe. To inspect the complete state
-use the `terraform show` command.
-
-State path: terraform.tfstate
-
-Outputs:
-
-client-public-ip = ec2-54-89-124-238.compute-1.amazonaws.com
-efs-mount-target-a = us-east-1b.fs-a6418fef.efs.us-east-1.amazonaws.com
-server-a-ip = 172.30.10.122
-server-b-ip = 172.30.11.31</pre>
-
-<pre class="theme:github lang:sh decode:true " title="Create GlusterFS vol">ssh ec2-user@ec2-54-89-124-238.compute-1.amazonaws.com
-# ssh to first server, need agent forwarding setup
-ssh 172.30.10.122
-sudo service glusterd restart
-# probe the node 2
-sudo gluster peer probe 172.30.11.31
-sudo gluster peer status
-** 
-Number of Peers: 1
-
-Hostname: 172.30.11.31
-Uuid: 237bc59a-20b6-4b30-b133-abab34e36720
-State: Peer in Cluster (Connected)
-** 
-
-sudo gluster volume create efs-bench replica 2 transport tcp \
-   172.30.10.122:/export/gluster/brick 172.30.11.31:/export/gluster/brick force
-# force required to use the root disk as export brick
-** volume create: efs-bench: success: please start the volume to access data
-
-sudo gluster volume start efs-bench
-** volume start: efs-bench: success</pre>
-
-<p>On the client I mount the EFS target with NFS4.1, the GlusterFS volume from the server <em>in the same subnet</em> via the GlusterFS native client_ _and the NFS export on the client&#8217;s designated mount points. I use the server on the same subnet as the client is, because the EFS target exposes a mount point in the same subnet and latency is a key factor in remote file system.</p>
-
-<pre class="theme:github lang:sh decode:true" title="Client mounts">sudo mount -t nfs4 -o vers=4.1 \
-  us-east-1b.fs-a6418fef.efs.us-east-1.amazonaws.com:/ /mnt/efs
-
-sudo mount -t glusterfs 172.30.10.122:/efs-bench /mnt/gluster
-
-sudo mount -t nfs 172.30.10.122:/export/nfs /mnt/nfs -o user=ec2-user</pre>
-
+<p>This is the terraform output and the steps to run on the 2 server nodes to have a running GlusterFS replicated volume; to configure the NFS export on server1, I used <!-- raw HTML omitted -->this guide<!-- raw HTML omitted -->.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>On the client I mount the EFS target with NFS4.1, the GlusterFS volume from the server <em>in the same subnet</em> via the GlusterFS native client_ _and the NFS export on the client’s designated mount points. I use the server on the same subnet as the client is, because the EFS target exposes a mount point in the same subnet and latency is a key factor in remote file system.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <h5 id="benchmark-tests">Benchmark Tests</h5>
-
-<p>I used <a href="https://github.com/axboe/fio" target="_blank">fio</a> installed on the client box with a command suggested by this <a href="https://www.binarylane.com.au/support/solutions/articles/1000055889-how-to-benchmark-disk-i-o" target="_blank">BinaryLane post</a> and run it against the mount point for EFS, GlusterFS and NFS v4.0 with the following command</p>
-
-<pre class="">fio --randrepeat=1 --ioengine=libaio --direct=1 --gtod_reduce=1 --name=test \
-   --filename=test --bs=4k --iodepth=64 --size=1G --readwrite=randrw --rwmixread=75</pre>
-
+<p>I used <!-- raw HTML omitted -->fio<!-- raw HTML omitted --> installed on the client box with a command suggested by this <!-- raw HTML omitted -->BinaryLane post<!-- raw HTML omitted --> and run it against the mount point for EFS, GlusterFS and NFS v4.0 with the following command</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>changing the target directory each time I tun the test; each test is run isolated.</p>
-
-<p>I did not customize any storage option for GlusterFS or NFS, so I&#8217;m using the default options.</p>
-
-<h5 id="benchmark-results">Benchmark Results</h5>
-
+<p>I did not customize any storage option for GlusterFS or NFS, so I’m using the default options.</p>
+<h5 id="benchmarkresults">Benchmark Results</h5>
 <h6 id="efs">EFS</h6>
-
-<pre class="theme:github lang:sh decode:true " title="EFS fio result">test: (g=0): rw=randrw, bs=4K-4K/4K-4K/4K-4K, ioengine=libaio, iodepth=64
-fio-2.1.5
-Starting 1 process
-test: Laying out IO file(s) (1 file(s) / 1024MB)
-Jobs: 1 (f=1): [m] [100.0% done] [3263KB/1078KB/0KB /s] [815/269/0 iops] [eta 00m:00s]
-test: (groupid=0, jobs=1): err= 0: pid=8336: Fri Aug 26 17:30:05 2016
-  read : io=784996KB, bw=3185.4KB/s, iops=796, runt=246443msec
-  write: io=263580KB, bw=1069.6KB/s, iops=267, runt=246443msec
-  cpu          : usr=0.31%, sys=0.58%, ctx=383567, majf=0, minf=5
-  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=0.1%, 32=0.1%, &gt;=64=100.0%
-     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, &gt;=64=0.0%
-     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.1%, &gt;=64=0.0%
-     issued    : total=r=196249/w=65895/d=0, short=r=0/w=0/d=0
-     latency   : target=0, window=0, percentile=100.00%, depth=64
-
-Run status group 0 (all jobs):
-   READ: io=784996KB, aggrb=3185KB/s, minb=3185KB/s, maxb=3185KB/s, mint=246443msec, maxt=246443msec
-  WRITE: io=263580KB, aggrb=1069KB/s, minb=1069KB/s, maxb=1069KB/s, mint=246443msec, maxt=246443msec</pre>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <h6 id="glusterfs">GlusterFS</h6>
-
-<pre class="theme:github lang:sh decode:true " title="GlusterFS results">test: (g=0): rw=randrw, bs=4K-4K/4K-4K/4K-4K, ioengine=libaio, iodepth=64
-fio-2.1.5
-Starting 1 process
-test: Laying out IO file(s) (1 file(s) / 1024MB)
-Jobs: 1 (f=1): [m] [100.0% done] [1648KB/632KB/0KB /s] [412/158/0 iops] [eta 00m:00s]
-test: (groupid=0, jobs=1): err= 0: pid=2857: Sun Sep 18 16:20:46 2016
-  read : io=784996KB, bw=1929.2KB/s, iops=482, runt=406921msec
-  write: io=263580KB, bw=663288B/s, iops=161, runt=406921msec
-  cpu          : usr=0.32%, sys=0.39%, ctx=262172, majf=0, minf=5
-  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=0.1%, 32=0.1%, &gt;=64=100.0%
-     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, &gt;=64=0.0%
-     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.1%, &gt;=64=0.0%
-     issued    : total=r=196249/w=65895/d=0, short=r=0/w=0/d=0
-     latency   : target=0, window=0, percentile=100.00%, depth=64
-
-Run status group 0 (all jobs):
-   READ: io=784996KB, aggrb=1929KB/s, minb=1929KB/s, maxb=1929KB/s, mint=406921msec, maxt=406921msec
-  WRITE: io=263580KB, aggrb=647KB/s, minb=647KB/s, maxb=647KB/s, mint=406921msec, maxt=406921msec</pre>
-
-<h6 id="nfs-4-0-not-replicated">NFS 4.0 (not replicated)</h6>
-
-<pre class="theme:github lang:sh decode:true" title="NFS4.0 results">test: (g=0): rw=randrw, bs=4K-4K/4K-4K/4K-4K, ioengine=libaio, iodepth=64
-fio-2.1.5
-Starting 1 process
-test: Laying out IO file(s) (1 file(s) / 1024MB)
-Jobs: 1 (f=1): [m] [100.0% done] [35088KB/11640KB/0KB /s] [8772/2910/0 iops] [eta 00m:00s]
-test: (groupid=0, jobs=1): err= 0: pid=23020: Sun Sep 18 16:57:17 2016
-  read : io=784996KB, bw=40713KB/s, iops=10178, runt= 19281msec
-  write: io=263580KB, bw=13670KB/s, iops=3417, runt= 19281msec
-  cpu          : usr=3.67%, sys=10.23%, ctx=356147, majf=0, minf=5
-  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=0.1%, 32=0.1%, &gt;=64=100.0%
-     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, &gt;=64=0.0%
-     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.1%, &gt;=64=0.0%
-     issued    : total=r=196249/w=65895/d=0, short=r=0/w=0/d=0
-     latency   : target=0, window=0, percentile=100.00%, depth=64
-
-Run status group 0 (all jobs):
-   READ: io=784996KB, aggrb=40713KB/s, minb=40713KB/s, maxb=40713KB/s, mint=19281msec, maxt=19281msec
-  WRITE: io=263580KB, aggrb=13670KB/s, minb=13670KB/s, maxb=13670KB/s, mint=19281msec, maxt=19281msec</pre>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h6 id="nfs-40-not-replicated">NFS 4.0 (not replicated)</h6>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <h6 id="pricing-considerations">Pricing considerations</h6>
-
-<p>EFS pricing is linear, you get billed a fixed amount for GB/month; this is not true with a self-managed cluster where you can surely reach higher performance, but the TCO is increasing every time you add capacity. If you&#8217;re not satisfied with EFS throughput you need a dedicated team to  manage a distributed file system cluster and its operations and maintenance.</p>
-
+<p>EFS pricing is linear, you get billed a fixed amount for GB/month; this is not true with a self-managed cluster where you can surely reach higher performance, but the TCO is increasing every time you add capacity. If you’re not satisfied with EFS throughput you need a dedicated team to  manage a distributed file system cluster and its operations and maintenance.</p>
 <h6 id="conclusions">Conclusions</h6>
-
-<p>If you need a stable, realiable file system in AWS to be shared between EC2 instances, go and use EFS and don&#8217;t reinvent the wheel: GlusterFS is outperformed in both read and write IOPS and bandwith with the default options! The workload simulated here is showing poor write performance, so if your use case is a lot of concurrent writes on many files, consider another solution. A good workload could be a WORM (Write Once Read Many) share for permanent stored contents (images, archives?).</p>
-
-<p>The performance are still low in absolute terms or compared to a non-replicated mount such as a stock NFS v4.0 server without the high-availability burden, but if you don&#8217;t care about 100% uptime you should definitely set up NFS with <a href="https://www.drbd.org/en/" target="_blank">DRDB</a> to a secondary node, and switch your mounts when the primary node fails. But still: why manage all of this if AWS can do it for you?</p>
+<p>If you need a stable, realiable file system in AWS to be shared between EC2 instances, go and use EFS and don’t reinvent the wheel: GlusterFS is outperformed in both read and write IOPS and bandwith with the default options! The workload simulated here is showing poor write performance, so if your use case is a lot of concurrent writes on many files, consider another solution. A good workload could be a WORM (Write Once Read Many) share for permanent stored contents (images, archives?).</p>
+<p>The performance are still low in absolute terms or compared to a non-replicated mount such as a stock NFS v4.0 server without the high-availability burden, but if you don’t care about 100% uptime you should definitely set up NFS with <!-- raw HTML omitted -->DRDB<!-- raw HTML omitted --> to a secondary node, and switch your mounts when the primary node fails. But still: why manage all of this if AWS can do it for you?</p>
 
 </div>
 
   
 <footer class='entry-footer'>
-  <div class='container sep-before'><div class='categories'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"/>
-  
+  <div class='container sep-before'><div class='categories'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+    <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"/>
+
 </svg>
 <span class='screen-reader-text'>Categories: </span><a class='category' href='/categories/social/'>social</a>, <a class='category' href='/categories/tech/'>tech</a></div>
-<div class='tags'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
+<div class='tags'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
   <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"/>
   <line x1="7" y1="7" x2="7" y2="7"/>
-  
+
 </svg>
 <span class='screen-reader-text'>Tags: </span><a class='tag' href='/tags/aws/'>aws</a>, <a class='tag' href='/tags/benchmark/'>benchmark</a>, <a class='tag' href='/tags/cloud/'>cloud</a>, <a class='tag' href='/tags/efs/'>EFS</a>, <a class='tag' href='/tags/filesystem/'>filesystem</a></div>
 
@@ -333,21 +226,23 @@ Run status group 0 (all jobs):
 <nav class='entry-nav'>
   <div class='container'><div class='prev-entry sep-before'>
       <a href='/2016/04/06/2016-04-06-aws-iam-policy-to-let-users-manage-their-own-mfa/'>
-        <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
+        <span aria-hidden='true'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
   <line x1="20" y1="12" x2="4" y2="12"/>
   <polyline points="10 18 4 12 10 6"/>
-  
+
 </svg>
  Previous</span>
         <span class='screen-reader-text'>Previous post: </span>AWS IAM policy to let users manage their own MFA</a>
     </div><div class='next-entry sep-before'>
       <a href='/2016/10/10/2016-10-10-moving-the-blog-to-hugo/'>
-        <span class='screen-reader-text'>Next post: </span>Moving the blog to hugo<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
+        <span class='screen-reader-text'>Next post: </span>Moving the blog to hugo<span aria-hidden='true'>Next <svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
   <line x1="4" y1="12" x2="20" y2="12"/>
   <polyline points="14 6 20 12 14 18"/>
-  
+
 </svg>
 </span>
       </a>
@@ -388,71 +283,65 @@ Run status group 0 (all jobs):
     <h4 class='title widget-title'>Stay Tuned</h4>
   </header><nav aria-label='Social Menu'>
     <ul><li>
-        <a href='https://github.com/inge4pres' target='_blank' rel='noopener'>
-          <span class='screen-reader-text'>Open Github account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-  
+        <a href='https://github.com/inge4pres' target='_blank' rel='noopener me'>
+          <span class='screen-reader-text'>Open Github account in new tab</span><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+
 </svg>
 </a>
       </li><li>
-        <a href='https://gitlab.com/inge4pres' target='_blank' rel='noopener'>
-          <span class='screen-reader-text'>Open Gitlab account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <path d="M22.65 14.39L12 22.13 1.35 14.39a.84.84 0 0 1-.3-.94l1.22-3.78 2.44-7.51A.42.42 0 0 1 4.82 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.49h8.1l2.44-7.51A.42.42 0 0 1 18.6 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.51L23 13.45a.84.84 0 0 1-.35.94z"/>
-  
+        <a href='https://gitlab.com/inge4pres' target='_blank' rel='noopener me'>
+          <span class='screen-reader-text'>Open Gitlab account in new tab</span><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <title>GitLab icon</title>  <path d="M22.65 14.39L12 22.13 1.35 14.39a.84.84 0 0 1-.3-.94l1.22-3.78 2.44-7.51A.42.42 0 0 1 4.82 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.49h8.1l2.44-7.51A.42.42 0 0 1 18.6 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.51L23 13.45a.84.84 0 0 1-.35.94z"/>
 </svg>
 </a>
       </li><li>
-        <a href='https://twitter.com/inge4pres' target='_blank' rel='noopener'>
-          <span class='screen-reader-text'>Open Twitter account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
-  
+        <a href='https://twitter.com/inge4pres' target='_blank' rel='noopener me'>
+          <span class='screen-reader-text'>Open Twitter account in new tab</span><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+  <title>Twitter icon</title>
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+
 </svg>
 </a>
       </li><li>
-        <a href='mailto:fgualazzi@gmail.com' target='_blank' rel='noopener'>
-          <span class='screen-reader-text'>Contact via Email</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-  <polyline points="22,6 12,13 2,6"/>
-  
+        <a href='mailto:fgualazzi@gmail.com' target='_blank' rel='noopener me'>
+          <span class='screen-reader-text'>Contact via Email</span><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline>
 </svg>
 </a>
       </li><li>
-        <a href='https://linkedin.com/in/francescogualazzi' target='_blank' rel='noopener'>
-          <span class='screen-reader-text'>Open Linkedin account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-  <rect x="2" y="9" width="4" height="12"/>
-  <circle cx="4" cy="4" r="2"/>
-  
+        <a href='https://linkedin.com/in/francescogualazzi' target='_blank' rel='noopener me'>
+          <span class='screen-reader-text'>Open Linkedin account in new tab</span><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle>
 </svg>
 </a>
       </li><li>
-        <a href='https://instagram.com/inge4pres' target='_blank' rel='noopener'>
-          <span class='screen-reader-text'>Open Instagram account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-  <line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/>
-  
+        <a href='https://instagram.com/inge4pres' target='_blank' rel='noopener me'>
+          <span class='screen-reader-text'>Open Instagram account in new tab</span><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
 </svg>
 </a>
       </li></ul>
   </nav>
 </section><div class='copyright'>
-  <p>inge4pres &copy; 2012-2020 Francesco Gualazzi </p>
+  <p>inge4pres &copy; 2012-2021 Francesco Gualazzi </p>
 </div>
 
         </div>
       </footer>
 
     </div>
-  </div><script>window.__public_path__='\/assets\/js\/'</script>
+  </div><script>window.__assets_js_src="/assets/js/"</script>
 
-<script src='/assets/js/main.00df04b7.js'></script>
+<script src='/assets/js/main.c3bcf2df.js'></script>
 
 </body>
 

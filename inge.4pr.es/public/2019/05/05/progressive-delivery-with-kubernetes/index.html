@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang='en'><head>
+<html lang='en' dir='auto'><head>
   <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta name='description' content='Shipping fast and keeping most of your users happy'>
@@ -11,14 +11,14 @@
 <meta property='og:site_name' content='INGE4PRES RATIONAL THOUGHTS'>
 <meta property='og:type' content='article'><meta property='article:publisher' content='358809487873346'><meta property='article:section' content='post'><meta property='article:tag' content='containers'><meta property='article:tag' content='kubernetes'><meta property='article:tag' content='platform'><meta property='article:tag' content='continuous-delivery'><meta property='article:published_time' content='2019-05-05T15:00:51&#43;02:00'/><meta property='article:modified_time' content='2019-05-05T15:00:51&#43;02:00'/><meta property='fb:app_id' content='1845367892442473'><meta property='fb:admins' content='francesco.inge'><meta name='twitter:card' content='summary'><meta name='twitter:site' content='@inge4pres'>
 
-<meta name="generator" content="Hugo 0.56.3" />
+<meta name="generator" content="Hugo 0.82.0" />
 
   <title>Progressive Delivery with Kubernetes » INGE4PRES RATIONAL THOUGHTS</title>
   <link rel='canonical' href='http://inge.4pr.es/2019/05/05/progressive-delivery-with-kubernetes/'>
   
   
   <link rel='icon' href='/favicon.ico'>
-<link rel='stylesheet' href='/assets/css/main.dd2efce5.css'><style>
+<link rel='stylesheet' href='/assets/css/main.ab98e12b.css'><style>
 :root{--color-accent:#ffcd00;}
 </style>
 
@@ -51,7 +51,9 @@ if (!doNotTrack) {
     </div>
     
     <h2 class='title site-title '>
-    Francesco Gualazzi
+      <a href='/'>
+      Francesco Gualazzi
+      </a>
     </h2>
     <div class='desc'>
     infrastructure-aware developer
@@ -68,19 +70,21 @@ if (!doNotTrack) {
 
 <button id='sidebar-toggler' class='sidebar-toggler' aria-controls='sidebar'>
   <span class='screen-reader-text'>Toggle Sidebar</span>
-  <span class='open'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
+  <span class='open'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
   <line x1="3" y1="12" x2="21" y2="12" />
   <line x1="3" y1="6" x2="21" y2="6" />
   <line x1="3" y1="18" x2="21" y2="18" />
-  
+
 </svg>
 </span>
-  <span class='close'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
+  <span class='close'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
   <line x1="18" y1="6" x2="6" y2="18" />
   <line x1="6" y1="6" x2="18" y2="18" />
-  
+
 </svg>
 </span>
 </button>
@@ -117,13 +121,14 @@ if (!doNotTrack) {
 
     </div>
     <div class='entry-meta'>
-  <span class='posted-on'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
+  <span class='posted-on'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
   <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
   <line x1="16" y1="2" x2="16" y2="6"/>
   <line x1="8" y1="2" x2="8" y2="6"/>
   <line x1="3" y1="10" x2="21" y2="10"/>
-  
+
 </svg>
 <span class='screen-reader-text'>Posted on </span>
   <time class='entry-date' datetime='2019-05-05T15:00:51&#43;02:00'>5 May 2019</time>
@@ -131,11 +136,12 @@ if (!doNotTrack) {
 
   
   
-<span class='reading-time'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
+<span class='reading-time'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
   <circle cx="12" cy="12" r="10"/>
   <polyline points="12 6 12 12 15 15"/>
-  
+
 </svg>
 6 mins read
 </span>
@@ -151,65 +157,48 @@ if (!doNotTrack) {
   
 
   <div class='container entry-content'>
-  
-
-<p>I&rsquo;m more and more fond of finding the perfect solution to manage application delivery: dev teams want to be fast but their ops counterpart is not happy to loose control over the growing number of deployments that could cause an outage. We as an industry need to find the right balance to have features delivered in time and keep the service up and running for our users! And that&rsquo;s where progressive delivery can help!</p>
-
-<p>What is progressive delivery? It&rsquo;s the evolution of continuous integration and continuous delivery practices, taken to the extreme - if this is the first time you hear about it, read <a href="https://redmonk.com/jgovernor/2018/08/06/towards-progressive-delivery/" target="_blank">this excellent post by James Governon</a>. But as of today what are the tools that embed this practice in deployment pipelines? None that I could find ☹️&hellip; hence I started this post to share some of the techniques that you can use to achieve progresive delivery today on Kubernetes! I&rsquo;d be really glad to have any comments and discuss on the matter.</p>
-
+  <p>I&rsquo;m more and more fond of finding the perfect solution to manage application delivery: dev teams want to be fast but their ops counterpart is not happy to loose control over the growing number of deployments that could cause an outage. We as an industry need to find the right balance to have features delivered in time and keep the service up and running for our users! And that&rsquo;s where progressive delivery can help!</p>
+<p>What is progressive delivery? It&rsquo;s the evolution of continuous integration and continuous delivery practices, taken to the extreme - if this is the first time you hear about it, read <a href="https://redmonk.com/jgovernor/2018/08/06/towards-progressive-delivery/">this excellent post by James Governon</a>. But as of today what are the tools that embed this practice in deployment pipelines? None that I could find ☹️&hellip; hence I started this post to share some of the techniques that you can use to achieve progresive delivery today on Kubernetes! I&rsquo;d be really glad to have any comments and discuss on the matter.</p>
 <h3 id="the-goal">The goal</h3>
-
 <p>The progressive delivery manifesto (if there will ever be one) should explain the rationale why delivering feature in parts is better than all at once: feedback.
-In this Agile world feedback is everything, and the only feedback that matters is your users&rsquo;; as Jez Humble puts it</p>
-
+In this Agile world feedback is everything, and the only feedback that matters is your users'; as Jez Humble puts it</p>
 <blockquote>
 <p>“Users don’t know what they want. Users know what they don’t want once you’ve built it for them.”</p>
 </blockquote>
-
 <p>You are not going to build anything useful if you don&rsquo;t collect your users opinion <em>while</em> building the product, that is why having a system that is able to change quickly and that can collect this feedback is so vital to success.</p>
-
 <h3 id="to-mesh-or-not-to-mesh">To mesh or not to mesh</h3>
-
 <p>The first approach to progressive delivery is via infrastructure components.
-I cheated a bit in the post intro: there actually is a tool combination that is able to implement a feature close to progressive delivery right now: it&rsquo;s <a href="https://istio.io/" target="_blank">Istio</a> plus <a href="https://www.spinnaker.io/" target="_blank">Spinnaker</a>; the network mesh in this scenario is a router for connections originating by clients between multiple versions of the same backend, whose deployed versions are managed by Spinnaker releases. The mesh could be another product (Envoy, Linkerd, Consul Connect&hellip;) but it is the necessary component that contains the logic to serve the user a specific version of the application, based on goegraphic location rules, latency or even application rules (layer 7).</p>
-
-<p>If you want to avoid the burden of installing and maintaining a mesh network you need to manage custom tooling to have the traffic routed for a subset of users to a specific version, <a href="https://github.com/bookingcom/shipper" target="_blank">Skipper</a> is a good example but comes with the restriction of not being able to manage percentage of traffic, so the percentage of user served is based only on the number of pods configured from service to service (so not ideal for small sized deployments).</p>
-
-<p>The other way I see right now is creating a <a href="/2018/05/05/cloud-native-software-delivery/">Kubernetes operator and a CustomResourceDefinition</a> that can interact with the Ingress resource: this is hypothetical and I am not aware of any tool that is doing this but it could be posible to configure the ingresses to serve part of the requests by a specific Service (e.g. <code>v1.2.3</code> backed by a Deployment with a proper <code>selector</code>). As far as I know the current ingress controler based on nginx does not have such feature, but I just discovered writing this line that <a href="https://docs.traefik.io/user-guide/kubernetes/#traffic-splitting" target="_blank">Traefik does support this</a>! It would be great to understand if Traefik can manage multiple rules at once and if it can be managed via API so that the traffic is gradually moved from service to service.</p>
-
+I cheated a bit in the post intro: there actually is a tool combination that is able to implement a feature close to progressive delivery right now: it&rsquo;s <a href="https://istio.io/">Istio</a> plus <a href="https://www.spinnaker.io/">Spinnaker</a>; the network mesh in this scenario is a router for connections originating by clients between multiple versions of the same backend, whose deployed versions are managed by Spinnaker releases. The mesh could be another product (Envoy, Linkerd, Consul Connect&hellip;) but it is the necessary component that contains the logic to serve the user a specific version of the application, based on goegraphic location rules, latency or even application rules (layer 7).</p>
+<p>If you want to avoid the burden of installing and maintaining a mesh network you need to manage custom tooling to have the traffic routed for a subset of users to a specific version, <a href="https://github.com/bookingcom/shipper">Skipper</a> is a good example but comes with the restriction of not being able to manage percentage of traffic, so the percentage of user served is based only on the number of pods configured from service to service (so not ideal for small sized deployments).</p>
+<p>The other way I see right now is creating a <a href="/2018/05/05/cloud-native-software-delivery/">Kubernetes operator and a CustomResourceDefinition</a> that can interact with the Ingress resource: this is hypothetical and I am not aware of any tool that is doing this but it could be posible to configure the ingresses to serve part of the requests by a specific Service (e.g. <code>v1.2.3</code> backed by a Deployment with a proper <code>selector</code>). As far as I know the current ingress controler based on nginx does not have such feature, but I just discovered writing this line that <a href="https://docs.traefik.io/user-guide/kubernetes/#traffic-splitting">Traefik does support this</a>! It would be great to understand if Traefik can manage multiple rules at once and if it can be managed via API so that the traffic is gradually moved from service to service.</p>
 <h3 id="feature-flags">Feature flags</h3>
-
-<p>Of course if you move to the application things get easier in terms of programmability, problem is they tend to be more difficult to manage at scale. If you use one of the <a href="http://featureflags.io/feature-flags/" target="_blank">multitude of available</a> feature-flag products (also referred as <a href="https://www.martinfowler.com/articles/feature-toggles.html" target="_blank">feature toggles</a>) you are soon going to be able to experiment with progressive delivery capabilities; your application will most likely contain the logic required to show a specific user a feature or another. While this is intriguing, if you have more than 2 product teams this can easily become a nightmare because if each team implements its own solution of feature toggle the company as a whole can really struggle to get what type of experience is serving to its users. Change management, for as light as it can be, should still be accounting for features enabled and disabled that may cause a service disuption, even if for a small percentage of users, and when the logic for serving different versions of your system is scattered around multiple applications, this goes quickly out of control.</p>
-
+<p>Of course if you move to the application things get easier in terms of programmability, problem is they tend to be more difficult to manage at scale. If you use one of the <a href="http://featureflags.io/feature-flags/">multitude of available</a> feature-flag products (also referred as <a href="https://www.martinfowler.com/articles/feature-toggles.html">feature toggles</a>) you are soon going to be able to experiment with progressive delivery capabilities; your application will most likely contain the logic required to show a specific user a feature or another. While this is intriguing, if you have more than 2 product teams this can easily become a nightmare because if each team implements its own solution of feature toggle the company as a whole can really struggle to get what type of experience is serving to its users. Change management, for as light as it can be, should still be accounting for features enabled and disabled that may cause a service disuption, even if for a small percentage of users, and when the logic for serving different versions of your system is scattered around multiple applications, this goes quickly out of control.</p>
 <p>One approach I&rsquo;ve seen succeed in using software-defined toggle is adopt a centralized, company-wide solution around an existing product: this simplifies greatly the management around features that are delivered passing through multiple services while being able to keep track of changes consitently.</p>
-
 <h3 id="delivering-it">Delivering it</h3>
-
 <p>Once you&rsquo;ve established an infrastructure for serving users based on some policies you should also have in place automation to be able to push your features out. In case you went for the infrastructure/network path you&rsquo;ll need a deployment tool that can sit between your CI artifacts and the platform running your services; on the contrary for a software-driven solution you will just need an application build and deployed regularly.
 For the former I am really struggling to find a product that suites my need, I&rsquo;ve poked around with Spinnaker, ArgoCD and Tekton Pipelines but none of them seems to have the adequate primitives to address my progressive delivery needs.
 I&rsquo;d be happy to hear from the community how this is being addressed: I&rsquo;d like to have a descriptive way of defining multiple versions of artifacts and configurations paired together (maybe via commit hash?) and have all of them deployed at the same time; I&rsquo;d also like to update the configurations of a given version while it&rsquo;s running.</p>
-
 <p>Seems fair right? I might need to tweak my service here and there, but I&rsquo;d like to tune it only for a specific set of features that I know are in version ABC. Now I could not find on the internet a single product that works with Kubernetes able to satisfy this requirement, so please if you happen to have something in mind leave a comment!</p>
-
 <h3 id="conclusion">Conclusion</h3>
-
 <p>As always Kubernetes is a great enabler for delivery techniques based on software, it&rsquo;s an extensible platform and the multiple uses that can lead to achieve progressive delivery just confirm it. Personally I see a lot of space for progressive delivery in the upcoming future, especially for IoT. Let&rsquo;s see what&rsquo;s next!</p>
 
 </div>
 
   
 <footer class='entry-footer'>
-  <div class='container sep-before'><div class='categories'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"/>
-  
+  <div class='container sep-before'><div class='categories'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+    <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"/>
+
 </svg>
 <span class='screen-reader-text'>Categories: </span><a class='category' href='/categories/tech/'>tech</a>, <a class='category' href='/categories/work/'>work</a></div>
-<div class='tags'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
+<div class='tags'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
   <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"/>
   <line x1="7" y1="7" x2="7" y2="7"/>
-  
+
 </svg>
 <span class='screen-reader-text'>Tags: </span><a class='tag' href='/tags/containers/'>containers</a>, <a class='tag' href='/tags/kubernetes/'>kubernetes</a>, <a class='tag' href='/tags/platform/'>platform</a>, <a class='tag' href='/tags/continuous-delivery/'>continuous-delivery</a></div>
 
@@ -222,21 +211,23 @@ I&rsquo;d be happy to hear from the community how this is being addressed: I&rsq
 <nav class='entry-nav'>
   <div class='container'><div class='prev-entry sep-before'>
       <a href='/2018/10/23/golab-2018-wrap-up/'>
-        <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
+        <span aria-hidden='true'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
   <line x1="20" y1="12" x2="4" y2="12"/>
   <polyline points="10 18 4 12 10 6"/>
-  
+
 </svg>
  Previous</span>
         <span class='screen-reader-text'>Previous post: </span>GoLab 2018: Wrap Up</a>
     </div><div class='next-entry sep-before'>
       <a href='/2019/11/01/cka-exam-experience/'>
-        <span class='screen-reader-text'>Next post: </span>CKA exam experience and preparation<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
+        <span class='screen-reader-text'>Next post: </span>CKA exam experience and preparation<span aria-hidden='true'>Next <svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
   <line x1="4" y1="12" x2="20" y2="12"/>
   <polyline points="14 6 20 12 14 18"/>
-  
+
 </svg>
 </span>
       </a>
@@ -277,71 +268,65 @@ I&rsquo;d be happy to hear from the community how this is being addressed: I&rsq
     <h4 class='title widget-title'>Stay Tuned</h4>
   </header><nav aria-label='Social Menu'>
     <ul><li>
-        <a href='https://github.com/inge4pres' target='_blank' rel='noopener'>
-          <span class='screen-reader-text'>Open Github account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-  
+        <a href='https://github.com/inge4pres' target='_blank' rel='noopener me'>
+          <span class='screen-reader-text'>Open Github account in new tab</span><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+
 </svg>
 </a>
       </li><li>
-        <a href='https://gitlab.com/inge4pres' target='_blank' rel='noopener'>
-          <span class='screen-reader-text'>Open Gitlab account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <path d="M22.65 14.39L12 22.13 1.35 14.39a.84.84 0 0 1-.3-.94l1.22-3.78 2.44-7.51A.42.42 0 0 1 4.82 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.49h8.1l2.44-7.51A.42.42 0 0 1 18.6 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.51L23 13.45a.84.84 0 0 1-.35.94z"/>
-  
+        <a href='https://gitlab.com/inge4pres' target='_blank' rel='noopener me'>
+          <span class='screen-reader-text'>Open Gitlab account in new tab</span><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <title>GitLab icon</title>  <path d="M22.65 14.39L12 22.13 1.35 14.39a.84.84 0 0 1-.3-.94l1.22-3.78 2.44-7.51A.42.42 0 0 1 4.82 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.49h8.1l2.44-7.51A.42.42 0 0 1 18.6 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.51L23 13.45a.84.84 0 0 1-.35.94z"/>
 </svg>
 </a>
       </li><li>
-        <a href='https://twitter.com/inge4pres' target='_blank' rel='noopener'>
-          <span class='screen-reader-text'>Open Twitter account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
-  
+        <a href='https://twitter.com/inge4pres' target='_blank' rel='noopener me'>
+          <span class='screen-reader-text'>Open Twitter account in new tab</span><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+  <title>Twitter icon</title>
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+
 </svg>
 </a>
       </li><li>
-        <a href='mailto:fgualazzi@gmail.com' target='_blank' rel='noopener'>
-          <span class='screen-reader-text'>Contact via Email</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-  <polyline points="22,6 12,13 2,6"/>
-  
+        <a href='mailto:fgualazzi@gmail.com' target='_blank' rel='noopener me'>
+          <span class='screen-reader-text'>Contact via Email</span><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline>
 </svg>
 </a>
       </li><li>
-        <a href='https://linkedin.com/in/francescogualazzi' target='_blank' rel='noopener'>
-          <span class='screen-reader-text'>Open Linkedin account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-  <rect x="2" y="9" width="4" height="12"/>
-  <circle cx="4" cy="4" r="2"/>
-  
+        <a href='https://linkedin.com/in/francescogualazzi' target='_blank' rel='noopener me'>
+          <span class='screen-reader-text'>Open Linkedin account in new tab</span><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle>
 </svg>
 </a>
       </li><li>
-        <a href='https://instagram.com/inge4pres' target='_blank' rel='noopener'>
-          <span class='screen-reader-text'>Open Instagram account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-  <line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/>
-  
+        <a href='https://instagram.com/inge4pres' target='_blank' rel='noopener me'>
+          <span class='screen-reader-text'>Open Instagram account in new tab</span><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
 </svg>
 </a>
       </li></ul>
   </nav>
 </section><div class='copyright'>
-  <p>inge4pres &copy; 2012-2020 Francesco Gualazzi </p>
+  <p>inge4pres &copy; 2012-2021 Francesco Gualazzi </p>
 </div>
 
         </div>
       </footer>
 
     </div>
-  </div><script>window.__public_path__='\/assets\/js\/'</script>
+  </div><script>window.__assets_js_src="/assets/js/"</script>
 
-<script src='/assets/js/main.00df04b7.js'></script>
+<script src='/assets/js/main.c3bcf2df.js'></script>
 
 </body>
 

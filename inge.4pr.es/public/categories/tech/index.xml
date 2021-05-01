@@ -1,14 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>tech on INGE4PRES RATIONAL THOUGHTS</title>
     <link>http://inge.4pr.es/categories/tech/</link>
     <description>Recent content in tech on INGE4PRES RATIONAL THOUGHTS</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 01 Nov 2019 15:56:42 +0100</lastBuildDate>
-    
-	<atom:link href="http://inge.4pr.es/categories/tech/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Sat, 03 Apr 2021 17:10:26 +0100</lastBuildDate><atom:link href="http://inge.4pr.es/categories/tech/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Micro-committing with Git</title>
+      <link>http://inge.4pr.es/2021/04/03/micro-committing-with-git/</link>
+      <pubDate>Sat, 03 Apr 2021 17:10:26 +0100</pubDate>
+      
+      <guid>http://inge.4pr.es/2021/04/03/micro-committing-with-git/</guid>
+      <description>I have been using micro-committing for some time now, during which I have adapted the usage of this technique to my needs, bringing it to a level that makes me more productive than ever in software development.
+Combining micro-committing with Git, while doing TDD is now my favorite development experience: I like how this workflow helps to deliver changes with speed and confidence.
+This is not a one-size-fits-all approach, I&amp;rsquo;m sharing what works great for me; I hope some parts of what follows will help you and your team as well.</description>
+    </item>
     
     <item>
       <title>CKA exam experience and preparation</title>
@@ -110,7 +117,7 @@ So instead of a bare VPS I am moving my blog to AWS S3 + Cloudfront CDN. This wi
       <pubDate>Sun, 18 Sep 2016 17:26:17 +0000</pubDate>
       
       <guid>http://inge.4pr.es/2016/09/18/2016-09-18-a-benchmark-of-aws-efs/</guid>
-      <description>Amazon Web Services Elastic File System has been to my knowledge the service to have the longest beta testing period: reason for this may be that not as many client as expected tested it and AWS received too few feedback on it or that there were issues not to release GA. I don&amp;#8217;t want to speculate on which one is correct but now that it has been officially released I decided to give it a try and of course compare it to a self-managed solution on the same platform.</description>
+      <description>Amazon Web Services Elastic File Systemhas been to my knowledge the service to have the longest beta testing period: reason for this may be that not as many client as expected tested it and AWS received too few feedback on it or that there were issues not to release GA. I don’t want to speculate on which one is correct but now that it has been officially releasedI decided to give it a try and of course compare it to a self-managed solution on the same platform.</description>
     </item>
     
     <item>
@@ -119,7 +126,7 @@ So instead of a bare VPS I am moving my blog to AWS S3 + Cloudfront CDN. This wi
       <pubDate>Wed, 06 Apr 2016 19:51:33 +0000</pubDate>
       
       <guid>http://inge.4pr.es/2016/04/06/2016-04-06-aws-iam-policy-to-let-users-manage-their-own-mfa/</guid>
-      <description>If you&amp;#8217;re an AWS administrator you know that managing web console security is pretty tough unless you know what you want and you know what you&amp;#8217;re doing. So if what you want is let each AWS user manage their own MFA device configuration without you and force them to have MFA active to use the web console, here is your solution.
+      <description>If you’re an AWS administrator you know that managing web console security is pretty tough unless you know what you want and you know what you’re doing. So if what you want is let each AWS user manage their own MFA device configuration without you and force them to have MFA active to use the web console, here is your solution.
 TL;DR
  Create one or more groups with your web users Create a new policy using this JSON Attach the policy to the group(s)  How does it work?</description>
     </item>
@@ -130,9 +137,9 @@ TL;DR
       <pubDate>Sun, 24 Jan 2016 16:40:37 +0000</pubDate>
       
       <guid>http://inge.4pr.es/2016/01/24/2016-01-24-implement-a-generic-data-list-structure/</guid>
-      <description>As a coding challenge I was asked to provide a generic list implementation using a language of my choice and using only primitive types, avoiding the use of high level built-ins. I chose Go because I want to learn it and I know it can be useful to create an abstract, generic implementation.
+      <description>As a coding challenge I was asked to provide a generic list implementation using a language of my choice and using only primitive types, avoiding the use of high level built-ins. I chose Gobecause I want to learn it and I know it can be useful to create an abstract, generic implementation.
 The challenge request to implement at least 4 methods on the generic type:
- Filter() &amp;#8211; returns a subset of the List satisfying an operation Map() &amp;#8211; returns the List objects&amp;#8217; map Reverse() &amp;#8211; reverse the ordering of the List objects FoldLeft() &amp;#8211; join the objects from left to right using a join character  As a bonus question I was asked to code unit tests for the aforementioned methods and give an explanation on how the implementation guarantees concurrent access on resources.</description>
+ Filter() – returns a subset of the List satisfying an operation Map() – returns the List objects’ map Reverse() – reverse the ordering of the List objects FoldLeft() – join the objects from left to right using a join character  As a bonus question I was asked to code unit tests for the aforementioned methods and give an explanation on how the implementation guarantees concurrent access on resources.</description>
     </item>
     
     <item>
@@ -141,8 +148,8 @@ The challenge request to implement at least 4 methods on the generic type:
       <pubDate>Sun, 24 Jan 2016 15:42:29 +0000</pubDate>
       
       <guid>http://inge.4pr.es/2016/01/24/2016-01-24-virtualize-an-old-windows-pc/</guid>
-      <description>A friend asked me if I was able to get back working a Windows 98 PC he had in his house; I have never done it so I said &amp;#8220;sure I can!&amp;#8221; just to have the opportunity to learn something new, and of course do a friend a favour.
-My idea was to copy the whole PC and get it running on a virtual machine thus doing what I later discovered is called a &amp;#8220;P2V&amp;#8221; (Physical to Virtual); the result of which would have been a portable VM which I could then install in my friend laptop to have his old PC back.</description>
+      <description>A friend asked me if I was able to get back working a Windows 98 PC he had in his house; I have never done it so I said “sure I can!” just to have the opportunity to learn something new, and of course do a friend a favour.
+My idea was to copy the whole PC and get it running on a virtual machine thus doing what I later discovered is called a “P2V” (Physical to Virtual); the result of which would have been a portable VM which I could then install in my friend laptop to have his old PC back.</description>
     </item>
     
     <item>
@@ -152,9 +159,8 @@ My idea was to copy the whole PC and get it running on a virtual machine thus do
       
       <guid>http://inge.4pr.es/2015/08/02/2015-08-02-golang-message-queue-a-simple-tcp-message-bus/</guid>
       <description>[TL;DR]
-I wrote a Pub/Sub message queue in Go, branch &amp;#8220;master&amp;#8221; is stable but missing some interesting feature like distributed memory synchronization between nodes in a cluster and encryption. Code at
-https://github.com/inge4pres/gmq
-Being a cloud system engineer, my work is to design and implement distributed systems: one of the key principles in designing such architectures is decoupling, which means ensuring the many parts composing the system are able to share informations and complete a sequence of operations without being tied together.</description>
+I wrote a Pub/Sub message queue in Go, branch “master” is stable but missing some interesting feature like distributed memory synchronization between nodes in a cluster and encryption. Code at
+https://github.com/inge4pres/gmqBeing a cloud system engineer, my work is to design and implement distributed systems: one of the key principles in designing such architectures is decoupling, which means ensuring the many parts composing the system are able to share informations and complete a sequence of operations without being tied together.</description>
     </item>
     
     <item>
@@ -164,7 +170,7 @@ Being a cloud system engineer, my work is to design and implement distributed sy
       
       <guid>http://inge.4pr.es/2015/06/11/2015-06-11-my-first-golang-web-project/</guid>
       <description>It is true: I fell in love with Go, not because I love Google and his products, but because it really fits my ideology of simplicity and power in a programming language. I started experimenting with the language and thank to his web-oriented approach I quickly came up with one of the simplest single task web application I could write: a URL shortener.
-What is a URL shortener? It&amp;#8217;s a service that will give you a short link for a long URL.</description>
+What is a URL shortener? It’s a service that will give you a short link for a long URL.</description>
     </item>
     
     <item>
@@ -173,7 +179,7 @@ What is a URL shortener? It&amp;#8217;s a service that will give you a short lin
       <pubDate>Wed, 11 Mar 2015 13:00:46 +0000</pubDate>
       
       <guid>http://inge.4pr.es/2015/03/11/2015-03-11-glusterfs-is-it-suitable-for-me/</guid>
-      <description>During the last years I&amp;#8217;ve been experimenting with GlusterFS and his functionalities as distributed object store; a lot has changed in the software, overall since Red Hat acquired it. I have been using it and find it useful for many projects but not for others: what I love is the community oriented approach with a very responsive team and support for any kind of users (meaning from the 2 nodes web server to a RAID10 Infiniband cluster for high end storage).</description>
+      <description>During the last years I’ve been experimenting with GlusterFSand his functionalities as distributed object store; a lot has changed in the software, overall since Red Hat acquired it. I have been using it and find it useful for many projects but not for others: what I love is the community oriented approach with a very responsive team and support for any kind of users (meaning from the 2 nodes web server to a RAID10 Infiniband cluster for high end storage).</description>
     </item>
     
     <item>
@@ -183,7 +189,7 @@ What is a URL shortener? It&amp;#8217;s a service that will give you a short lin
       
       <guid>http://inge.4pr.es/2014/12/19/2014-12-19-set-up-a-private-masterslave-dns-using-bind/</guid>
       <description>One of the very basic need of any startup is setting up a LAN in the workspace and configuring the Internet most used service: DNS. Relying on a public DNS may give you full functionality towards WAN connectivity, but when you need to address some hosts inside your LAN it can be handy to use names instead of IPs (especially with IPv6).
-Here&amp;#8217;s a straight forward guide to get you started with your private DNS in a few minutes.</description>
+Here’s a straight forward guide to get you started with your private DNS in a few minutes.</description>
     </item>
     
     <item>
@@ -203,8 +209,8 @@ happy_bday_server script</description>
       <pubDate>Wed, 15 Oct 2014 18:15:28 +0000</pubDate>
       
       <guid>http://inge.4pr.es/2014/10/15/2014-10-15-a-smooth-migration-to-the-cloud/</guid>
-      <description>The last weekend my colleagues and I had a nice time moving an existing application from a bare-metal infrastructure to AWS. I would like to share some of the focal points involved in such process, in case you&amp;#8217;d go through it and would like to know:
- don&amp;#8217;t expect everything to work as usual: you are changing the underlying hardware, moving to a virtualized environment. You can test every single part of the application but infrastructural side effects may occur in a second time relying on the provider: consider well which functionalities should be delegated to the cloud provider (AWS, in this case, offers a lot) or should be managed internally; for example S3 is not a distributed filesystem, and in some cases an RDS instance won&amp;#8217;t have the same performance as database installed on an EC2 instance test application compliance, not hardware failure: instead of focusing on stress tests, you should focus first on functionality tests to ensure every part of te application is behaving as expected; hardware failure are easily handled in the cloud, that&amp;#8217;s the primary purpose of IaaS.</description>
+      <description>The last weekend my colleagues and I had a nice time moving an existing application from a bare-metal infrastructure to AWS. I would like to share some of the focal points involved in such process, in case you’d go through it and would like to know:
+ don’t expect everything to work as usual: you are changing the underlying hardware, moving to a virtualized environment. You can test every single part of the application but infrastructural side effects may occur in a second time relying on the provider: consider well which functionalities should be delegated to the cloud provider (AWS, in this case, offers a lot) or should be managed internally; for example S3 is not a distributed filesystem, and in some cases an RDS instance won’t have the same performance as database installed on an EC2 instance test application compliance, not hardware failure: instead of focusing on stress tests, you should focus first on functionality tests to ensure every part of te application is behaving as expected; hardware failure are easily handled in the cloud, that’s the primary purpose of IaaS.</description>
     </item>
     
     <item>
@@ -213,9 +219,9 @@ happy_bday_server script</description>
       <pubDate>Mon, 11 Nov 2013 10:27:38 +0000</pubDate>
       
       <guid>http://inge.4pr.es/2013/11/11/2013-11-11-backup-and-restore-crontabs/</guid>
-      <description>Here&amp;#8217;s a thing I came up with: you&amp;#8217;re administering a Linux system with 100 users circa and you&amp;#8217;re moving to a new server, you can save crontabs per user with this:
+      <description>Here’s a thing I came up with: you’re administering a Linux system with 100 users circa and you’re moving to a new server, you can save crontabs per user with this:
 mkdir crontabz &amp;amp;&amp;amp; cd crontabz; for user in `cat /etc/cron.allow`; do crontab -l -u $user &amp;gt; cron_$user; done
-you will end up with a list of files _cronxxx, each one has the users&amp;#8217; cron. Hopefully your cron version will use the /etc/cron.</description>
+you will end up with a list of files cron_xxx, each one has the users’ cron. Hopefully your cron version will use the /etc/cron.</description>
     </item>
     
     <item>
@@ -224,9 +230,9 @@ you will end up with a list of files _cronxxx, each one has the users&amp;#8217;
       <pubDate>Mon, 07 Oct 2013 15:50:25 +0000</pubDate>
       
       <guid>http://inge.4pr.es/2013/10/07/2013-10-07-zabbix-a-powerful-yet-simple-monitoring-software/</guid>
-      <description>It may come in mind to any IT system engineer to know what is the status of the network, server by server, instance by instance; it happened to me when I was given the responsibility to manage my company&amp;#8217;s infrastructure and I was wondering which tool could have helped to do the job.
+      <description>It may come in mind to any IT system engineer to know what is the status of the network, server by server, instance by instance; it happened to me when I was given the responsibility to manage my company’s infrastructure and I was wondering which tool could have helped to do the job.
 I chose Zabbix to monitor my infrastructure because:
- despite it&amp;#8217;s a bit difficult to install (you need a PHP enabled web server, a database and a C compiler), you will benefit a very user-friendly web interface with lots of functionalities native agents for major OS release are already complied: FreeBSD, Linux, Windows, etc&amp;#8230; Compiling to other OS just requires a &amp;#8220;configure &amp;amp;&amp;amp; make &amp;amp;&amp;amp; make install&amp;#8221; it offers many monitoring methods via a unique interface: you can group SNMP, JMX, HTTP monitoring in one shot it has multi-step HTTP/HTTPS monitoring, simulating different browsers and clients you can build nice infographics bundling all kind of monitored datas you can manage users and roles to give access to the web interface at your company&amp;#8217;s employees you can build custom monitoring scripts to your needs  Well let&amp;#8217;s see some action now: I would like to post a short tutorial on how to build a custom script to monitor resources used by a Glassfish application server.</description>
+ despite it’s a bit difficult to install (you need a PHP enabled web server, a database and a C compiler), you will benefit a very user-friendly web interface with lots of functionalities native agents for major OS release are already complied: FreeBSD, Linux, Windows, etc… Compiling to other OS just requires a “configure &amp;amp;&amp;amp; make &amp;amp;&amp;amp; make install” it offers many monitoring methods via a unique interface: you can group SNMP, JMX, HTTP monitoring in one shot it has multi-step HTTP/HTTPS monitoring, simulating different browsers and clients you can build nice infographics bundling all kind of monitored datas you can manage users and roles to give access to the web interface at your company’s employees you can build custom monitoring scripts to your needs  Well let’s see some action now: I would like to post a short tutorial on how to build a custom script to monitor resources used by a Glassfish application server.</description>
     </item>
     
     <item>
@@ -235,10 +241,10 @@ I chose Zabbix to monitor my infrastructure because:
       <pubDate>Thu, 28 Feb 2013 20:18:29 +0000</pubDate>
       
       <guid>http://inge.4pr.es/2013/02/28/2013-02-28-quando-si-dice-problem-solving/</guid>
-      <description>Ieri in ufficio mi è capitata una disgrazia, una rara occasione in cui non c&amp;#8217;è capacità o competenza che possano aiutarti a risolvere il caso, serve solo fortuna: nel pomeriggio rientro dalla sigaretta e mi sento dire &amp;#8220;non abbiamo più rete&amp;#8221;.
-L&amp;#8217;azienda dove lavoro si occupa di fornire servizi IT, senza la connessione internet siamo un&amp;#8217;auto senza motore, una penna senza inchiostro, inutili.
+      <description>Ieri in ufficio mi è capitata una disgrazia, una rara occasione in cui non c’è capacità o competenza che possano aiutarti a risolvere il caso, serve solo fortuna: nel pomeriggio rientro dalla sigaretta e mi sento dire “non abbiamo più rete”.
+L’azienda dove lavoro si occupa di fornire servizi IT, senza la connessione internet siamo un’auto senza motore, una penna senza inchiostro, inutili.
 La linea di backup?
-All&amp;#8217;inizio incolpo subito il nostro ISP (Fastweb), che a discapito di una fibra 100Mb ci ha giocato in passato scherzi del genere; quando la verifica evidenzia che non è un loro problema, il panico.</description>
+All’inizio incolpo subito il nostro ISP (Fastweb), che a discapito di una fibra 100Mb ci ha giocato in passato scherzi del genere; quando la verifica evidenzia che non è un loro problema, il panico.</description>
     </item>
     
     <item>
@@ -247,8 +253,8 @@ All&amp;#8217;inizio incolpo subito il nostro ISP (Fastweb), che a discapito di 
       <pubDate>Mon, 21 May 2012 17:30:54 +0000</pubDate>
       
       <guid>http://inge.4pr.es/2012/05/21/2012-05-21-privacy-e-riservatezza-il-digital-divide/</guid>
-      <description>Ho sempre vissuto in città di provincia (MI) dove è abitudine frequentare una cerchia ristretta di persone. Questo mi ha permesso di stringere legami molto forti con chi considero i miei amici, ma allo stesso tempo non mi ha favorito nello sviluppo di una sensibilità verso la gestione delle informazioni personali nella vita reale; la mia lingua lunga ha solo fatto piovere sul bagnato&amp;#8230;
- Il paese è piccolo e la gente mormora&amp;#8230;</description>
+      <description>Ho sempre vissuto in città di provincia (MI) dove è abitudine frequentare una cerchia ristretta di persone. Questo mi ha permesso di stringere legami molto forti con chi considero i miei amici, ma allo stesso tempo non mi ha favorito nello sviluppo di una sensibilità verso la gestione delle informazioni personali nella vita reale; la mia lingua lunga ha solo fatto piovere sul bagnato…
+ Il paese è piccolo e la gente mormora…</description>
     </item>
     
   </channel>

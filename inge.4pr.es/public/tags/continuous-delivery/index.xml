@@ -1,15 +1,11 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>continuous-delivery on INGE4PRES RATIONAL THOUGHTS</title>
     <link>http://inge.4pr.es/tags/continuous-delivery/</link>
     <description>Recent content in continuous-delivery on INGE4PRES RATIONAL THOUGHTS</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 05 May 2019 15:00:51 +0200</lastBuildDate>
-    
-	<atom:link href="http://inge.4pr.es/tags/continuous-delivery/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 05 May 2019 15:00:51 +0200</lastBuildDate><atom:link href="http://inge.4pr.es/tags/continuous-delivery/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Progressive Delivery with Kubernetes</title>
       <link>http://inge.4pr.es/2019/05/05/progressive-delivery-with-kubernetes/</link>

@@ -1,28 +1,28 @@
 <!DOCTYPE html>
-<html lang='en'><head>
+<html lang='en' dir='auto'><head>
   <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
-<meta name='description' content='It may come in mind to any IT system engineer to know what is the status of the network, server by server, instance by instance; it happened to me when I was given the responsibility to manage my company&#8217;s infrastructure and I was wondering which tool could have helped to do the job.
+<meta name='description' content='It may come in mind to any IT system engineer to know what is the status of the network, server by server, instance by instance; it happened to me when I was given the responsibility to manage my company’s infrastructure and I was wondering which tool could have helped to do the job.
 I chose Zabbix to monitor my infrastructure because:
- despite it&#8217;s a bit difficult to install (you need a PHP enabled web server, a database and a C compiler), you will benefit a very user-friendly web interface with lots of functionalities native agents for major OS release are already complied: FreeBSD, Linux, Windows, etc&#8230; Compiling to other OS just requires a &#8220;configure &amp;&amp; make &amp;&amp; make install&#8221; it offers many monitoring methods via a unique interface: you can group SNMP, JMX, HTTP monitoring in one shot it has multi-step HTTP/HTTPS monitoring, simulating different browsers and clients you can build nice infographics bundling all kind of monitored datas you can manage users and roles to give access to the web interface at your company&#8217;s employees you can build custom monitoring scripts to your needs  Well let&#8217;s see some action now: I would like to post a short tutorial on how to build a custom script to monitor resources used by a Glassfish application server.'>
+ despite it’s a bit difficult to install (you need a PHP enabled web server, a database and a C compiler), you will benefit a very user-friendly web interface with lots of functionalities native agents for major OS release are already complied: FreeBSD, Linux, Windows, etc… Compiling to other OS just requires a “configure &amp;&amp; make &amp;&amp; make install” it offers many monitoring methods via a unique interface: you can group SNMP, JMX, HTTP monitoring in one shot it has multi-step HTTP/HTTPS monitoring, simulating different browsers and clients you can build nice infographics bundling all kind of monitored datas you can manage users and roles to give access to the web interface at your company’s employees you can build custom monitoring scripts to your needs  Well let’s see some action now: I would like to post a short tutorial on how to build a custom script to monitor resources used by a Glassfish application server.'>
 <meta name='theme-color' content='#ffcd00'>
 
 <meta property='og:title' content='Zabbix: a powerful yet simple monitoring software » INGE4PRES RATIONAL THOUGHTS'>
-<meta property='og:description' content='It may come in mind to any IT system engineer to know what is the status of the network, server by server, instance by instance; it happened to me when I was given the responsibility to manage my company&#8217;s infrastructure and I was wondering which tool could have helped to do the job.
+<meta property='og:description' content='It may come in mind to any IT system engineer to know what is the status of the network, server by server, instance by instance; it happened to me when I was given the responsibility to manage my company’s infrastructure and I was wondering which tool could have helped to do the job.
 I chose Zabbix to monitor my infrastructure because:
- despite it&#8217;s a bit difficult to install (you need a PHP enabled web server, a database and a C compiler), you will benefit a very user-friendly web interface with lots of functionalities native agents for major OS release are already complied: FreeBSD, Linux, Windows, etc&#8230; Compiling to other OS just requires a &#8220;configure &amp;&amp; make &amp;&amp; make install&#8221; it offers many monitoring methods via a unique interface: you can group SNMP, JMX, HTTP monitoring in one shot it has multi-step HTTP/HTTPS monitoring, simulating different browsers and clients you can build nice infographics bundling all kind of monitored datas you can manage users and roles to give access to the web interface at your company&#8217;s employees you can build custom monitoring scripts to your needs  Well let&#8217;s see some action now: I would like to post a short tutorial on how to build a custom script to monitor resources used by a Glassfish application server.'>
+ despite it’s a bit difficult to install (you need a PHP enabled web server, a database and a C compiler), you will benefit a very user-friendly web interface with lots of functionalities native agents for major OS release are already complied: FreeBSD, Linux, Windows, etc… Compiling to other OS just requires a “configure &amp;&amp; make &amp;&amp; make install” it offers many monitoring methods via a unique interface: you can group SNMP, JMX, HTTP monitoring in one shot it has multi-step HTTP/HTTPS monitoring, simulating different browsers and clients you can build nice infographics bundling all kind of monitored datas you can manage users and roles to give access to the web interface at your company’s employees you can build custom monitoring scripts to your needs  Well let’s see some action now: I would like to post a short tutorial on how to build a custom script to monitor resources used by a Glassfish application server.'>
 <meta property='og:url' content='http://inge.4pr.es/2013/10/07/2013-10-07-zabbix-a-powerful-yet-simple-monitoring-software/'>
 <meta property='og:site_name' content='INGE4PRES RATIONAL THOUGHTS'>
 <meta property='og:type' content='article'><meta property='article:publisher' content='358809487873346'><meta property='article:section' content='post'><meta property='article:tag' content='cloud'><meta property='article:tag' content='infrastructure'><meta property='article:tag' content='monitoring'><meta property='article:tag' content='software'><meta property='article:tag' content='zabbix'><meta property='article:published_time' content='2013-10-07T15:50:25Z'/><meta property='article:modified_time' content='2013-10-07T15:50:25Z'/><meta property='fb:app_id' content='1845367892442473'><meta property='fb:admins' content='francesco.inge'><meta name='twitter:card' content='summary'><meta name='twitter:site' content='@inge4pres'>
 
-<meta name="generator" content="Hugo 0.56.3" />
+<meta name="generator" content="Hugo 0.82.0" />
 
   <title>Zabbix: a powerful yet simple monitoring software » INGE4PRES RATIONAL THOUGHTS</title>
   <link rel='canonical' href='http://inge.4pr.es/2013/10/07/2013-10-07-zabbix-a-powerful-yet-simple-monitoring-software/'>
   
   
   <link rel='icon' href='/favicon.ico'>
-<link rel='stylesheet' href='/assets/css/main.dd2efce5.css'><style>
+<link rel='stylesheet' href='/assets/css/main.ab98e12b.css'><style>
 :root{--color-accent:#ffcd00;}
 </style>
 
@@ -55,7 +55,9 @@ if (!doNotTrack) {
     </div>
     
     <h2 class='title site-title '>
-    Francesco Gualazzi
+      <a href='/'>
+      Francesco Gualazzi
+      </a>
     </h2>
     <div class='desc'>
     infrastructure-aware developer
@@ -72,19 +74,21 @@ if (!doNotTrack) {
 
 <button id='sidebar-toggler' class='sidebar-toggler' aria-controls='sidebar'>
   <span class='screen-reader-text'>Toggle Sidebar</span>
-  <span class='open'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
+  <span class='open'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
   <line x1="3" y1="12" x2="21" y2="12" />
   <line x1="3" y1="6" x2="21" y2="6" />
   <line x1="3" y1="18" x2="21" y2="18" />
-  
+
 </svg>
 </span>
-  <span class='close'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
+  <span class='close'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
   <line x1="18" y1="6" x2="6" y2="18" />
   <line x1="6" y1="6" x2="18" y2="18" />
-  
+
 </svg>
 </span>
 </button>
@@ -119,13 +123,14 @@ if (!doNotTrack) {
 
     </div>
     <div class='entry-meta'>
-  <span class='posted-on'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
+  <span class='posted-on'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
   <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
   <line x1="16" y1="2" x2="16" y2="6"/>
   <line x1="8" y1="2" x2="8" y2="6"/>
   <line x1="3" y1="10" x2="21" y2="10"/>
-  
+
 </svg>
 <span class='screen-reader-text'>Posted on </span>
   <time class='entry-date' datetime='2013-10-07T15:50:25Z'>7 Oct 2013</time>
@@ -133,11 +138,12 @@ if (!doNotTrack) {
 
   
   
-<span class='reading-time'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
+<span class='reading-time'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
   <circle cx="12" cy="12" r="10"/>
   <polyline points="12 6 12 12 15 15"/>
-  
+
 </svg>
 3 mins read
 </span>
@@ -153,91 +159,68 @@ if (!doNotTrack) {
   
 
   <div class='container entry-content'>
-  <p>It may come in mind to any IT system engineer to know what is the status of the network, server by server, instance by instance; it happened to me when I was given the responsibility to manage my company&#8217;s infrastructure and I was wondering which tool could have helped to do the job.</p>
-
+  <p>It may come in mind to any IT system engineer to know what is the status of the network, server by server, instance by instance; it happened to me when I was given the responsibility to manage my company’s infrastructure and I was wondering which tool could have helped to do the job.</p>
 <p>I chose Zabbix to monitor my infrastructure because:</p>
-
 <ol>
-<li>despite it&#8217;s a bit difficult to install (you need a PHP enabled web server, a database and a C compiler), you will benefit a very user-friendly web interface with lots of functionalities</li>
-<li>native agents for major OS release are already complied: FreeBSD, Linux, Windows, etc&#8230; Compiling to other OS just requires a &#8220;configure &amp;&amp; make &amp;&amp; make install&#8221;</li>
+<li>despite it’s a bit difficult to install (you need a PHP enabled web server, a database and a C compiler), you will benefit a very user-friendly web interface with lots of functionalities</li>
+<li>native agents for major OS release are already complied: FreeBSD, Linux, Windows, etc… Compiling to other OS just requires a “configure &amp;&amp; make &amp;&amp; make install”</li>
 <li>it offers many monitoring methods via a unique interface: you can group SNMP, JMX, HTTP monitoring in one shot</li>
 <li>it has multi-step HTTP/HTTPS monitoring, simulating different browsers and clients</li>
 <li>you can build nice infographics bundling all kind of monitored datas</li>
-<li>you can manage users and roles to give access to the web interface at your company&#8217;s employees</li>
+<li>you can manage users and roles to give access to the web interface at your company’s employees</li>
 <li>you can build custom monitoring scripts to your needs</li>
 </ol>
-
-<p>Well let&#8217;s see some action now: I would like to post a short tutorial on how to build a custom script to monitor resources used by a Glassfish application server. You can use this methodology for other application servers or services.</p>
-
+<p>Well let’s see some action now: I would like to post a short tutorial on how to build a custom script to monitor resources used by a Glassfish application server. You can use this methodology for other application servers or services.</p>
 <p><strong>Requirements:</strong> you have installed Zabbix server, deployed an agent to a host, set up the necessary networking stuff</p>
-
 <p>On the host to be monitored, you will have a directory where the agent configuration file is located (usually /usr/local/etc or C:\Zabbix)</p>
-
-<p><strong>Step 1: enable custom parameters </strong>parsing****</p>
-
-<p>Edit the file zabbix_agent.conf or zabbix_agentd.conf (depending if you&#8217;re usgin the daemon or not) and uncommment/add the following line:</p>
-
-<p>_Include=/usr/local/etc/zabbix_agentd.conf.d/  _or_ _Include=/usr/local/etc/zabbix_agent.conf.d/__</p>
-
+<p><strong>Step 1: enable custom parameters <strong>parsing</strong></strong></p>
+<p>Edit the file zabbix_agent.conf or zabbix_agentd.conf (depending if you’re usgin the daemon or not) and uncommment/add the following line:</p>
+<p><em>Include=/usr/local/etc/zabbix_agentd.conf.d/  <em>or</em> <em>Include=/usr/local/etc/zabbix_agent.conf.d/</em></em></p>
 <p><strong>Step 2: write the script</strong></p>
-
 <p>Create a file, name it as you please and insert the script you want to be executed by the agent: I needed a script that would inetract with Glassfish, so I used th following:</p>
-
 <blockquote>
 <p># Flexible parameter to grab global variables. On the frontend side, use keys like glassfish.status[server.jvm.heapsize-current].</p>
-
-<p># Key syntax is glassfish.status[monitoring-key].</p>
-
-<p>UserParameter=glassfish.status[*],/opt/glassfish/bin/asadmin get &#8211;user admin &#8211;passwordfile /opt/glassfish/bin/.pwd -m $1 | cut -d &#8220;=&#8221; -f 2 | tr -d &#8216; &#8216; | bc</p>
 </blockquote>
-
-<p>The script syntax is always UsrParameter=name.of.script[*] followed by the code to be executed. This one uses the Glassfish utility &#8220;<em>asadmin</em>&#8221; and a couple of shell commands to trim the string output and translate it into an integer value. You can see the arguments array can be retrieved using $ and index of argument. In this example you will call the script with one argument only (the monitoring data you want from Glassfish).</p>
-
+<blockquote>
+<p># Key syntax is glassfish.status[monitoring-key].</p>
+</blockquote>
+<blockquote>
+<p>UserParameter=glassfish.status[*],/opt/glassfish/bin/asadmin get –user admin –passwordfile /opt/glassfish/bin/.pwd -m $1 | cut -d “=” -f 2 | tr -d ‘ ‘ | bc</p>
+</blockquote>
+<p>The script syntax is always UsrParameter=name.of.script[*] followed by the code to be executed. This one uses the Glassfish utility “<em>asadmin</em>” and a couple of shell commands to trim the string output and translate it into an integer value. You can see the arguments array can be retrieved using $ and index of argument. In this example you will call the script with one argument only (the monitoring data you want from Glassfish).</p>
 <p><strong>Step 3: start harvesting datas!</strong></p>
-
 <p>Once finished editing the script, go back to the Zabbix monitoring console and add an Item to the host you are monitoring. You will add the key as shown in the picture below:</p>
-
-<p>&nbsp;</p>
-
-<p><a href="https://inge.4pr.es/blog/wp-content/uploads/2013/10/zabbix_custom_script1.png" target="_blank"><img class="aligncenter wp-image-189 size-full" title="zabbix_custom_script" src="http://inge.4pr.es/blog/wp-content/uploads/2013/10/zabbix_custom_script1.png" alt="Custom script insert" width="663" height="438" /></a></p>
-
-<p>&nbsp;</p>
-
-<p>&nbsp;</p>
-
+<p> </p>
+<p><a href="https://inge.4pr.es/blog/wp-content/uploads/2013/10/zabbix_custom_script1.png"><!-- raw HTML omitted --></a></p>
+<p> </p>
+<p> </p>
 <p>Then go back to the dashboard and verify that the script just created is returning datas as expected. In the section <em>Monitoring-&gt;Latest Data</em> check if the item is giving the expected values. In this exemple I chose to monitor the current heap size used by the server. One cool thing is: once the script is done you can call it with all the parameters Glassfish has, and then combine datas in an infograph like the following:</p>
-
-<p>&nbsp;</p>
-
-<p><a href="https://inge.4pr.es/blog/wp-content/uploads/2013/10/zabbix_graphs1.png" target="_blank"><img class="aligncenter wp-image-190 size-full" title="zabbix_graphs" src="http://inge.4pr.es/blog/wp-content/uploads/2013/10/zabbix_graphs1.png" alt="Zabbix graph" width="536" height="392" /></a></p>
-
-<p>&nbsp;</p>
-
+<p> </p>
+<p><a href="https://inge.4pr.es/blog/wp-content/uploads/2013/10/zabbix_graphs1.png"><!-- raw HTML omitted --></a></p>
+<p> </p>
 <p>Here I put together two Glassfish parameters (JVM upper bound and current heap used) and a system parameter (free memory).</p>
-
-<p>To get a list of all parameters you can monitor via Glassfish <em>asadmin</em> command see Glassfish documentation <a title="Glassfish documentation" href="https://glassfish.java.net/documentation.html" target="_blank">here</a>.</p>
-
+<p>To get a list of all parameters you can monitor via Glassfish <em>asadmin</em> command see Glassfish documentation <!-- raw HTML omitted -->here<!-- raw HTML omitted -->.</p>
 <p>Cheers,</p>
-
 <p>inge4pres</p>
-
-<p>&nbsp;</p>
+<p> </p>
 
 </div>
 
   
 <footer class='entry-footer'>
-  <div class='container sep-before'><div class='categories'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"/>
-  
+  <div class='container sep-before'><div class='categories'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+    <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"/>
+
 </svg>
 <span class='screen-reader-text'>Categories: </span><a class='category' href='/categories/tech/'>tech</a></div>
-<div class='tags'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
+<div class='tags'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
   <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"/>
   <line x1="7" y1="7" x2="7" y2="7"/>
-  
+
 </svg>
 <span class='screen-reader-text'>Tags: </span><a class='tag' href='/tags/cloud/'>cloud</a>, <a class='tag' href='/tags/infrastructure/'>infrastructure</a>, <a class='tag' href='/tags/monitoring/'>monitoring</a>, <a class='tag' href='/tags/software/'>software</a>, <a class='tag' href='/tags/zabbix/'>zabbix</a></div>
 
@@ -250,21 +233,23 @@ if (!doNotTrack) {
 <nav class='entry-nav'>
   <div class='container'><div class='prev-entry sep-before'>
       <a href='/2013/02/28/2013-02-28-quando-si-dice-problem-solving/'>
-        <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
+        <span aria-hidden='true'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
   <line x1="20" y1="12" x2="4" y2="12"/>
   <polyline points="10 18 4 12 10 6"/>
-  
+
 </svg>
  Previous</span>
         <span class='screen-reader-text'>Previous post: </span>Quando si dice problem solving</a>
     </div><div class='next-entry sep-before'>
       <a href='/2013/11/11/2013-11-11-backup-and-restore-crontabs/'>
-        <span class='screen-reader-text'>Next post: </span>Backup and restore crontabs<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
+        <span class='screen-reader-text'>Next post: </span>Backup and restore crontabs<span aria-hidden='true'>Next <svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
   <line x1="4" y1="12" x2="20" y2="12"/>
   <polyline points="14 6 20 12 14 18"/>
-  
+
 </svg>
 </span>
       </a>
@@ -305,71 +290,65 @@ if (!doNotTrack) {
     <h4 class='title widget-title'>Stay Tuned</h4>
   </header><nav aria-label='Social Menu'>
     <ul><li>
-        <a href='https://github.com/inge4pres' target='_blank' rel='noopener'>
-          <span class='screen-reader-text'>Open Github account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-  
+        <a href='https://github.com/inge4pres' target='_blank' rel='noopener me'>
+          <span class='screen-reader-text'>Open Github account in new tab</span><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+
 </svg>
 </a>
       </li><li>
-        <a href='https://gitlab.com/inge4pres' target='_blank' rel='noopener'>
-          <span class='screen-reader-text'>Open Gitlab account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <path d="M22.65 14.39L12 22.13 1.35 14.39a.84.84 0 0 1-.3-.94l1.22-3.78 2.44-7.51A.42.42 0 0 1 4.82 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.49h8.1l2.44-7.51A.42.42 0 0 1 18.6 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.51L23 13.45a.84.84 0 0 1-.35.94z"/>
-  
+        <a href='https://gitlab.com/inge4pres' target='_blank' rel='noopener me'>
+          <span class='screen-reader-text'>Open Gitlab account in new tab</span><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <title>GitLab icon</title>  <path d="M22.65 14.39L12 22.13 1.35 14.39a.84.84 0 0 1-.3-.94l1.22-3.78 2.44-7.51A.42.42 0 0 1 4.82 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.49h8.1l2.44-7.51A.42.42 0 0 1 18.6 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.51L23 13.45a.84.84 0 0 1-.35.94z"/>
 </svg>
 </a>
       </li><li>
-        <a href='https://twitter.com/inge4pres' target='_blank' rel='noopener'>
-          <span class='screen-reader-text'>Open Twitter account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
-  
+        <a href='https://twitter.com/inge4pres' target='_blank' rel='noopener me'>
+          <span class='screen-reader-text'>Open Twitter account in new tab</span><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+  <title>Twitter icon</title>
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+
 </svg>
 </a>
       </li><li>
-        <a href='mailto:fgualazzi@gmail.com' target='_blank' rel='noopener'>
-          <span class='screen-reader-text'>Contact via Email</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-  <polyline points="22,6 12,13 2,6"/>
-  
+        <a href='mailto:fgualazzi@gmail.com' target='_blank' rel='noopener me'>
+          <span class='screen-reader-text'>Contact via Email</span><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline>
 </svg>
 </a>
       </li><li>
-        <a href='https://linkedin.com/in/francescogualazzi' target='_blank' rel='noopener'>
-          <span class='screen-reader-text'>Open Linkedin account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-  <rect x="2" y="9" width="4" height="12"/>
-  <circle cx="4" cy="4" r="2"/>
-  
+        <a href='https://linkedin.com/in/francescogualazzi' target='_blank' rel='noopener me'>
+          <span class='screen-reader-text'>Open Linkedin account in new tab</span><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle>
 </svg>
 </a>
       </li><li>
-        <a href='https://instagram.com/inge4pres' target='_blank' rel='noopener'>
-          <span class='screen-reader-text'>Open Instagram account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-  <line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/>
-  
+        <a href='https://instagram.com/inge4pres' target='_blank' rel='noopener me'>
+          <span class='screen-reader-text'>Open Instagram account in new tab</span><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
 </svg>
 </a>
       </li></ul>
   </nav>
 </section><div class='copyright'>
-  <p>inge4pres &copy; 2012-2020 Francesco Gualazzi </p>
+  <p>inge4pres &copy; 2012-2021 Francesco Gualazzi </p>
 </div>
 
         </div>
       </footer>
 
     </div>
-  </div><script>window.__public_path__='\/assets\/js\/'</script>
+  </div><script>window.__assets_js_src="/assets/js/"</script>
 
-<script src='/assets/js/main.00df04b7.js'></script>
+<script src='/assets/js/main.c3bcf2df.js'></script>
 
 </body>
 

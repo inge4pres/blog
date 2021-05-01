@@ -1,15 +1,11 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>golang on INGE4PRES RATIONAL THOUGHTS</title>
     <link>http://inge.4pr.es/tags/golang/</link>
     <description>Recent content in golang on INGE4PRES RATIONAL THOUGHTS</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 23 Oct 2018 18:07:07 +0200</lastBuildDate>
-    
-	<atom:link href="http://inge.4pr.es/tags/golang/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 23 Oct 2018 18:07:07 +0200</lastBuildDate><atom:link href="http://inge.4pr.es/tags/golang/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>GoLab 2018: Wrap Up</title>
       <link>http://inge.4pr.es/2018/10/23/golab-2018-wrap-up/</link>
@@ -34,9 +30,9 @@
       <pubDate>Sun, 24 Jan 2016 16:40:37 +0000</pubDate>
       
       <guid>http://inge.4pr.es/2016/01/24/2016-01-24-implement-a-generic-data-list-structure/</guid>
-      <description>As a coding challenge I was asked to provide a generic list implementation using a language of my choice and using only primitive types, avoiding the use of high level built-ins. I chose Go because I want to learn it and I know it can be useful to create an abstract, generic implementation.
+      <description>As a coding challenge I was asked to provide a generic list implementation using a language of my choice and using only primitive types, avoiding the use of high level built-ins. I chose Gobecause I want to learn it and I know it can be useful to create an abstract, generic implementation.
 The challenge request to implement at least 4 methods on the generic type:
- Filter() &amp;#8211; returns a subset of the List satisfying an operation Map() &amp;#8211; returns the List objects&amp;#8217; map Reverse() &amp;#8211; reverse the ordering of the List objects FoldLeft() &amp;#8211; join the objects from left to right using a join character  As a bonus question I was asked to code unit tests for the aforementioned methods and give an explanation on how the implementation guarantees concurrent access on resources.</description>
+ Filter() – returns a subset of the List satisfying an operation Map() – returns the List objects’ map Reverse() – reverse the ordering of the List objects FoldLeft() – join the objects from left to right using a join character  As a bonus question I was asked to code unit tests for the aforementioned methods and give an explanation on how the implementation guarantees concurrent access on resources.</description>
     </item>
     
     <item>
@@ -46,9 +42,8 @@ The challenge request to implement at least 4 methods on the generic type:
       
       <guid>http://inge.4pr.es/2015/08/02/2015-08-02-golang-message-queue-a-simple-tcp-message-bus/</guid>
       <description>[TL;DR]
-I wrote a Pub/Sub message queue in Go, branch &amp;#8220;master&amp;#8221; is stable but missing some interesting feature like distributed memory synchronization between nodes in a cluster and encryption. Code at
-https://github.com/inge4pres/gmq
-Being a cloud system engineer, my work is to design and implement distributed systems: one of the key principles in designing such architectures is decoupling, which means ensuring the many parts composing the system are able to share informations and complete a sequence of operations without being tied together.</description>
+I wrote a Pub/Sub message queue in Go, branch “master” is stable but missing some interesting feature like distributed memory synchronization between nodes in a cluster and encryption. Code at
+https://github.com/inge4pres/gmqBeing a cloud system engineer, my work is to design and implement distributed systems: one of the key principles in designing such architectures is decoupling, which means ensuring the many parts composing the system are able to share informations and complete a sequence of operations without being tied together.</description>
     </item>
     
     <item>
@@ -58,7 +53,7 @@ Being a cloud system engineer, my work is to design and implement distributed sy
       
       <guid>http://inge.4pr.es/2015/06/11/2015-06-11-my-first-golang-web-project/</guid>
       <description>It is true: I fell in love with Go, not because I love Google and his products, but because it really fits my ideology of simplicity and power in a programming language. I started experimenting with the language and thank to his web-oriented approach I quickly came up with one of the simplest single task web application I could write: a URL shortener.
-What is a URL shortener? It&amp;#8217;s a service that will give you a short link for a long URL.</description>
+What is a URL shortener? It’s a service that will give you a short link for a long URL.</description>
     </item>
     
   </channel>

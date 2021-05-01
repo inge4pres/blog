@@ -1,22 +1,18 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>mfa on INGE4PRES RATIONAL THOUGHTS</title>
     <link>http://inge.4pr.es/tags/mfa/</link>
     <description>Recent content in mfa on INGE4PRES RATIONAL THOUGHTS</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 06 Apr 2016 19:51:33 +0000</lastBuildDate>
-    
-	<atom:link href="http://inge.4pr.es/tags/mfa/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 06 Apr 2016 19:51:33 +0000</lastBuildDate><atom:link href="http://inge.4pr.es/tags/mfa/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AWS IAM policy to let users manage their own MFA</title>
       <link>http://inge.4pr.es/2016/04/06/2016-04-06-aws-iam-policy-to-let-users-manage-their-own-mfa/</link>
       <pubDate>Wed, 06 Apr 2016 19:51:33 +0000</pubDate>
       
       <guid>http://inge.4pr.es/2016/04/06/2016-04-06-aws-iam-policy-to-let-users-manage-their-own-mfa/</guid>
-      <description>If you&amp;#8217;re an AWS administrator you know that managing web console security is pretty tough unless you know what you want and you know what you&amp;#8217;re doing. So if what you want is let each AWS user manage their own MFA device configuration without you and force them to have MFA active to use the web console, here is your solution.
+      <description>If you’re an AWS administrator you know that managing web console security is pretty tough unless you know what you want and you know what you’re doing. So if what you want is let each AWS user manage their own MFA device configuration without you and force them to have MFA active to use the web console, here is your solution.
 TL;DR
  Create one or more groups with your web users Create a new policy using this JSON Attach the policy to the group(s)  How does it work?</description>
     </item>

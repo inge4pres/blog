@@ -1,15 +1,11 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>enterprise on INGE4PRES RATIONAL THOUGHTS</title>
     <link>http://inge.4pr.es/tags/enterprise/</link>
     <description>Recent content in enterprise on INGE4PRES RATIONAL THOUGHTS</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 28 May 2017 17:04:10 +0200</lastBuildDate>
-    
-	<atom:link href="http://inge.4pr.es/tags/enterprise/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 28 May 2017 17:04:10 +0200</lastBuildDate><atom:link href="http://inge.4pr.es/tags/enterprise/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>DevOps: you&#39;re doing it wrong</title>
       <link>http://inge.4pr.es/2017/05/28/2017-05-28-devops-you-re-doing-it-wrong/</link>

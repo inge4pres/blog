@@ -1,23 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Pages on INGE4PRES RATIONAL THOUGHTS</title>
     <link>http://inge.4pr.es/page/</link>
     <description>Recent content in Pages on INGE4PRES RATIONAL THOUGHTS</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 14 Oct 2017 15:27:36 +0200</lastBuildDate>
-    
-	<atom:link href="http://inge.4pr.es/page/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 14 Oct 2017 15:27:36 +0200</lastBuildDate><atom:link href="http://inge.4pr.es/page/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>RESUME</title>
       <link>http://inge.4pr.es/resume/</link>
       <pubDate>Sat, 14 Oct 2017 15:27:36 +0200</pubDate>
       
       <guid>http://inge.4pr.es/resume/</guid>
-      <description>Work experiences 9&amp;frasl;2018 - now() » Site Reliability Engineer @ lastminute.com Joined the SRE team within Platform to work more closely on the company cloud platforms both on-premise and in public clouds. Main focus is developing software in Go to automate the platform based on Linux, containers and Kubernetes.
-9&amp;frasl;2017 - 8&amp;frasl;2018 » DevOps Engineer @ lastminute.com Contributing mainly to the development of a CI/CD platform to enable developers to test, build and deploy software with ease and confidence; we are part of the Platform area and we collaborate with SREs and DBAs to provide developers automated services to consume infrastructure.</description>
+      <description>Work experiences 7/2020 - now() » Senior Software Engineer @ optimyze.cloud We are a startup building Prodfiler: the lowest-overhead, always-on continuous-profiling tool for all your software stacks. Prodfiler gives a holistic view of CPU consumption across all your fleets, supporting multiple platforms and languages. I contribute to the product and leverage my previous working to bake reliability into our product and architectural decisions.
+9/2018 - 6/2020 » Site Reliability Engineer @ lastminute.</description>
     </item>
     
     <item>

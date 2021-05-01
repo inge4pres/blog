@@ -1,23 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>guide on INGE4PRES RATIONAL THOUGHTS</title>
     <link>http://inge.4pr.es/tags/guide/</link>
     <description>Recent content in guide on INGE4PRES RATIONAL THOUGHTS</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 24 Jan 2016 15:42:29 +0000</lastBuildDate>
-    
-	<atom:link href="http://inge.4pr.es/tags/guide/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 24 Jan 2016 15:42:29 +0000</lastBuildDate><atom:link href="http://inge.4pr.es/tags/guide/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Virtualize an old Windows PC</title>
       <link>http://inge.4pr.es/2016/01/24/2016-01-24-virtualize-an-old-windows-pc/</link>
       <pubDate>Sun, 24 Jan 2016 15:42:29 +0000</pubDate>
       
       <guid>http://inge.4pr.es/2016/01/24/2016-01-24-virtualize-an-old-windows-pc/</guid>
-      <description>A friend asked me if I was able to get back working a Windows 98 PC he had in his house; I have never done it so I said &amp;#8220;sure I can!&amp;#8221; just to have the opportunity to learn something new, and of course do a friend a favour.
-My idea was to copy the whole PC and get it running on a virtual machine thus doing what I later discovered is called a &amp;#8220;P2V&amp;#8221; (Physical to Virtual); the result of which would have been a portable VM which I could then install in my friend laptop to have his old PC back.</description>
+      <description>A friend asked me if I was able to get back working a Windows 98 PC he had in his house; I have never done it so I said “sure I can!” just to have the opportunity to learn something new, and of course do a friend a favour.
+My idea was to copy the whole PC and get it running on a virtual machine thus doing what I later discovered is called a “P2V” (Physical to Virtual); the result of which would have been a portable VM which I could then install in my friend laptop to have his old PC back.</description>
     </item>
     
   </channel>

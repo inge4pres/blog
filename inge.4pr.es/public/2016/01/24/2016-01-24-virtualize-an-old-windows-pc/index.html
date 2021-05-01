@@ -1,26 +1,26 @@
 <!DOCTYPE html>
-<html lang='en'><head>
+<html lang='en' dir='auto'><head>
   <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
-<meta name='description' content='A friend asked me if I was able to get back working a Windows 98 PC he had in his house; I have never done it so I said &#8220;sure I can!&#8221; just to have the opportunity to learn something new, and of course do a friend a favour.
-My idea was to copy the whole PC and get it running on a virtual machine thus doing what I later discovered is called a &#8220;P2V&#8221; (Physical to Virtual); the result of which would have been a portable VM which I could then install in my friend laptop to have his old PC back.'>
+<meta name='description' content='A friend asked me if I was able to get back working a Windows 98 PC he had in his house; I have never done it so I said “sure I can!” just to have the opportunity to learn something new, and of course do a friend a favour.
+My idea was to copy the whole PC and get it running on a virtual machine thus doing what I later discovered is called a “P2V” (Physical to Virtual); the result of which would have been a portable VM which I could then install in my friend laptop to have his old PC back.'>
 <meta name='theme-color' content='#ffcd00'>
 
 <meta property='og:title' content='Virtualize an old Windows PC » INGE4PRES RATIONAL THOUGHTS'>
-<meta property='og:description' content='A friend asked me if I was able to get back working a Windows 98 PC he had in his house; I have never done it so I said &#8220;sure I can!&#8221; just to have the opportunity to learn something new, and of course do a friend a favour.
-My idea was to copy the whole PC and get it running on a virtual machine thus doing what I later discovered is called a &#8220;P2V&#8221; (Physical to Virtual); the result of which would have been a portable VM which I could then install in my friend laptop to have his old PC back.'>
+<meta property='og:description' content='A friend asked me if I was able to get back working a Windows 98 PC he had in his house; I have never done it so I said “sure I can!” just to have the opportunity to learn something new, and of course do a friend a favour.
+My idea was to copy the whole PC and get it running on a virtual machine thus doing what I later discovered is called a “P2V” (Physical to Virtual); the result of which would have been a portable VM which I could then install in my friend laptop to have his old PC back.'>
 <meta property='og:url' content='http://inge.4pr.es/2016/01/24/2016-01-24-virtualize-an-old-windows-pc/'>
 <meta property='og:site_name' content='INGE4PRES RATIONAL THOUGHTS'>
 <meta property='og:type' content='article'><meta property='article:publisher' content='358809487873346'><meta property='article:section' content='post'><meta property='article:tag' content='geek'><meta property='article:tag' content='guide'><meta property='article:tag' content='oldies'><meta property='article:tag' content='virtualization'><meta property='article:tag' content='windows'><meta property='article:published_time' content='2016-01-24T15:42:29Z'/><meta property='article:modified_time' content='2016-01-24T15:42:29Z'/><meta property='fb:app_id' content='1845367892442473'><meta property='fb:admins' content='francesco.inge'><meta name='twitter:card' content='summary'><meta name='twitter:site' content='@inge4pres'>
 
-<meta name="generator" content="Hugo 0.56.3" />
+<meta name="generator" content="Hugo 0.82.0" />
 
   <title>Virtualize an old Windows PC » INGE4PRES RATIONAL THOUGHTS</title>
   <link rel='canonical' href='http://inge.4pr.es/2016/01/24/2016-01-24-virtualize-an-old-windows-pc/'>
   
   
   <link rel='icon' href='/favicon.ico'>
-<link rel='stylesheet' href='/assets/css/main.dd2efce5.css'><style>
+<link rel='stylesheet' href='/assets/css/main.ab98e12b.css'><style>
 :root{--color-accent:#ffcd00;}
 </style>
 
@@ -53,7 +53,9 @@ if (!doNotTrack) {
     </div>
     
     <h2 class='title site-title '>
-    Francesco Gualazzi
+      <a href='/'>
+      Francesco Gualazzi
+      </a>
     </h2>
     <div class='desc'>
     infrastructure-aware developer
@@ -70,19 +72,21 @@ if (!doNotTrack) {
 
 <button id='sidebar-toggler' class='sidebar-toggler' aria-controls='sidebar'>
   <span class='screen-reader-text'>Toggle Sidebar</span>
-  <span class='open'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
+  <span class='open'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
   <line x1="3" y1="12" x2="21" y2="12" />
   <line x1="3" y1="6" x2="21" y2="6" />
   <line x1="3" y1="18" x2="21" y2="18" />
-  
+
 </svg>
 </span>
-  <span class='close'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
+  <span class='close'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
   <line x1="18" y1="6" x2="6" y2="18" />
   <line x1="6" y1="6" x2="18" y2="18" />
-  
+
 </svg>
 </span>
 </button>
@@ -117,13 +121,14 @@ if (!doNotTrack) {
 
     </div>
     <div class='entry-meta'>
-  <span class='posted-on'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
+  <span class='posted-on'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
   <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
   <line x1="16" y1="2" x2="16" y2="6"/>
   <line x1="8" y1="2" x2="8" y2="6"/>
   <line x1="3" y1="10" x2="21" y2="10"/>
-  
+
 </svg>
 <span class='screen-reader-text'>Posted on </span>
   <time class='entry-date' datetime='2016-01-24T15:42:29Z'>24 Jan 2016</time>
@@ -131,11 +136,12 @@ if (!doNotTrack) {
 
   
   
-<span class='reading-time'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
+<span class='reading-time'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
   <circle cx="12" cy="12" r="10"/>
   <polyline points="12 6 12 12 15 15"/>
-  
+
 </svg>
 4 mins read
 </span>
@@ -151,50 +157,41 @@ if (!doNotTrack) {
   
 
   <div class='container entry-content'>
-  <p>A friend asked me if I was able to get back working a Windows 98 PC he had in his house; I have never done it so I said &#8220;sure I can!&#8221; just to have the opportunity to learn something new, and of course do a friend a favour.</p>
-
-<p>My idea was to copy the whole PC and get it running on a virtual machine thus doing what I later discovered is called a &#8220;P2V&#8221; (Physical to Virtual); the result of which would have been a portable VM which I could then install in my friend laptop to have his old PC back. The idea was indeed good and I am writing this blog just after finishing the job in the hope I will save someone the headache I&#8217;ve had in the last 4 days to get this done.</p>
-
+  <p>A friend asked me if I was able to get back working a Windows 98 PC he had in his house; I have never done it so I said “sure I can!” just to have the opportunity to learn something new, and of course do a friend a favour.</p>
+<p>My idea was to copy the whole PC and get it running on a virtual machine thus doing what I later discovered is called a “P2V” (Physical to Virtual); the result of which would have been a portable VM which I could then install in my friend laptop to have his old PC back. The idea was indeed good and I am writing this blog just after finishing the job in the hope I will save someone the headache I’ve had in the last 4 days to get this done.</p>
 <p>My tools for this job are :</p>
-
 <ul>
-<li>an ATA/SATA/IDE to USB adapter (<a href="http://www.amazon.it/gp/product/B001EOO660?psc=1&redirect=true&ref_=oh_aui_detailpage_o00_s00" target="_blank">this</a> exactly) to mount the old drive</li>
-<li><a href="http://www.winimage.com/download.htm" target="_blank">winImage</a>: a fantastic freeware by Gilles Vollant (runs on Windows only)</li>
-<li>Windows 98 ISO (get one <a href="https://winworldpc.com" target="_blank">here</a>)</li>
+<li>an ATA/SATA/IDE to USB adapter (<!-- raw HTML omitted -->this<!-- raw HTML omitted --> exactly) to mount the old drive</li>
+<li><!-- raw HTML omitted -->winImage<!-- raw HTML omitted -->: a fantastic freeware by Gilles Vollant (runs on Windows only)</li>
+<li>Windows 98 ISO (get one <!-- raw HTML omitted -->here<!-- raw HTML omitted -->)</li>
 <li>VMWare Workstation: to run winImage on a pre-installed Windows VM, configure and test the new Windows 98 VM</li>
 </ul>
-
-<p>Why VMWare? It is by my knowledge the most reliable and portable hypervisor, with a vast documentation and huge community support; I also had it already installed in my Fedora box running a virtual Windows 10. Don&#8217;t worry if you don&#8217;t have VMWare: VirtualBox or Virtual-PC will do the same&#8230; So let&#8217;s get it started!</p>
-
-<p>Verify the drive is working connecting it to the USB adapter: connect the USB to your PC first, connect the power adapter to te disk then finally plug the power cable; if a green light is on and you hear the disk spinning, move ahead. If the disk has no vitals, consider calling a data recovery expert. If you&#8217;re on Windows the disk should be visibile in your drives: press the Windows logo and E key to open explorer and the drive should be visible and browseable. Otherwise check the Disk Utility to verify it has been recognized and why is not mounted. On Linux, use <code>fdisk -l</code> to know the device and <code>mount -t filesystemtype /dev/deviceid /your/mount/point</code> to mount on a folder specifying the filesystem type. To know the file system type use <code>file -sL /dev/deviceid</code> using the device identifier.</p>
-
+<p>Why VMWare? It is by my knowledge the most reliable and portable hypervisor, with a vast documentation and huge community support; I also had it already installed in my Fedora box running a virtual Windows 10. Don’t worry if you don’t have VMWare: VirtualBox or Virtual-PC will do the same… So let’s get it started!</p>
+<p>Verify the drive is working connecting it to the USB adapter: connect the USB to your PC first, connect the power adapter to te disk then finally plug the power cable; if a green light is on and you hear the disk spinning, move ahead. If the disk has no vitals, consider calling a data recovery expert. If you’re on Windows the disk should be visibile in your drives: press the Windows logo and E key to open explorer and the drive should be visible and browseable. Otherwise check the Disk Utility to verify it has been recognized and why is not mounted. On Linux, use <code>fdisk -l</code> to know the device and <code>mount -t filesystemtype /dev/deviceid /your/mount/point</code> to mount on a folder specifying the filesystem type. To know the file system type use <code>file -sL /dev/deviceid</code> using the device identifier.</p>
 <p>Now that the disk is operational I recommend to take a backup with a raw image: this will help if any trouble happens with the disk during the P2V process. On windows you can use ShadowCopy or Ghost or Acronis Image, it all depends on your budget. On Linux I will use</p>
-
 <p><code>dd if=/dev/deviceid of=/my/backup/destination/disk.img</code></p>
-
-<p>Now I feel more confident because any action can be reverted with the original disk image backup: the next step is to virtualize the disk and all of its content with WinImage. From the menu select &#8220;Convert physical to virtual&#8221;, choose the input drive, a destination folder and the type of virtual disk (.vmdk if you want to use VMWare); WinImage will ask if you want to make a backup of your drive and if you are paranoic like me, answer yes and save another backup. Depending on the disk size the convertion process may take about 30 minutes long, so relax and wait; once WinImage is done you will notice it because the disk will lower down the noise.</p>
-
-<p>Open VMWare (or any other hypervisor you like) and create a new virtual machine: for Windows 98 I choose 1 vCPU with 512MB RAM; attach the virtual drive created with WinImage to the guest and start it up. If you&#8217;re lucky enough you should end up with a Windows boot screen and the operating system loading.</p>
-
-<p>Now the fun part! As we took a raw image of the old disk the drivers the hypervisor will use won&#8217;t be recognized! So in my case I had to click through a lot of driver reinstall, but they were all already present. A couple of reboots and the Windows 98 system is back up and running. Don&#8217;t be discouraged by what seems an infinite loop of driver reinstall! Continue installing the missing drivers and you willl succeed! This is definitely the most important thing to do: never give up!</p>
-
-<p>&nbsp;</p>
+<p>Now I feel more confident because any action can be reverted with the original disk image backup: the next step is to virtualize the disk and all of its content with WinImage. From the menu select “Convert physical to virtual”, choose the input drive, a destination folder and the type of virtual disk (.vmdk if you want to use VMWare); WinImage will ask if you want to make a backup of your drive and if you are paranoic like me, answer yes and save another backup. Depending on the disk size the convertion process may take about 30 minutes long, so relax and wait; once WinImage is done you will notice it because the disk will lower down the noise.</p>
+<p>Open VMWare (or any other hypervisor you like) and create a new virtual machine: for Windows 98 I choose 1 vCPU with 512MB RAM; attach the virtual drive created with WinImage to the guest and start it up. If you’re lucky enough you should end up with a Windows boot screen and the operating system loading.</p>
+<p>Now the fun part! As we took a raw image of the old disk the drivers the hypervisor will use won’t be recognized! So in my case I had to click through a lot of driver reinstall, but they were all already present. A couple of reboots and the Windows 98 system is back up and running. Don’t be discouraged by what seems an infinite loop of driver reinstall! Continue installing the missing drivers and you willl succeed! This is definitely the most important thing to do: never give up!</p>
+<p> </p>
 
 </div>
 
   
 <footer class='entry-footer'>
-  <div class='container sep-before'><div class='categories'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"/>
-  
+  <div class='container sep-before'><div class='categories'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+    <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"/>
+
 </svg>
 <span class='screen-reader-text'>Categories: </span><a class='category' href='/categories/culture/'>culture</a>, <a class='category' href='/categories/tech/'>tech</a></div>
-<div class='tags'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
+<div class='tags'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
   <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"/>
   <line x1="7" y1="7" x2="7" y2="7"/>
-  
+
 </svg>
 <span class='screen-reader-text'>Tags: </span><a class='tag' href='/tags/geek/'>geek</a>, <a class='tag' href='/tags/guide/'>guide</a>, <a class='tag' href='/tags/oldies/'>oldies</a>, <a class='tag' href='/tags/virtualization/'>virtualization</a>, <a class='tag' href='/tags/windows/'>windows</a></div>
 
@@ -207,21 +204,23 @@ if (!doNotTrack) {
 <nav class='entry-nav'>
   <div class='container'><div class='prev-entry sep-before'>
       <a href='/2015/08/02/2015-08-02-golang-message-queue-a-simple-tcp-message-bus/'>
-        <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
+        <span aria-hidden='true'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
   <line x1="20" y1="12" x2="4" y2="12"/>
   <polyline points="10 18 4 12 10 6"/>
-  
+
 </svg>
  Previous</span>
         <span class='screen-reader-text'>Previous post: </span>Golang Message Queue: a simple TCP message bus</a>
     </div><div class='next-entry sep-before'>
       <a href='/2016/01/24/2016-01-24-implement-a-generic-data-list-structure/'>
-        <span class='screen-reader-text'>Next post: </span>Implement a generic data list structure<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
+        <span class='screen-reader-text'>Next post: </span>Implement a generic data list structure<span aria-hidden='true'>Next <svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
   <line x1="4" y1="12" x2="20" y2="12"/>
   <polyline points="14 6 20 12 14 18"/>
-  
+
 </svg>
 </span>
       </a>
@@ -262,71 +261,65 @@ if (!doNotTrack) {
     <h4 class='title widget-title'>Stay Tuned</h4>
   </header><nav aria-label='Social Menu'>
     <ul><li>
-        <a href='https://github.com/inge4pres' target='_blank' rel='noopener'>
-          <span class='screen-reader-text'>Open Github account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-  
+        <a href='https://github.com/inge4pres' target='_blank' rel='noopener me'>
+          <span class='screen-reader-text'>Open Github account in new tab</span><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+
 </svg>
 </a>
       </li><li>
-        <a href='https://gitlab.com/inge4pres' target='_blank' rel='noopener'>
-          <span class='screen-reader-text'>Open Gitlab account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <path d="M22.65 14.39L12 22.13 1.35 14.39a.84.84 0 0 1-.3-.94l1.22-3.78 2.44-7.51A.42.42 0 0 1 4.82 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.49h8.1l2.44-7.51A.42.42 0 0 1 18.6 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.51L23 13.45a.84.84 0 0 1-.35.94z"/>
-  
+        <a href='https://gitlab.com/inge4pres' target='_blank' rel='noopener me'>
+          <span class='screen-reader-text'>Open Gitlab account in new tab</span><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <title>GitLab icon</title>  <path d="M22.65 14.39L12 22.13 1.35 14.39a.84.84 0 0 1-.3-.94l1.22-3.78 2.44-7.51A.42.42 0 0 1 4.82 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.49h8.1l2.44-7.51A.42.42 0 0 1 18.6 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.51L23 13.45a.84.84 0 0 1-.35.94z"/>
 </svg>
 </a>
       </li><li>
-        <a href='https://twitter.com/inge4pres' target='_blank' rel='noopener'>
-          <span class='screen-reader-text'>Open Twitter account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
-  
+        <a href='https://twitter.com/inge4pres' target='_blank' rel='noopener me'>
+          <span class='screen-reader-text'>Open Twitter account in new tab</span><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+  <title>Twitter icon</title>
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+
 </svg>
 </a>
       </li><li>
-        <a href='mailto:fgualazzi@gmail.com' target='_blank' rel='noopener'>
-          <span class='screen-reader-text'>Contact via Email</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-  <polyline points="22,6 12,13 2,6"/>
-  
+        <a href='mailto:fgualazzi@gmail.com' target='_blank' rel='noopener me'>
+          <span class='screen-reader-text'>Contact via Email</span><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline>
 </svg>
 </a>
       </li><li>
-        <a href='https://linkedin.com/in/francescogualazzi' target='_blank' rel='noopener'>
-          <span class='screen-reader-text'>Open Linkedin account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-  <rect x="2" y="9" width="4" height="12"/>
-  <circle cx="4" cy="4" r="2"/>
-  
+        <a href='https://linkedin.com/in/francescogualazzi' target='_blank' rel='noopener me'>
+          <span class='screen-reader-text'>Open Linkedin account in new tab</span><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle>
 </svg>
 </a>
       </li><li>
-        <a href='https://instagram.com/inge4pres' target='_blank' rel='noopener'>
-          <span class='screen-reader-text'>Open Instagram account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-  <line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/>
-  
+        <a href='https://instagram.com/inge4pres' target='_blank' rel='noopener me'>
+          <span class='screen-reader-text'>Open Instagram account in new tab</span><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
 </svg>
 </a>
       </li></ul>
   </nav>
 </section><div class='copyright'>
-  <p>inge4pres &copy; 2012-2020 Francesco Gualazzi </p>
+  <p>inge4pres &copy; 2012-2021 Francesco Gualazzi </p>
 </div>
 
         </div>
       </footer>
 
     </div>
-  </div><script>window.__public_path__='\/assets\/js\/'</script>
+  </div><script>window.__assets_js_src="/assets/js/"</script>
 
-<script src='/assets/js/main.00df04b7.js'></script>
+<script src='/assets/js/main.c3bcf2df.js'></script>
 
 </body>
 
