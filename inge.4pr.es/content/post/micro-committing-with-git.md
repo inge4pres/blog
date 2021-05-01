@@ -200,9 +200,12 @@ where we can note the following:
 * commits `869e15fd7c85dcaef1e3e1865f2dcb62a5c06966` and `91dc03e493fc9ff9426c7250de9d6dd168d58b2b` can be squashed
 * the article can probably be split in 2: the initial draft (the 3 commits at the bottom, the first in chronological order)
   and the final part (the first 2 commits in the list, the last in chronological order)
-  
-It's time to run a `git rebase -i origin/master` to rebase interactively my local branch on top of the remote repository.
-The output is the following:
+* it took me 1 month to find the time to finish a blog post I had previously started! 😂
+
+Removing the tag: `git tag -d ready-for-conclusion`.
+
+It's time to run a `git rebase -i origin/master` to rebase interactively my local branch on top of the remote branch.
+The output in the editor is the following:
 
 ```git
 pick f368028 first draft: completed intro
@@ -215,7 +218,7 @@ pick 91dc03e refinement before example
 # Rebase 01ff245..91dc03e onto 01ff245 (7 commands)
 ```
 
-With the considerations done earlier, in the editor I will change the history like so:
+With the considerations done earlier, I will change the history like so:
 
 ```git
 pick 1ef9ec1 Resume: update page
@@ -226,5 +229,45 @@ reword aaafc40 refined central section
 fixup 91dc03e refinement before example
 ```
 
+The first editor session will be to opened to combine the commits `f368028`, `aa25b34` and `869e15f`: I will merge the commit messages,
+and I will add the slug of the post.
+
+The second editor session will be to rewrite the last 2 commits combined, adding details about the post content.
+
+Now the history looks much better, and it can be pushed:
+
+```git
+commit be50a37f5dc63b587a1d105869449a6f67741a6a
+Author: inge4pres <xxx@gmail.com>
+Date:   Sat May 1 18:35:35 2021 +0200
+
+    microcommitting: best practices and tips
+
+commit 4f351b07ecbf45d1f11268cc98f13506c7fdb81d
+Author: inge4pres <xxx@gmail.com>
+Date:   Fri Apr 2 21:25:16 2021 +0200
+
+    microcommitting: draft intro and peer review
+
+commit 5d96163f8bf4196a57f01b59de434395fc52a221
+Author: inge4pres <xxx@gmail.com>
+Date:   Sat Apr 3 19:28:17 2021 +0200
+
+    Resume: update page
+```
+
+### Wrap up
+
+Micro-committing is very helpful to collaborate effectively on a project, it can be tedious in first instance and apparently the benefits are not tangible, 
+though adopting it will be very valuable in some occasions. 
+
+Try to practice it stick with mataining a clean Git history, then ask for feedback to the people collaborating with you on the repository.
 
 ### Credits
+
+Thanks to all the mentors that helped me be more productive! 🙏
+
+- [Mario Russo](https://twitter.com/rmarioo) for first exposing me to mirco-committing in a coding dojo, some years ago
+- [Giancarlo Di Paolantonio](https://twitter.com/giankidipaol) and [Paolo Banfi](https://twitter.com/granagli4) for the refactoring/TDD tips
+- [Sean Heelan](https://twitter.com/seanhn) and [Tim Ruhsen](https://twitter.com/ruehsen) for the peer review and Git history tips
+- [Victor Michel](https://twitter.com/vic_mic_) for the mind-blowing Git usage tricks
