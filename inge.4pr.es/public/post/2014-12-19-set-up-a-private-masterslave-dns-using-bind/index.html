@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noodp"/><title>Set up a private master/slave DNS using BIND - INGE4PRES RATIONAL THOUGHTS</title>
+        <meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="@inge4pres"/><meta name="twitter:title" content=""/>
+        <meta name="twitter:description" content="Francesco Gualazzi: infrastructure-aware developer"/>
+        <meta name="Description" content="Francesco Gualazzi: infrastructure-aware developer"><meta property="og:title" content="Set up a private master/slave DNS using BIND" />
+<meta property="og:description" content="One of the very basic need of any startup is setting up a LAN in the workspace and configuring the Internet most used service: DNS. Relying on a public DNS may give you full functionality towards WAN connectivity, but when you need to address some hosts inside your LAN it can be handy to use names instead of IPs (especially with IPv6).
+Here’s a straight forward guide to get you started with your private DNS in a few minutes." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://inge.4pr.es/post/2014-12-19-set-up-a-private-masterslave-dns-using-bind/" /><meta property="og:image" content="https://inge.4pr.es/images/avatar.png"/><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2014-12-19T17:20:13&#43;00:00" />
+<meta property="article:modified_time" content="2014-12-19T17:20:13&#43;00:00" />
+
+<meta name="application-name" content="INGE4PRES RATIONAL THOUGHTS">
+<meta name="apple-mobile-web-app-title" content="INGE4PRES RATIONAL THOUGHTS"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+        <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://inge.4pr.es/post/2014-12-19-set-up-a-private-masterslave-dns-using-bind/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.6cf1ea52f3eaa1db6fd80fb0ba96e8568d6d83a847d1c35cce0f61aad5b2416b.css" integrity="sha256-bPHqUvPqodtv2A&#43;wupboVo1tg6hH0cNczg9hqtWyQWs="><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><meta name="google-site-verification" content="TOk-oj9FYpVoRqq2BjvXT_OWQZZ6poZhp1WZXPhfMvE" /><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Set up a private master/slave DNS using BIND",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/inge.4pr.es\/post\/2014-12-19-set-up-a-private-masterslave-dns-using-bind\/"
+        },"image": ["https:\/\/inge.4pr.es\/images\/avatar.png"],"genre": "post","keywords": "BIND, CentOS, DNS, Linux","wordCount":  915 ,
+        "url": "https:\/\/inge.4pr.es\/post\/2014-12-19-set-up-a-private-masterslave-dns-using-bind\/","datePublished": "2014-12-19T17:20:13+00:00","dateModified": "2014-12-19T17:20:13+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","description": ""
+    }
+    </script><script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https:\/\/inge.4pr.es\/"
+        },{
+            "@type": "ListItem",
+            "position": 2,
+            "name": "tech",
+            "item": "https://inge.4pr.es/categories/tech/"
+        },{
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Set up a private master\/slave DNS using BIND"
+            }]
+    }
+</script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header>
+    <div class="desktop header" id="header-desktop">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="INGE4PRES RATIONAL THOUGHTS" class="header-logo logo-svg"><img loading="lazy" decoding="async"
+         class="logo"
+         src="/images/gopher.png"
+         alt="/images/gopher.png"
+         title="/images/gopher.png"
+    /><span class="header-title-pre"><i class='fas fa-pencil-alt fa-fw'></i></span>INGE4PRES RATIONAL THOUGHTS<span class="header-title-post">🤓 <i class='fas fa-pencil-alt fa-fw'>Growing knowledge one post at a time</i></span></a>
+            </div>
+            <div class="menu">
+                <nav>
+                    <h2 class="display-hidden">Основная навигация</h2>
+                    <ul class="menu-inner"><li>
+                            <a class="menu-item" href="/about/"> About </a>
+                        </li><li>
+                            <a class="menu-item" href="/resume/"> Resume </a>
+                        </li><li>
+                            <a class="menu-item" href="/tags/"> Tags </a>
+                        </li></ul>
+                </nav><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Find" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <span class="svg-icon icon-search"></span>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <span class="svg-icon icon-cancel"></span>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <span class="svg-icon icon-loading"></span>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <span class="svg-icon icon-moon"></span>
+                </a>
+            </div>
+        </div>
+    </div><div class="mobile header" id="header-mobile">
+        <div class="header-container">
+            <div class="header-wrapper">
+                <div class="header-title">
+                    <a href="/" title="INGE4PRES RATIONAL THOUGHTS" class="header-logo"><img loading="lazy" decoding="async"
+         class="logo"
+         src="/images/gopher.png"
+         alt="/images/gopher.png"
+         title="/images/gopher.png"
+    /><span class="header-title-pre"><i class='fas fa-pencil-alt fa-fw'></i></span>INGE4PRES RATIONAL THOUGHTS<span class="header-title-post">🤓 <i class='fas fa-pencil-alt fa-fw'>Growing knowledge one post at a time</i></span></a>
+                </div>
+                <div class="menu-toggle" id="menu-toggle-mobile">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+            <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                        <div class="search mobile" id="search-mobile">
+                            <input type="text" placeholder="Find" id="search-input-mobile">
+                            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                                <span class="svg-icon icon-search"></span>
+                            </a>
+                            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                                <span class="svg-icon icon-cancel"></span>
+                            </a>
+                            <span class="search-button search-loading" id="search-loading-mobile">
+                                <span class="svg-icon icon-loading"></span>
+                            </span>
+                        </div>
+                        <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                            Cancel
+                        </a>
+                    </div><nav>
+                    <h2 class="display-hidden">Основная навигация</h2>
+                    <ul><li>
+                            <a class="menu-item" href="/about/" title="">About</a>
+                        </li><li>
+                            <a class="menu-item" href="/resume/" title="">Resume</a>
+                        </li><li>
+                            <a class="menu-item" href="/tags/" title="">Tags</a>
+                        </li></ul>
+                </nav>
+                <a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <span class="svg-icon icon-moon"></span>
+                </a></div>
+        </div>
+    </div><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div></header><main class="main">
+                <div class="container"><div class="page single special"><h1 class="single-title pulse faster">Set up a private master/slave DNS using BIND</h1><div class="content" id="content"><p>One of the very basic need of any startup is setting up a LAN in the workspace and configuring the Internet most used service: DNS. Relying on a public DNS may give you full functionality towards WAN connectivity, but when you need to address some hosts inside your LAN it can be handy to use names instead of IPs (especially with IPv6).</p>
+<p>Here’s a straight forward guide to get you started with your private DNS in a few minutes.</p>
+<p>OS filesystem’s path and package management utility may vary with the flavour of your distro, here I use CentOS.</p>
+<hr>
+<p><strong>Requirements</strong></p>
+<ul>
+<li>
+<p>a router with DHCP ad WAN connectivity already setup</p>
+</li>
+<li>
+<p>2 CentOS 6.x servers (physical or virtual with due availability concerns), enable to network with each others</p>
+</li>
+<li>
+<p>a desktop PC</p>
+<hr>
+</li>
+</ul>
+<p><strong>Some general info</strong></p>
+<p>I use this data as example, change them to your needs</p>
+<li style="text-align: left;">
+  <code>startup.me</code>             the domain name you want to use in your LAN
+</li>
+  * `10.20.30.0/24`        the subnet of your LAN
+  * `10.20.30.40`            the static IP address assigned to CentOS server 1, with hostname  `centos1.startup.me`
+  * `10.20.30.50`            the static IP address assigned to CentOS server 2, with hostname  `centos2.startup.me`
+<hr>
+<p>**Configuring the primary DNS server **</p>
+<p>On server <code>centos1</code></p>
+<p><code>[root@centos1 ~]# yum update &amp;&amp; yum -y install bind bind-libs bind-utils</code></p>
+<p>The BIND daemon is now installed; the base dir for the service is <code>/var/named</code> and the configuration file is <code>/etc/named.conf</code> ; modify the configuration file with your favourite editor</p>
+<p><code>[root@centos1 ~]# vim /etc/named.conf</code></p>
+<p>In the <code>options</code> section adjust the settings to your LAN configurations, changing the example values</p>
+<pre><code>options {
+       listen-on port 53 { 10.20.30.40 };             # inet address of centos1
+       listen-on-v6 port 53 { ::1; };                 # comment this out to use IPv4 only
+       directory &quot;/var/named&quot;;
+       recursion yes;
+       allow-recursion { 10.20.30.0/24; };            # recursion only in LAN, change this with your subnet
+       allow-transfer { localhost; 10.20.30.50; };    # enable zone transfers only to secondary DNS sever
+       forwarders {
+                  208.67.222.222;
+                  208.67.220.220;
+       };                                             # OpenDNS used here, Google 8.8.8.8, 8.8.4.4 can be used
+       dump-file &quot;/var/named/data/cache_dump.db&quot;;
+       statistics-file &quot;/var/named/data/named_stats.txt&quot;;
+       memstatistics-file &quot;/var/named/data/named_mem_stats.txt&quot;;
+       allow-query { 10.20.30.0/24; };                # accept queries only from LAN, change this with your subnet
+};
+</code></pre>
+<p>Now comment the <code>include</code> lines following the <code>options</code> section and comment out all the rest. The end of the file should be (modify the domain)</p>
+<pre><code># zone &quot;.&quot; IN {
+#       type hint;
+#       file &quot;named.ca&quot;;
+#};
+
+#include &quot;/etc/named.rfc1912.zones&quot;;
+#include &quot;/etc/named.root.key&quot;;
+
+zone &quot;startup.me&quot; IN {
+      type master;
+      file &quot;/var/named/startup.me.zone&quot;;
+      allow-update { none; };
+};
+</code></pre>
+<p>The latter lines create the definition of the domain and specify that DNS records should be looked up in the <code>/var/named/startup.me.zone </code>file which we are about to write. If you’re unfamiliar with DNS records and basic concepts, have a look at <a title="DNS IANA's guide" href="http://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml" target="_blank">this</a>. Now create and edit a new file</p>
+<p><code>[root@centos1 ~]# vim /var/named/startup.me.zone</code></p>
+<p>Insert this</p>
+<pre><code>$TTL 8H
+@      IN      SOA      centos1.startup.me. root.startup.me. (
+               1        ; serial
+               1D       ; refresh
+               1H       ; retry
+               1W       ; expire
+               1H )     ; minimum TTL
+; Name servers
+        IN      NS      centos1.startup.me.
+        IN      NS      centos2.startup.me.
+; Resolvers
+@       IN      A       10.50.30.10  ; default IP for your domain root startup.me
+centos1 IN      A       10.20.30.40  ; the primary DNS server centos1
+centos2 IN      A       10.20.30.50  ; the secondary DNS server centos2
+www     IN      A       10.20.30.20  ; a web server in your LAN
+ftp     IN      A       10.20.30.30  ; an FTP server in your LAN
+git     IN      A       10.20.30.5   ; a GIT server in your LAN
+</code></pre>
+<p>Be careful when copying the above snippet into the config file: indentation must be respected!</p>
+<p>You have configured the primary DNS with some DNS A records; the provided settings are not for a heavy load DNS server, nor they should be used in networks wih frequent IP address change: the time-to-live settings are high, therefore any IP mapping change should be followed by a clients’ resolver cache flush, which may be inconvenient for most users.</p>
+<p>Now it’s time to enable the service; verify files permission</p>
+<p><code>[root@centos1 ~]# chown named /var/named/startup.me.zone</code></p>
+<p>and start the service</p>
+<p><code>[root@centos1 ~]# service named start</code></p>
+<p>If you want to have the service enabled at boot</p>
+<p><code>[root@centos1 ~]# chkconfig named on &amp;&amp; chkconfig save</code></p>
+<p>To test your primary DNS server you should first be sure to use it; check the resolver settings</p>
+<p><code>[root@centos1 ~]# vim /etc/resolv.conf</code></p>
+<p>it should contain only one line</p>
+<p><code>nameserver 10.20.30.40</code></p>
+<p>Verify the DNS is working with</p>
+<p><code>[root@centos1 ~]# dig www.startup.me</code></p>
+<p>if the output contains “AUTHORITY SECTION” you’re done.</p>
+<hr>
+<p>**Configuring the secondary DNS server **</p>
+<p>On server <code>centos2</code> install BIND as you did for <code>centos1</code>.</p>
+<p><code>[root@centos2 ~]# yum update &amp;&amp; yum -y install bind bind-libs bind-utils</code></p>
+<p>Secure-CoPy the configuration files from <code>centos1</code> to <code>centos2</code></p>
+<p><code>[root@centos2 ~]# scp centos1.startup.me:/etc/named.conf /etc/named.conf</code></p>
+<p><code>[root@centos2 ~]# scp centos1.startup.me:/var/named/startup.me.zone /var/named/startup.me.zone</code></p>
+<p>Edit the <code>/etc/named.conf</code> adjusting the IPv4 address of <code>centos2</code> in the <code>options</code> section, change <code>10.20.30.40</code> with <code>10.20.30.50</code>, and at the end of the file modify the zone settings to have a secondary (slave) DNS; as usual, change the IP with your actual primary DNS IP.</p>
+<pre><code>zone &quot;startup.me&quot; IN {
+      type slave;
+      masters { 10.20.30.40; }; 
+      file &quot;/var/named/startup.me.zone&quot;;
+};
+</code></pre>
+<p>Start the BIND daemon on <code>centos2</code> and enjoy!</p>
+<p><code>[root@centos2 ~]# chown named /var/named/startup.me.zone</code></p>
+<p><code>[root@centos2 ~]# service named start</code></p>
+<p>There it is! You are ready to test it from your desktop.</p>
+<p>In your router settings change the primary and secondary DNS servers for the DHCP server, renew all adresses and try browsing the domain with any software. So name, much fast, wow!</p>
+<p><em>Note: having a script doing an rsync to your secondary DNS will ease the pain when the primary DNS server goes down.</em></p>
+<p>Cheers 😀</p>
+</div><div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
+            </noscript></div></div></div>
+                </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.82.0">Hugo</a> | Theme - <a href="https://ublogger.netlify.app/?utm_source=https://inge.4pr.es/&utm_medium=footer&utm_campaign=config&utm_term=2.0.1" target="_blank" title="uBlogger 2.0.1">uBlogger</a>
+                </div><div class="footer-line"><i class="svg-icon icon-copyright"></i><span>2012 - 2021</span><span class="author">&nbsp;<a href="/" target="_blank"></a></span></div>
+        </div>
+    </footer></div>
+
+        <aside id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="svg-icon icon-arrow-up"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="svg-icon icon-comments-fixed"></i>
+            </a>
+        </aside><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><script src="https://inge4pres.disqus.com/embed.js" defer></script><script src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lunr@2.3.8/lunr.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js"></script><script>window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{},"cookieconsent":{"content":{"dismiss":"LGTM","link":"Learn more","message":"Do you like cookies?"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":20,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"}};</script><script src="/js/theme.min.0d44909075b648ac3259c39fcf9ddb2a6e7314cb3a7374007dd582c887381740.js" integrity="sha256-DUSQkHW2SKwyWcOfz53bKm5zFMs6c3QAfdWCyIc4F0A="></script><script>
+                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+	        ga('create', 'UA-55252403-1', 'auto');
+	        ga('set', 'anonymizeIp', true);
+	        ga('send', 'pageview');
+	    </script></body>
+</html>

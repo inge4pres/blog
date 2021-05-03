@@ -1,6 +1,6 @@
 ---
 title: A smooth migration to the cloud
-author: inge4pres
+author: "inge4pres"
 layout: post
 date: 2014-10-15T18:15:28+00:00
 categories:

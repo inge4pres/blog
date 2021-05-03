@@ -1,20 +1,15 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>cka on INGE4PRES RATIONAL THOUGHTS</title>
-    <link>http://inge.4pr.es/tags/cka/</link>
-    <description>Recent content in cka on INGE4PRES RATIONAL THOUGHTS</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 01 Nov 2019 15:56:42 +0100</lastBuildDate><atom:link href="http://inge.4pr.es/tags/cka/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>CKA exam experience and preparation</title>
-      <link>http://inge.4pr.es/2019/11/01/cka-exam-experience/</link>
-      <pubDate>Fri, 01 Nov 2019 15:56:42 +0100</pubDate>
-      
-      <guid>http://inge.4pr.es/2019/11/01/cka-exam-experience/</guid>
-      <description>Yes! Yesterday I received an awesome email stating that I cleared the Certified Kubernetes Administrator exam! 😎 Here I want to report my experience in preparing and taking the exam, hopefully this info can help others Kubernetes practitioners get the certification too.
-Preparation I consider myself lucky because for the past two years I had the chance to use Kubernetes working at lastminute.com; on top this on-the-job training I went through a lot of studying and practicing because the exam itself has a lot of content.</description>
-    </item>
-    
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>cka - Tag - INGE4PRES RATIONAL THOUGHTS</title>
+        <link>https://inge.4pr.es/tags/cka/</link>
+        <description>cka - Tag - INGE4PRES RATIONAL THOUGHTS</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 01 Nov 2019 15:56:42 &#43;0100</lastBuildDate><atom:link href="https://inge.4pr.es/tags/cka/" rel="self" type="application/rss+xml" /><item>
+    <title>CKA exam experience and preparation</title>
+    <link>https://inge.4pr.es/post/cka-exam-experience/</link>
+    <pubDate>Fri, 01 Nov 2019 15:56:42 &#43;0100</pubDate>
+    <author>inge4pres</author>
+    <guid>https://inge.4pr.es/post/cka-exam-experience/</guid>
+    <description><![CDATA[Yes! Yesterday I received an awesome email stating that I cleared the Certified Kubernetes Administrator exam! 😎 Here I want to report my experience in preparing and taking the exam, hopefully this info can help others Kubernetes practitioners get the certification too.
+PreparationI consider myself lucky because for the past two years I had the chance to use Kubernetes working at lastminute.com; on top this on-the-job training I went through a lot of studying and practicing because the exam itself has a lot of content.]]></description>
+</item></channel>
 </rss>

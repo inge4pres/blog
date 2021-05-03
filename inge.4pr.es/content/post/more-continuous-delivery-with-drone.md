@@ -2,7 +2,7 @@
 date: "2018-04-14T11:32:51+02:00"
 description: "Pipeline with multi-environment stage and approval"
 title: "More Continuous Delivery with Drone"
-authors: ["inge4pres"]
+author: "inge4pres"
 categories:
   - tech
 tags:

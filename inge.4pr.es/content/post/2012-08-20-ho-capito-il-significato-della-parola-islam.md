@@ -1,6 +1,6 @@
 ---
 title: Il significato della parola Islam
-author: inge4pres
+author: "inge4pres"
 layout: post
 date: 2012-08-20T17:45:06+00:00
 categories:

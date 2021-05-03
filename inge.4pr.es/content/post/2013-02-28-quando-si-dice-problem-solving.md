@@ -1,6 +1,6 @@
 ---
 title: Quando si dice problem solving
-author: inge4pres
+author: "inge4pres"
 layout: post
 date: 2013-02-28T20:18:29+00:00
 categories:

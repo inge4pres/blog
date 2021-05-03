@@ -1,21 +1,16 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>shell on INGE4PRES RATIONAL THOUGHTS</title>
-    <link>http://inge.4pr.es/tags/shell/</link>
-    <description>Recent content in shell on INGE4PRES RATIONAL THOUGHTS</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 11 Nov 2013 10:27:38 +0000</lastBuildDate><atom:link href="http://inge.4pr.es/tags/shell/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Backup and restore crontabs</title>
-      <link>http://inge.4pr.es/2013/11/11/2013-11-11-backup-and-restore-crontabs/</link>
-      <pubDate>Mon, 11 Nov 2013 10:27:38 +0000</pubDate>
-      
-      <guid>http://inge.4pr.es/2013/11/11/2013-11-11-backup-and-restore-crontabs/</guid>
-      <description>Here’s a thing I came up with: you’re administering a Linux system with 100 users circa and you’re moving to a new server, you can save crontabs per user with this:
-mkdir crontabz &amp;amp;&amp;amp; cd crontabz; for user in `cat /etc/cron.allow`; do crontab -l -u $user &amp;gt; cron_$user; done
-you will end up with a list of files cron_xxx, each one has the users’ cron. Hopefully your cron version will use the /etc/cron.</description>
-    </item>
-    
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>shell - Tag - INGE4PRES RATIONAL THOUGHTS</title>
+        <link>https://inge.4pr.es/tags/shell/</link>
+        <description>shell - Tag - INGE4PRES RATIONAL THOUGHTS</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 11 Nov 2013 10:27:38 &#43;0000</lastBuildDate><atom:link href="https://inge.4pr.es/tags/shell/" rel="self" type="application/rss+xml" /><item>
+    <title>Backup and restore crontabs</title>
+    <link>https://inge.4pr.es/post/2013-11-11-backup-and-restore-crontabs/</link>
+    <pubDate>Mon, 11 Nov 2013 10:27:38 &#43;0000</pubDate>
+    <author>inge4pres</author>
+    <guid>https://inge.4pr.es/post/2013-11-11-backup-and-restore-crontabs/</guid>
+    <description><![CDATA[Here’s a thing I came up with: you’re administering a Linux system with 100 users circa and you’re moving to a new server, you can save crontabs per user with this:
+mkdir crontabz &amp;&amp; cd crontabz; for user in `cat /etc/cron.allow`; do crontab -l -u $user &gt; cron_$user; done
+you will end up with a list of files cron_xxx, each one has the users’ cron. Hopefully your cron version will use the /etc/cron.]]></description>
+</item></channel>
 </rss>

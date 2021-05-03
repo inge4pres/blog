@@ -1,6 +1,6 @@
 ---
 title: Implement a generic data list structure
-author: inge4pres
+author: "inge4pres"
 layout: post
 date: 2016-01-24T16:40:37+00:00
 categories:

@@ -1,6 +1,6 @@
 ---
 title: 'iPad Mini: la musica dello spot TV'
-author: inge4pres
+author: "inge4pres"
 layout: post
 date: 2012-11-26T16:14:41+00:00
 categories:

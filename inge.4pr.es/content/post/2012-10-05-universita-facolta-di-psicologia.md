@@ -1,6 +1,6 @@
 ---
 title: 'Università: facoltà di psicologia'
-author: inge4pres
+author: "inge4pres"
 layout: post
 date: 2012-10-05T16:40:53+00:00
 categories:

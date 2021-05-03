@@ -1,49 +1,38 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>platform on INGE4PRES RATIONAL THOUGHTS</title>
-    <link>http://inge.4pr.es/tags/platform/</link>
-    <description>Recent content in platform on INGE4PRES RATIONAL THOUGHTS</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 05 May 2019 15:00:51 +0200</lastBuildDate><atom:link href="http://inge.4pr.es/tags/platform/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Progressive Delivery with Kubernetes</title>
-      <link>http://inge.4pr.es/2019/05/05/progressive-delivery-with-kubernetes/</link>
-      <pubDate>Sun, 05 May 2019 15:00:51 +0200</pubDate>
-      
-      <guid>http://inge.4pr.es/2019/05/05/progressive-delivery-with-kubernetes/</guid>
-      <description>I&amp;rsquo;m more and more fond of finding the perfect solution to manage application delivery: dev teams want to be fast but their ops counterpart is not happy to loose control over the growing number of deployments that could cause an outage. We as an industry need to find the right balance to have features delivered in time and keep the service up and running for our users! And that&amp;rsquo;s where progressive delivery can help!</description>
-    </item>
-    
-    <item>
-      <title>Cloud-native applications: Operator-Framework</title>
-      <link>http://inge.4pr.es/2018/05/05/cloud-native-software-delivery/</link>
-      <pubDate>Sat, 05 May 2018 15:08:30 +0200</pubDate>
-      
-      <guid>http://inge.4pr.es/2018/05/05/cloud-native-software-delivery/</guid>
-      <description>Cloud-native: sounds attractive right? What does it even mean? Wikipedia has no page on it already so anyone can give its own definition&amp;hellip; Here&amp;rsquo;s mine:
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>platform - Tag - INGE4PRES RATIONAL THOUGHTS</title>
+        <link>https://inge.4pr.es/tags/platform/</link>
+        <description>platform - Tag - INGE4PRES RATIONAL THOUGHTS</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 05 May 2019 15:00:51 &#43;0200</lastBuildDate><atom:link href="https://inge.4pr.es/tags/platform/" rel="self" type="application/rss+xml" /><item>
+    <title>Progressive Delivery with Kubernetes</title>
+    <link>https://inge.4pr.es/post/progressive-delivery-with-kubernetes/</link>
+    <pubDate>Sun, 05 May 2019 15:00:51 &#43;0200</pubDate>
+    <author>inge4pres</author>
+    <guid>https://inge.4pr.es/post/progressive-delivery-with-kubernetes/</guid>
+    <description><![CDATA[I&rsquo;m more and more fond of finding the perfect solution to manage application delivery: dev teams want to be fast but their ops counterpart is not happy to loose control over the growing number of deployments that could cause an outage. We as an industry need to find the right balance to have features delivered in time and keep the service up and running for our users! And that&rsquo;s where progressive delivery can help!]]></description>
+</item><item>
+    <title>Cloud-native applications: Operator-Framework</title>
+    <link>https://inge.4pr.es/post/cloud-native-software-delivery/</link>
+    <pubDate>Sat, 05 May 2018 15:08:30 &#43;0200</pubDate>
+    <author>inge4pres</author>
+    <guid>https://inge.4pr.es/post/cloud-native-software-delivery/</guid>
+    <description><![CDATA[Cloud-native: sounds attractive right? What does it even mean? Wikipedia has no page on it already so anyone can give its own definition&hellip; Here&rsquo;s mine:
 A Cloud-native application has only concern on the functionalities that it has to deliver as it is completely decoupled from the infrastructure it runs on
-So how can software delivery be cloud-native? Isn&amp;rsquo;t software delivery supposed to &amp;ldquo;install&amp;rdquo; software onto some infrastructure? Well if your infrastructure provider is cloud-native, you can transitively deliver software on it in a cloud-native way (counts of cloud-native is over 9000, so stopping here)!</description>
-    </item>
-    
-    <item>
-      <title>Continuous Delivery with Drone</title>
-      <link>http://inge.4pr.es/2018/02/25/continuous-delivery-with-drone/</link>
-      <pubDate>Sun, 25 Feb 2018 16:47:05 +0100</pubDate>
-      
-      <guid>http://inge.4pr.es/2018/02/25/continuous-delivery-with-drone/</guid>
-      <description>Continuous Delivery should be a solved issue: the practice is well-defined and there is a plethora of tools implementing it with more or less peculiarities, but still many struggle implementing it. The dream of a perfect continuous deployment flow from the developer to the production environment with software quality gates based on automated tests is still alive in me, I tried and tried several times with multiple implementations on multiple platforms and never got to the point where I could say: &amp;ldquo;I&amp;rsquo;m done, this works exactly as I wanted&amp;rdquo;.</description>
-    </item>
-    
-    <item>
-      <title>Serverless on Kubernetes</title>
-      <link>http://inge.4pr.es/2018/01/30/serverless-on-kubernetes/</link>
-      <pubDate>Tue, 30 Jan 2018 20:31:34 +0100</pubDate>
-      
-      <guid>http://inge.4pr.es/2018/01/30/serverless-on-kubernetes/</guid>
-      <description>Kubernetes is the de facto platform for running modern applications: its broad adoption in 2017 and the velocity of the project made it so and it&amp;rsquo;s been accepted as the standard for many companies, from small to planet scale. It was impossible that such an extensible platform would be left out the serverless party, so here are the 4 main players offering FaaS to be run via k8s.
-A premise If you&amp;rsquo;re new to serverless and FaaS and all the previous buzzwords sound like cacophony to your ears, I really recommend reading this post and watching this talk.</description>
-    </item>
-    
-  </channel>
+So how can software delivery be cloud-native? Isn&rsquo;t software delivery supposed to &ldquo;install&rdquo; software onto some infrastructure? Well if your infrastructure provider is cloud-native, you can transitively deliver software on it in a cloud-native way (counts of cloud-native is over 9000, so stopping here)!]]></description>
+</item><item>
+    <title>Continuous Delivery with Drone</title>
+    <link>https://inge.4pr.es/post/continuous-delivery-with-drone/</link>
+    <pubDate>Sun, 25 Feb 2018 16:47:05 &#43;0100</pubDate>
+    <author>inge4pres</author>
+    <guid>https://inge.4pr.es/post/continuous-delivery-with-drone/</guid>
+    <description><![CDATA[Continuous Delivery should be a solved issue: the practice is well-defined and there is a plethora of tools implementing it with more or less peculiarities, but still many struggle implementing it. The dream of a perfect continuous deployment flow from the developer to the production environment with software quality gates based on automated tests is still alive in me, I tried and tried several times with multiple implementations on multiple platforms and never got to the point where I could say: &ldquo;I&rsquo;m done, this works exactly as I wanted&rdquo;.]]></description>
+</item><item>
+    <title>Serverless on Kubernetes</title>
+    <link>https://inge.4pr.es/post/serverless-on-kubernetes/</link>
+    <pubDate>Tue, 30 Jan 2018 20:31:34 &#43;0100</pubDate>
+    <author>inge4pres</author>
+    <guid>https://inge.4pr.es/post/serverless-on-kubernetes/</guid>
+    <description><![CDATA[Kubernetes is the de facto platform for running modern applications: its broad adoption in 2017 and the velocity of the project made it so and it&rsquo;s been accepted as the standard for many companies, from small to planet scale. It was impossible that such an extensible platform would be left out the serverless party, so here are the 4 main players offering FaaS to be run via k8s.
+A premiseIf you&rsquo;re new to serverless and FaaS and all the previous buzzwords sound like cacophony to your ears, I really recommend reading this post and watching this talk.]]></description>
+</item></channel>
 </rss>

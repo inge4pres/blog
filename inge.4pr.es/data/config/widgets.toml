@@ -5,9 +5,12 @@ logo = "/avatar.png"             # default: "/images/logo.png"
 
 [recent_posts]
 title = "Latest posts"
-length = 8
+length = 16
 excludeTypes = ["page"]
 
 [social_menu]
 title = "Stay Tuned"
 platforms = ["github","gitlab","twitter","email","linkedin","instagram"]
+
+[search]
+title = "🤓"

@@ -1,6 +1,6 @@
 ---
 title: AWS IAM policy to let users manage their own MFA
-author: inge4pres
+author: "inge4pres"
 layout: post
 date: 2016-04-06T19:51:33+00:00
 categories:

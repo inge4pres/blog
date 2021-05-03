@@ -1,6 +1,6 @@
 ---
 title: "Musica e linguaggio: un'involuzione al passo coi tempi"
-author: inge4pres
+author: "inge4pres"
 layout: post
 date: 2012-07-30T20:20:26+00:00
 categories:

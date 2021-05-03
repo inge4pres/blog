@@ -1,30 +1,23 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>continuous-delivery on INGE4PRES RATIONAL THOUGHTS</title>
-    <link>http://inge.4pr.es/tags/continuous-delivery/</link>
-    <description>Recent content in continuous-delivery on INGE4PRES RATIONAL THOUGHTS</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 05 May 2019 15:00:51 +0200</lastBuildDate><atom:link href="http://inge.4pr.es/tags/continuous-delivery/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Progressive Delivery with Kubernetes</title>
-      <link>http://inge.4pr.es/2019/05/05/progressive-delivery-with-kubernetes/</link>
-      <pubDate>Sun, 05 May 2019 15:00:51 +0200</pubDate>
-      
-      <guid>http://inge.4pr.es/2019/05/05/progressive-delivery-with-kubernetes/</guid>
-      <description>I&amp;rsquo;m more and more fond of finding the perfect solution to manage application delivery: dev teams want to be fast but their ops counterpart is not happy to loose control over the growing number of deployments that could cause an outage. We as an industry need to find the right balance to have features delivered in time and keep the service up and running for our users! And that&amp;rsquo;s where progressive delivery can help!</description>
-    </item>
-    
-    <item>
-      <title>Cloud-native applications: Operator-Framework</title>
-      <link>http://inge.4pr.es/2018/05/05/cloud-native-software-delivery/</link>
-      <pubDate>Sat, 05 May 2018 15:08:30 +0200</pubDate>
-      
-      <guid>http://inge.4pr.es/2018/05/05/cloud-native-software-delivery/</guid>
-      <description>Cloud-native: sounds attractive right? What does it even mean? Wikipedia has no page on it already so anyone can give its own definition&amp;hellip; Here&amp;rsquo;s mine:
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>continuous-delivery - Tag - INGE4PRES RATIONAL THOUGHTS</title>
+        <link>https://inge.4pr.es/tags/continuous-delivery/</link>
+        <description>continuous-delivery - Tag - INGE4PRES RATIONAL THOUGHTS</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 05 May 2019 15:00:51 &#43;0200</lastBuildDate><atom:link href="https://inge.4pr.es/tags/continuous-delivery/" rel="self" type="application/rss+xml" /><item>
+    <title>Progressive Delivery with Kubernetes</title>
+    <link>https://inge.4pr.es/post/progressive-delivery-with-kubernetes/</link>
+    <pubDate>Sun, 05 May 2019 15:00:51 &#43;0200</pubDate>
+    <author>inge4pres</author>
+    <guid>https://inge.4pr.es/post/progressive-delivery-with-kubernetes/</guid>
+    <description><![CDATA[I&rsquo;m more and more fond of finding the perfect solution to manage application delivery: dev teams want to be fast but their ops counterpart is not happy to loose control over the growing number of deployments that could cause an outage. We as an industry need to find the right balance to have features delivered in time and keep the service up and running for our users! And that&rsquo;s where progressive delivery can help!]]></description>
+</item><item>
+    <title>Cloud-native applications: Operator-Framework</title>
+    <link>https://inge.4pr.es/post/cloud-native-software-delivery/</link>
+    <pubDate>Sat, 05 May 2018 15:08:30 &#43;0200</pubDate>
+    <author>inge4pres</author>
+    <guid>https://inge.4pr.es/post/cloud-native-software-delivery/</guid>
+    <description><![CDATA[Cloud-native: sounds attractive right? What does it even mean? Wikipedia has no page on it already so anyone can give its own definition&hellip; Here&rsquo;s mine:
 A Cloud-native application has only concern on the functionalities that it has to deliver as it is completely decoupled from the infrastructure it runs on
-So how can software delivery be cloud-native? Isn&amp;rsquo;t software delivery supposed to &amp;ldquo;install&amp;rdquo; software onto some infrastructure? Well if your infrastructure provider is cloud-native, you can transitively deliver software on it in a cloud-native way (counts of cloud-native is over 9000, so stopping here)!</description>
-    </item>
-    
-  </channel>
+So how can software delivery be cloud-native? Isn&rsquo;t software delivery supposed to &ldquo;install&rdquo; software onto some infrastructure? Well if your infrastructure provider is cloud-native, you can transitively deliver software on it in a cloud-native way (counts of cloud-native is over 9000, so stopping here)!]]></description>
+</item></channel>
 </rss>

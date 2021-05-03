@@ -1,21 +1,16 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>server on INGE4PRES RATIONAL THOUGHTS</title>
-    <link>http://inge.4pr.es/tags/server/</link>
-    <description>Recent content in server on INGE4PRES RATIONAL THOUGHTS</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 11 Dec 2014 16:57:14 +0000</lastBuildDate><atom:link href="http://inge.4pr.es/tags/server/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Happy birthday server!</title>
-      <link>http://inge.4pr.es/2014/12/11/2014-12-11-happy-birthday-server/</link>
-      <pubDate>Thu, 11 Dec 2014 16:57:14 +0000</pubDate>
-      
-      <guid>http://inge.4pr.es/2014/12/11/2014-12-11-happy-birthday-server/</guid>
-      <description>In an attempt to make someone happier I wrote a script to notify a server admin when his child has gone through a year of uptime 🙂
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>server - Tag - INGE4PRES RATIONAL THOUGHTS</title>
+        <link>https://inge.4pr.es/tags/server/</link>
+        <description>server - Tag - INGE4PRES RATIONAL THOUGHTS</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 11 Dec 2014 16:57:14 &#43;0000</lastBuildDate><atom:link href="https://inge.4pr.es/tags/server/" rel="self" type="application/rss+xml" /><item>
+    <title>Happy birthday server!</title>
+    <link>https://inge.4pr.es/post/2014-12-11-happy-birthday-server/</link>
+    <pubDate>Thu, 11 Dec 2014 16:57:14 &#43;0000</pubDate>
+    <author>inge4pres</author>
+    <guid>https://inge.4pr.es/post/2014-12-11-happy-birthday-server/</guid>
+    <description><![CDATA[In an attempt to make someone happier I wrote a script to notify a server admin when his child has gone through a year of uptime 🙂
 Platform suggestions accepted, enjoy!
-happy_bday_server script</description>
-    </item>
-    
-  </channel>
+happy_bday_server script]]></description>
+</item></channel>
 </rss>

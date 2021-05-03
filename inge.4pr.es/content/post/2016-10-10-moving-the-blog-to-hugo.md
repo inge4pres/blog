@@ -4,7 +4,7 @@ date: 2016-10-10T20:07:35+02:00
 categories:
   - tech
   - social
-
+author: "inge4pres"
 ---
 In times of experimenting, I am now having a lot of fun with docker, rkt, kubernetes and containers ecosystem in general. But one thing I never forget to play with is content editing and publishing! So here I am, trying to migrate all my blog and website to Hugo :)
 

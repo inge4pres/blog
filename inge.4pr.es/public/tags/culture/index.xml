@@ -1,19 +1,14 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>culture on INGE4PRES RATIONAL THOUGHTS</title>
-    <link>http://inge.4pr.es/tags/culture/</link>
-    <description>Recent content in culture on INGE4PRES RATIONAL THOUGHTS</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 28 May 2017 17:04:10 +0200</lastBuildDate><atom:link href="http://inge.4pr.es/tags/culture/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>DevOps: you&#39;re doing it wrong</title>
-      <link>http://inge.4pr.es/2017/05/28/2017-05-28-devops-you-re-doing-it-wrong/</link>
-      <pubDate>Sun, 28 May 2017 17:04:10 +0200</pubDate>
-      
-      <guid>http://inge.4pr.es/2017/05/28/2017-05-28-devops-you-re-doing-it-wrong/</guid>
-      <description>Recently I received a mail pointing me to a post about DevOps culture and some anti-patterns and misconception on how to build and grow a DevOps culture in a company. Whoever like me works in the Enterprise (&amp;ldquo;the one with the big E&amp;rdquo; - Kelsey Hightower) knows that applying DevOps practices often is limited to the adoption of some tools or the creation of a &amp;ldquo;DevOps team&amp;rdquo; responsible of managing some continuous delivery pipeline.</description>
-    </item>
-    
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>culture - Tag - INGE4PRES RATIONAL THOUGHTS</title>
+        <link>https://inge.4pr.es/tags/culture/</link>
+        <description>culture - Tag - INGE4PRES RATIONAL THOUGHTS</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 28 May 2017 17:04:10 &#43;0200</lastBuildDate><atom:link href="https://inge.4pr.es/tags/culture/" rel="self" type="application/rss+xml" /><item>
+    <title>DevOps: you&#39;re doing it wrong</title>
+    <link>https://inge.4pr.es/post/2017-05-28-devops-you-re-doing-it-wrong/</link>
+    <pubDate>Sun, 28 May 2017 17:04:10 &#43;0200</pubDate>
+    <author>inge4pres</author>
+    <guid>https://inge.4pr.es/post/2017-05-28-devops-you-re-doing-it-wrong/</guid>
+    <description><![CDATA[Recently I received a mail pointing me to a post about DevOps culture and some anti-patterns and misconception on how to build and grow a DevOps culture in a company. Whoever like me works in the Enterprise (&ldquo;the one with the big E&rdquo; - Kelsey Hightower) knows that applying DevOps practices often is limited to the adoption of some tools or the creation of a &ldquo;DevOps team&rdquo; responsible of managing some continuous delivery pipeline.]]></description>
+</item></channel>
 </rss>

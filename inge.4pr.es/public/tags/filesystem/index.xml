@@ -1,19 +1,14 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>filesystem on INGE4PRES RATIONAL THOUGHTS</title>
-    <link>http://inge.4pr.es/tags/filesystem/</link>
-    <description>Recent content in filesystem on INGE4PRES RATIONAL THOUGHTS</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 18 Sep 2016 17:26:17 +0000</lastBuildDate><atom:link href="http://inge.4pr.es/tags/filesystem/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>A benchmark of AWS EFS</title>
-      <link>http://inge.4pr.es/2016/09/18/2016-09-18-a-benchmark-of-aws-efs/</link>
-      <pubDate>Sun, 18 Sep 2016 17:26:17 +0000</pubDate>
-      
-      <guid>http://inge.4pr.es/2016/09/18/2016-09-18-a-benchmark-of-aws-efs/</guid>
-      <description>Amazon Web Services Elastic File Systemhas been to my knowledge the service to have the longest beta testing period: reason for this may be that not as many client as expected tested it and AWS received too few feedback on it or that there were issues not to release GA. I don’t want to speculate on which one is correct but now that it has been officially releasedI decided to give it a try and of course compare it to a self-managed solution on the same platform.</description>
-    </item>
-    
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>filesystem - Tag - INGE4PRES RATIONAL THOUGHTS</title>
+        <link>https://inge.4pr.es/tags/filesystem/</link>
+        <description>filesystem - Tag - INGE4PRES RATIONAL THOUGHTS</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 18 Sep 2016 17:26:17 &#43;0000</lastBuildDate><atom:link href="https://inge.4pr.es/tags/filesystem/" rel="self" type="application/rss+xml" /><item>
+    <title>A benchmark of AWS EFS</title>
+    <link>https://inge.4pr.es/post/2016-09-18-a-benchmark-of-aws-efs/</link>
+    <pubDate>Sun, 18 Sep 2016 17:26:17 &#43;0000</pubDate>
+    <author>inge4pres</author>
+    <guid>https://inge.4pr.es/post/2016-09-18-a-benchmark-of-aws-efs/</guid>
+    <description><![CDATA[Amazon Web Services Elastic File System has been to my knowledge the service to have the longest beta testing period: reason for this may be that not as many client as expected tested it and AWS received too few feedback on it or that there were issues not to release GA. I don’t want to speculate on which one is correct but now that it has been officially released I decided to give it a try and of course compare it to a self-managed solution on the same platform.]]></description>
+</item></channel>
 </rss>

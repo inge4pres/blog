@@ -105,4 +105,3 @@ ok  	github.com/inge4pres/golang-functional-patterns	6.406s
 ``` 
 
 Ouch! From the benchmark tests we can see that the object oriented version performs better: faster, lighter and less allocations per operation!
-

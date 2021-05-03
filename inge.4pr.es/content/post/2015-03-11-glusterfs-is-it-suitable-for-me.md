@@ -1,6 +1,6 @@
 ---
 title: 'GlusterFS: is it suitable for me?'
-author: inge4pres
+author: "inge4pres"
 layout: post
 date: 2015-03-11T13:00:46+00:00
 categories:

@@ -1,10 +1,10 @@
 ---
 title: Blog RE-start
-author: inge4pres
+author: "inge4pres"
 layout: post
 date: 2012-05-18T00:39:03+00:00
 categories:
-  - Uncategorized
+  - blog
 
 ---
 Il blog è tornato in vita dopo 24 ore dalla sua distruzione totale a causa di un mio errore di configurazione. Ho anche perso i primi tre post perchè le copie di backup non funzionavano&#8230; :'(

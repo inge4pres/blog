@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noodp"/><title>CKA exam experience and preparation - INGE4PRES RATIONAL THOUGHTS</title>
+        <meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="@inge4pres"/><meta name="twitter:title" content=""/>
+        <meta name="twitter:description" content="Francesco Gualazzi: infrastructure-aware developer"/>
+        <meta name="Description" content="Francesco Gualazzi: infrastructure-aware developer"><meta property="og:title" content="CKA exam experience and preparation" />
+<meta property="og:description" content="Yes! Yesterday I received an awesome email stating that I cleared the Certified Kubernetes Administrator exam! 😎 Here I want to report my experience in preparing and taking the exam, hopefully this info can help others Kubernetes practitioners get the certification too.
+PreparationI consider myself lucky because for the past two years I had the chance to use Kubernetes working at lastminute.com; on top this on-the-job training I went through a lot of studying and practicing because the exam itself has a lot of content." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://inge.4pr.es/post/cka-exam-experience/" /><meta property="og:image" content="https://inge.4pr.es/images/avatar.png"/><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2019-11-01T15:56:42&#43;01:00" />
+<meta property="article:modified_time" content="2019-11-01T15:56:42&#43;01:00" />
+
+<meta name="application-name" content="INGE4PRES RATIONAL THOUGHTS">
+<meta name="apple-mobile-web-app-title" content="INGE4PRES RATIONAL THOUGHTS"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+        <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://inge.4pr.es/post/cka-exam-experience/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.6cf1ea52f3eaa1db6fd80fb0ba96e8568d6d83a847d1c35cce0f61aad5b2416b.css" integrity="sha256-bPHqUvPqodtv2A&#43;wupboVo1tg6hH0cNczg9hqtWyQWs="><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><meta name="google-site-verification" content="TOk-oj9FYpVoRqq2BjvXT_OWQZZ6poZhp1WZXPhfMvE" /><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "CKA exam experience and preparation",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/inge.4pr.es\/post\/cka-exam-experience\/"
+        },"image": ["https:\/\/inge.4pr.es\/images\/avatar.png"],"genre": "post","keywords": "cka, kubernetes","wordCount":  1080 ,
+        "url": "https:\/\/inge.4pr.es\/post\/cka-exam-experience\/","datePublished": "2019-11-01T15:56:42+01:00","dateModified": "2019-11-01T15:56:42+01:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","description": ""
+    }
+    </script><script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https:\/\/inge.4pr.es\/"
+        },{
+            "@type": "ListItem",
+            "position": 2,
+            "name": "tech",
+            "item": "https://inge.4pr.es/categories/tech/"
+        },{
+                "@type": "ListItem",
+                "position": 3,
+                "name": "CKA exam experience and preparation"
+            }]
+    }
+</script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header>
+    <div class="desktop header" id="header-desktop">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="INGE4PRES RATIONAL THOUGHTS" class="header-logo logo-svg"><img loading="lazy" decoding="async"
+         class="logo"
+         src="/images/gopher.png"
+         alt="/images/gopher.png"
+         title="/images/gopher.png"
+    /><span class="header-title-pre"><i class='fas fa-pencil-alt fa-fw'></i></span>INGE4PRES RATIONAL THOUGHTS<span class="header-title-post">🤓 <i class='fas fa-pencil-alt fa-fw'>Growing knowledge one post at a time</i></span></a>
+            </div>
+            <div class="menu">
+                <nav>
+                    <h2 class="display-hidden">Основная навигация</h2>
+                    <ul class="menu-inner"><li>
+                            <a class="menu-item" href="/about/"> About </a>
+                        </li><li>
+                            <a class="menu-item" href="/resume/"> Resume </a>
+                        </li><li>
+                            <a class="menu-item" href="/tags/"> Tags </a>
+                        </li></ul>
+                </nav><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Find" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <span class="svg-icon icon-search"></span>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <span class="svg-icon icon-cancel"></span>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <span class="svg-icon icon-loading"></span>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <span class="svg-icon icon-moon"></span>
+                </a>
+            </div>
+        </div>
+    </div><div class="mobile header" id="header-mobile">
+        <div class="header-container">
+            <div class="header-wrapper">
+                <div class="header-title">
+                    <a href="/" title="INGE4PRES RATIONAL THOUGHTS" class="header-logo"><img loading="lazy" decoding="async"
+         class="logo"
+         src="/images/gopher.png"
+         alt="/images/gopher.png"
+         title="/images/gopher.png"
+    /><span class="header-title-pre"><i class='fas fa-pencil-alt fa-fw'></i></span>INGE4PRES RATIONAL THOUGHTS<span class="header-title-post">🤓 <i class='fas fa-pencil-alt fa-fw'>Growing knowledge one post at a time</i></span></a>
+                </div>
+                <div class="menu-toggle" id="menu-toggle-mobile">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+            <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                        <div class="search mobile" id="search-mobile">
+                            <input type="text" placeholder="Find" id="search-input-mobile">
+                            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                                <span class="svg-icon icon-search"></span>
+                            </a>
+                            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                                <span class="svg-icon icon-cancel"></span>
+                            </a>
+                            <span class="search-button search-loading" id="search-loading-mobile">
+                                <span class="svg-icon icon-loading"></span>
+                            </span>
+                        </div>
+                        <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                            Cancel
+                        </a>
+                    </div><nav>
+                    <h2 class="display-hidden">Основная навигация</h2>
+                    <ul><li>
+                            <a class="menu-item" href="/about/" title="">About</a>
+                        </li><li>
+                            <a class="menu-item" href="/resume/" title="">Resume</a>
+                        </li><li>
+                            <a class="menu-item" href="/tags/" title="">Tags</a>
+                        </li></ul>
+                </nav>
+                <a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <span class="svg-icon icon-moon"></span>
+                </a></div>
+        </div>
+    </div><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div></header><main class="main">
+                <div class="container"><div class="page single special"><h1 class="single-title pulse faster">CKA exam experience and preparation</h1><div class="content" id="content"><p>Yes! Yesterday I received an awesome email stating that I cleared the <a href="https://www.cncf.io/certification/cka/" target="_blank" rel="noopener noreffer">Certified Kubernetes Administrator</a> exam! 😎
+Here I want to report my experience in preparing and taking the exam, hopefully this info can help others Kubernetes practitioners get the certification too.</p>
+<h3 id="preparation" class="headerLink"><a href="#preparation" class="header-mark"></a>Preparation</h3><p>I consider myself lucky because for the past two years I had the chance to use Kubernetes working at <a href="https://lmgroup.lastminute.com/" target="_blank" rel="noopener noreffer">lastminute.com</a>; on top this on-the-job training I went through a lot of studying and practicing because the exam itself has a lot of content.
+Having some expertise of working with Kubernetes is definitely a huge help, as this specific exam is tailored for cluster administrators.
+You will need to prove a thorough understanding of the Kubernetes primitives, architecture and operational strategies.</p>
+<p>Do not fear though! The <a href="https://kubernetes.io/docs/home/" target="_blank" rel="noopener noreffer">documentation</a> is extensive and very detailed on (most of) the topics that are needed to use and operate a cluster so here&rsquo;s my suggestions.</p>
+<ul>
+<li>
+<h5 id="exam-structure" class="headerLink"><a href="#exam-structure" class="header-mark"></a>Exam structure</h5></li>
+</ul>
+<p>Understand the structure of the exam: 3 hours, 24 questions, 74% score needed to pass.
+In my experience the first 10 questions will be the easiest, so try to complete them during the first hour; the last 3-4 questions are going to be very long to read and execute so you will need more time in the end.
+The exam software will not warn you if the question exercise is completed: <em>read carefully</em> the tasks that will mark the exercise complete.</p>
+<ul>
+<li>
+<h5 id="knowledge" class="headerLink"><a href="#knowledge" class="header-mark"></a>Knowledge</h5></li>
+</ul>
+<p>Read through the whole documentation carefully, at least twice.
+Get familiar with the structure of the docs: concepts, tasks, reference: they are organized in such a way that the content is mixed up so know where to look for.
+The following books are recommended read:
+- <a href="https://www.oreilly.com/library/view/kubernetes-up-and/9781492046523/" target="_blank" rel="noopener noreffer">Kubernetes up and running</a>
+- <a href="https://www.oreilly.com/library/view/managing-kubernetes/9781492033905/" target="_blank" rel="noopener noreffer">Managing Kubernetes</a>
+- <a href="https://www.oreilly.com/library/view/kubernetes-in-action/9781617293726/" target="_blank" rel="noopener noreffer">Kubernetes in action</a></p>
+<ul>
+<li>
+<h5 id="practice" class="headerLink"><a href="#practice" class="header-mark"></a>Practice</h5></li>
+</ul>
+<p>If you have free credits for a cloud provider use them to spin up a cluster to play with; you will need to know well how to interact with the cluster using <code>kubectl</code> CLI.
+Try all the commands listed in the <a href="https://kubernetes.io/docs/reference/kubectl/cheatsheet/" target="_blank" rel="noopener noreffer">kubectl cheat sheet</a> and understand their effect on the cluster.
+Explore the tutorials and tasks sections of the documentation and run them on the cluster to find caveats and errors in the docs.</p>
+<p>Run through the amazing Kelsey Hightower <a href="https://github.com/kelseyhightower/kubernetes-the-hard-way" target="_blank" rel="noopener noreffer">Kubernetes The Hard Way</a> at least twice; spin up VMs on your PC using Vagrant and try building a cluster from scratch.
+Push it even further trying to break the cluster in every possible way and observe the effects of failure: systemd logs, kubectl errors, etc&hellip;</p>
+<h3 id="taking-the-exam" class="headerLink"><a href="#taking-the-exam" class="header-mark"></a>Taking the exam</h3><p>I have to say the exam infrastructure is well done: in a single browser window you will have a left menu with the questions and a central section with a tmux terminal.
+Before starting the exam a proctor will ask to confirm your identity and will validate the exam conditions are met: clean desk (no headset, no phone, no paper), empty and silent room.
+During the exam you can have drinks but not food, and you can request a break at any time but the clock will continue to run during the break.
+Some tips to meet the requirements.</p>
+<ul>
+<li>
+<h5 id="workstation" class="headerLink"><a href="#workstation" class="header-mark"></a>Workstation</h5></li>
+</ul>
+<p>Remove everything from your exam desk except:</p>
+<pre><code>- valid passport or national ID with picture
+- a glass of water or a juice that can help you stay hydrated 
+- the PC you will run the exam on, the optional external monitor and external mouse/keyboard
+</code></pre>
+<ul>
+<li>
+<h5 id="connectivity" class="headerLink"><a href="#connectivity" class="header-mark"></a>Connectivity</h5></li>
+</ul>
+<p>Ensure you have enough bandwidth for a streaming connection (10Mb should be enough), because you will have to share your desktop(s) and show your face through the webcam for the whole time.
+Prefer WiFi over cable: before the exam can start you will have to pan your camera around to show the proctor the whole room, probably twice. If you (like me) used the notebook integrated webcam you will have to move the screen left and right and all across the room
+If you&rsquo;re at home reboot your router one hour before the exam starts, just to be sure.</p>
+<ul>
+<li>
+<h5 id="manage-time" class="headerLink"><a href="#manage-time" class="header-mark"></a>Manage time</h5></li>
+</ul>
+<p>There&rsquo;s a timer in the upper left corner of the exam window: use it to check that you are completing enough questions on time.
+Questions vary from 2 to 8 percent weight; on average you will have 7.5 minutes for evey question, but the last 3/4 are much longer to read and complete as they involve troubleshooting and actions to complete: you probably have to recover/install parts of a cluster.
+Save time on the first questions to have more for the last ones; when switching from a question to another, check the score percentage of the question so you can evaluate if to do it or skip it with respect to the remaining time.</p>
+<ul>
+<li>
+<h5 id="use-the-resources" class="headerLink"><a href="#use-the-resources" class="header-mark"></a>Use the resources</h5></li>
+</ul>
+<p>There&rsquo;s a staggering feature in the Kubernetes docs: <em>search</em>. When you are solving an exercise and need a reference or an example, search for it in the documentation!
+As using the whole <code>*.kubernetes.io</code> domain is permitted during the exam you can consult examples, copy-paste YAML text and commands and even use snippets from the blog posts!
+Use these resources as soon as you are confronted with a question for which <code>kubectl</code> commands are not enough, reading carefully a doc page or a blog post can get you out of trouble when something peculiar does not work as expected.</p>
+<p>Another nice feature of the exam is a notepad you can open to take notes and copy-paste and edit content. I used it to take notes on the questions I was not able to complete fully and get back on them during the last 15 minutes of time.</p>
+<h3 id="the-overall-exam-experience" class="headerLink"><a href="#the-overall-exam-experience" class="header-mark"></a>The overall exam experience</h3><p>Although the exams rules are quite strict and I admit I was intimated reading the <a href="https://www.cncf.io/certification/cka/faq/" target="_blank" rel="noopener noreffer">CKA FAQ</a>, setting up the exam room was easy and being able to run the test at home is a major plus compared to force you to go to a certification center.
+The testing facility ran smoothly thanks to a Chrome extension that is required to run the exam and the instructions on how to complete the exercise were clear enough.</p>
+<h3 id="last-but-not-least" class="headerLink"><a href="#last-but-not-least" class="header-mark"></a>Last but not least</h3><p>If you purchased the exam from the Linux Foundation or CNCF Foundation you should have a free retake.
+If you fail the first time don&rsquo;t worry! CKA is a difficult exam, very rich of content and all hands-on, definitely one of the most difficult certifications I&rsquo;ve ever done.
+Try again after you get back studying and practicing on what you could not solve the first time 💪</p>
+</div><div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
+            </noscript></div></div></div>
+                </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.82.0">Hugo</a> | Theme - <a href="https://ublogger.netlify.app/?utm_source=https://inge.4pr.es/&utm_medium=footer&utm_campaign=config&utm_term=2.0.1" target="_blank" title="uBlogger 2.0.1">uBlogger</a>
+                </div><div class="footer-line"><i class="svg-icon icon-copyright"></i><span>2012 - 2021</span><span class="author">&nbsp;<a href="/" target="_blank"></a></span></div>
+        </div>
+    </footer></div>
+
+        <aside id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="svg-icon icon-arrow-up"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="svg-icon icon-comments-fixed"></i>
+            </a>
+        </aside><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><script src="https://inge4pres.disqus.com/embed.js" defer></script><script src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lunr@2.3.8/lunr.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js"></script><script>window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{},"cookieconsent":{"content":{"dismiss":"LGTM","link":"Learn more","message":"Do you like cookies?"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":20,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"}};</script><script src="/js/theme.min.0d44909075b648ac3259c39fcf9ddb2a6e7314cb3a7374007dd582c887381740.js" integrity="sha256-DUSQkHW2SKwyWcOfz53bKm5zFMs6c3QAfdWCyIc4F0A="></script><script>
+                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+	        ga('create', 'UA-55252403-1', 'auto');
+	        ga('set', 'anonymizeIp', true);
+	        ga('send', 'pageview');
+	    </script></body>
+</html>

@@ -82,29 +82,3 @@ The testing facility ran smoothly thanks to a Chrome extension that is required 
 If you purchased the exam from the Linux Foundation or CNCF Foundation you should have a free retake.
 If you fail the first time don't worry! CKA is a difficult exam, very rich of content and all hands-on, definitely one of the most difficult certifications I've ever done. 
 Try again after you get back studying and practicing on what you could not solve the first time 💪    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
- 
-
- 

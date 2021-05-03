@@ -1,6 +1,6 @@
 ---
 title: 'Zabbix: a powerful yet simple monitoring software'
-author: inge4pres
+author: "inge4pres"
 layout: post
 date: 2013-10-07T15:50:25+00:00
 categories:

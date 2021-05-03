@@ -1,6 +1,6 @@
 ---
 title: 'Privacy e riservatezza: il digital divide'
-author: inge4pres
+author: "inge4pres"
 layout: post
 date: 2012-05-21T17:30:54+00:00
 categories:

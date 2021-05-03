@@ -10,7 +10,7 @@ tags:
   - ecopass
   - Equitalia
   - multa
-
+authors: ["willywonka"]
 ---
 Come dice Oscar Giannino, giornalista e conduttore radiofonico, nonchè grande conoscitore dei meccanismi dell'economia italiana, lo stato italiano invece di salvaguardare i propri cittadini, li deruba, li sfrutta, si prende gioco di loro; per utilizzare una frase del sempre impeccabile editorialista bisogna cercare di difendersi dallo &#8220;Stato LADRO!!!&#8221;.
   

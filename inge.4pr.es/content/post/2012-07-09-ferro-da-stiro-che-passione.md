@@ -1,6 +1,6 @@
 ---
 title: 'Ferro da stiro, mon amour&#8230;'
-author: inge4pres
+author: "inge4pres"
 layout: post
 date: 2012-07-09T20:46:10+00:00
 categories:

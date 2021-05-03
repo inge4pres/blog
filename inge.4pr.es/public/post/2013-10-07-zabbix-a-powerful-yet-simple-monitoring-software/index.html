@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noodp"/><title>Zabbix: a powerful yet simple monitoring software - INGE4PRES RATIONAL THOUGHTS</title>
+        <meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="@inge4pres"/><meta name="twitter:title" content=""/>
+        <meta name="twitter:description" content="Francesco Gualazzi: infrastructure-aware developer"/>
+        <meta name="Description" content="Francesco Gualazzi: infrastructure-aware developer"><meta property="og:title" content="Zabbix: a powerful yet simple monitoring software" />
+<meta property="og:description" content="It may come in mind to any IT system engineer to know what is the status of the network, server by server, instance by instance; it happened to me when I was given the responsibility to manage my company’s infrastructure and I was wondering which tool could have helped to do the job.
+I chose Zabbix to monitor my infrastructure because:
+ despite it’s a bit difficult to install (you need a PHP enabled web server, a database and a C compiler), you will benefit a very user-friendly web interface with lots of functionalities native agents for major OS release are already complied: FreeBSD, Linux, Windows, etc… Compiling to other OS just requires a “configure &amp;&amp; make &amp;&amp; make install” it offers many monitoring methods via a unique interface: you can group SNMP, JMX, HTTP monitoring in one shot it has multi-step HTTP/HTTPS monitoring, simulating different browsers and clients you can build nice infographics bundling all kind of monitored datas you can manage users and roles to give access to the web interface at your company’s employees you can build custom monitoring scripts to your needs  Well let’s see some action now: I would like to post a short tutorial on how to build a custom script to monitor resources used by a Glassfish application server." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://inge.4pr.es/post/2013-10-07-zabbix-a-powerful-yet-simple-monitoring-software/" /><meta property="og:image" content="https://inge.4pr.es/images/avatar.png"/><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2013-10-07T15:50:25&#43;00:00" />
+<meta property="article:modified_time" content="2013-10-07T15:50:25&#43;00:00" />
+
+<meta name="application-name" content="INGE4PRES RATIONAL THOUGHTS">
+<meta name="apple-mobile-web-app-title" content="INGE4PRES RATIONAL THOUGHTS"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+        <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://inge.4pr.es/post/2013-10-07-zabbix-a-powerful-yet-simple-monitoring-software/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.6cf1ea52f3eaa1db6fd80fb0ba96e8568d6d83a847d1c35cce0f61aad5b2416b.css" integrity="sha256-bPHqUvPqodtv2A&#43;wupboVo1tg6hH0cNczg9hqtWyQWs="><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><meta name="google-site-verification" content="TOk-oj9FYpVoRqq2BjvXT_OWQZZ6poZhp1WZXPhfMvE" /><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Zabbix: a powerful yet simple monitoring software",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/inge.4pr.es\/post\/2013-10-07-zabbix-a-powerful-yet-simple-monitoring-software\/"
+        },"image": ["https:\/\/inge.4pr.es\/images\/avatar.png"],"genre": "post","keywords": "cloud, infrastructure, monitoring, software, zabbix","wordCount":  600 ,
+        "url": "https:\/\/inge.4pr.es\/post\/2013-10-07-zabbix-a-powerful-yet-simple-monitoring-software\/","datePublished": "2013-10-07T15:50:25+00:00","dateModified": "2013-10-07T15:50:25+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","description": ""
+    }
+    </script><script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https:\/\/inge.4pr.es\/"
+        },{
+            "@type": "ListItem",
+            "position": 2,
+            "name": "tech",
+            "item": "https://inge.4pr.es/categories/tech/"
+        },{
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Zabbix: a powerful yet simple monitoring software"
+            }]
+    }
+</script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header>
+    <div class="desktop header" id="header-desktop">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="INGE4PRES RATIONAL THOUGHTS" class="header-logo logo-svg"><img loading="lazy" decoding="async"
+         class="logo"
+         src="/images/gopher.png"
+         alt="/images/gopher.png"
+         title="/images/gopher.png"
+    /><span class="header-title-pre"><i class='fas fa-pencil-alt fa-fw'></i></span>INGE4PRES RATIONAL THOUGHTS<span class="header-title-post">🤓 <i class='fas fa-pencil-alt fa-fw'>Growing knowledge one post at a time</i></span></a>
+            </div>
+            <div class="menu">
+                <nav>
+                    <h2 class="display-hidden">Основная навигация</h2>
+                    <ul class="menu-inner"><li>
+                            <a class="menu-item" href="/about/"> About </a>
+                        </li><li>
+                            <a class="menu-item" href="/resume/"> Resume </a>
+                        </li><li>
+                            <a class="menu-item" href="/tags/"> Tags </a>
+                        </li></ul>
+                </nav><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Find" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <span class="svg-icon icon-search"></span>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <span class="svg-icon icon-cancel"></span>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <span class="svg-icon icon-loading"></span>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <span class="svg-icon icon-moon"></span>
+                </a>
+            </div>
+        </div>
+    </div><div class="mobile header" id="header-mobile">
+        <div class="header-container">
+            <div class="header-wrapper">
+                <div class="header-title">
+                    <a href="/" title="INGE4PRES RATIONAL THOUGHTS" class="header-logo"><img loading="lazy" decoding="async"
+         class="logo"
+         src="/images/gopher.png"
+         alt="/images/gopher.png"
+         title="/images/gopher.png"
+    /><span class="header-title-pre"><i class='fas fa-pencil-alt fa-fw'></i></span>INGE4PRES RATIONAL THOUGHTS<span class="header-title-post">🤓 <i class='fas fa-pencil-alt fa-fw'>Growing knowledge one post at a time</i></span></a>
+                </div>
+                <div class="menu-toggle" id="menu-toggle-mobile">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+            <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                        <div class="search mobile" id="search-mobile">
+                            <input type="text" placeholder="Find" id="search-input-mobile">
+                            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                                <span class="svg-icon icon-search"></span>
+                            </a>
+                            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                                <span class="svg-icon icon-cancel"></span>
+                            </a>
+                            <span class="search-button search-loading" id="search-loading-mobile">
+                                <span class="svg-icon icon-loading"></span>
+                            </span>
+                        </div>
+                        <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                            Cancel
+                        </a>
+                    </div><nav>
+                    <h2 class="display-hidden">Основная навигация</h2>
+                    <ul><li>
+                            <a class="menu-item" href="/about/" title="">About</a>
+                        </li><li>
+                            <a class="menu-item" href="/resume/" title="">Resume</a>
+                        </li><li>
+                            <a class="menu-item" href="/tags/" title="">Tags</a>
+                        </li></ul>
+                </nav>
+                <a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <span class="svg-icon icon-moon"></span>
+                </a></div>
+        </div>
+    </div><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div></header><main class="main">
+                <div class="container"><div class="page single special"><h1 class="single-title pulse faster">Zabbix: a powerful yet simple monitoring software</h1><div class="content" id="content"><p>It may come in mind to any IT system engineer to know what is the status of the network, server by server, instance by instance; it happened to me when I was given the responsibility to manage my company’s infrastructure and I was wondering which tool could have helped to do the job.</p>
+<p>I chose Zabbix to monitor my infrastructure because:</p>
+<ol>
+<li>despite it’s a bit difficult to install (you need a PHP enabled web server, a database and a C compiler), you will benefit a very user-friendly web interface with lots of functionalities</li>
+<li>native agents for major OS release are already complied: FreeBSD, Linux, Windows, etc… Compiling to other OS just requires a “configure &amp;&amp; make &amp;&amp; make install”</li>
+<li>it offers many monitoring methods via a unique interface: you can group SNMP, JMX, HTTP monitoring in one shot</li>
+<li>it has multi-step HTTP/HTTPS monitoring, simulating different browsers and clients</li>
+<li>you can build nice infographics bundling all kind of monitored datas</li>
+<li>you can manage users and roles to give access to the web interface at your company’s employees</li>
+<li>you can build custom monitoring scripts to your needs</li>
+</ol>
+<p>Well let’s see some action now: I would like to post a short tutorial on how to build a custom script to monitor resources used by a Glassfish application server. You can use this methodology for other application servers or services.</p>
+<p><strong>Requirements:</strong> you have installed Zabbix server, deployed an agent to a host, set up the necessary networking stuff</p>
+<p>On the host to be monitored, you will have a directory where the agent configuration file is located (usually /usr/local/etc or C:\Zabbix)</p>
+<p><strong>Step 1: enable custom parameters <strong>parsing</strong></strong></p>
+<p>Edit the file zabbix_agent.conf or zabbix_agentd.conf (depending if you’re usgin the daemon or not) and uncommment/add the following line:</p>
+<p><em>Include=/usr/local/etc/zabbix_agentd.conf.d/  <em>or</em> <em>Include=/usr/local/etc/zabbix_agent.conf.d/</em></em></p>
+<p><strong>Step 2: write the script</strong></p>
+<p>Create a file, name it as you please and insert the script you want to be executed by the agent: I needed a script that would inetract with Glassfish, so I used th following:</p>
+<blockquote>
+<p># Flexible parameter to grab global variables. On the frontend side, use keys like glassfish.status[server.jvm.heapsize-current].</p>
+</blockquote>
+<blockquote>
+<p># Key syntax is glassfish.status[monitoring-key].</p>
+</blockquote>
+<blockquote>
+<p>UserParameter=glassfish.status[*],/opt/glassfish/bin/asadmin get –user admin –passwordfile /opt/glassfish/bin/.pwd -m $1 | cut -d “=” -f 2 | tr -d ‘ ‘ | bc</p>
+</blockquote>
+<p>The script syntax is always UsrParameter=name.of.script[*] followed by the code to be executed. This one uses the Glassfish utility “<em>asadmin</em>” and a couple of shell commands to trim the string output and translate it into an integer value. You can see the arguments array can be retrieved using $ and index of argument. In this example you will call the script with one argument only (the monitoring data you want from Glassfish).</p>
+<p><strong>Step 3: start harvesting datas!</strong></p>
+<p>Once finished editing the script, go back to the Zabbix monitoring console and add an Item to the host you are monitoring. You will add the key as shown in the picture below:</p>
+<p> </p>
+<p><a href="https://inge.4pr.es/blog/wp-content/uploads/2013/10/zabbix_custom_script1.png" target="_blank" rel="noopener noreffer"><img class="aligncenter wp-image-189 size-full" title="zabbix_custom_script" src="http://inge.4pr.es/blog/wp-content/uploads/2013/10/zabbix_custom_script1.png" alt="Custom script insert" width="663" height="438" /></a></p>
+<p> </p>
+<p> </p>
+<p>Then go back to the dashboard and verify that the script just created is returning datas as expected. In the section <em>Monitoring-&gt;Latest Data</em> check if the item is giving the expected values. In this exemple I chose to monitor the current heap size used by the server. One cool thing is: once the script is done you can call it with all the parameters Glassfish has, and then combine datas in an infograph like the following:</p>
+<p> </p>
+<p><a href="https://inge.4pr.es/blog/wp-content/uploads/2013/10/zabbix_graphs1.png" target="_blank" rel="noopener noreffer"><img class="aligncenter wp-image-190 size-full" title="zabbix_graphs" src="http://inge.4pr.es/blog/wp-content/uploads/2013/10/zabbix_graphs1.png" alt="Zabbix graph" width="536" height="392" /></a></p>
+<p> </p>
+<p>Here I put together two Glassfish parameters (JVM upper bound and current heap used) and a system parameter (free memory).</p>
+<p>To get a list of all parameters you can monitor via Glassfish <em>asadmin</em> command see Glassfish documentation <a title="Glassfish documentation" href="https://glassfish.java.net/documentation.html" target="_blank">here</a>.</p>
+<p>Cheers,</p>
+<p>inge4pres</p>
+<p> </p>
+</div><div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
+            </noscript></div></div></div>
+                </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.82.0">Hugo</a> | Theme - <a href="https://ublogger.netlify.app/?utm_source=https://inge.4pr.es/&utm_medium=footer&utm_campaign=config&utm_term=2.0.1" target="_blank" title="uBlogger 2.0.1">uBlogger</a>
+                </div><div class="footer-line"><i class="svg-icon icon-copyright"></i><span>2012 - 2021</span><span class="author">&nbsp;<a href="/" target="_blank"></a></span></div>
+        </div>
+    </footer></div>
+
+        <aside id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="svg-icon icon-arrow-up"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="svg-icon icon-comments-fixed"></i>
+            </a>
+        </aside><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><script src="https://inge4pres.disqus.com/embed.js" defer></script><script src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lunr@2.3.8/lunr.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js"></script><script>window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{},"cookieconsent":{"content":{"dismiss":"LGTM","link":"Learn more","message":"Do you like cookies?"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":20,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"}};</script><script src="/js/theme.min.0d44909075b648ac3259c39fcf9ddb2a6e7314cb3a7374007dd582c887381740.js" integrity="sha256-DUSQkHW2SKwyWcOfz53bKm5zFMs6c3QAfdWCyIc4F0A="></script><script>
+                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+	        ga('create', 'UA-55252403-1', 'auto');
+	        ga('set', 'anonymizeIp', true);
+	        ga('send', 'pageview');
+	    </script></body>
+</html>

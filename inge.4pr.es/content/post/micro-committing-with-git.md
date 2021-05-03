@@ -11,6 +11,9 @@ categories:
 tags:
   - software-engineering
   - practices
+
+toc:
+  enable: true
 ---
 
 I have been using micro-committing for some time now, during which I have adapted the usage of this technique to my needs,

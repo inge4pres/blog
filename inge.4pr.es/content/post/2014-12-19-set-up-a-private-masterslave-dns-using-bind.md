@@ -1,6 +1,6 @@
 ---
 title: Set up a private master/slave DNS using BIND
-author: inge4pres
+author: "inge4pres"
 layout: post
 date: 2014-12-19T17:20:13+00:00
 categories:

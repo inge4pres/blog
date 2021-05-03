@@ -1,6 +1,6 @@
 ---
 title: Happy birthday server!
-author: inge4pres
+author: "inge4pres"
 layout: post
 date: 2014-12-11T16:57:14+00:00
 categories:

@@ -1,6 +1,6 @@
 ---
 title: My first Golang web project is online
-author: inge4pres
+author: "inge4pres"
 layout: post
 date: 2015-06-11T12:15:34+00:00
 categories:

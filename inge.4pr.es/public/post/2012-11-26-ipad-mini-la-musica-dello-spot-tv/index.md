@@ -1,0 +1,8 @@
+# iPad Mini: la musica dello spot TV
+
+Ieri mi sono trovato con parte della mia famiglia nella loro sala a suonare un po&#8217; il pianoforte, mio fratello Gianmaria e io ci siamo esibiti riproducendo la semplice (ma efficace) musica che accompagna la pubblicità dell&#8217;iPad Mini.
+
+Il motivetto è in Do maggiore così come viene proposto suonando i due iPad nella pubblicità, di seguito il video. Enjoy!
+
+&nbsp;
+

@@ -1,39 +1,30 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>kubernetes on INGE4PRES RATIONAL THOUGHTS</title>
-    <link>http://inge.4pr.es/tags/kubernetes/</link>
-    <description>Recent content in kubernetes on INGE4PRES RATIONAL THOUGHTS</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 01 Nov 2019 15:56:42 +0100</lastBuildDate><atom:link href="http://inge.4pr.es/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>CKA exam experience and preparation</title>
-      <link>http://inge.4pr.es/2019/11/01/cka-exam-experience/</link>
-      <pubDate>Fri, 01 Nov 2019 15:56:42 +0100</pubDate>
-      
-      <guid>http://inge.4pr.es/2019/11/01/cka-exam-experience/</guid>
-      <description>Yes! Yesterday I received an awesome email stating that I cleared the Certified Kubernetes Administrator exam! 😎 Here I want to report my experience in preparing and taking the exam, hopefully this info can help others Kubernetes practitioners get the certification too.
-Preparation I consider myself lucky because for the past two years I had the chance to use Kubernetes working at lastminute.com; on top this on-the-job training I went through a lot of studying and practicing because the exam itself has a lot of content.</description>
-    </item>
-    
-    <item>
-      <title>Progressive Delivery with Kubernetes</title>
-      <link>http://inge.4pr.es/2019/05/05/progressive-delivery-with-kubernetes/</link>
-      <pubDate>Sun, 05 May 2019 15:00:51 +0200</pubDate>
-      
-      <guid>http://inge.4pr.es/2019/05/05/progressive-delivery-with-kubernetes/</guid>
-      <description>I&amp;rsquo;m more and more fond of finding the perfect solution to manage application delivery: dev teams want to be fast but their ops counterpart is not happy to loose control over the growing number of deployments that could cause an outage. We as an industry need to find the right balance to have features delivered in time and keep the service up and running for our users! And that&amp;rsquo;s where progressive delivery can help!</description>
-    </item>
-    
-    <item>
-      <title>Serverless on Kubernetes</title>
-      <link>http://inge.4pr.es/2018/01/30/serverless-on-kubernetes/</link>
-      <pubDate>Tue, 30 Jan 2018 20:31:34 +0100</pubDate>
-      
-      <guid>http://inge.4pr.es/2018/01/30/serverless-on-kubernetes/</guid>
-      <description>Kubernetes is the de facto platform for running modern applications: its broad adoption in 2017 and the velocity of the project made it so and it&amp;rsquo;s been accepted as the standard for many companies, from small to planet scale. It was impossible that such an extensible platform would be left out the serverless party, so here are the 4 main players offering FaaS to be run via k8s.
-A premise If you&amp;rsquo;re new to serverless and FaaS and all the previous buzzwords sound like cacophony to your ears, I really recommend reading this post and watching this talk.</description>
-    </item>
-    
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>kubernetes - Tag - INGE4PRES RATIONAL THOUGHTS</title>
+        <link>https://inge.4pr.es/tags/kubernetes/</link>
+        <description>kubernetes - Tag - INGE4PRES RATIONAL THOUGHTS</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 01 Nov 2019 15:56:42 &#43;0100</lastBuildDate><atom:link href="https://inge.4pr.es/tags/kubernetes/" rel="self" type="application/rss+xml" /><item>
+    <title>CKA exam experience and preparation</title>
+    <link>https://inge.4pr.es/post/cka-exam-experience/</link>
+    <pubDate>Fri, 01 Nov 2019 15:56:42 &#43;0100</pubDate>
+    <author>inge4pres</author>
+    <guid>https://inge.4pr.es/post/cka-exam-experience/</guid>
+    <description><![CDATA[Yes! Yesterday I received an awesome email stating that I cleared the Certified Kubernetes Administrator exam! 😎 Here I want to report my experience in preparing and taking the exam, hopefully this info can help others Kubernetes practitioners get the certification too.
+PreparationI consider myself lucky because for the past two years I had the chance to use Kubernetes working at lastminute.com; on top this on-the-job training I went through a lot of studying and practicing because the exam itself has a lot of content.]]></description>
+</item><item>
+    <title>Progressive Delivery with Kubernetes</title>
+    <link>https://inge.4pr.es/post/progressive-delivery-with-kubernetes/</link>
+    <pubDate>Sun, 05 May 2019 15:00:51 &#43;0200</pubDate>
+    <author>inge4pres</author>
+    <guid>https://inge.4pr.es/post/progressive-delivery-with-kubernetes/</guid>
+    <description><![CDATA[I&rsquo;m more and more fond of finding the perfect solution to manage application delivery: dev teams want to be fast but their ops counterpart is not happy to loose control over the growing number of deployments that could cause an outage. We as an industry need to find the right balance to have features delivered in time and keep the service up and running for our users! And that&rsquo;s where progressive delivery can help!]]></description>
+</item><item>
+    <title>Serverless on Kubernetes</title>
+    <link>https://inge.4pr.es/post/serverless-on-kubernetes/</link>
+    <pubDate>Tue, 30 Jan 2018 20:31:34 &#43;0100</pubDate>
+    <author>inge4pres</author>
+    <guid>https://inge.4pr.es/post/serverless-on-kubernetes/</guid>
+    <description><![CDATA[Kubernetes is the de facto platform for running modern applications: its broad adoption in 2017 and the velocity of the project made it so and it&rsquo;s been accepted as the standard for many companies, from small to planet scale. It was impossible that such an extensible platform would be left out the serverless party, so here are the 4 main players offering FaaS to be run via k8s.
+A premiseIf you&rsquo;re new to serverless and FaaS and all the previous buzzwords sound like cacophony to your ears, I really recommend reading this post and watching this talk.]]></description>
+</item></channel>
 </rss>

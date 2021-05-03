@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noodp"/><title>Serverless on Kubernetes - INGE4PRES RATIONAL THOUGHTS</title>
+        <meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="@inge4pres"/><meta name="twitter:title" content=""/>
+        <meta name="twitter:description" content="Francesco Gualazzi: infrastructure-aware developer"/>
+        <meta name="Description" content="An overview of the options to run functions as a service on k8s"><meta property="og:title" content="Serverless on Kubernetes" />
+<meta property="og:description" content="An overview of the options to run functions as a service on k8s" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://inge.4pr.es/post/serverless-on-kubernetes/" /><meta property="og:image" content="https://inge.4pr.es/images/avatar.png"/><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2018-01-30T20:31:34&#43;01:00" />
+<meta property="article:modified_time" content="2018-01-30T20:31:34&#43;01:00" />
+
+<meta name="application-name" content="INGE4PRES RATIONAL THOUGHTS">
+<meta name="apple-mobile-web-app-title" content="INGE4PRES RATIONAL THOUGHTS"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+        <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://inge.4pr.es/post/serverless-on-kubernetes/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.6cf1ea52f3eaa1db6fd80fb0ba96e8568d6d83a847d1c35cce0f61aad5b2416b.css" integrity="sha256-bPHqUvPqodtv2A&#43;wupboVo1tg6hH0cNczg9hqtWyQWs="><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><meta name="google-site-verification" content="TOk-oj9FYpVoRqq2BjvXT_OWQZZ6poZhp1WZXPhfMvE" /><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Serverless on Kubernetes",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/inge.4pr.es\/post\/serverless-on-kubernetes\/"
+        },"image": ["https:\/\/inge.4pr.es\/images\/avatar.png"],"genre": "post","keywords": "serverless, kubernetes, platform, development","wordCount":  1784 ,
+        "url": "https:\/\/inge.4pr.es\/post\/serverless-on-kubernetes\/","datePublished": "2018-01-30T20:31:34+01:00","dateModified": "2018-01-30T20:31:34+01:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","description": "An overview of the options to run functions as a service on k8s"
+    }
+    </script><script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https:\/\/inge.4pr.es\/"
+        },{
+            "@type": "ListItem",
+            "position": 2,
+            "name": "kubernetes",
+            "item": "https://inge.4pr.es/categories/kubernetes/"
+        },{
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Serverless on Kubernetes"
+            }]
+    }
+</script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header>
+    <div class="desktop header" id="header-desktop">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="INGE4PRES RATIONAL THOUGHTS" class="header-logo logo-svg"><img loading="lazy" decoding="async"
+         class="logo"
+         src="/images/gopher.png"
+         alt="/images/gopher.png"
+         title="/images/gopher.png"
+    /><span class="header-title-pre"><i class='fas fa-pencil-alt fa-fw'></i></span>INGE4PRES RATIONAL THOUGHTS<span class="header-title-post">🤓 <i class='fas fa-pencil-alt fa-fw'>Growing knowledge one post at a time</i></span></a>
+            </div>
+            <div class="menu">
+                <nav>
+                    <h2 class="display-hidden">Основная навигация</h2>
+                    <ul class="menu-inner"><li>
+                            <a class="menu-item" href="/about/"> About </a>
+                        </li><li>
+                            <a class="menu-item" href="/resume/"> Resume </a>
+                        </li><li>
+                            <a class="menu-item" href="/tags/"> Tags </a>
+                        </li></ul>
+                </nav><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Find" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <span class="svg-icon icon-search"></span>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <span class="svg-icon icon-cancel"></span>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <span class="svg-icon icon-loading"></span>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <span class="svg-icon icon-moon"></span>
+                </a>
+            </div>
+        </div>
+    </div><div class="mobile header" id="header-mobile">
+        <div class="header-container">
+            <div class="header-wrapper">
+                <div class="header-title">
+                    <a href="/" title="INGE4PRES RATIONAL THOUGHTS" class="header-logo"><img loading="lazy" decoding="async"
+         class="logo"
+         src="/images/gopher.png"
+         alt="/images/gopher.png"
+         title="/images/gopher.png"
+    /><span class="header-title-pre"><i class='fas fa-pencil-alt fa-fw'></i></span>INGE4PRES RATIONAL THOUGHTS<span class="header-title-post">🤓 <i class='fas fa-pencil-alt fa-fw'>Growing knowledge one post at a time</i></span></a>
+                </div>
+                <div class="menu-toggle" id="menu-toggle-mobile">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+            <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                        <div class="search mobile" id="search-mobile">
+                            <input type="text" placeholder="Find" id="search-input-mobile">
+                            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                                <span class="svg-icon icon-search"></span>
+                            </a>
+                            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                                <span class="svg-icon icon-cancel"></span>
+                            </a>
+                            <span class="search-button search-loading" id="search-loading-mobile">
+                                <span class="svg-icon icon-loading"></span>
+                            </span>
+                        </div>
+                        <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                            Cancel
+                        </a>
+                    </div><nav>
+                    <h2 class="display-hidden">Основная навигация</h2>
+                    <ul><li>
+                            <a class="menu-item" href="/about/" title="">About</a>
+                        </li><li>
+                            <a class="menu-item" href="/resume/" title="">Resume</a>
+                        </li><li>
+                            <a class="menu-item" href="/tags/" title="">Tags</a>
+                        </li></ul>
+                </nav>
+                <a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <span class="svg-icon icon-moon"></span>
+                </a></div>
+        </div>
+    </div><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div></header><main class="main">
+                <div class="container"><div class="page single special"><h1 class="single-title pulse faster">Serverless on Kubernetes</h1><div class="content" id="content"><p>Kubernetes is the <em>de facto</em> platform for running modern applications: its broad adoption in 2017 and the velocity of the project made it so and it&rsquo;s been accepted as the standard for many companies, from small to planet scale. It was impossible that such an extensible platform would be left out the serverless party, so here are the 4 main players offering FaaS to be run via k8s.</p>
+<h3 id="a-premise" class="headerLink"><a href="#a-premise" class="header-mark"></a>A premise</h3><p>If you&rsquo;re new to serverless and FaaS and all the previous buzzwords sound like cacophony to your ears, I really recommend reading <a href="https://martinfowler.com/articles/serverless.html" target="_blank" rel="noopener noreffer">this post</a> and watching <a href="https://www.youtube.com/watch?v=LAWjdZYrUgI" target="_blank" rel="noopener noreffer">this talk</a>. You could also notice how I put FaaS and serverless under the same hat here, this is just a personal opinion although some might argue that FaaS is a subset of serverless: historically I approached the serverless world using AWS Lambda, and I really tied the idea of writing functions and let someone else manage the infrastructure to the <em>serverless</em> concept. Also Sam Newman gave a <a href="https://youtu.be/CrS0HVQZiQI" target="_blank" rel="noopener noreffer">good talk on serverless</a> that I really recommend watching.</p>
+<h3 id="why-serverless-on-k8s" class="headerLink"><a href="#why-serverless-on-k8s" class="header-mark"></a>Why serverless on k8s</h3><p>It seems like a natural evolution for distributed systems to be composed by smaller and smaller parts. When moving from SOA to microservices the size of the service was reduced to enable development of more fine-grained functionalities into smaller and more maintainable components; taken to the extreme, you can reduce a microservice to be dedicated to just one task or to be  made of just one function, that&rsquo;s where FaaS fits into. Kubernetes is a great activator for such modularity as it creates a very powerful abstraction over infrastructure, so when developing a function as a separate module of a distributed system you can scale both vertically and horizontally any building block, each one independently from another, or you could even let Kubernetes manage that (think <a href="https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/" target="_blank" rel="noopener noreffer">Horizontal Pod Autoscaler</a>).</p>
+<h3 id="four-players-offering-faas-on-k8s" class="headerLink"><a href="#four-players-offering-faas-on-k8s" class="header-mark"></a>Four players offering FaaS on k8s</h3><ul>
+<li><a href="https://github.com/openfaas/faas" target="_blank" rel="noopener noreffer">OpenFaaS</a></li>
+<li><a href="https://github.com/fission/fission" target="_blank" rel="noopener noreffer">Fission</a></li>
+<li><a href="https://github.com/kubeless/kubeless" target="_blank" rel="noopener noreffer">Kubeless</a></li>
+<li><a href="https://github.com/fnproject/fn" target="_blank" rel="noopener noreffer">Fn Project</a></li>
+</ul>
+<p>Now there might be others, but this 4 are the ones I mostly heard of in the last 6 months, so they must be the right ones 😁.</p>
+<h4 id="comparison-criteria" class="headerLink"><a href="#comparison-criteria" class="header-mark"></a>Comparison criteria</h4><p>This is not a technical benchmark on the capabilities of this 4 frameworks: it&rsquo;s a <em>&ldquo;look Ma, I can serverless on k8s&rdquo;</em> post where I try and highlight the pros and cons of adopting one or the other; the criteria will be  installation methodology (client and server), languages support, cluster interoperability and developer experience, voted from 0 to 5 the higher the better.
+I will use Kubernetes 1.8.6 that is, at the moment of writing, the latest available stable version.</p>
+<p>The target function to deploy will be a super-serious analytics and business intelligence tool that will read the incoming HTTP request body and save it in a JSON document alongside with a timestamp. The JSON will be stored on a REDIS using a random UUIDv4 as key. All the code that will be deployed as functions is in <a href="https://github.com/inge4pres/blog/tree/master/serverless-on-kubernetes" target="_blank" rel="noopener noreffer">Github</a>, while for installing the GCP cluster and REDIS I used the following</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">gcloud beta container --project &#34;${GCP_PROJECT}&#34; clusters create &#34;serverless-k8s&#34; \
+  --zone &#34;europe-west2-c&#34; --username &#34;admin&#34; --cluster-version &#34;1.8.6-gke.0&#34; \
+  --machine-type &#34;g1-small&#34; --image-type &#34;COS&#34; --disk-size &#34;50&#34; --num-nodes &#34;3&#34;
+
+gcloud container clusters get-credentials serverless-k8s \
+  --zone europe-west2-c --project &#34;${GCP_PROJECT}&#34;
+
+helm init
+
+helm install stable/redis
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="fn-project" class="headerLink"><a href="#fn-project" class="header-mark"></a>Fn Project</h4><h6 id="features" class="headerLink"><a href="#features" class="header-mark"></a>Features</h6><ul>
+<li>function configuration via YAML</li>
+<li>local development server via <code>fn start</code> and <code>fn run</code></li>
+<li>uses DockerHub to store functions as containers</li>
+<li>web UI with function monitoring</li>
+</ul>
+<h6 id="client-installation-4" class="headerLink"><a href="#client-installation-4" class="header-mark"></a>Client installation: 4</h6><p>The <a href="https://github.com/fnproject/fn#install-cli-tool" target="_blank" rel="noopener noreffer">installation instructions</a> are easy to read and execute, multiple platforms supported out of the box. User is required to set an environment variable with a DockerHub handle</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">export FN_REGISTRY=&lt;DOCKERHUB_USERNAME&gt;
+</code></pre></td></tr></table>
+</div>
+</div><h6 id="server-installation-3" class="headerLink"><a href="#server-installation-3" class="header-mark"></a>Server installation: 3</h6><p>A Helm chart is provided under <a href="https://github.com/fnproject/fn-helm" target="_blank" rel="noopener noreffer">fn-helm</a> but it&rsquo;s not immediately linked to the project&rsquo;s page. The installation requires the user to export an environment variable with the command</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">export FN_API_URL=http://$(kubectl get svc --namespace default fn-release-fn-api -o jsonpath=&#39;{.status.loadBalancer.ingress[0].ip}&#39;):80
+</code></pre></td></tr></table>
+</div>
+</div><h6 id="language-support-5" class="headerLink"><a href="#language-support-5" class="header-mark"></a>Language support: 5</h6><p>Built-in support for Java, Ruby, Go, Python. Runs any docker container as a function.</p>
+<h6 id="cluster-interoperability-2" class="headerLink"><a href="#cluster-interoperability-2" class="header-mark"></a>Cluster interoperability: 2</h6><p>It requires a LoadBalancer resource, so you won&rsquo;t be able to run it on <code>minikube</code> out of the box. It has MySQL and REDIS as dependency services and uses a <a href="https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/" target="_blank" rel="noopener noreffer">DaemonSet</a> for the API controller, which might impact node&rsquo;s performance. No monitoring provided for the in-cluster components.</p>
+<h6 id="developer-experience-3" class="headerLink"><a href="#developer-experience-3" class="header-mark"></a>Developer experience: 3</h6><p>Very extensive CLI interface. Functions are pipes: they should read Stdin and write to Stdout; some environment variables are injected to the running code to detect request URL and other configurations. I was able to complete my function deployment in roughly 1 hour after digging the docs a while to find out how to add custom configurations to the functions via environment variables.</p>
+<h4 id="openfaas" class="headerLink"><a href="#openfaas" class="header-mark"></a>OpenFaaS</h4><h6 id="features-1" class="headerLink"><a href="#features-1" class="header-mark"></a>Features</h6><ul>
+<li>sponsored by CNCF</li>
+<li>function grouping configuration via YAML (<a href="https://github.com/openfaas/faas-cli#use-a-yaml-stack-file" target="_blank" rel="noopener noreffer">stack file</a>)</li>
+<li>public function repository</li>
+<li>Web UI with function monitoring</li>
+<li>runs any docker container as a function</li>
+</ul>
+<h6 id="client-installation-2" class="headerLink"><a href="#client-installation-2" class="header-mark"></a>Client installation: 2</h6><p>The <a href="https://github.com/openfaas/faas-cli#get-started-install-the-cli" target="_blank" rel="noopener noreffer">CLI installation</a> is straight-forward for Linux and Mac users but it&rsquo;s not immediately available for Windows. I cannot find an easy way to set the cluster address to point the CLI to.</p>
+<h6 id="server-installation-1" class="headerLink"><a href="#server-installation-1" class="header-mark"></a>Server installation: 1</h6><p>Helm chart provided under <a href="https://github.com/openfaas/faas-netes/blob/master/HELM.md" target="_blank" rel="noopener noreffer">faas-netes/helm</a> but it&rsquo;s failing the first time because of RBAC property not set and not rolling back, so I&rsquo;m forced to delete and recreate the release.
+Even when installation is completed I cannot connect to the FaaS gateway as the service NodePort 31112, and the LoadBalancer creation errors out with</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Warning: kubectl apply should be used on resource created by either kubectl create --save-config or kubectl apply
+The Service &#34;gateway&#34; is invalid: spec.ports[0].nodePort: Invalid value: 31112: provided port is already allocated
+</code></pre></td></tr></table>
+</div>
+</div><h6 id="language-support-5-1" class="headerLink"><a href="#language-support-5-1" class="header-mark"></a>Language support: 5</h6><p>Built-in support for NodeJS, Ruby, Go, Python, C#, generic Dockerfile. Runs any docker container as a function.</p>
+<h6 id="cluster-interoperability-4" class="headerLink"><a href="#cluster-interoperability-4" class="header-mark"></a>Cluster interoperability: 4</h6><p>OpenFaas provides Prometheus monitoring with alerting out of the box, plus the architecture is very lean: just 2 pods that serve the API gateway and the function runner. Each function runs as a <code>Deployment</code> object and therefore can be scaled independently.</p>
+<h6 id="developer-experience-2" class="headerLink"><a href="#developer-experience-2" class="header-mark"></a>Developer experience: 2</h6><p>After 2 hours trying to complete the setup on Kubernetes I&rsquo;m still not able to run any function on my cluster; I run a port-froward to the OpenFaaS gateway <code>kubectl port-forward gateway-pod-id 31112:8080</code> so I can run <code>faas-cli deploy -f samples.yml --gateway http://127.0.0.1:31112</code> inside the just cloned <code>faas-cli</code> repository and see some function in action.</p>
+<h4 id="fission" class="headerLink"><a href="#fission" class="header-mark"></a>Fission</h4><h6 id="features-2" class="headerLink"><a href="#features-2" class="header-mark"></a>Features</h6><ul>
+<li>only 100ms function cold start (more on the topic <a href="https://serverless.com/blog/keep-your-lambdas-warm/" target="_blank" rel="noopener noreffer">here</a>)</li>
+<li>natively built for Kubernetes</li>
+</ul>
+<h6 id="client-installation-3" class="headerLink"><a href="#client-installation-3" class="header-mark"></a>Client installation: 3</h6><p><a href="http://fission.io/docs/0.4.0/installation/#install-the-fission-cli" target="_blank" rel="noopener noreffer">Guide</a> suggests to download a binary distribution via <code>curl</code> and place the binary§ under <code>/usr/local/bin</code>, very straightforward for Linux and OSX. Windows support is via WSL or using a binary <code>fission.exe</code> with download link provided. Some environment variables need to be setup to point to the cluster, but the <a href="http://fission.io/docs/0.4.0/installation/#cloud-setups" target="_blank" rel="noopener noreffer">instructions</a> are very well written.</p>
+<h6 id="server-installation-5" class="headerLink"><a href="#server-installation-5" class="header-mark"></a>Server installation: 5</h6><p><a href="http://fission.io/docs/0.4.0/installation/#cloud-hosted-clusters-gke-aws-azure-etc" target="_blank" rel="noopener noreffer">Also guide</a>: a single <code>helm</code> command installs all the components in a dedicated namespace <code>fission</code>.</p>
+<h6 id="language-support-4" class="headerLink"><a href="#language-support-4" class="header-mark"></a>Language support: 4</h6><p>Built-in support for Linux binaries, Go, .NET, NodeJS, Perl, PHP 7, Python 3, Ruby as reported in the <a href="https://github.com/fission/fission#fission-concepts" target="_blank" rel="noopener noreffer">concepts section</a>. Custom environment can be built and pushed to the cluster as containers.</p>
+<h6 id="cluster-interoperability-2-1" class="headerLink"><a href="#cluster-interoperability-2-1" class="header-mark"></a>Cluster interoperability: 2</h6><p>No monitoring at all and no UI provided to verify the functions state of execution or list, CLI is the only source of truth I can get and it&rsquo;s not easy to understand the architecture.</p>
+<h6 id="developer-experience-2-1" class="headerLink"><a href="#developer-experience-2-1" class="header-mark"></a>Developer experience: 2</h6><p>Setup is very straightforward but then the development looks cumbersome (at least for Go): environment variables <a href="https://github.com/fission/fission/issues/356" target="_blank" rel="noopener noreffer">cannot be set</a> yet, so this means hard-coded values in the code to connect to external services. Plus logging and function debugging is really hard, after 1 hour digging in documentation and trying to understand a cryptic <code>Internal server error (fission)</code> message, I am not able to run my Go function, and it&rsquo;s tough to tell why.</p>
+<h4 id="kubeless" class="headerLink"><a href="#kubeless" class="header-mark"></a>Kubeless</h4><h6 id="features-3" class="headerLink"><a href="#features-3" class="header-mark"></a>Features</h6><ul>
+<li>natively built for kubernetes</li>
+<li>web UI with function monitoring</li>
+<li><a href="https://github.com/serverless/serverless-kubeless" target="_blank" rel="noopener noreffer">serverless framework plugin</a> available</li>
+</ul>
+<h6 id="client-installation-5" class="headerLink"><a href="#client-installation-5" class="header-mark"></a>Client installation: 5</h6><p>Binary distribution available for Linux, OSX and Windows in <a href="https://github.com/kubeless/kubeless/releases" target="_blank" rel="noopener noreffer">Github release page</a>. No fuss, no hassle: download and run.</p>
+<h6 id="server-installation-3-1" class="headerLink"><a href="#server-installation-3-1" class="header-mark"></a>Server installation: 3</h6><p><a href="https://github.com/kubeless/kubeless#installation" target="_blank" rel="noopener noreffer">Documentation</a> warns to create a namespace <code>kubeless</code> and use that. Same release page offers 3 options to install: Kubernetes with or without RBAC and Openshift. Applying the YAML with <code>kubectl apply -f kubeless-...</code> gets the server part up and running, but if I&rsquo;d like to install in a different namespace I would need to change the whole file. Providing a Helm chart is the standard Kubernetes packaging way so why not having one?</p>
+<h6 id="language-support-3" class="headerLink"><a href="#language-support-3" class="header-mark"></a>Language support: 3</h6><p>Currently only Python, NodeJS, Ruby and .NET Core are supported. <a href="https://github.com/kubeless/kubeless/blob/master/docs/runtimes.md#custom-runtime-alpha" target="_blank" rel="noopener noreffer">Custom runtimes</a> in the form of docker containers need to be built to run other languages, a feature in alpha which I&rsquo;m forced to explore to run my Go app.</p>
+<h6 id="cluster-interoperability-4-1" class="headerLink"><a href="#cluster-interoperability-4-1" class="header-mark"></a>Cluster interoperability: 4</h6><p>Monitoring provided via Prometheus integration; all backend services are run into dedicated namespace while functions are exposed using regular namespaces. It uses a StatefulSet to host Kafka and Zookeeper, they keep the functions state and there is a controller talking with Kubernetes API. I really like that it leverages Kubernetes-native primitives such as <code>ConfigMaps</code> and <code>Secrets</code> to manage function environment. It also uses a <code>CustomResourceDefinition</code> called <code>functions</code> so you can <code>kubectl get functions -o yaml</code>. What I don&rsquo;t like instead is the use of the cluster&rsquo;s etcd to store functions code when deploying from file.</p>
+<h6 id="developer-experience-5" class="headerLink"><a href="#developer-experience-5" class="header-mark"></a>Developer experience: 5</h6><p>Everything worked great even when running an experimental feature such as custom environment: I was able to inject configuration via environment variables, get the function logs either via <code>kubeless</code> CLI or <code>kubectl</code> and debug my way out of the configuration error I put into my first image. Second deploy I did I was able to call my function and I validated the results connecting to REDIS afterwards.</p>
+<h3 id="wrapping-up" class="headerLink"><a href="#wrapping-up" class="header-mark"></a>Wrapping up</h3><p>There are lots of people investing in serverless right now, almost as many as there are for Kubernetes; the integrations between the two will bring a new exciting technology scenario in the next years. To my experience building this post none of the previously listed framework is ready for production usage, to be honest most of them are not even ready for the average developer weekend project usage. You need to know Kubernetes quite a bit to troubleshoot issues happening during deployment and/or execution of your functions and this makes the whole serverless idea crumble, as you&rsquo;ll be forced to dig into infrastructure details to have your code running.</p>
+<p>If I&rsquo;d have to bet on one of the project I tried so far, I&rsquo;d do so on Kubeless; it&rsquo;s been definitely the smoothest setup  among all and the tight Kubernetes integration makes it a perfect candidate for community-driven growth. If you know any other framework that should be in this post please let me know it in the comments! I am always curious to see what&rsquo;s around in all things serverless so don&rsquo;t keep it for yourself!</p>
+</div><div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
+            </noscript></div></div></div>
+                </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.82.0">Hugo</a> | Theme - <a href="https://ublogger.netlify.app/?utm_source=https://inge.4pr.es/&utm_medium=footer&utm_campaign=config&utm_term=2.0.1" target="_blank" title="uBlogger 2.0.1">uBlogger</a>
+                </div><div class="footer-line"><i class="svg-icon icon-copyright"></i><span>2012 - 2021</span><span class="author">&nbsp;<a href="/" target="_blank"></a></span></div>
+        </div>
+    </footer></div>
+
+        <aside id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="svg-icon icon-arrow-up"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="svg-icon icon-comments-fixed"></i>
+            </a>
+        </aside><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><script src="https://inge4pres.disqus.com/embed.js" defer></script><script src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lunr@2.3.8/lunr.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js"></script><script>window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{},"cookieconsent":{"content":{"dismiss":"LGTM","link":"Learn more","message":"Do you like cookies?"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":20,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"}};</script><script src="/js/theme.min.0d44909075b648ac3259c39fcf9ddb2a6e7314cb3a7374007dd582c887381740.js" integrity="sha256-DUSQkHW2SKwyWcOfz53bKm5zFMs6c3QAfdWCyIc4F0A="></script><script>
+                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+	        ga('create', 'UA-55252403-1', 'auto');
+	        ga('set', 'anonymizeIp', true);
+	        ga('send', 'pageview');
+	    </script></body>
+</html>

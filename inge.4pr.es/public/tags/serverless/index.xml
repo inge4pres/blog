@@ -1,20 +1,15 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>serverless on INGE4PRES RATIONAL THOUGHTS</title>
-    <link>http://inge.4pr.es/tags/serverless/</link>
-    <description>Recent content in serverless on INGE4PRES RATIONAL THOUGHTS</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 30 Jan 2018 20:31:34 +0100</lastBuildDate><atom:link href="http://inge.4pr.es/tags/serverless/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Serverless on Kubernetes</title>
-      <link>http://inge.4pr.es/2018/01/30/serverless-on-kubernetes/</link>
-      <pubDate>Tue, 30 Jan 2018 20:31:34 +0100</pubDate>
-      
-      <guid>http://inge.4pr.es/2018/01/30/serverless-on-kubernetes/</guid>
-      <description>Kubernetes is the de facto platform for running modern applications: its broad adoption in 2017 and the velocity of the project made it so and it&amp;rsquo;s been accepted as the standard for many companies, from small to planet scale. It was impossible that such an extensible platform would be left out the serverless party, so here are the 4 main players offering FaaS to be run via k8s.
-A premise If you&amp;rsquo;re new to serverless and FaaS and all the previous buzzwords sound like cacophony to your ears, I really recommend reading this post and watching this talk.</description>
-    </item>
-    
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>serverless - Tag - INGE4PRES RATIONAL THOUGHTS</title>
+        <link>https://inge.4pr.es/tags/serverless/</link>
+        <description>serverless - Tag - INGE4PRES RATIONAL THOUGHTS</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 30 Jan 2018 20:31:34 &#43;0100</lastBuildDate><atom:link href="https://inge.4pr.es/tags/serverless/" rel="self" type="application/rss+xml" /><item>
+    <title>Serverless on Kubernetes</title>
+    <link>https://inge.4pr.es/post/serverless-on-kubernetes/</link>
+    <pubDate>Tue, 30 Jan 2018 20:31:34 &#43;0100</pubDate>
+    <author>inge4pres</author>
+    <guid>https://inge.4pr.es/post/serverless-on-kubernetes/</guid>
+    <description><![CDATA[Kubernetes is the de facto platform for running modern applications: its broad adoption in 2017 and the velocity of the project made it so and it&rsquo;s been accepted as the standard for many companies, from small to planet scale. It was impossible that such an extensible platform would be left out the serverless party, so here are the 4 main players offering FaaS to be run via k8s.
+A premiseIf you&rsquo;re new to serverless and FaaS and all the previous buzzwords sound like cacophony to your ears, I really recommend reading this post and watching this talk.]]></description>
+</item></channel>
 </rss>

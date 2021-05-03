@@ -1,6 +1,6 @@
 ---
 title: Discorsi economici finiti in un mashup!
-author: inge4pres
+author: "inge4pres"
 layout: post
 date: 2012-07-10T18:10:10+00:00
 enclosure:

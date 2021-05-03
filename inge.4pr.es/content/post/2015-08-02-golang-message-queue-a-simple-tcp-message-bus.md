@@ -1,6 +1,6 @@
 ---
 title: 'Golang Message Queue: a simple TCP message bus'
-author: inge4pres
+author: "inge4pres"
 layout: post
 date: 2015-08-02T16:25:54+00:00
 categories:

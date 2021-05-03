@@ -1,30 +1,23 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>politics on INGE4PRES RATIONAL THOUGHTS</title>
-    <link>http://inge.4pr.es/categories/politics/</link>
-    <description>Recent content in politics on INGE4PRES RATIONAL THOUGHTS</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 20 Aug 2012 17:45:06 +0000</lastBuildDate><atom:link href="http://inge.4pr.es/categories/politics/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Il significato della parola Islam</title>
-      <link>http://inge.4pr.es/2012/08/20/2012-08-20-ho-capito-il-significato-della-parola-islam/</link>
-      <pubDate>Mon, 20 Aug 2012 17:45:06 +0000</pubDate>
-      
-      <guid>http://inge.4pr.es/2012/08/20/2012-08-20-ho-capito-il-significato-della-parola-islam/</guid>
-      <description>Stamattina ho lavorato all’Arena Civica di Milano come tecnico del suono. La manifestazione che ho seguito era la cerimonia di chiusura del Ramadan islamico, l’equivalente della Pasqua cristiana. La cerimonia di per sè è stata breve, circa un’ora, ed è stato affascinante assistere a una manifestazione religiosa a cui non avevo mai assistito prima. Il programma è stato il seguente:
- raduno dei fedeli nel campo dell’Arena presentazione dei celebranti del rito preghiera sermone sfollaggio  Innanzitutto ciò che mi ha colpito è stata la mole di persone che erano presenti: circa 15000 tra uomini donne e bambini; da notare che la religione islamica non conta solo fedeli dal medio oriente, gran parte infatti erano di origine africana e indonesiana.</description>
-    </item>
-    
-    <item>
-      <title>L&#39;ennesima dimostrazione dello stato ladro!</title>
-      <link>http://inge.4pr.es/2012/05/22/2012-05-22-lennseima-dimostrazione-dello-stato-ladro/</link>
-      <pubDate>Tue, 22 May 2012 20:37:58 +0000</pubDate>
-      
-      <guid>http://inge.4pr.es/2012/05/22/2012-05-22-lennseima-dimostrazione-dello-stato-ladro/</guid>
-      <description>Come dice Oscar Giannino, giornalista e conduttore radiofonico, nonchè grande conoscitore dei meccanismi dell&amp;rsquo;economia italiana, lo stato italiano invece di salvaguardare i propri cittadini, li deruba, li sfrutta, si prende gioco di loro; per utilizzare una frase del sempre impeccabile editorialista bisogna cercare di difendersi dallo “Stato LADRO!!!”.
-La situazione dell’economia italiana non è delle migliori, anzi, proprio oggi l’ISTAT ha pubblicato un report che indica come il reddito pro capite è uguale a quello del 1992 e fatti estremi stanno accadendo sempre più numerosi giorno dopo giorno.</description>
-    </item>
-    
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>politics - Category - INGE4PRES RATIONAL THOUGHTS</title>
+        <link>https://inge.4pr.es/categories/politics/</link>
+        <description>politics - Category - INGE4PRES RATIONAL THOUGHTS</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 20 Aug 2012 17:45:06 &#43;0000</lastBuildDate><atom:link href="https://inge.4pr.es/categories/politics/" rel="self" type="application/rss+xml" /><item>
+    <title>Il significato della parola Islam</title>
+    <link>https://inge.4pr.es/post/2012-08-20-ho-capito-il-significato-della-parola-islam/</link>
+    <pubDate>Mon, 20 Aug 2012 17:45:06 &#43;0000</pubDate>
+    <author>inge4pres</author>
+    <guid>https://inge.4pr.es/post/2012-08-20-ho-capito-il-significato-della-parola-islam/</guid>
+    <description><![CDATA[Stamattina ho lavorato all’Arena Civica di Milano come tecnico del suono. La manifestazione che ho seguito era la cerimonia di chiusura del Ramadan islamico, l’equivalente della Pasqua cristiana. La cerimonia di per sè è stata breve, circa un’ora, ed è stato affascinante assistere a una manifestazione religiosa a cui non avevo mai assistito prima. Il programma è stato il seguente:
+ raduno dei fedeli nel campo dell’Arena presentazione dei celebranti del rito preghiera sermone sfollaggio  Innanzitutto ciò che mi ha colpito è stata la mole di persone che erano presenti: circa 15000 tra uomini donne e bambini; da notare che la religione islamica non conta solo fedeli dal medio oriente, gran parte infatti erano di origine africana e indonesiana.]]></description>
+</item><item>
+    <title>L&#39;ennesima dimostrazione dello stato ladro!</title>
+    <link>https://inge.4pr.es/post/2012-05-22-lennseima-dimostrazione-dello-stato-ladro/</link>
+    <pubDate>Tue, 22 May 2012 20:37:58 &#43;0000</pubDate>
+    <author>willywonka</author>
+    <guid>https://inge.4pr.es/post/2012-05-22-lennseima-dimostrazione-dello-stato-ladro/</guid>
+    <description><![CDATA[Come dice Oscar Giannino, giornalista e conduttore radiofonico, nonchè grande conoscitore dei meccanismi dell&rsquo;economia italiana, lo stato italiano invece di salvaguardare i propri cittadini, li deruba, li sfrutta, si prende gioco di loro; per utilizzare una frase del sempre impeccabile editorialista bisogna cercare di difendersi dallo “Stato LADRO!!!”.
+La situazione dell’economia italiana non è delle migliori, anzi, proprio oggi l’ISTAT ha pubblicato un report che indica come il reddito pro capite è uguale a quello del 1992 e fatti estremi stanno accadendo sempre più numerosi giorno dopo giorno.]]></description>
+</item></channel>
 </rss>

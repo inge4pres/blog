@@ -1,20 +1,15 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>virtualization on INGE4PRES RATIONAL THOUGHTS</title>
-    <link>http://inge.4pr.es/tags/virtualization/</link>
-    <description>Recent content in virtualization on INGE4PRES RATIONAL THOUGHTS</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 24 Jan 2016 15:42:29 +0000</lastBuildDate><atom:link href="http://inge.4pr.es/tags/virtualization/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Virtualize an old Windows PC</title>
-      <link>http://inge.4pr.es/2016/01/24/2016-01-24-virtualize-an-old-windows-pc/</link>
-      <pubDate>Sun, 24 Jan 2016 15:42:29 +0000</pubDate>
-      
-      <guid>http://inge.4pr.es/2016/01/24/2016-01-24-virtualize-an-old-windows-pc/</guid>
-      <description>A friend asked me if I was able to get back working a Windows 98 PC he had in his house; I have never done it so I said “sure I can!” just to have the opportunity to learn something new, and of course do a friend a favour.
-My idea was to copy the whole PC and get it running on a virtual machine thus doing what I later discovered is called a “P2V” (Physical to Virtual); the result of which would have been a portable VM which I could then install in my friend laptop to have his old PC back.</description>
-    </item>
-    
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>virtualization - Tag - INGE4PRES RATIONAL THOUGHTS</title>
+        <link>https://inge.4pr.es/tags/virtualization/</link>
+        <description>virtualization - Tag - INGE4PRES RATIONAL THOUGHTS</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 24 Jan 2016 15:42:29 &#43;0000</lastBuildDate><atom:link href="https://inge.4pr.es/tags/virtualization/" rel="self" type="application/rss+xml" /><item>
+    <title>Virtualize an old Windows PC</title>
+    <link>https://inge.4pr.es/post/2016-01-24-virtualize-an-old-windows-pc/</link>
+    <pubDate>Sun, 24 Jan 2016 15:42:29 &#43;0000</pubDate>
+    <author>inge4pres</author>
+    <guid>https://inge.4pr.es/post/2016-01-24-virtualize-an-old-windows-pc/</guid>
+    <description><![CDATA[A friend asked me if I was able to get back working a Windows 98 PC he had in his house; I have never done it so I said “sure I can!” just to have the opportunity to learn something new, and of course do a friend a favour.
+My idea was to copy the whole PC and get it running on a virtual machine thus doing what I later discovered is called a “P2V” (Physical to Virtual); the result of which would have been a portable VM which I could then install in my friend laptop to have his old PC back.]]></description>
+</item></channel>
 </rss>

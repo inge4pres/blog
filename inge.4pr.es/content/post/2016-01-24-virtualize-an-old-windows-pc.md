@@ -1,6 +1,6 @@
 ---
 title: Virtualize an old Windows PC
-author: inge4pres
+author: "inge4pres"
 layout: post
 date: 2016-01-24T15:42:29+00:00
 

@@ -1,6 +1,6 @@
 ---
 title: Vivere le proprie passioni, con passione!
-author: inge4pres
+author: "inge4pres"
 layout: post
 date: 2012-05-23T19:07:34+00:00
 categories:
