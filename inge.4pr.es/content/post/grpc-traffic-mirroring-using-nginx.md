@@ -130,7 +130,7 @@ We can now find these messages in the logs:
 2021/05/27 20:15:51 [debug] 15765#15765: *1 grpc header: "grpc-message: malformed method name: "/grpc-mirror""
 ```
 
-As documented, the `mirror-upstream` server receives a request with URI `/mirror`, making it useless on the receiving end and creating a path mismatch.
+As documented, the `mirror-upstream` server receives a request with URI `/grpc-mirror`, making it useless on the receiving end and creating a path mismatch.
 
 At this point we thought native gRPC mirroring was not possible with NGINX and we tried to copy the traffic via the kernel network stack.
 

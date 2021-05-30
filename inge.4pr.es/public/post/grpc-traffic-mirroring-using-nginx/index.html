@@ -253,7 +253,7 @@ Several mirrors can be specified on the same configuration level.
 2021/05/27 20:15:51 [debug] 15765#15765: *1 grpc header: &#34;grpc-message: malformed method name: &#34;/grpc-mirror&#34;&#34;
 </code></pre></td></tr></table>
 </div>
-</div><p>As documented, the <code>mirror-upstream</code> server receives a request with URI <code>/mirror</code>, making it useless on the receiving end and creating a path mismatch.</p>
+</div><p>As documented, the <code>mirror-upstream</code> server receives a request with URI <code>/grpc-mirror</code>, making it useless on the receiving end and creating a path mismatch.</p>
 <p>At this point we thought native gRPC mirroring was not possible with NGINX and we tried to copy the traffic via the kernel network stack.</p>
 <p>So we introduced a new server on a different port, willing to direct there the traffic <em>outside</em> of NGINX.</p>
 <div class="highlight"><div class="chroma">
