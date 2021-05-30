@@ -3,7 +3,15 @@
         <title>infrastructure - Tag - INGE4PRES RATIONAL THOUGHTS</title>
         <link>https://inge.4pr.es/tags/infrastructure/</link>
         <description>infrastructure - Tag - INGE4PRES RATIONAL THOUGHTS</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 07 Oct 2013 15:50:25 &#43;0000</lastBuildDate><atom:link href="https://inge.4pr.es/tags/infrastructure/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 30 May 2021 17:23:35 &#43;0200</lastBuildDate><atom:link href="https://inge.4pr.es/tags/infrastructure/" rel="self" type="application/rss+xml" /><item>
+    <title>gRPC Traffic Mirroring Using NGINX</title>
+    <link>https://inge.4pr.es/post/grpc-traffic-mirroring-using-nginx/</link>
+    <pubDate>Sun, 30 May 2021 17:23:35 &#43;0200</pubDate>
+    <author>inge4pres</author>
+    <guid>https://inge.4pr.es/post/grpc-traffic-mirroring-using-nginx/</guid>
+    <description><![CDATA[Recently at work with the Optimyze team we faced the necessity of copying traffic from our current customer-facing environment to a new environment. We have assumptions and ideas about architectural changes that cannot be validated only with synthetic tests and require cloning traffic to a separate, internal testing environment.
+There is no better test than the one performed with real-world data: when you hear speaking about testing in production, a deployment of a new feature to &ldquo;see what happens&rdquo; is not what I have in mind.]]></description>
+</item><item>
     <title>Zabbix: a powerful yet simple monitoring software</title>
     <link>https://inge.4pr.es/post/2013-10-07-zabbix-a-powerful-yet-simple-monitoring-software/</link>
     <pubDate>Mon, 07 Oct 2013 15:50:25 &#43;0000</pubDate>

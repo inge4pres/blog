@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sat, 03 Apr 2021 17:10:26 +0100</lastBuildDate><atom:link href="https://inge.4pr.es/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 30 May 2021 17:23:35 +0200</lastBuildDate><atom:link href="https://inge.4pr.es/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>gRPC Traffic Mirroring Using NGINX</title>
+      <link>https://inge.4pr.es/post/grpc-traffic-mirroring-using-nginx/</link>
+      <pubDate>Sun, 30 May 2021 17:23:35 +0200</pubDate>
+      
+      <guid>https://inge.4pr.es/post/grpc-traffic-mirroring-using-nginx/</guid>
+      <description>Recently at work with the Optimyze team we faced the necessity of copying traffic from our current customer-facing environment to a new environment. We have assumptions and ideas about architectural changes that cannot be validated only with synthetic tests and require cloning traffic to a separate, internal testing environment.
+There is no better test than the one performed with real-world data: when you hear speaking about testing in production, a deployment of a new feature to &amp;ldquo;see what happens&amp;rdquo; is not what I have in mind.</description>
+    </item>
+    
     <item>
       <title>Micro-committing with Git</title>
       <link>https://inge.4pr.es/post/micro-committing-with-git/</link>
