@@ -44,18 +44,18 @@ In first instance we thought we could simply copy directly the traffic together 
 server {
 	listen 443 ssl http2;
 	server_name grpc-backend.company.net;
-    ssl_certificate /etc/letsencrypt/live/company.net/fullchain.pem;
+	ssl_certificate /etc/letsencrypt/live/company.net/fullchain.pem;
 	ssl_certificate_key /etc/letsencrypt/live/company.net/privkey.pem;
 	root /var/www/default;
 	
 	location / {
-        mirror /grpc-mirror;
-        grpc_pass grpc://production-upstream:12345;
+		mirror /grpc-mirror;
+		grpc_pass grpc://production-upstream:12345;
 	}
 
-    location = /grpc-mirror {
-        internal;
-        grpc_pass grpcs://mirror-upstream:443;
+	location = /grpc-mirror {
+		internal;
+		grpc_pass grpcs://mirror-upstream:443;
 	}
 }
 ```
@@ -73,13 +73,13 @@ We add some logging to help us troubleshoot what is going on.
 
 ```nginx configuration
 	location / {
-        mirror /grpc-mirror;
-        grpc_pass grpc://production-upstream:12345;
+		mirror /grpc-mirror;
+		grpc_pass grpc://production-upstream:12345;
 	}
 
-    location = /grpc-mirror {
-        internal;
-        grpc_pass grpcs://mirror-upstream:443;
+	location = /grpc-mirror {
+		internal;
+		grpc_pass grpcs://mirror-upstream:443;
 	}
 	error_log debug;
 ```
@@ -117,10 +117,10 @@ server {
 	ssl_certificate /etc/letsencrypt/live/company.net/fullchain.pem;
 	ssl_certificate_key /etc/letsencrypt/live/company.net/privkey.pem;
 	root /var/www/default;
-    server_name grpc-backend.company.net;
+	server_name grpc-backend.company.net;
 
 	location / {
-        grpc_pass grpc://production-upstream:12345;
+		grpc_pass grpc://production-upstream:12345;
 	}
 }
 ```
@@ -141,8 +141,10 @@ Here is a working gRPC traffic mirroring configuration:
 
 ```nginx configuration
 server {
-	listen 127.0.0.1:9443 http2;
-
+	listen 127.0.0.1:9443 ssl http2;
+	
+	ssl_certificate /etc/letsencrypt/live/company.net/fullchain.pem;
+	ssl_certificate_key /etc/letsencrypt/live/company.net/privkey.pem;
 	root /var/www/default;
 	server_name grpc-backend.company.net;
 
@@ -157,25 +159,25 @@ server {
 	ssl_certificate /etc/letsencrypt/live/company.net/fullchain.pem;
 	ssl_certificate_key /etc/letsencrypt/live/company.net/privkey.pem;
 	root /var/www/default;
-    server_name grpc-backend.company.net;
+	server_name grpc-backend.company.net;
 
 	location / {
-        mirror /grpc-mirror;
-        grpc_pass grpc://production-upstream:12345;
+		mirror /grpc-mirror;
+		grpc_pass grpc://production-upstream:12345;
 	}
 	
-    location = /grpc-mirror {
-        internal;
-        proxy_pass http://127.0.0.1:9443$request_uri;
+	location = /grpc-mirror {
+		internal;
+		proxy_pass https://127.0.0.1:9443$request_uri;
 	}
 }
 ```
 
-**In the snippets, the definition of upstream has been omitted.**
+**In the snippets, the definition of upstream servers has been omitted.** The configuration is not valid without them!
 
 What we have here:
 
-* the second server, now listens on the loopback interface to avoid traffic leaving the NIC; no longer we need to apply TLS termination again
+* the second server now listens on the loopback interface to avoid traffic leaving the NIC
 * the un-encrypted traffic is mirrored to an `internal` location
 * a `proxy_pass` directive that will set the original URI in the next upstream, proxying the traffic the loopback server
 * the `grpc_pass` in the loopback server will re-encrypt and pass the request to the shadow environment, but with the right gRPC path URI

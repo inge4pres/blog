@@ -26,7 +26,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/inge.4pr.es\/post\/grpc-traffic-mirroring-using-nginx\/"
-        },"image": ["https:\/\/inge.4pr.es\/images\/avatar.png"],"genre": "post","keywords": "SRE, infrastructure","wordCount":  1239 ,
+        },"image": ["https:\/\/inge.4pr.es\/images\/avatar.png"],"genre": "post","keywords": "SRE, infrastructure","wordCount":  1245 ,
         "url": "https:\/\/inge.4pr.es\/post\/grpc-traffic-mirroring-using-nginx\/","datePublished": "2021-05-30T17:23:35+02:00","dateModified": "2021-05-30T17:23:35+02:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","description": "An NGINX configuration trick to mirror traffic to gRPC backends"
     }
     </script><script type="application/ld+json">
@@ -192,18 +192,18 @@ Several mirrors can be specified on the same configuration level.
 <pre class="chroma"><code class="language-nginx" data-lang="nginx"><span class="k">server</span> <span class="p">{</span>
 	<span class="kn">listen</span> <span class="mi">443</span> <span class="s">ssl</span> <span class="s">http2</span><span class="p">;</span>
 	<span class="kn">server_name</span> <span class="s">grpc-backend.company.net</span><span class="p">;</span>
-    <span class="kn">ssl_certificate</span> <span class="s">/etc/letsencrypt/live/company.net/fullchain.pem</span><span class="p">;</span>
+	<span class="kn">ssl_certificate</span> <span class="s">/etc/letsencrypt/live/company.net/fullchain.pem</span><span class="p">;</span>
 	<span class="kn">ssl_certificate_key</span> <span class="s">/etc/letsencrypt/live/company.net/privkey.pem</span><span class="p">;</span>
 	<span class="kn">root</span> <span class="s">/var/www/default</span><span class="p">;</span>
 	
 	<span class="kn">location</span> <span class="s">/</span> <span class="p">{</span>
-        <span class="kn">mirror</span> <span class="s">/grpc-mirror</span><span class="p">;</span>
-        <span class="kn">grpc_pass</span> <span class="s">grpc://production-upstream:12345</span><span class="p">;</span>
+		<span class="kn">mirror</span> <span class="s">/grpc-mirror</span><span class="p">;</span>
+		<span class="kn">grpc_pass</span> <span class="s">grpc://production-upstream:12345</span><span class="p">;</span>
 	<span class="p">}</span>
 
-    <span class="kn">location</span> <span class="p">=</span> <span class="s">/grpc-mirror</span> <span class="p">{</span>
-        <span class="kn">internal</span><span class="p">;</span>
-        <span class="kn">grpc_pass</span> <span class="s">grpcs://mirror-upstream:443</span><span class="p">;</span>
+	<span class="kn">location</span> <span class="p">=</span> <span class="s">/grpc-mirror</span> <span class="p">{</span>
+		<span class="kn">internal</span><span class="p">;</span>
+		<span class="kn">grpc_pass</span> <span class="s">grpcs://mirror-upstream:443</span><span class="p">;</span>
 	<span class="p">}</span>
 <span class="p">}</span>
 </code></pre></td></tr></table>
@@ -231,13 +231,13 @@ Several mirrors can be specified on the same configuration level.
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-nginx" data-lang="nginx">	<span class="k">location</span> <span class="s">/</span> <span class="p">{</span>
-        <span class="kn">mirror</span> <span class="s">/grpc-mirror</span><span class="p">;</span>
-        <span class="kn">grpc_pass</span> <span class="s">grpc://production-upstream:12345</span><span class="p">;</span>
+		<span class="kn">mirror</span> <span class="s">/grpc-mirror</span><span class="p">;</span>
+		<span class="kn">grpc_pass</span> <span class="s">grpc://production-upstream:12345</span><span class="p">;</span>
 	<span class="p">}</span>
 
-    <span class="k">location</span> <span class="p">=</span> <span class="s">/grpc-mirror</span> <span class="p">{</span>
-        <span class="kn">internal</span><span class="p">;</span>
-        <span class="kn">grpc_pass</span> <span class="s">grpcs://mirror-upstream:443</span><span class="p">;</span>
+	<span class="k">location</span> <span class="p">=</span> <span class="s">/grpc-mirror</span> <span class="p">{</span>
+		<span class="kn">internal</span><span class="p">;</span>
+		<span class="kn">grpc_pass</span> <span class="s">grpcs://mirror-upstream:443</span><span class="p">;</span>
 	<span class="p">}</span>
 	<span class="k">error_log</span> <span class="s">debug</span><span class="p">;</span>
 </code></pre></td></tr></table>
@@ -304,10 +304,10 @@ Several mirrors can be specified on the same configuration level.
 	<span class="kn">ssl_certificate</span> <span class="s">/etc/letsencrypt/live/company.net/fullchain.pem</span><span class="p">;</span>
 	<span class="kn">ssl_certificate_key</span> <span class="s">/etc/letsencrypt/live/company.net/privkey.pem</span><span class="p">;</span>
 	<span class="kn">root</span> <span class="s">/var/www/default</span><span class="p">;</span>
-    <span class="kn">server_name</span> <span class="s">grpc-backend.company.net</span><span class="p">;</span>
+	<span class="kn">server_name</span> <span class="s">grpc-backend.company.net</span><span class="p">;</span>
 
 	<span class="kn">location</span> <span class="s">/</span> <span class="p">{</span>
-        <span class="kn">grpc_pass</span> <span class="s">grpc://production-upstream:12345</span><span class="p">;</span>
+		<span class="kn">grpc_pass</span> <span class="s">grpc://production-upstream:12345</span><span class="p">;</span>
 	<span class="p">}</span>
 <span class="p">}</span>
 </code></pre></td></tr></table>
@@ -350,11 +350,15 @@ is stateful and there is no way for the kernel to handle duplicated responses fr
 </span><span class="lnt">27
 </span><span class="lnt">28
 </span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-nginx" data-lang="nginx"><span class="k">server</span> <span class="p">{</span>
-	<span class="kn">listen</span> <span class="n">127.0.0.1</span><span class="p">:</span><span class="mi">9443</span> <span class="s">http2</span><span class="p">;</span>
-
+	<span class="kn">listen</span> <span class="n">127.0.0.1</span><span class="p">:</span><span class="mi">9443</span> <span class="s">ssl</span> <span class="s">http2</span><span class="p">;</span>
+	
+	<span class="kn">ssl_certificate</span> <span class="s">/etc/letsencrypt/live/company.net/fullchain.pem</span><span class="p">;</span>
+	<span class="kn">ssl_certificate_key</span> <span class="s">/etc/letsencrypt/live/company.net/privkey.pem</span><span class="p">;</span>
 	<span class="kn">root</span> <span class="s">/var/www/default</span><span class="p">;</span>
 	<span class="kn">server_name</span> <span class="s">grpc-backend.company.net</span><span class="p">;</span>
 
@@ -369,24 +373,24 @@ is stateful and there is no way for the kernel to handle duplicated responses fr
 	<span class="kn">ssl_certificate</span> <span class="s">/etc/letsencrypt/live/company.net/fullchain.pem</span><span class="p">;</span>
 	<span class="kn">ssl_certificate_key</span> <span class="s">/etc/letsencrypt/live/company.net/privkey.pem</span><span class="p">;</span>
 	<span class="kn">root</span> <span class="s">/var/www/default</span><span class="p">;</span>
-    <span class="kn">server_name</span> <span class="s">grpc-backend.company.net</span><span class="p">;</span>
+	<span class="kn">server_name</span> <span class="s">grpc-backend.company.net</span><span class="p">;</span>
 
 	<span class="kn">location</span> <span class="s">/</span> <span class="p">{</span>
-        <span class="kn">mirror</span> <span class="s">/grpc-mirror</span><span class="p">;</span>
-        <span class="kn">grpc_pass</span> <span class="s">grpc://production-upstream:12345</span><span class="p">;</span>
+		<span class="kn">mirror</span> <span class="s">/grpc-mirror</span><span class="p">;</span>
+		<span class="kn">grpc_pass</span> <span class="s">grpc://production-upstream:12345</span><span class="p">;</span>
 	<span class="p">}</span>
 	
-    <span class="kn">location</span> <span class="p">=</span> <span class="s">/grpc-mirror</span> <span class="p">{</span>
-        <span class="kn">internal</span><span class="p">;</span>
-        <span class="kn">proxy_pass</span> <span class="s">http://127.0.0.1:9443</span><span class="nv">$request_uri</span><span class="p">;</span>
+	<span class="kn">location</span> <span class="p">=</span> <span class="s">/grpc-mirror</span> <span class="p">{</span>
+		<span class="kn">internal</span><span class="p">;</span>
+		<span class="kn">proxy_pass</span> <span class="s">https://127.0.0.1:9443</span><span class="nv">$request_uri</span><span class="p">;</span>
 	<span class="p">}</span>
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p><strong>In the snippets, the definition of upstream has been omitted.</strong></p>
+</div><p><strong>In the snippets, the definition of upstream servers has been omitted.</strong> The configuration is not valid without them!</p>
 <p>What we have here:</p>
 <ul>
-<li>the second server, now listens on the loopback interface to avoid traffic leaving the NIC; no longer we need to apply TLS termination again</li>
+<li>the second server now listens on the loopback interface to avoid traffic leaving the NIC</li>
 <li>the un-encrypted traffic is mirrored to an <code>internal</code> location</li>
 <li>a <code>proxy_pass</code> directive that will set the original URI in the next upstream, proxying the traffic the loopback server</li>
 <li>the <code>grpc_pass</code> in the loopback server will re-encrypt and pass the request to the shadow environment, but with the right gRPC path URI</li>
