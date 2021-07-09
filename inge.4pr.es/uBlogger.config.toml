@@ -108,7 +108,7 @@ enableEmoji = true
           # title shown in home page (HTML format is supported)
           title = "Francesco Gualazzi"
           # subtitle shown in home page (HTML format is supported)
-          subtitle = "Infrastucture-aware developer"
+          subtitle = "Infrastructure-aware developer"
           # whether to show social links
           social = true
           # disclaimer (HTML format is supported)
