@@ -3,7 +3,18 @@
         <title>kubernetes - Tag - INGE4PRES RATIONAL THOUGHTS</title>
         <link>https://inge.4pr.es/tags/kubernetes/</link>
         <description>kubernetes - Tag - INGE4PRES RATIONAL THOUGHTS</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 01 Nov 2019 15:56:42 &#43;0100</lastBuildDate><atom:link href="https://inge.4pr.es/tags/kubernetes/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 25 Oct 2021 15:42:08 &#43;0200</lastBuildDate><atom:link href="https://inge.4pr.es/tags/kubernetes/" rel="self" type="application/rss+xml" /><item>
+    <title>gRPC Traffic Mirroring With Ingress-Nginx on K8s</title>
+    <link>https://inge.4pr.es/post/grpc-traffic-mirroring-with-ingress-nginx-on-k8s/</link>
+    <pubDate>Mon, 25 Oct 2021 15:42:08 &#43;0200</pubDate>
+    <author>inge4pres</author>
+    <guid>https://inge.4pr.es/post/grpc-traffic-mirroring-with-ingress-nginx-on-k8s/</guid>
+    <description><![CDATA[In a previous post we saw an NGINX configuration to allow gRPC traffic mirroring.
+Is the same technique applicable on Kubernetes? Yes! Using the ingress-nginx ingress controller!
+Traffic mirroringUse the following configurations snippets in the ingress-nginx configMap and in the Ingress manifest to mirror all traffic to a separate gRPC server.
+ConfigMapReplace grpc-backend.company.net and grpc-mirror.company.net with the original and mirror endpoint, respectively.
+1 2 3 4 5 6 7 8 9 10 11 12  http-snippet:|server { listen 127.]]></description>
+</item><item>
     <title>CKA exam experience and preparation</title>
     <link>https://inge.4pr.es/post/cka-exam-experience/</link>
     <pubDate>Fri, 01 Nov 2019 15:56:42 &#43;0100</pubDate>

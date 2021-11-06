@@ -9,8 +9,8 @@
 <meta property="og:description" content="An NGINX configuration trick to mirror traffic to gRPC backends" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://inge.4pr.es/post/grpc-traffic-mirroring-using-nginx/" /><meta property="og:image" content="https://inge.4pr.es/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-05-30T17:23:35&#43;02:00" />
-<meta property="article:modified_time" content="2021-05-30T17:23:35&#43;02:00" />
+<meta property="article:published_time" content="2021-05-30T17:23:35+02:00" />
+<meta property="article:modified_time" content="2021-05-30T17:23:35+02:00" />
 
 <meta name="application-name" content="INGE4PRES RATIONAL THOUGHTS">
 <meta name="apple-mobile-web-app-title" content="INGE4PRES RATIONAL THOUGHTS"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
@@ -159,18 +159,18 @@ to build the desired outcome using the various building blocks offered by the mo
 <p>In the case of traffic mirroring, the documentation states:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">Sets the URI to which an original request will be mirrored. 
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Sets the URI to which an original request will be mirrored. 
 Several mirrors can be specified on the same configuration level.
 </code></pre></td></tr></table>
 </div>
 </div><p>In first instance we thought we could simply copy directly the traffic together with <code>grpc_pass</code> in a naive configuration like the following (<strong>not working as intended!</strong>):</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -189,7 +189,7 @@ Several mirrors can be specified on the same configuration level.
 </span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-nginx" data-lang="nginx"><span class="k">server</span> <span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-nginx" data-lang="nginx"><span class="k">server</span> <span class="p">{</span>
 	<span class="kn">listen</span> <span class="mi">443</span> <span class="s">ssl</span> <span class="s">http2</span><span class="p">;</span>
 	<span class="kn">server_name</span> <span class="s">grpc-backend.company.net</span><span class="p">;</span>
 	<span class="kn">ssl_certificate</span> <span class="s">/etc/letsencrypt/live/company.net/fullchain.pem</span><span class="p">;</span>
@@ -218,7 +218,7 @@ Several mirrors can be specified on the same configuration level.
 <p>We add some logging to help us troubleshoot what is going on.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -230,7 +230,7 @@ Several mirrors can be specified on the same configuration level.
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-nginx" data-lang="nginx">	<span class="k">location</span> <span class="s">/</span> <span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-nginx" data-lang="nginx">	<span class="k">location</span> <span class="s">/</span> <span class="p">{</span>
 		<span class="kn">mirror</span> <span class="s">/grpc-mirror</span><span class="p">;</span>
 		<span class="kn">grpc_pass</span> <span class="s">grpc://production-upstream:12345</span><span class="p">;</span>
 	<span class="p">}</span>
@@ -245,11 +245,11 @@ Several mirrors can be specified on the same configuration level.
 </div><p>We can now find these messages in the logs:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">2021/05/27 20:15:51 [debug] 15765#15765: *1 http upstream request: &#34;/grpc-mirror?&#34;
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">2021/05/27 20:15:51 [debug] 15765#15765: *1 http upstream request: &#34;/grpc-mirror?&#34;
 2021/05/27 20:15:51 [debug] 15765#15765: *1 grpc header: &#34;grpc-message: malformed method name: &#34;/grpc-mirror&#34;&#34;
 </code></pre></td></tr></table>
 </div>
@@ -258,7 +258,7 @@ Several mirrors can be specified on the same configuration level.
 <p>So we introduced a new server on a different port, willing to direct there the traffic <em>outside</em> of NGINX.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -285,7 +285,7 @@ Several mirrors can be specified on the same configuration level.
 </span><span class="lnt">25
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-nginx" data-lang="nginx"><span class="k">server</span> <span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-nginx" data-lang="nginx"><span class="k">server</span> <span class="p">{</span>
 	<span class="kn">listen</span> <span class="mi">9443</span> <span class="s">ssl</span> <span class="s">http2</span><span class="p">;</span>
 
 	<span class="kn">ssl_certificate</span> <span class="s">/etc/letsencrypt/live/company.net/fullchain.pem</span><span class="p">;</span>
@@ -321,7 +321,7 @@ is stateful and there is no way for the kernel to handle duplicated responses fr
 <p>Here is a working gRPC traffic mirroring configuration:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -354,7 +354,7 @@ is stateful and there is no way for the kernel to handle duplicated responses fr
 </span><span class="lnt">31
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-nginx" data-lang="nginx"><span class="k">server</span> <span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-nginx" data-lang="nginx"><span class="k">server</span> <span class="p">{</span>
 	<span class="kn">listen</span> <span class="n">127.0.0.1</span><span class="p">:</span><span class="mi">9443</span> <span class="s">ssl</span> <span class="s">http2</span><span class="p">;</span>
 	
 	<span class="kn">ssl_certificate</span> <span class="s">/etc/letsencrypt/live/company.net/fullchain.pem</span><span class="p">;</span>
@@ -410,7 +410,7 @@ And the answer is &ldquo;yes&rdquo;!</p>
                 Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
             </noscript></div></div></div>
                 </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.82.0">Hugo</a> | Theme - <a href="https://ublogger.netlify.app/?utm_source=https://inge.4pr.es/&utm_medium=footer&utm_campaign=config&utm_term=2.0.1" target="_blank" title="uBlogger 2.0.1">uBlogger</a>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.88.0">Hugo</a> | Theme - <a href="https://ublogger.netlify.app/?utm_source=https://inge.4pr.es/&utm_medium=footer&utm_campaign=config&utm_term=2.0.1" target="_blank" title="uBlogger 2.0.1">uBlogger</a>
                 </div><div class="footer-line"><i class="svg-icon icon-copyright"></i><span>2012 - 2021</span><span class="author">&nbsp;<a href="/" target="_blank"></a></span></div>
         </div>
     </footer></div>

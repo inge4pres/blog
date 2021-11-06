@@ -9,8 +9,8 @@
 <meta property="og:description" content="Some interesting insights on concurrency primitives offered by Go" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://inge.4pr.es/post/2017-10-28-golang-concurrency-pattern/" /><meta property="og:image" content="https://inge.4pr.es/images/avatar.png"/><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2017-10-28T19:40:09&#43;02:00" />
-<meta property="article:modified_time" content="2017-10-28T19:40:09&#43;02:00" />
+<meta property="article:published_time" content="2017-10-28T19:40:09+02:00" />
+<meta property="article:modified_time" content="2017-10-28T19:40:09+02:00" />
 
 <meta name="application-name" content="INGE4PRES RATIONAL THOUGHTS">
 <meta name="apple-mobile-web-app-title" content="INGE4PRES RATIONAL THOUGHTS"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
@@ -152,10 +152,10 @@ The easiest concurrency pattern available is thinking of a goroutine processing 
 If you run the tests with</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">go test -v . -race -run ^TestWaitGroup
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">go test -v . -race -run ^TestWaitGroup
 </code></pre></td></tr></table>
 </div>
 </div><p>you can see the execution time when using concurrency or not. Changing the value of <code>ops</code> variable in <a href="https://github.com/inge4pres/blog/blob/master/golang-concurrency-patterns/functions_test.go#L3" target="_blank" rel="noopener noreffer">functions_test.go</a> will make the tests process less or more items.</p>
@@ -169,20 +169,20 @@ If you run the tests with</p>
 <p>That being said, there are a couple of notable usages that I like to include in my concurrency-enabled Go software: the <a href="https://github.com/inge4pres/blog/blob/master/golang-concurrency-patterns/channels_test.go#L22" target="_blank" rel="noopener noreffer">fan-out pattern</a> where an input generates multiple goroutines that perform operations in the background and the output of the concurrent goroutines is fetched by a channel in the main thread. Another pattern is <a href="https://github.com/inge4pres/blog/blob/master/golang-concurrency-patterns/channels_test.go#L36" target="_blank" rel="noopener noreffer">fan-in</a>: multiple functions can return values to a channel as long as the type is consistent. Run tests with</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">go test -v . -race -run ^TestChannelBuffered
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">go test -v . -race -run ^TestChannelBuffered
 </code></pre></td></tr></table>
 </div>
 </div><p>to see fan-out/fan-in patterns in action.</p>
 <p>Another interesting feature is powered by the <code>select</code> statement: you can read from multiple channels in the same function and define behavior for any given channel message, it is another sample of fan-in pattern. Using <code>select</code> will block until one of the send/receive operation is available, the operation gets chosen randomly if multiple are available at the same time. <code>select</code> has a similar syntax to <code>switch</code> so <code>case</code> and <code>default</code> are the scenario selector. Running <a href="https://github.com/inge4pres/blog/blob/master/golang-concurrency-patterns/channels_test.go#L55" target="_blank" rel="noopener noreffer">multiple channels</a> lets you manage multiple types in a single point: run the test with</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">go test -v . -race -run ^TestMultipleChannelsSelect$
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">go test -v . -race -run ^TestMultipleChannelsSelect$
 </code></pre></td></tr></table>
 </div>
 </div><p>to check the execution of the multiple goroutines.</p>
@@ -198,7 +198,7 @@ If you run the tests with</p>
                 Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
             </noscript></div></div></div>
                 </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.82.0">Hugo</a> | Theme - <a href="https://ublogger.netlify.app/?utm_source=https://inge.4pr.es/&utm_medium=footer&utm_campaign=config&utm_term=2.0.1" target="_blank" title="uBlogger 2.0.1">uBlogger</a>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.88.0">Hugo</a> | Theme - <a href="https://ublogger.netlify.app/?utm_source=https://inge.4pr.es/&utm_medium=footer&utm_campaign=config&utm_term=2.0.1" target="_blank" title="uBlogger 2.0.1">uBlogger</a>
                 </div><div class="footer-line"><i class="svg-icon icon-copyright"></i><span>2012 - 2021</span><span class="author">&nbsp;<a href="/" target="_blank"></a></span></div>
         </div>
     </footer></div>

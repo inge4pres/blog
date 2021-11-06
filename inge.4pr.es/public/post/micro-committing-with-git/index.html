@@ -11,8 +11,8 @@ Combining micro-committing with Git, while doing TDD is now my favorite developm
 This is not a one-size-fits-all approach, I&rsquo;m sharing what works great for me; I hope some parts of what follows will help you and your team as well." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://inge.4pr.es/post/micro-committing-with-git/" /><meta property="og:image" content="https://inge.4pr.es/images/avatar.png"/><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-04-03T17:10:26&#43;01:00" />
-<meta property="article:modified_time" content="2021-04-03T17:10:26&#43;01:00" />
+<meta property="article:published_time" content="2021-04-03T17:10:26+01:00" />
+<meta property="article:modified_time" content="2021-04-03T17:10:26+01:00" />
 
 <meta name="application-name" content="INGE4PRES RATIONAL THOUGHTS">
 <meta name="apple-mobile-web-app-title" content="INGE4PRES RATIONAL THOUGHTS"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
@@ -204,10 +204,10 @@ a given task.</p>
 <p>This is where this technique really shines: firing up a single command</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">git reset --hard
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">git reset --hard
 </code></pre></td></tr></table>
 </div>
 </div><p>will allow to re-start from what <em>you</em> chose minutes ago as a standing point, a safe place from which a new iteration can start.
@@ -256,7 +256,7 @@ It has to contain a good high-level description of what it holds in all its part
 If I run <code>git log</code> now I have</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -293,7 +293,7 @@ If I run <code>git log</code> now I have</p>
 </span><span class="lnt">35
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">commit 91dc03e493fc9ff9426c7250de9d6dd168d58b2b (HEAD -&gt; master, tag: ready-for-conclusion)
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">commit 91dc03e493fc9ff9426c7250de9d6dd168d58b2b (HEAD -&gt; master, tag: ready-for-conclusion)
 Author: inge4pres &lt;xxx@gmail.com&gt;
 Date:   Sat May 1 18:18:10 2021 +0200
 
@@ -344,7 +344,7 @@ and the final part (the first 2 commits in the list, the last in chronological o
 The output in the editor is the following:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -354,7 +354,7 @@ The output in the editor is the following:</p>
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">pick f368028 first draft: completed intro
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">pick f368028 first draft: completed intro
 pick aa25b34 second section: peer review
 pick 869e15f fixed typos and intro section
 pick 1ef9ec1 Resume: update page
@@ -367,7 +367,7 @@ pick 91dc03e refinement before example
 </div><p>With the considerations done earlier, I will change the history like so:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -375,7 +375,7 @@ pick 91dc03e refinement before example
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">pick 1ef9ec1 Resume: update page
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">pick 1ef9ec1 Resume: update page
 pick f368028 first draft: completed intro
 squash aa25b34 second section: peer review
 fixup 869e15f fixed typos and intro section
@@ -389,7 +389,7 @@ and I will add the slug of the post.</p>
 <p>Now the history looks much better, and it can be pushed:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -408,7 +408,7 @@ and I will add the slug of the post.</p>
 </span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">commit be50a37f5dc63b587a1d105869449a6f67741a6a
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">commit be50a37f5dc63b587a1d105869449a6f67741a6a
 Author: inge4pres &lt;xxx@gmail.com&gt;
 Date:   Sat May 1 18:35:35 2021 +0200
 
@@ -441,7 +441,7 @@ though adopting it will be very valuable in some occasions.</p>
                 Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
             </noscript></div></div></div>
                 </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.82.0">Hugo</a> | Theme - <a href="https://ublogger.netlify.app/?utm_source=https://inge.4pr.es/&utm_medium=footer&utm_campaign=config&utm_term=2.0.1" target="_blank" title="uBlogger 2.0.1">uBlogger</a>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.88.0">Hugo</a> | Theme - <a href="https://ublogger.netlify.app/?utm_source=https://inge.4pr.es/&utm_medium=footer&utm_campaign=config&utm_term=2.0.1" target="_blank" title="uBlogger 2.0.1">uBlogger</a>
                 </div><div class="footer-line"><i class="svg-icon icon-copyright"></i><span>2012 - 2021</span><span class="author">&nbsp;<a href="/" target="_blank"></a></span></div>
         </div>
     </footer></div>

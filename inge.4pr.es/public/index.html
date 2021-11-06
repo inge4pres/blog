@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-	<meta name="generator" content="Hugo 0.82.0" />
+	<meta name="generator" content="Hugo 0.88.0" />
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noodp"/><title>INGE4PRES RATIONAL THOUGHTS</title>
         <meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="@inge4pres"/><meta name="twitter:title" content=""/>
@@ -126,6 +126,27 @@
          title="/images/avatar.png"
     /></a></div><div class="home-meta"><div class="home-title">Francesco Gualazzi</div><div class="home-subtitle">Infrastructure-aware developer</div><div class="links"><a href="https://github.com/inge4pres" title="GitHub" target="_blank" rel="noopener noreffer me"><span class="svg-social-icon-color icon-github"></span></a><a href="https://linkedin.com/in/francescogualazzi" title="LinkedIn" target="_blank" rel="noopener noreffer me"><span class="svg-social-icon-color icon-linkedin"></span></a><a href="https://twitter.com/inge4pres" title="Twitter" target="_blank" rel="noopener noreffer me"><span class="svg-social-icon-color icon-twitter"></span></a><a href="https://www.instagram.com/inge4pres" title="Instagram" target="_blank" rel="noopener noreffer me"><span class="svg-social-icon-color icon-instagram"></span></a><a href="https://facebook.com/inge4pres" title="facebook" target="_blank" rel="noopener noreffer me"><span class="svg-social-icon-color icon-facebook"></span></a><a href="https://gitlab.com/inge4pres" title="GitLab" target="_blank" rel="noopener noreffer me"><span class="svg-social-icon-color icon-gitlab"></span></a><a href="https://keybase.io/inge4pres" title="Keybase" target="_blank" rel="noopener noreffer me"><span class="svg-social-icon-color icon-keybase"></span></a><a href="https://stackoverflow.com/users/4628081/francesco-gualazzi" title="Stack Overflow" target="_blank" rel="noopener noreffer me"><span class="svg-social-icon-color icon-codepen"></span></a><a href="https://soundcloud.com/Fringe" title="SoundCloud" target="_blank" rel="noopener noreffer me"><span class="svg-social-icon-color icon-soundcloud"></span></a><a href="https://open.spotify.com/user/inge4pres" title="Spotify" target="_blank" rel="noopener noreffer me"><span class="svg-social-icon-color icon-spotify"></span></a><a href="https://hub.docker.com/u/inge4pres" title="DockerHub" target="_blank" rel="noopener noreffer me"><span class="svg-social-icon-color icon-docker"></span></a><a href="mailto:fgualazzi@gmail.com" title="Email" rel=" me"><span class="svg-social-icon-color icon-mail-dot-ru"></span></a><a href="/index.xml" title="RSS" target="_blank" rel="noopener noreffer me"><span class="svg-social-icon-color icon-rss"></span></a></div></div>
 </aside>
+<article itemscope itemtype="http://schema.org/Article">
+    <div class="summary summary-animation" style="margin-bottom:0">
+        <header><div style="padding-top: 20px;padding-left: 20px;padding-right: 20px;"><h2 class="summary-title" itemprop="name headline">
+                    <a href="/post/grpc-traffic-mirroring-with-ingress-nginx-on-k8s/" target="_blank">gRPC Traffic Mirroring With Ingress-Nginx on K8s</a>
+                </h2><div class="post-meta summary-post-meta"><span class="meta-item post-category">
+                            <a href="/categories/tech/"><span class="svg-icon icon-folder"></span>tech</a>
+                    </span><span class="meta-item post-author"><a href="/" title="Author" rel=" author" class="author"><span class="svg-icon icon-user"></span></a></span><span class="meta-item post-publish"><span class="svg-icon icon-clock"></span><time class="timeago" datetime="2021-10-25">2021-10-25</time></span></div></div>
+        </header>
+
+        <div class="article-text"><div class="content summary-content">In a previous post we saw an NGINX configuration to allow gRPC traffic mirroring.
+Is the same technique applicable on Kubernetes? Yes! Using the ingress-nginx ingress controller!
+Traffic mirroringUse the following configurations snippets in the ingress-nginx configMap and in the Ingress manifest to mirror all traffic to a separate gRPC server.
+ConfigMapReplace grpc-backend.company.net and grpc-mirror.company.net with the original and mirror endpoint, respectively.
+1 2 3 4 5 6 7 8 9 10 11 12  http-snippet:|server { listen 127.</div></div>
+    </div>
+
+    <div class="post-tags-summary-under-footer"><footer>
+            <div class="post-tags-summary-under-footer-display" ><a class="post-tag-summary" href="/tags/kubernetes/" style="">kubernetes</a><a class="post-tag-summary" href="/tags/infrastructure/" style="">infrastructure</a><a class="post-tag-summary" href="/tags/sre/" style="">SRE</a></div>
+        </footer></div>
+</article>
+
 <article itemscope itemtype="http://schema.org/Article">
     <div class="summary summary-animation" style="margin-bottom:0">
         <header><div style="padding-top: 20px;padding-left: 20px;padding-right: 20px;"><h2 class="summary-title" itemprop="name headline">
@@ -385,25 +406,6 @@ So instead of a bare VPS I am moving my blog to AWS S3 + Cloudfront CDN. This wi
         </footer></div>
 </article>
 
-<article itemscope itemtype="http://schema.org/Article">
-    <div class="summary summary-animation" style="margin-bottom:0">
-        <header><div style="padding-top: 20px;padding-left: 20px;padding-right: 20px;"><h2 class="summary-title" itemprop="name headline">
-                    <a href="/post/2016-04-06-aws-iam-policy-to-let-users-manage-their-own-mfa/" target="_blank">AWS IAM policy to let users manage their own MFA</a>
-                </h2><div class="post-meta summary-post-meta"><span class="meta-item post-category">
-                            <a href="/categories/tech/"><span class="svg-icon icon-folder"></span>tech</a>
-                    </span><span class="meta-item post-author"><a href="/" title="Author" rel=" author" class="author"><span class="svg-icon icon-user"></span></a></span><span class="meta-item post-publish"><span class="svg-icon icon-clock"></span><time class="timeago" datetime="2016-04-06">2016-04-06</time></span></div></div>
-        </header>
-
-        <div class="article-text"><div class="content summary-content">If you’re an AWS administrator you know that managing web console security is pretty tough unless you know what you want and you know what you’re doing. So if what you want is let each AWS user manage their own MFA device configuration without you and force them to have MFA active to use the web console, here is your solution.
-TL;DR
- Create one or more groups with your web users Create a new policy using this JSON Attach the policy to the group(s)  How does it work?</div></div>
-    </div>
-
-    <div class="post-tags-summary-under-footer"><footer>
-            <div class="post-tags-summary-under-footer-display" ><a class="post-tag-summary" href="/tags/aws/" style="">aws</a><a class="post-tag-summary" href="/tags/cloud/" style="">cloud</a><a class="post-tag-summary" href="/tags/iam/" style="">iam</a><a class="post-tag-summary" href="/tags/mfa/" style="">mfa</a><a class="post-tag-summary" href="/tags/policy/" style="">policy</a></div>
-        </footer></div>
-</article>
-
 <footer>
     <nav>
         <h3 class="display-hidden">Пагинация</h3>
@@ -423,7 +425,7 @@ TL;DR
     </nav>
 </footer></article></div>
                 </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.82.0">Hugo</a> | Theme - <a href="https://ublogger.netlify.app/?utm_source=https://inge.4pr.es/&utm_medium=footer&utm_campaign=config&utm_term=2.0.1" target="_blank" title="uBlogger 2.0.1">uBlogger</a>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.88.0">Hugo</a> | Theme - <a href="https://ublogger.netlify.app/?utm_source=https://inge.4pr.es/&utm_medium=footer&utm_campaign=config&utm_term=2.0.1" target="_blank" title="uBlogger 2.0.1">uBlogger</a>
                 </div><div class="footer-line"><i class="svg-icon icon-copyright"></i><span>2012 - 2021</span><span class="author">&nbsp;<a href="/" target="_blank"></a></span></div>
         </div>
     </footer></div>

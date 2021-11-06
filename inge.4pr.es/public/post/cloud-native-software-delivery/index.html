@@ -11,8 +11,8 @@ A Cloud-native application has only concern on the functionalities that it has t
 So how can software delivery be cloud-native? Isn&rsquo;t software delivery supposed to &ldquo;install&rdquo; software onto some infrastructure? Well if your infrastructure provider is cloud-native, you can transitively deliver software on it in a cloud-native way (counts of cloud-native is over 9000, so stopping here)!" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://inge.4pr.es/post/cloud-native-software-delivery/" /><meta property="og:image" content="https://inge.4pr.es/images/avatar.png"/><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2018-05-05T15:08:30&#43;02:00" />
-<meta property="article:modified_time" content="2018-05-05T15:08:30&#43;02:00" />
+<meta property="article:published_time" content="2018-05-05T15:08:30+02:00" />
+<meta property="article:modified_time" content="2018-05-05T15:08:30+02:00" />
 
 <meta name="application-name" content="INGE4PRES RATIONAL THOUGHTS">
 <meta name="apple-mobile-web-app-title" content="INGE4PRES RATIONAL THOUGHTS"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
@@ -153,33 +153,33 @@ So how can software delivery be cloud-native? Isn&rsquo;t software delivery supp
 Running</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">$GOPATH/bin/operator-sdk new cdkube --api-version=delivery.inge.4pr.es/v1alpha1 --kind=Pipeline
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$GOPATH/bin/operator-sdk new cdkube --api-version=delivery.inge.4pr.es/v1alpha1 --kind=Pipeline
 </code></pre></td></tr></table>
 </div>
 </div><p>I am resulting in an auto-generated project with some scaffold code, as in <a href="https://github.com/inge4pres/cdkube/commit/bd7a1cf8790cf02169057f759e40272993673181" target="_blank" rel="noopener noreffer">this commit</a>.
 Next I add some details which I think are at the core of a pipeline: the repository with code and configurations, the image to build the software and what version/name give to the resulting application artifact. When adding new items to the Spec and Status of CRD I will modify the <a href="https://github.com/inge4pres/cdkube/blob/master/pkg/apis/delivery/v1alpha1/types.go" target="_blank" rel="noopener noreffer">pkg/apis/delivery/v1alpha1/types.go</a> file, then the guide suggests to run <code>operator-sdk generate k8s</code> to update the code, in fact the <code>zz_generated_deepcopy.go</code> is updated, but I don&rsquo;t see the <a href="https://github.com/inge4pres/cdkube/commit/5a17429d206475bcef85077d1f9aeb6fdda50357#diff-5cd8fbaa4e3fbb473c3e57c6fabca2f9" target="_blank" rel="noopener noreffer">deploy/cr.yaml</a> changed as it should so probably there&rsquo;s a bug&hellip; Moving forward I have my operator logic to be defined now: I add some check whether the building pod is succeded and build the operator</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">operator-sdk build inge4pres/cdkube:v0.0.1
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">operator-sdk build inge4pres/cdkube:v0.0.1
 docker push inge4pres/cdkube:v0.0.1
 </code></pre></td></tr></table>
 </div>
 </div><p>My operator is built, pushed to dockerhub and ready to be kicked in a k8s cluster, so I fire up one in GKE</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">gcloud beta container --project &#34;inge4pres-gcp&#34; clusters create &#34;operator-framework-test&#34; --zone &#34;europe-west1-b&#34; --machine-type &#34;g1-small&#34; --image-type &#34;COS&#34; --disk-size &#34;25&#34;
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">gcloud beta container --project &#34;inge4pres-gcp&#34; clusters create &#34;operator-framework-test&#34; --zone &#34;europe-west1-b&#34; --machine-type &#34;g1-small&#34; --image-type &#34;COS&#34; --disk-size &#34;25&#34;
 
 gcloud container clusters get-credentials operator-framework-test --zone europe-west1-b --project inge4pres-gcp
 </code></pre></td></tr></table>
@@ -188,7 +188,7 @@ gcloud container clusters get-credentials operator-framework-test --zone europe-
 An amazing result is that once the depoloyment is done I can create my CRD with the <code>kubectl</code> command and see my custom-type declared, running <code>kubectl create -f deploy/crd.yaml</code> I have a new object created in k8s</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -222,7 +222,7 @@ An amazing result is that once the depoloyment is done I can create my CRD with 
 </span><span class="lnt">32
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">➜  ~ kubectl get pipeline
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">➜  ~ kubectl get pipeline
 NAME            AGE
 doing-nothing   16s
 ➜  ~ kubectl describe pipeline
@@ -259,7 +259,7 @@ Events:            &lt;none&gt;
 <p>When I deploy my operator and create the custom resource applying the manifest for a pipeline, the operator picks it up and starts a container with the name of the pipeline</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -281,7 +281,7 @@ Events:            &lt;none&gt;
 </span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">➜  cdkube git:<span class="o">(</span>master<span class="o">)</span> ✗ kubectl apply -f deploy/cr.yaml
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">➜  cdkube git:<span class="o">(</span>master<span class="o">)</span> ✗ kubectl apply -f deploy/cr.yaml
 ➜  cdkube git:<span class="o">(</span>master<span class="o">)</span> ✗ kubectl get po
 NAME                      READY     STATUS    RESTARTS   AGE
 cdkube-57bcf65584-sbvd6   1/1       Running   <span class="m">0</span>          12s
@@ -306,11 +306,11 @@ testapp                   0/1       Completed   <span class="m">2</span>        
 <p>and if I get the <code>testapp</code> logs I can see the pipeline execution</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">➜  cdkube git:<span class="o">(</span>master<span class="o">)</span> ✗ kubectl logs testapp
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">➜  cdkube git:<span class="o">(</span>master<span class="o">)</span> ✗ kubectl logs testapp
 building something... now I<span class="err">&#39;</span>m <span class="k">done</span></code></pre></td></tr></table>
 </div>
 </div>
@@ -321,7 +321,7 @@ building something... now I<span class="err">&#39;</span>m <span class="k">done<
                 Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
             </noscript></div></div></div>
                 </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.82.0">Hugo</a> | Theme - <a href="https://ublogger.netlify.app/?utm_source=https://inge.4pr.es/&utm_medium=footer&utm_campaign=config&utm_term=2.0.1" target="_blank" title="uBlogger 2.0.1">uBlogger</a>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.88.0">Hugo</a> | Theme - <a href="https://ublogger.netlify.app/?utm_source=https://inge.4pr.es/&utm_medium=footer&utm_campaign=config&utm_term=2.0.1" target="_blank" title="uBlogger 2.0.1">uBlogger</a>
                 </div><div class="footer-line"><i class="svg-icon icon-copyright"></i><span>2012 - 2021</span><span class="author">&nbsp;<a href="/" target="_blank"></a></span></div>
         </div>
     </footer></div>

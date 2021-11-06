@@ -12,8 +12,8 @@ https://github.com/inge4pres/gmq
 Being a cloud system engineer, my work is to design and implement distributed systems: one of the key principles in designing such architectures is decoupling, which means ensuring the many parts composing the system are able to share informations and complete a sequence of operations without being tied together." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://inge.4pr.es/post/2015-08-02-golang-message-queue-a-simple-tcp-message-bus/" /><meta property="og:image" content="https://inge.4pr.es/images/avatar.png"/><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2015-08-02T16:25:54&#43;00:00" />
-<meta property="article:modified_time" content="2015-08-02T16:25:54&#43;00:00" />
+<meta property="article:published_time" content="2015-08-02T16:25:54+00:00" />
+<meta property="article:modified_time" content="2015-08-02T16:25:54+00:00" />
 
 <meta name="application-name" content="INGE4PRES RATIONAL THOUGHTS">
 <meta name="apple-mobile-web-app-title" content="INGE4PRES RATIONAL THOUGHTS"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
@@ -145,7 +145,7 @@ Being a cloud system engineer, my work is to design and implement distributed sy
 </div></header><main class="main">
                 <div class="container"><div class="page single special"><h1 class="single-title pulse faster">Golang Message Queue: a simple TCP message bus</h1><div class="content" id="content"><p><strong>[TL;DR]</strong></p>
 <p>I wrote a Pub/Sub message queue in <a href="http://golang.org" target="_blank">Go</a>, branch “master” is stable but missing some interesting feature like distributed memory synchronization between nodes in a cluster and encryption. Code at</p>
-<p><a href="https://github.com/inge4pres/gmq" target="_blank"><a href="https://github.com/inge4pres/gmq">https://github.com/inge4pres/gmq</a></a></p>
+<p><a href="https://github.com/inge4pres/gmq" target="_blank"><a href="https://github.com/inge4pres/gmq" target="_blank" rel="noopener noreffer">https://github.com/inge4pres/gmq</a></a></p>
 <p>Being a cloud system engineer, my work is to design and implement distributed systems: one of the key principles in designing such architectures is <em>decoupling</em>, which means ensuring the many parts composing the system are able to share informations and complete a sequence of operations without being tied together. You can read more about cloud architectures and decoupling here.</p>
 <p>One of the most common scenario in a cloud application is a series of asynchronous operations executed by many nodes on different layers: for example a front end server tier receiving  files and a backend server tier doing analysis on them; a good practice is to have a message queue between the two serving as an orchestration component. Each web server node will post a message in the queue for every files received, each backend node will consume a message from the queue to complete his operations on the files. In this way the two tiers are independent one from each other: in case of backend failure or over-capacity, the web servers will keep receiving files and storing message in the queue. If the two operations where done synchronously, the backend failure would stop the whole system to work.</p>
 <p>A lot of <em>off-the-shelf</em> message queue software is already available, but I felt like writing my own would give me a good point of view on system programming with Go, so I wrote it, and the result is pretty awesome too. In a few days I was able to have a configurable message queue storing messages in memory, on filesystem or database (MySQL); communication is based on JSON via TCP, and the server can be configured to support a maximum number of queues, a maximum message length and queue capacity: combination of the configured parameters will have performance effects on the single node.</p>
@@ -163,7 +163,7 @@ Being a cloud system engineer, my work is to design and implement distributed sy
                 Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
             </noscript></div></div></div>
                 </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.82.0">Hugo</a> | Theme - <a href="https://ublogger.netlify.app/?utm_source=https://inge.4pr.es/&utm_medium=footer&utm_campaign=config&utm_term=2.0.1" target="_blank" title="uBlogger 2.0.1">uBlogger</a>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.88.0">Hugo</a> | Theme - <a href="https://ublogger.netlify.app/?utm_source=https://inge.4pr.es/&utm_medium=footer&utm_campaign=config&utm_term=2.0.1" target="_blank" title="uBlogger 2.0.1">uBlogger</a>
                 </div><div class="footer-line"><i class="svg-icon icon-copyright"></i><span>2012 - 2021</span><span class="author">&nbsp;<a href="/" target="_blank"></a></span></div>
         </div>
     </footer></div>
