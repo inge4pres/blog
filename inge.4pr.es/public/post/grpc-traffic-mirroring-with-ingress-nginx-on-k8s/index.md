@@ -89,7 +89,7 @@ But what if we'd like to only mirror _a portion_ of the traffic?
 At the end of a previous post I left as a homework for the readers to discover how to copy only a percentage of traffic.
 Read on to see how to achieve it.
 
-### Mirror a part of traffic
+### Bonus: mirror a part of traffic
 
 NGINX has a [`split_clients` module](https://nginx.org/en/docs/http/ngx_http_split_clients_module.html) that is capable
 of setting a variable based on the _distribution of an input_. The variable can be used in virtual servers to apply 
@@ -188,6 +188,24 @@ then the `split_clients` config would be
       28.57% 1;
       * "";
     }
+
+### Drawbacks and limitations
+
+Copying traffic using this technique is simple and effective, but it has a cost: we have a number of TCP connections
+that are dedicated to serving the cloned traffic, even if going through the loopback interface.
+
+You will notice from the ingress-nginx controller metrics that enabling the virtual server via the configMap does not
+create more connections immediately, but as soon as you configure an Ingress to mirror using the new server, there will
+be an increase in the average open connections.
+
+This is expected, because of the non-native way we are doing mirroring for gRPC traffic.
+
+The same applies to memory and CPU usage: handling more connections, and decrypting and re-encrypting every gRPC call
+will come with a resource overhead.
+
+One more thing to note: this technique _might_ be working with gRPC streams, but I was only able to test it with unary
+RPCs.
+
 
 ### Credit
 

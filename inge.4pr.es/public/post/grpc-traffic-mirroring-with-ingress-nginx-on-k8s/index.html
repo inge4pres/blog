@@ -28,7 +28,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/inge.4pr.es\/post\/grpc-traffic-mirroring-with-ingress-nginx-on-k8s\/"
-        },"image": ["https:\/\/inge.4pr.es\/images\/avatar.png"],"genre": "post","keywords": "kubernetes, infrastructure, SRE","wordCount":  903 ,
+        },"image": ["https:\/\/inge.4pr.es\/images\/avatar.png"],"genre": "post","keywords": "kubernetes, infrastructure, SRE","wordCount":  1051 ,
         "url": "https:\/\/inge.4pr.es\/post\/grpc-traffic-mirroring-with-ingress-nginx-on-k8s\/","datePublished": "2021-10-25T15:42:08+02:00","dateModified": "2021-10-25T15:42:08+02:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","description": "How to test gRPC service with production data in testing environments, cloning (or \"shadowing\") traffic via NGINX\n"
     }
     </script><script type="application/ld+json">
@@ -233,7 +233,7 @@ and has 2 important settings.</p>
 But what if we&rsquo;d like to only mirror <em>a portion</em> of the traffic?</p>
 <p>At the end of a previous post I left as a homework for the readers to discover how to copy only a percentage of traffic.
 Read on to see how to achieve it.</p>
-<h3 id="mirror-a-part-of-traffic" class="headerLink"><a href="#mirror-a-part-of-traffic" class="header-mark"></a>Mirror a part of traffic</h3><p>NGINX has a <a href="https://nginx.org/en/docs/http/ngx_http_split_clients_module.html" target="_blank" rel="noopener noreffer"><code>split_clients</code> module</a> that is capable
+<h3 id="bonus-mirror-a-part-of-traffic" class="headerLink"><a href="#bonus-mirror-a-part-of-traffic" class="header-mark"></a>Bonus: mirror a part of traffic</h3><p>NGINX has a <a href="https://nginx.org/en/docs/http/ngx_http_split_clients_module.html" target="_blank" rel="noopener noreffer"><code>split_clients</code> module</a> that is capable
 of setting a variable based on the <em>distribution of an input</em>. The variable can be used in virtual servers to apply
 conditional configurations.</p>
 <p>The syntax to configure the module is</p>
@@ -351,6 +351,16 @@ range percentage    = 28.57%
   * &quot;&quot;;
 }
 </code></pre>
+<h3 id="drawbacks-and-limitations" class="headerLink"><a href="#drawbacks-and-limitations" class="header-mark"></a>Drawbacks and limitations</h3><p>Copying traffic using this technique is simple and effective, but it has a cost: we have a number of TCP connections
+that are dedicated to serving the cloned traffic, even if going through the loopback interface.</p>
+<p>You will notice from the ingress-nginx controller metrics that enabling the virtual server via the configMap does not
+create more connections immediately, but as soon as you configure an Ingress to mirror using the new server, there will
+be an increase in the average open connections.</p>
+<p>This is expected, because of the non-native way we are doing mirroring for gRPC traffic.</p>
+<p>The same applies to memory and CPU usage: handling more connections, and decrypting and re-encrypting every gRPC call
+will come with a resource overhead.</p>
+<p>One more thing to note: this technique <em>might</em> be working with gRPC streams, but I was only able to test it with unary
+RPCs.</p>
 <h3 id="credit" class="headerLink"><a href="#credit" class="header-mark"></a>Credit</h3><p>Thanks again to Joni (<a href="https://twitter.com/mejofi" target="_blank" rel="noopener noreffer">@mejofi</a>) for helping me find the original gRPC traffic mirroring configuration.</p>
 <p>The partial mirroring addition is taken from this nice blog post by Alex Dzyoba
 <a href="https://alex.dzyoba.com/blog/nginx-mirror/" target="_blank" rel="noopener noreffer">https://alex.dzyoba.com/blog/nginx-mirror/</a></p>
