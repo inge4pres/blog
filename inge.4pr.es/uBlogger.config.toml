@@ -62,9 +62,9 @@ enableEmoji = true
         weight = 40
     [languages.en.params]
       # site description
-      description = "Francesco Gualazzi: infrastructure-aware developer"
+      description = "Francesco Gualazzi: infrastructure-aware software engineer"
       # site keywords
-      keywords = ["francesco gualazzi", "inge4pres", "blog", "devops", "software", "engineering"]
+      keywords = ["francesco gualazzi", "inge4pres", "blog", "devops", "software", "engineering", "SRE"]
       # App icon config
       [languages.en.params.app]
         # optional site title override for the app when added to an iOS home screen or Android launcher
@@ -108,7 +108,7 @@ enableEmoji = true
           # title shown in home page (HTML format is supported)
           title = "Francesco Gualazzi"
           # subtitle shown in home page (HTML format is supported)
-          subtitle = "Infrastructure-aware developer"
+          subtitle = "infrastructure-aware software engineer"
           # whether to show social links
           social = true
           # disclaimer (HTML format is supported)

@@ -41,7 +41,7 @@ math:
 license: ""
 ---
 
-In a [previous post](grpc-traffic-mirroring-using-nginx.md) we saw an NGINX configuration to allow gRPC traffic mirroring.
+In a [previous post](https://inge.4pr.es/post/grpc-traffic-mirroring-using-nginx/) we saw an NGINX configuration to allow gRPC traffic mirroring.
 
 Is the same technique applicable on Kubernetes?
 Yes! Using the [ingress-nginx](https://github.com/kubernetes/ingress-nginx) ingress controller!

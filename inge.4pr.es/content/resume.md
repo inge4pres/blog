@@ -10,7 +10,15 @@ comment: false
 
 # Work experiences
 
-#### 7/2020 - now()  » Senior Software Engineer
+#### 11/2022 - now()  » Senior Software Engineer
+##### [Elastic Observability](https://elastic.co/observability)
+After Optimyze [joins forces with Elastic](https://www.elastic.co/blog/elastic-and-optimyze-join-forces-to-deliver-always-on-continuous-profiling-of-infrastructure-applications-and-services),
+I keep working with the same wonderful team, with the goal of integrating Prodfiler into the Elastic stack.
+Prodfiler is now Universal Profiling: the same amazing technology, backed by a different data store.
+I focus on the backend integration and data collection, trying to improve storage efficiency and keep continuous profiling
+affordable.
+
+#### 7/2020 - 10/2022  » Senior Software Engineer
 ##### [optimyze.cloud](https://optimyze.cloud/)
 We are a startup building Prodfiler: the lowest-overhead, always-on continuous-profiling tool for all your software stacks.
 Prodfiler gives a holistic view of CPU consumption across all your fleets, supporting multiple platforms and languages.
@@ -18,7 +26,7 @@ I contribute to the product and leverage my previous working to bake reliability
 
 #### 9/2018 - 6/2020  » Site Reliability Engineer 
 ##### [lastminute.com](https://careers.lastminute.com/ "lastminute.com careers") 
-Joined the SRE team within Platform to work more closely on the company cloud platforms both on-premise and in public clouds.
+I join the SRE team within Platform to work more closely on the company cloud platforms both on-premise and in public clouds.
 Main focus is developing software in Go to automate the platform based on Linux, containers and Kubernetes.
 
 #### 9/2017 - 8/2018  » DevOps Engineer
