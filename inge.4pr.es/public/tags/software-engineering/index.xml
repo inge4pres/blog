@@ -1,16 +1,22 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>software-engineering - Tag - INGE4PRES RATIONAL THOUGHTS</title>
-        <link>https://inge.4pr.es/tags/software-engineering/</link>
-        <description>software-engineering - Tag - INGE4PRES RATIONAL THOUGHTS</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 03 Apr 2021 17:10:26 &#43;0100</lastBuildDate><atom:link href="https://inge.4pr.es/tags/software-engineering/" rel="self" type="application/rss+xml" /><item>
-    <title>Micro-committing with Git</title>
-    <link>https://inge.4pr.es/post/micro-committing-with-git/</link>
-    <pubDate>Sat, 03 Apr 2021 17:10:26 &#43;0100</pubDate>
-    <author>inge4pres</author>
-    <guid>https://inge.4pr.es/post/micro-committing-with-git/</guid>
-    <description><![CDATA[I have been using micro-committing for some time now, during which I have adapted the usage of this technique to my needs, bringing it to a level that makes me more productive than ever in software development.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>software-engineering on inge4pres</title>
+    <link>https://inge.4pr.es/tags/software-engineering/</link>
+    <description>Recent content in software-engineering on inge4pres</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 03 Apr 2021 17:10:26 +0100</lastBuildDate><atom:link href="https://inge.4pr.es/tags/software-engineering/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Micro-committing with Git</title>
+      <link>https://inge.4pr.es/post/micro-committing-with-git/</link>
+      <pubDate>Sat, 03 Apr 2021 17:10:26 +0100</pubDate>
+      
+      <guid>https://inge.4pr.es/post/micro-committing-with-git/</guid>
+      <description>I have been using micro-committing for some time now, during which I have adapted the usage of this technique to my needs, bringing it to a level that makes me more productive than ever in software development.
 Combining micro-committing with Git, while doing TDD is now my favorite development experience: I like how this workflow helps to deliver changes with speed and confidence.
-This is not a one-size-fits-all approach, I&rsquo;m sharing what works great for me; I hope some parts of what follows will help you and your team as well.]]></description>
-</item></channel>
+This is not a one-size-fits-all approach, I&amp;rsquo;m sharing what works great for me; I hope some parts of what follows will help you and your team as well.</description>
+    </item>
+    
+  </channel>
 </rss>

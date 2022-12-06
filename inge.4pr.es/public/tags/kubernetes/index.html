@@ -1,144 +1,479 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, follow"/><title>kubernetes | INGE4PRES RATIONAL THOUGHTS</title>
-        <meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="@inge4pres"/><meta name="twitter:title" content=""/>
-        <meta name="twitter:description" content="Francesco Gualazzi: infrastructure-aware developer"/>
-        <meta name="Description" content="Francesco Gualazzi: infrastructure-aware developer"><meta property="og:title" content="kubernetes" />
-<meta property="og:description" content="Francesco Gualazzi: infrastructure-aware developer" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://inge.4pr.es/tags/kubernetes/" /><meta property="og:image" content="https://inge.4pr.es/images/avatar.png"/>
+<html lang="en-us">
+  <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>
+    kubernetes - inge4pres
+  </title><meta name="generator" content="Hugo 0.98.0" /><link
+    rel="stylesheet"
+    href="https://inge.4pr.es/css/styles.css"
+    integrity=""
+  />
+  
+  <script>
+    
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  </script>
+  
+</head>
 
-<meta name="application-name" content="INGE4PRES RATIONAL THOUGHTS">
-<meta name="apple-mobile-web-app-title" content="INGE4PRES RATIONAL THOUGHTS"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-        <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
-        <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://inge.4pr.es/tags/kubernetes/" /><link rel="alternate" href="/tags/kubernetes/index.xml" type="application/rss+xml" title="INGE4PRES RATIONAL THOUGHTS">
-    <link rel="feed" href="/tags/kubernetes/index.xml" type="application/rss+xml" title="INGE4PRES RATIONAL THOUGHTS"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.6cf1ea52f3eaa1db6fd80fb0ba96e8568d6d83a847d1c35cce0f61aad5b2416b.css" integrity="sha256-bPHqUvPqodtv2A&#43;wupboVo1tg6hH0cNczg9hqtWyQWs="><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><meta name="google-site-verification" content="TOk-oj9FYpVoRqq2BjvXT_OWQZZ6poZhp1WZXPhfMvE" /></head>
-    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+  <body
+    class="flex flex-col min-h-screen dark:bg-gray-900 dark:text-gray-100 transition-colors duration-500"
+  ><header class="w-full px-4 pt-4 max-w-5xl mx-auto">
+  <nav class="flex items-center justify-between flex-wrap">
+    <div class="flex gap-2 items-center">
+      
+      <a href="mailto:fgualazzi@gmail.com" aria-label="EMail">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <circle cx="12" cy="12" r="4" />
+          <path d="M16 12v1.5a2.5 2.5 0 0 0 5 0v-1.5a9 9 0 1 0 -5.5 8.28" />
+        </svg>
+      </a>
+      
+      <a href="https://inge.4pr.es/" class="flex items-center font-bold">
+        inge4pres
+      </a>
+    </div>
 
-        <div id="mask"></div><div class="wrapper"><header>
-    <div class="desktop header" id="header-desktop">
-        <div class="header-wrapper">
-            <div class="header-title">
-                <a href="/" title="INGE4PRES RATIONAL THOUGHTS" class="header-logo logo-svg"><img loading="lazy" decoding="async"
-         class="logo"
-         src="/images/gopher.png"
-         alt="/images/gopher.png"
-         title="/images/gopher.png"
-    /><span class="header-title-pre"><i class='fas fa-pencil-alt fa-fw'></i></span>INGE4PRES RATIONAL THOUGHTS<span class="header-title-post">🤓 <i class='fas fa-pencil-alt fa-fw'>Growing knowledge one post at a time</i></span></a>
-            </div>
-            <div class="menu">
-                <nav>
-                    <h2 class="display-hidden">Основная навигация</h2>
-                    <ul class="menu-inner"><li>
-                            <a class="menu-item" href="/about/"> About </a>
-                        </li><li>
-                            <a class="menu-item" href="/resume/"> Resume </a>
-                        </li><li>
-                            <a class="menu-item" href="/tags/"> Tags </a>
-                        </li></ul>
-                </nav><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
-                        <input type="text" placeholder="Find" id="search-input-desktop">
-                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
-                            <span class="svg-icon icon-search"></span>
-                        </a>
-                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
-                            <span class="svg-icon icon-cancel"></span>
-                        </a>
-                        <span class="search-button search-loading" id="search-loading-desktop">
-                            <span class="svg-icon icon-loading"></span>
-                        </span>
-                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
-                <span class="svg-icon icon-moon"></span>
-                </a>
-            </div>
-        </div>
-    </div><div class="mobile header" id="header-mobile">
-        <div class="header-container">
-            <div class="header-wrapper">
-                <div class="header-title">
-                    <a href="/" title="INGE4PRES RATIONAL THOUGHTS" class="header-logo"><img loading="lazy" decoding="async"
-         class="logo"
-         src="/images/gopher.png"
-         alt="/images/gopher.png"
-         title="/images/gopher.png"
-    /><span class="header-title-pre"><i class='fas fa-pencil-alt fa-fw'></i></span>INGE4PRES RATIONAL THOUGHTS<span class="header-title-post">🤓 <i class='fas fa-pencil-alt fa-fw'>Growing knowledge one post at a time</i></span></a>
-                </div>
-                <div class="menu-toggle" id="menu-toggle-mobile">
-                    <span></span><span></span><span></span>
-                </div>
-            </div>
-            <div class="menu" id="menu-mobile"><div class="search-wrapper">
-                        <div class="search mobile" id="search-mobile">
-                            <input type="text" placeholder="Find" id="search-input-mobile">
-                            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
-                                <span class="svg-icon icon-search"></span>
-                            </a>
-                            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
-                                <span class="svg-icon icon-cancel"></span>
-                            </a>
-                            <span class="search-button search-loading" id="search-loading-mobile">
-                                <span class="svg-icon icon-loading"></span>
-                            </span>
-                        </div>
-                        <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
-                            Cancel
-                        </a>
-                    </div><nav>
-                    <h2 class="display-hidden">Основная навигация</h2>
-                    <ul><li>
-                            <a class="menu-item" href="/about/" title="">About</a>
-                        </li><li>
-                            <a class="menu-item" href="/resume/" title="">Resume</a>
-                        </li><li>
-                            <a class="menu-item" href="/tags/" title="">Tags</a>
-                        </li></ul>
-                </nav>
-                <a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
-                    <span class="svg-icon icon-moon"></span>
-                </a></div>
-        </div>
-    </div><div class="search-dropdown desktop">
-    <div id="search-dropdown-desktop"></div>
-</div>
-<div class="search-dropdown mobile">
-    <div id="search-dropdown-mobile"></div>
-</div></header><main class="main">
-                <div class="container"><div class="page archive"><h2 class="single-title pulse faster">Tag - kubernetes</h2><h3 class="group-title">2021</h3><article class="archive-item">
-                        <a href="/post/grpc-traffic-mirroring-with-ingress-nginx-on-k8s/" class="archive-item-link">gRPC Traffic Mirroring With Ingress-Nginx on K8s</a>
-                        <span class="archive-item-date">10-25</span>
-                    </article><h3 class="group-title">2019</h3><article class="archive-item">
-                        <a href="/post/cka-exam-experience/" class="archive-item-link">CKA exam experience and preparation</a>
-                        <span class="archive-item-date">11-01</span>
-                    </article><article class="archive-item">
-                        <a href="/post/progressive-delivery-with-kubernetes/" class="archive-item-link">Progressive Delivery with Kubernetes</a>
-                        <span class="archive-item-date">05-05</span>
-                    </article><h3 class="group-title">2018</h3><article class="archive-item">
-                        <a href="/post/serverless-on-kubernetes/" class="archive-item-link">Serverless on Kubernetes</a>
-                        <span class="archive-item-date">01-30</span>
-                    </article></div></div>
-                </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.88.0">Hugo</a> | Theme - <a href="https://ublogger.netlify.app/?utm_source=https://inge.4pr.es/&utm_medium=footer&utm_campaign=config&utm_term=2.0.1" target="_blank" title="uBlogger 2.0.1">uBlogger</a>
-                </div><div class="footer-line"><i class="svg-icon icon-copyright"></i><span>2012 - 2021</span><span class="author">&nbsp;<a href="/" target="_blank"></a></span></div>
-        </div>
-    </footer></div>
+    <ul id="nav-menu" class="flex w-auto mt-0 space-x-2">
+      
+      <li>
+        <a href="https://inge.4pr.es/about/" class="hover:text-blue-800 dark:hover:text-blue-300">You are what you is (F. Zappa)</a>
+      </li>
+      
+      
+      <li>
+        <a href="https://inge.4pr.es/categories/blog/" class="hover:text-blue-800 dark:hover:text-blue-300">blog</a>
+      </li>
+      
+    </ul>
+  </nav>
+</header>
+<main class="flex-1 mx-4 md:mx-12 lg:mx-24 mt-8 sm:mt-16"> 
+<article class="sm:mx-12 mb-16 prose lg:prose-lg">
+  <h1><a href="https://inge.4pr.es/post/grpc-traffic-mirroring-with-ingress-nginx-on-k8s/">gRPC Traffic Mirroring With Ingress-Nginx on K8s</a></h1>
+  <p>In a <a href="https://inge.4pr.es/post/grpc-traffic-mirroring-using-nginx/">previous post</a> we saw an NGINX configuration to allow gRPC traffic mirroring.</p>
+<p>Is the same technique applicable on Kubernetes?
+Yes! Using the <a href="https://github.com/kubernetes/ingress-nginx">ingress-nginx</a> ingress controller!</p>
+<h3 id="traffic-mirroring">Traffic mirroring</h3>
+<p>Use the following configurations snippets in the <a href="https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/configmap/">ingress-nginx configMap</a>
+and in the Ingress manifest to mirror <strong>all traffic</strong> to a separate gRPC server.</p>
+<h4 id="configmap">ConfigMap</h4>
+<p>Replace <code>grpc-backend.company.net</code> and <code>grpc-mirror.company.net</code> with the original and mirror endpoint, respectively.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>    <span style="color:#ff79c6">http-snippet</span>: |<span style="color:#f1fa8c">
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">      server {
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        listen 127.0.0.1:9443 ssl http2;
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        server_name grpc-backend.company.net;
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        grpc_ssl_protocols TLSv1.3;
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        ssl_certificate_by_lua_block {
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">          certificate.call()
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        }
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        location / {
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">          grpc_pass grpcs://grpc-mirror.company.net:443;
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        }
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">      }</span>      
+</span></span></code></pre></div><h4 id="ingress">Ingress</h4>
+<p>Add the following annotations in the Ingress manifest defining the endpoint of your gRPC service.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>    <span style="color:#ff79c6">nginx.ingress.kubernetes.io/backend-protocol</span>: GRPC
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">nginx.ingress.kubernetes.io/configuration-snippet</span>: |<span style="color:#f1fa8c">
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">      </span>      mirror /mirror;
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">nginx.ingress.kubernetes.io/server-snippet</span>: |<span style="color:#f1fa8c">
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">      location = /mirror {
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        internal;
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        proxy_set_header X-Mirrored-From $http_host;
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        proxy_pass https://127.0.0.1:9443$request_uri;
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">      }</span>      
+</span></span></code></pre></div><h4 id="nginx-configuration-details">NGINX configuration details</h4>
+<p>Compared to the <a href="grpc-traffic-mirroring-using-nginx.md#the-solution">non-K8s version</a> we have some differences:</p>
+<p>In the main <code>nginx.conf</code> file, applied through the configMap, we have a weird section.</p>
+<pre><code>ssl_certificate_by_lua_block {
+  certificate.call()
+}
+</code></pre>
+<p>This is a something I discovered while looking in the ingress-nginx source: it&rsquo;s a helper used to load the right TLS certificate
+which is impossible to do otherwise, because TLS certificates are stored in Kubernetes secrets, instead of normal files.
+This replaces the TLS certificate loading directives.</p>
+<p>The rest is unchanged.</p>
+<p>The Ingress resource manifest contains the annotation to configure a gRPC backend <code>nginx.ingress.kubernetes.io/backend-protocol: GRPC</code>
+and has 2 important settings.</p>
+<p>The first snippet</p>
+<pre><code>nginx.ingress.kubernetes.io/configuration-snippet: |
+  mirror /mirror;
+</code></pre>
+<p>adds the mirroring directive to the virtual server location, to copy the gRPC traffic to the <code>/mirror</code> internal location.</p>
+<p>The second snippet</p>
+<pre><code>nginx.ingress.kubernetes.io/server-snippet: |
+  location = /mirror {
+    internal;
+    proxy_set_header X-Mirrored-From $http_host;
+    proxy_pass https://127.0.0.1:9443$request_uri;
+ }
+</code></pre>
+<p>creates the internal location that will proxy the traffic to the additional server created in the configMap above.</p>
+<p>That&rsquo;s it for copying <em>all</em> traffic from an ingress to a separate server!
+But what if we&rsquo;d like to only mirror <em>a portion</em> of the traffic?</p>
+<p>At the end of a previous post I left as a homework for the readers to discover how to copy only a percentage of traffic.
+Read on to see how to achieve it.</p>
+<h3 id="bonus-mirror-a-part-of-traffic">Bonus: mirror a part of traffic</h3>
+<p>NGINX has a <a href="https://nginx.org/en/docs/http/ngx_http_split_clients_module.html"><code>split_clients</code> module</a> that is capable
+of setting a variable based on the <em>distribution of an input</em>. The variable can be used in virtual servers to apply
+conditional configurations.</p>
+<p>The syntax to configure the module is</p>
+<pre><code>split_clients &lt;input string&gt; &lt;variable&gt; {
+  5% something;
+  10% nothing;
+  * &quot;&quot;;
+}
+</code></pre>
+<p>with the value of <code>&lt;variable&gt;</code> being set based on the hash of <code>&lt;input string&gt;</code>: this can be anything that NGINX assigns
+when processing a request.</p>
+<p>The important detail to understand of the above configurations, is how to choose the input string: the percentage defines
+the portion of hash values that will yield in <code>&lt;variable&gt;</code> the value to its right.</p>
+<p>Let&rsquo;s have a look at the configs.</p>
+<p>NGINX configMap:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>    <span style="color:#ff79c6">http-snippet</span>: |<span style="color:#f1fa8c">
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">      split_clients &#34;${remote_addr}mirror${request_uri}&#34; $mirror_backend {
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        10% 1;
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        * &#34;&#34;;
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">      }
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">      server {
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        listen 127.0.0.1:9443 ssl http2;
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        server_name original.domain.com;
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        grpc_ssl_protocols TLSv1.3;
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        ssl_certificate_by_lua_block {
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">          certificate.call()
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        }
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        location / {
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">          grpc_pass grpcs://destination.domain.com:443;
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        }
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">      }</span>      
+</span></span></code></pre></div><p>Ingress manifest:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>    <span style="color:#ff79c6">nginx.ingress.kubernetes.io/backend-protocol</span>: GRPC
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">nginx.ingress.kubernetes.io/configuration-snippet</span>: |<span style="color:#f1fa8c">
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">      </span>      mirror /mirror;
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">nginx.ingress.kubernetes.io/server-snippet</span>: |<span style="color:#f1fa8c">
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">      location = /mirror {
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        internal;
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        if ($mirror_backend = &#34;&#34;) { 
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">          return 200; 
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        }
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        proxy_set_header X-Mirrored-From $http_host;
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        proxy_pass https://127.0.0.1:9443$request_uri;
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">      }</span>      
+</span></span></code></pre></div><p>The additions to the previous config: with <code>split_clients</code> in the main nginx.conf file we set a variable <code>$mirror_backend</code>
+with a non-empty string when the hash of <code>&quot;${remote_addr}mirror${request_uri}&quot;</code> falls in the <em>first</em> 10% of all possible
+hash values.
+The <code>if</code> added in the Ingress manifest will only proxy traffic when the <code>$mirror_backend</code> variable is not empty.</p>
+<p>The hash value can be from 0 to 4294967295 (NGINX uses <a href="https://en.wikipedia.org/wiki/MurmurHash#MurmurHash2">MurMurHash2</a>,
+returning a 32-bit integer); the percentages written in the configuration create segments of the whole hash space in a
+contiguous manner, starting from 0.</p>
+<p>In the example above where we defined <code>5%</code>, <code>10%</code> and <code>*</code>, you will have 3 ranges of possible values for <code>&lt;variable&gt;</code>:</p>
+<ul>
+<li><code>5%</code> -&gt; hash values from 0 to 214748364</li>
+<li><code>10%</code> -&gt; hash values from 214748365 to 429496728</li>
+<li><code>*</code> -&gt; all remaining hash values from 429496729 to 4294967295</li>
+</ul>
+<p>Therefore, the probability of getting each value is not <em>exactly</em> the same of the percentage configured,
+because the distribution of hashes tightly depends on the input.</p>
+<p>For example, if you have most of your traffic from a few <code>$remote_address</code>es, you don&rsquo;t want to set it as input alone.
+The more you have a sparse distribution of values in the input variable, the better the filter will work.</p>
+<p>This is why in the example configuration, I added <code>$request_uri</code> to the input, concatenating with a constant string
+<code>mirror</code>: this highly increases the entropy of the hashes, making the percentage more reliable.</p>
+<p>An important property of hashing the input is that it&rsquo;s deterministic, so if you want to mirror <em>exactly</em> for a subset
+of requests, you can do it: define the percentages to include only the portion of hashes that you want to be copied.</p>
+<p>For example, if you want to mirror only traffic for a certain URI, as in:</p>
+<pre><code>$request_uri        = `/bank.Service/askForTransactions`
+murmurhash2         = 1227040391
+range percentage    = 28.57%
+</code></pre>
+<p>then the <code>split_clients</code> config would be</p>
+<pre><code>split_clients $request_uri $mirror_backend {
+  28.5699% &quot;&quot;;
+  28.57% 1;
+  * &quot;&quot;;
+}
+</code></pre>
+<h3 id="drawbacks-and-limitations">Drawbacks and limitations</h3>
+<p>Copying traffic using this technique is simple and effective, but it has a cost: we have a number of TCP connections
+that are dedicated to serving the cloned traffic, even if going through the loopback interface.</p>
+<p>You will notice from the ingress-nginx controller metrics that enabling the virtual server via the configMap does not
+create more connections immediately, but as soon as you configure an Ingress to mirror using the new server, there will
+be an increase in the average open connections.</p>
+<p>This is expected, because of the non-native way we are doing mirroring for gRPC traffic.</p>
+<p>The same applies to memory and CPU usage: handling more connections, and decrypting and re-encrypting every gRPC call
+will come with a resource overhead.</p>
+<p>One more thing to note: this technique <em>might</em> be working with gRPC streams, but I was only able to test it with unary
+RPCs.</p>
+<h3 id="credit">Credit</h3>
+<p>Thanks again to Joni (<a href="https://twitter.com/mejofi">@mejofi</a>) for helping me find the original gRPC traffic mirroring configuration.</p>
+<p>The partial mirroring addition is taken from this nice blog post by Alex Dzyoba
+<a href="https://alex.dzyoba.com/blog/nginx-mirror/">https://alex.dzyoba.com/blog/nginx-mirror/</a></p>
 
-        <aside id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
-                <i class="svg-icon icon-arrow-up"></i>
-            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
-                <i class="svg-icon icon-comments-fixed"></i>
-            </a>
-        </aside><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><script src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lunr@2.3.8/lunr.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js"></script><script>window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"cookieconsent":{"content":{"dismiss":"LGTM","link":"Learn more","message":"Do you like cookies?"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":20,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"}};</script><script src="/js/theme.min.0d44909075b648ac3259c39fcf9ddb2a6e7314cb3a7374007dd582c887381740.js" integrity="sha256-DUSQkHW2SKwyWcOfz53bKm5zFMs6c3QAfdWCyIc4F0A="></script><script>
-                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-                })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+</article>
 
-	        ga('create', 'UA-55252403-1', 'auto');
-	        ga('set', 'anonymizeIp', true);
-	        ga('send', 'pageview');
-	    </script></body>
+<article class="sm:mx-12 mb-16 prose lg:prose-lg">
+  <h1><a href="https://inge.4pr.es/post/cka-exam-experience/">CKA exam experience and preparation</a></h1>
+  <p>Yes! Yesterday I received an awesome email stating that I cleared the <a href="https://www.cncf.io/certification/cka/">Certified Kubernetes Administrator</a> exam! 😎
+Here I want to report my experience in preparing and taking the exam, hopefully this info can help others Kubernetes practitioners get the certification too.</p>
+<h3 id="preparation">Preparation</h3>
+<p>I consider myself lucky because for the past two years I had the chance to use Kubernetes working at <a href="https://lmgroup.lastminute.com/">lastminute.com</a>; on top this on-the-job training I went through a lot of studying and practicing because the exam itself has a lot of content.
+Having some expertise of working with Kubernetes is definitely a huge help, as this specific exam is tailored for cluster administrators.
+You will need to prove a thorough understanding of the Kubernetes primitives, architecture and operational strategies.</p>
+<p>Do not fear though! The <a href="https://kubernetes.io/docs/home/">documentation</a> is extensive and very detailed on (most of) the topics that are needed to use and operate a cluster so here&rsquo;s my suggestions.</p>
+<ul>
+<li>
+<h5 id="exam-structure">Exam structure</h5>
+</li>
+</ul>
+<p>Understand the structure of the exam: 3 hours, 24 questions, 74% score needed to pass.
+In my experience the first 10 questions will be the easiest, so try to complete them during the first hour; the last 3-4 questions are going to be very long to read and execute so you will need more time in the end.
+The exam software will not warn you if the question exercise is completed: <em>read carefully</em> the tasks that will mark the exercise complete.</p>
+<ul>
+<li>
+<h5 id="knowledge">Knowledge</h5>
+</li>
+</ul>
+<p>Read through the whole documentation carefully, at least twice.
+Get familiar with the structure of the docs: concepts, tasks, reference: they are organized in such a way that the content is mixed up so know where to look for.
+The following books are recommended read:
+- <a href="https://www.oreilly.com/library/view/kubernetes-up-and/9781492046523/">Kubernetes up and running</a>
+- <a href="https://www.oreilly.com/library/view/managing-kubernetes/9781492033905/">Managing Kubernetes</a>
+- <a href="https://www.oreilly.com/library/view/kubernetes-in-action/9781617293726/">Kubernetes in action</a></p>
+<ul>
+<li>
+<h5 id="practice">Practice</h5>
+</li>
+</ul>
+<p>If you have free credits for a cloud provider use them to spin up a cluster to play with; you will need to know well how to interact with the cluster using <code>kubectl</code> CLI.
+Try all the commands listed in the <a href="https://kubernetes.io/docs/reference/kubectl/cheatsheet/">kubectl cheat sheet</a> and understand their effect on the cluster.
+Explore the tutorials and tasks sections of the documentation and run them on the cluster to find caveats and errors in the docs.</p>
+<p>Run through the amazing Kelsey Hightower <a href="https://github.com/kelseyhightower/kubernetes-the-hard-way">Kubernetes The Hard Way</a> at least twice; spin up VMs on your PC using Vagrant and try building a cluster from scratch.
+Push it even further trying to break the cluster in every possible way and observe the effects of failure: systemd logs, kubectl errors, etc&hellip;</p>
+<h3 id="taking-the-exam">Taking the exam</h3>
+<p>I have to say the exam infrastructure is well done: in a single browser window you will have a left menu with the questions and a central section with a tmux terminal.
+Before starting the exam a proctor will ask to confirm your identity and will validate the exam conditions are met: clean desk (no headset, no phone, no paper), empty and silent room.
+During the exam you can have drinks but not food, and you can request a break at any time but the clock will continue to run during the break.
+Some tips to meet the requirements.</p>
+<ul>
+<li>
+<h5 id="workstation">Workstation</h5>
+</li>
+</ul>
+<p>Remove everything from your exam desk except:</p>
+<pre><code>- valid passport or national ID with picture
+- a glass of water or a juice that can help you stay hydrated 
+- the PC you will run the exam on, the optional external monitor and external mouse/keyboard
+</code></pre>
+<ul>
+<li>
+<h5 id="connectivity">Connectivity</h5>
+</li>
+</ul>
+<p>Ensure you have enough bandwidth for a streaming connection (10Mb should be enough), because you will have to share your desktop(s) and show your face through the webcam for the whole time.
+Prefer WiFi over cable: before the exam can start you will have to pan your camera around to show the proctor the whole room, probably twice. If you (like me) used the notebook integrated webcam you will have to move the screen left and right and all across the room
+If you&rsquo;re at home reboot your router one hour before the exam starts, just to be sure.</p>
+<ul>
+<li>
+<h5 id="manage-time">Manage time</h5>
+</li>
+</ul>
+<p>There&rsquo;s a timer in the upper left corner of the exam window: use it to check that you are completing enough questions on time.
+Questions vary from 2 to 8 percent weight; on average you will have 7.5 minutes for evey question, but the last 3/4 are much longer to read and complete as they involve troubleshooting and actions to complete: you probably have to recover/install parts of a cluster.
+Save time on the first questions to have more for the last ones; when switching from a question to another, check the score percentage of the question so you can evaluate if to do it or skip it with respect to the remaining time.</p>
+<ul>
+<li>
+<h5 id="use-the-resources">Use the resources</h5>
+</li>
+</ul>
+<p>There&rsquo;s a staggering feature in the Kubernetes docs: <em>search</em>. When you are solving an exercise and need a reference or an example, search for it in the documentation!
+As using the whole <code>*.kubernetes.io</code> domain is permitted during the exam you can consult examples, copy-paste YAML text and commands and even use snippets from the blog posts!
+Use these resources as soon as you are confronted with a question for which <code>kubectl</code> commands are not enough, reading carefully a doc page or a blog post can get you out of trouble when something peculiar does not work as expected.</p>
+<p>Another nice feature of the exam is a notepad you can open to take notes and copy-paste and edit content. I used it to take notes on the questions I was not able to complete fully and get back on them during the last 15 minutes of time.</p>
+<h3 id="the-overall-exam-experience">The overall exam experience</h3>
+<p>Although the exams rules are quite strict and I admit I was intimated reading the <a href="https://www.cncf.io/certification/cka/faq/">CKA FAQ</a>, setting up the exam room was easy and being able to run the test at home is a major plus compared to force you to go to a certification center.
+The testing facility ran smoothly thanks to a Chrome extension that is required to run the exam and the instructions on how to complete the exercise were clear enough.</p>
+<h3 id="last-but-not-least">Last but not least</h3>
+<p>If you purchased the exam from the Linux Foundation or CNCF Foundation you should have a free retake.
+If you fail the first time don&rsquo;t worry! CKA is a difficult exam, very rich of content and all hands-on, definitely one of the most difficult certifications I&rsquo;ve ever done.
+Try again after you get back studying and practicing on what you could not solve the first time 💪</p>
+
+</article>
+
+<article class="sm:mx-12 mb-16 prose lg:prose-lg">
+  <h1><a href="https://inge.4pr.es/post/progressive-delivery-with-kubernetes/">Progressive Delivery with Kubernetes</a></h1>
+  <p>I&rsquo;m more and more fond of finding the perfect solution to manage application delivery: dev teams want to be fast but their ops counterpart is not happy to loose control over the growing number of deployments that could cause an outage. We as an industry need to find the right balance to have features delivered in time and keep the service up and running for our users! And that&rsquo;s where progressive delivery can help!</p>
+<p>What is progressive delivery? It&rsquo;s the evolution of continuous integration and continuous delivery practices, taken to the extreme - if this is the first time you hear about it, read <a href="https://redmonk.com/jgovernor/2018/08/06/towards-progressive-delivery/">this excellent post by James Governon</a>. But as of today what are the tools that embed this practice in deployment pipelines? None that I could find ☹️&hellip; hence I started this post to share some of the techniques that you can use to achieve progresive delivery today on Kubernetes! I&rsquo;d be really glad to have any comments and discuss on the matter.</p>
+<h3 id="the-goal">The goal</h3>
+<p>The progressive delivery manifesto (if there will ever be one) should explain the rationale why delivering feature in parts is better than all at once: feedback.
+In this Agile world feedback is everything, and the only feedback that matters is your users&rsquo;; as Jez Humble puts it</p>
+<blockquote>
+<p>“Users don’t know what they want. Users know what they don’t want once you’ve built it for them.”</p>
+</blockquote>
+<p>You are not going to build anything useful if you don&rsquo;t collect your users opinion <em>while</em> building the product, that is why having a system that is able to change quickly and that can collect this feedback is so vital to success.</p>
+<h3 id="to-mesh-or-not-to-mesh">To mesh or not to mesh</h3>
+<p>The first approach to progressive delivery is via infrastructure components.
+I cheated a bit in the post intro: there actually is a tool combination that is able to implement a feature close to progressive delivery right now: it&rsquo;s <a href="https://istio.io/">Istio</a> plus <a href="https://www.spinnaker.io/">Spinnaker</a>; the network mesh in this scenario is a router for connections originating by clients between multiple versions of the same backend, whose deployed versions are managed by Spinnaker releases. The mesh could be another product (Envoy, Linkerd, Consul Connect&hellip;) but it is the necessary component that contains the logic to serve the user a specific version of the application, based on goegraphic location rules, latency or even application rules (layer 7).</p>
+<p>If you want to avoid the burden of installing and maintaining a mesh network you need to manage custom tooling to have the traffic routed for a subset of users to a specific version, <a href="https://github.com/bookingcom/shipper">Skipper</a> is a good example but comes with the restriction of not being able to manage percentage of traffic, so the percentage of user served is based only on the number of pods configured from service to service (so not ideal for small sized deployments).</p>
+<p>The other way I see right now is creating a <a href="/2018/05/05/cloud-native-software-delivery/">Kubernetes operator and a CustomResourceDefinition</a> that can interact with the Ingress resource: this is hypothetical and I am not aware of any tool that is doing this but it could be posible to configure the ingresses to serve part of the requests by a specific Service (e.g. <code>v1.2.3</code> backed by a Deployment with a proper <code>selector</code>). As far as I know the current ingress controler based on nginx does not have such feature, but I just discovered writing this line that <a href="https://docs.traefik.io/user-guide/kubernetes/#traffic-splitting">Traefik does support this</a>! It would be great to understand if Traefik can manage multiple rules at once and if it can be managed via API so that the traffic is gradually moved from service to service.</p>
+<h3 id="feature-flags">Feature flags</h3>
+<p>Of course if you move to the application things get easier in terms of programmability, problem is they tend to be more difficult to manage at scale. If you use one of the <a href="http://featureflags.io/feature-flags/">multitude of available</a> feature-flag products (also referred as <a href="https://www.martinfowler.com/articles/feature-toggles.html">feature toggles</a>) you are soon going to be able to experiment with progressive delivery capabilities; your application will most likely contain the logic required to show a specific user a feature or another. While this is intriguing, if you have more than 2 product teams this can easily become a nightmare because if each team implements its own solution of feature toggle the company as a whole can really struggle to get what type of experience is serving to its users. Change management, for as light as it can be, should still be accounting for features enabled and disabled that may cause a service disuption, even if for a small percentage of users, and when the logic for serving different versions of your system is scattered around multiple applications, this goes quickly out of control.</p>
+<p>One approach I&rsquo;ve seen succeed in using software-defined toggle is adopt a centralized, company-wide solution around an existing product: this simplifies greatly the management around features that are delivered passing through multiple services while being able to keep track of changes consitently.</p>
+<h3 id="delivering-it">Delivering it</h3>
+<p>Once you&rsquo;ve established an infrastructure for serving users based on some policies you should also have in place automation to be able to push your features out. In case you went for the infrastructure/network path you&rsquo;ll need a deployment tool that can sit between your CI artifacts and the platform running your services; on the contrary for a software-driven solution you will just need an application build and deployed regularly.
+For the former I am really struggling to find a product that suites my need, I&rsquo;ve poked around with Spinnaker, ArgoCD and Tekton Pipelines but none of them seems to have the adequate primitives to address my progressive delivery needs.
+I&rsquo;d be happy to hear from the community how this is being addressed: I&rsquo;d like to have a descriptive way of defining multiple versions of artifacts and configurations paired together (maybe via commit hash?) and have all of them deployed at the same time; I&rsquo;d also like to update the configurations of a given version while it&rsquo;s running.</p>
+<p>Seems fair right? I might need to tweak my service here and there, but I&rsquo;d like to tune it only for a specific set of features that I know are in version ABC. Now I could not find on the internet a single product that works with Kubernetes able to satisfy this requirement, so please if you happen to have something in mind leave a comment!</p>
+<h3 id="conclusion">Conclusion</h3>
+<p>As always Kubernetes is a great enabler for delivery techniques based on software, it&rsquo;s an extensible platform and the multiple uses that can lead to achieve progressive delivery just confirm it. Personally I see a lot of space for progressive delivery in the upcoming future, especially for IoT. Let&rsquo;s see what&rsquo;s next!</p>
+
+</article>
+
+<article class="sm:mx-12 mb-16 prose lg:prose-lg">
+  <h1><a href="https://inge.4pr.es/post/serverless-on-kubernetes/">Serverless on Kubernetes</a></h1>
+  <p>Kubernetes is the <em>de facto</em> platform for running modern applications: its broad adoption in 2017 and the velocity of the project made it so and it&rsquo;s been accepted as the standard for many companies, from small to planet scale. It was impossible that such an extensible platform would be left out the serverless party, so here are the 4 main players offering FaaS to be run via k8s.</p>
+<h3 id="a-premise">A premise</h3>
+<p>If you&rsquo;re new to serverless and FaaS and all the previous buzzwords sound like cacophony to your ears, I really recommend reading <a href="https://martinfowler.com/articles/serverless.html">this post</a> and watching <a href="https://www.youtube.com/watch?v=LAWjdZYrUgI">this talk</a>. You could also notice how I put FaaS and serverless under the same hat here, this is just a personal opinion although some might argue that FaaS is a subset of serverless: historically I approached the serverless world using AWS Lambda, and I really tied the idea of writing functions and let someone else manage the infrastructure to the <em>serverless</em> concept. Also Sam Newman gave a <a href="https://youtu.be/CrS0HVQZiQI">good talk on serverless</a> that I really recommend watching.</p>
+<h3 id="why-serverless-on-k8s">Why serverless on k8s</h3>
+<p>It seems like a natural evolution for distributed systems to be composed by smaller and smaller parts. When moving from SOA to microservices the size of the service was reduced to enable development of more fine-grained functionalities into smaller and more maintainable components; taken to the extreme, you can reduce a microservice to be dedicated to just one task or to be  made of just one function, that&rsquo;s where FaaS fits into. Kubernetes is a great activator for such modularity as it creates a very powerful abstraction over infrastructure, so when developing a function as a separate module of a distributed system you can scale both vertically and horizontally any building block, each one independently from another, or you could even let Kubernetes manage that (think <a href="https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/">Horizontal Pod Autoscaler</a>).</p>
+<h3 id="four-players-offering-faas-on-k8s">Four players offering FaaS on k8s</h3>
+<ul>
+<li><a href="https://github.com/openfaas/faas">OpenFaaS</a></li>
+<li><a href="https://github.com/fission/fission">Fission</a></li>
+<li><a href="https://github.com/kubeless/kubeless">Kubeless</a></li>
+<li><a href="https://github.com/fnproject/fn">Fn Project</a></li>
+</ul>
+<p>Now there might be others, but this 4 are the ones I mostly heard of in the last 6 months, so they must be the right ones 😁.</p>
+<h4 id="comparison-criteria">Comparison criteria</h4>
+<p>This is not a technical benchmark on the capabilities of this 4 frameworks: it&rsquo;s a <em>&ldquo;look Ma, I can serverless on k8s&rdquo;</em> post where I try and highlight the pros and cons of adopting one or the other; the criteria will be  installation methodology (client and server), languages support, cluster interoperability and developer experience, voted from 0 to 5 the higher the better.
+I will use Kubernetes 1.8.6 that is, at the moment of writing, the latest available stable version.</p>
+<p>The target function to deploy will be a super-serious analytics and business intelligence tool that will read the incoming HTTP request body and save it in a JSON document alongside with a timestamp. The JSON will be stored on a REDIS using a random UUIDv4 as key. All the code that will be deployed as functions is in <a href="https://github.com/inge4pres/blog/tree/master/serverless-on-kubernetes">Github</a>, while for installing the GCP cluster and REDIS I used the following</p>
+<pre tabindex="0"><code>gcloud beta container --project &#34;${GCP_PROJECT}&#34; clusters create &#34;serverless-k8s&#34; \
+  --zone &#34;europe-west2-c&#34; --username &#34;admin&#34; --cluster-version &#34;1.8.6-gke.0&#34; \
+  --machine-type &#34;g1-small&#34; --image-type &#34;COS&#34; --disk-size &#34;50&#34; --num-nodes &#34;3&#34;
+
+gcloud container clusters get-credentials serverless-k8s \
+  --zone europe-west2-c --project &#34;${GCP_PROJECT}&#34;
+
+helm init
+
+helm install stable/redis
+</code></pre><h4 id="fn-project">Fn Project</h4>
+<h6 id="features">Features</h6>
+<ul>
+<li>function configuration via YAML</li>
+<li>local development server via <code>fn start</code> and <code>fn run</code></li>
+<li>uses DockerHub to store functions as containers</li>
+<li>web UI with function monitoring</li>
+</ul>
+<h6 id="client-installation-4">Client installation: 4</h6>
+<p>The <a href="https://github.com/fnproject/fn#install-cli-tool">installation instructions</a> are easy to read and execute, multiple platforms supported out of the box. User is required to set an environment variable with a DockerHub handle</p>
+<pre tabindex="0"><code>export FN_REGISTRY=&lt;DOCKERHUB_USERNAME&gt;
+</code></pre><h6 id="server-installation-3">Server installation: 3</h6>
+<p>A Helm chart is provided under <a href="https://github.com/fnproject/fn-helm">fn-helm</a> but it&rsquo;s not immediately linked to the project&rsquo;s page. The installation requires the user to export an environment variable with the command</p>
+<pre tabindex="0"><code>export FN_API_URL=http://$(kubectl get svc --namespace default fn-release-fn-api -o jsonpath=&#39;{.status.loadBalancer.ingress[0].ip}&#39;):80
+</code></pre><h6 id="language-support-5">Language support: 5</h6>
+<p>Built-in support for Java, Ruby, Go, Python. Runs any docker container as a function.</p>
+<h6 id="cluster-interoperability-2">Cluster interoperability: 2</h6>
+<p>It requires a LoadBalancer resource, so you won&rsquo;t be able to run it on <code>minikube</code> out of the box. It has MySQL and REDIS as dependency services and uses a <a href="https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/">DaemonSet</a> for the API controller, which might impact node&rsquo;s performance. No monitoring provided for the in-cluster components.</p>
+<h6 id="developer-experience-3">Developer experience: 3</h6>
+<p>Very extensive CLI interface. Functions are pipes: they should read Stdin and write to Stdout; some environment variables are injected to the running code to detect request URL and other configurations. I was able to complete my function deployment in roughly 1 hour after digging the docs a while to find out how to add custom configurations to the functions via environment variables.</p>
+<h4 id="openfaas">OpenFaaS</h4>
+<h6 id="features-1">Features</h6>
+<ul>
+<li>sponsored by CNCF</li>
+<li>function grouping configuration via YAML (<a href="https://github.com/openfaas/faas-cli#use-a-yaml-stack-file">stack file</a>)</li>
+<li>public function repository</li>
+<li>Web UI with function monitoring</li>
+<li>runs any docker container as a function</li>
+</ul>
+<h6 id="client-installation-2">Client installation: 2</h6>
+<p>The <a href="https://github.com/openfaas/faas-cli#get-started-install-the-cli">CLI installation</a> is straight-forward for Linux and Mac users but it&rsquo;s not immediately available for Windows. I cannot find an easy way to set the cluster address to point the CLI to.</p>
+<h6 id="server-installation-1">Server installation: 1</h6>
+<p>Helm chart provided under <a href="https://github.com/openfaas/faas-netes/blob/master/HELM.md">faas-netes/helm</a> but it&rsquo;s failing the first time because of RBAC property not set and not rolling back, so I&rsquo;m forced to delete and recreate the release.
+Even when installation is completed I cannot connect to the FaaS gateway as the service NodePort 31112, and the LoadBalancer creation errors out with</p>
+<pre tabindex="0"><code>Warning: kubectl apply should be used on resource created by either kubectl create --save-config or kubectl apply
+The Service &#34;gateway&#34; is invalid: spec.ports[0].nodePort: Invalid value: 31112: provided port is already allocated
+</code></pre><h6 id="language-support-5-1">Language support: 5</h6>
+<p>Built-in support for NodeJS, Ruby, Go, Python, C#, generic Dockerfile. Runs any docker container as a function.</p>
+<h6 id="cluster-interoperability-4">Cluster interoperability: 4</h6>
+<p>OpenFaas provides Prometheus monitoring with alerting out of the box, plus the architecture is very lean: just 2 pods that serve the API gateway and the function runner. Each function runs as a <code>Deployment</code> object and therefore can be scaled independently.</p>
+<h6 id="developer-experience-2">Developer experience: 2</h6>
+<p>After 2 hours trying to complete the setup on Kubernetes I&rsquo;m still not able to run any function on my cluster; I run a port-froward to the OpenFaaS gateway <code>kubectl port-forward gateway-pod-id 31112:8080</code> so I can run <code>faas-cli deploy -f samples.yml --gateway http://127.0.0.1:31112</code> inside the just cloned <code>faas-cli</code> repository and see some function in action.</p>
+<h4 id="fission">Fission</h4>
+<h6 id="features-2">Features</h6>
+<ul>
+<li>only 100ms function cold start (more on the topic <a href="https://serverless.com/blog/keep-your-lambdas-warm/">here</a>)</li>
+<li>natively built for Kubernetes</li>
+</ul>
+<h6 id="client-installation-3">Client installation: 3</h6>
+<p><a href="http://fission.io/docs/0.4.0/installation/#install-the-fission-cli">Guide</a> suggests to download a binary distribution via <code>curl</code> and place the binary§ under <code>/usr/local/bin</code>, very straightforward for Linux and OSX. Windows support is via WSL or using a binary <code>fission.exe</code> with download link provided. Some environment variables need to be setup to point to the cluster, but the <a href="http://fission.io/docs/0.4.0/installation/#cloud-setups">instructions</a> are very well written.</p>
+<h6 id="server-installation-5">Server installation: 5</h6>
+<p><a href="http://fission.io/docs/0.4.0/installation/#cloud-hosted-clusters-gke-aws-azure-etc">Also guide</a>: a single <code>helm</code> command installs all the components in a dedicated namespace <code>fission</code>.</p>
+<h6 id="language-support-4">Language support: 4</h6>
+<p>Built-in support for Linux binaries, Go, .NET, NodeJS, Perl, PHP 7, Python 3, Ruby as reported in the <a href="https://github.com/fission/fission#fission-concepts">concepts section</a>. Custom environment can be built and pushed to the cluster as containers.</p>
+<h6 id="cluster-interoperability-2-1">Cluster interoperability: 2</h6>
+<p>No monitoring at all and no UI provided to verify the functions state of execution or list, CLI is the only source of truth I can get and it&rsquo;s not easy to understand the architecture.</p>
+<h6 id="developer-experience-2-1">Developer experience: 2</h6>
+<p>Setup is very straightforward but then the development looks cumbersome (at least for Go): environment variables <a href="https://github.com/fission/fission/issues/356">cannot be set</a> yet, so this means hard-coded values in the code to connect to external services. Plus logging and function debugging is really hard, after 1 hour digging in documentation and trying to understand a cryptic <code>Internal server error (fission)</code> message, I am not able to run my Go function, and it&rsquo;s tough to tell why.</p>
+<h4 id="kubeless">Kubeless</h4>
+<h6 id="features-3">Features</h6>
+<ul>
+<li>natively built for kubernetes</li>
+<li>web UI with function monitoring</li>
+<li><a href="https://github.com/serverless/serverless-kubeless">serverless framework plugin</a> available</li>
+</ul>
+<h6 id="client-installation-5">Client installation: 5</h6>
+<p>Binary distribution available for Linux, OSX and Windows in <a href="https://github.com/kubeless/kubeless/releases">Github release page</a>. No fuss, no hassle: download and run.</p>
+<h6 id="server-installation-3-1">Server installation: 3</h6>
+<p><a href="https://github.com/kubeless/kubeless#installation">Documentation</a> warns to create a namespace <code>kubeless</code> and use that. Same release page offers 3 options to install: Kubernetes with or without RBAC and Openshift. Applying the YAML with <code>kubectl apply -f kubeless-...</code> gets the server part up and running, but if I&rsquo;d like to install in a different namespace I would need to change the whole file. Providing a Helm chart is the standard Kubernetes packaging way so why not having one?</p>
+<h6 id="language-support-3">Language support: 3</h6>
+<p>Currently only Python, NodeJS, Ruby and .NET Core are supported. <a href="https://github.com/kubeless/kubeless/blob/master/docs/runtimes.md#custom-runtime-alpha">Custom runtimes</a> in the form of docker containers need to be built to run other languages, a feature in alpha which I&rsquo;m forced to explore to run my Go app.</p>
+<h6 id="cluster-interoperability-4-1">Cluster interoperability: 4</h6>
+<p>Monitoring provided via Prometheus integration; all backend services are run into dedicated namespace while functions are exposed using regular namespaces. It uses a StatefulSet to host Kafka and Zookeeper, they keep the functions state and there is a controller talking with Kubernetes API. I really like that it leverages Kubernetes-native primitives such as <code>ConfigMaps</code> and <code>Secrets</code> to manage function environment. It also uses a <code>CustomResourceDefinition</code> called <code>functions</code> so you can <code>kubectl get functions -o yaml</code>. What I don&rsquo;t like instead is the use of the cluster&rsquo;s etcd to store functions code when deploying from file.</p>
+<h6 id="developer-experience-5">Developer experience: 5</h6>
+<p>Everything worked great even when running an experimental feature such as custom environment: I was able to inject configuration via environment variables, get the function logs either via <code>kubeless</code> CLI or <code>kubectl</code> and debug my way out of the configuration error I put into my first image. Second deploy I did I was able to call my function and I validated the results connecting to REDIS afterwards.</p>
+<h3 id="wrapping-up">Wrapping up</h3>
+<p>There are lots of people investing in serverless right now, almost as many as there are for Kubernetes; the integrations between the two will bring a new exciting technology scenario in the next years. To my experience building this post none of the previously listed framework is ready for production usage, to be honest most of them are not even ready for the average developer weekend project usage. You need to know Kubernetes quite a bit to troubleshoot issues happening during deployment and/or execution of your functions and this makes the whole serverless idea crumble, as you&rsquo;ll be forced to dig into infrastructure details to have your code running.</p>
+<p>If I&rsquo;d have to bet on one of the project I tried so far, I&rsquo;d do so on Kubeless; it&rsquo;s been definitely the smoothest setup  among all and the tight Kubernetes integration makes it a perfect candidate for community-driven growth. If you know any other framework that should be in this post please let me know it in the comments! I am always curious to see what&rsquo;s around in all things serverless so don&rsquo;t keep it for yourself!</p>
+
+</article>
+ 
+    </main><footer class="w-full text-center p-4 text-xs text-gray-400">
+  <p>
+    Built with
+    <a
+      href="https://gohugo.io"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="underline hover:text-blue-800 dark:hover:text-blue-300"
+      >Hugo</a
+    >
+    and
+    <a
+      href="https://github.com/apvarun/showfolio-hugo-theme"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="underline hover:text-blue-800 dark:hover:text-blue-300"
+      >Showfolio</a
+    >
+  </p>
+</footer>
+
+</body>
 </html>

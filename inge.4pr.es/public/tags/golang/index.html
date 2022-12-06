@@ -1,147 +1,245 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, follow"/><title>golang | INGE4PRES RATIONAL THOUGHTS</title>
-        <meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="@inge4pres"/><meta name="twitter:title" content=""/>
-        <meta name="twitter:description" content="Francesco Gualazzi: infrastructure-aware developer"/>
-        <meta name="Description" content="Francesco Gualazzi: infrastructure-aware developer"><meta property="og:title" content="golang" />
-<meta property="og:description" content="Francesco Gualazzi: infrastructure-aware developer" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://inge.4pr.es/tags/golang/" /><meta property="og:image" content="https://inge.4pr.es/images/avatar.png"/>
+<html lang="en-us">
+  <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>
+    golang - inge4pres
+  </title><meta name="generator" content="Hugo 0.98.0" /><link
+    rel="stylesheet"
+    href="https://inge.4pr.es/css/styles.css"
+    integrity=""
+  />
+  
+  <script>
+    
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  </script>
+  
+</head>
 
-<meta name="application-name" content="INGE4PRES RATIONAL THOUGHTS">
-<meta name="apple-mobile-web-app-title" content="INGE4PRES RATIONAL THOUGHTS"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-        <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
-        <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://inge.4pr.es/tags/golang/" /><link rel="alternate" href="/tags/golang/index.xml" type="application/rss+xml" title="INGE4PRES RATIONAL THOUGHTS">
-    <link rel="feed" href="/tags/golang/index.xml" type="application/rss+xml" title="INGE4PRES RATIONAL THOUGHTS"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.6cf1ea52f3eaa1db6fd80fb0ba96e8568d6d83a847d1c35cce0f61aad5b2416b.css" integrity="sha256-bPHqUvPqodtv2A&#43;wupboVo1tg6hH0cNczg9hqtWyQWs="><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><meta name="google-site-verification" content="TOk-oj9FYpVoRqq2BjvXT_OWQZZ6poZhp1WZXPhfMvE" /></head>
-    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+  <body
+    class="flex flex-col min-h-screen dark:bg-gray-900 dark:text-gray-100 transition-colors duration-500"
+  ><header class="w-full px-4 pt-4 max-w-5xl mx-auto">
+  <nav class="flex items-center justify-between flex-wrap">
+    <div class="flex gap-2 items-center">
+      
+      <a href="mailto:fgualazzi@gmail.com" aria-label="EMail">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <circle cx="12" cy="12" r="4" />
+          <path d="M16 12v1.5a2.5 2.5 0 0 0 5 0v-1.5a9 9 0 1 0 -5.5 8.28" />
+        </svg>
+      </a>
+      
+      <a href="https://inge.4pr.es/" class="flex items-center font-bold">
+        inge4pres
+      </a>
+    </div>
 
-        <div id="mask"></div><div class="wrapper"><header>
-    <div class="desktop header" id="header-desktop">
-        <div class="header-wrapper">
-            <div class="header-title">
-                <a href="/" title="INGE4PRES RATIONAL THOUGHTS" class="header-logo logo-svg"><img loading="lazy" decoding="async"
-         class="logo"
-         src="/images/gopher.png"
-         alt="/images/gopher.png"
-         title="/images/gopher.png"
-    /><span class="header-title-pre"><i class='fas fa-pencil-alt fa-fw'></i></span>INGE4PRES RATIONAL THOUGHTS<span class="header-title-post">🤓 <i class='fas fa-pencil-alt fa-fw'>Growing knowledge one post at a time</i></span></a>
-            </div>
-            <div class="menu">
-                <nav>
-                    <h2 class="display-hidden">Основная навигация</h2>
-                    <ul class="menu-inner"><li>
-                            <a class="menu-item" href="/about/"> About </a>
-                        </li><li>
-                            <a class="menu-item" href="/resume/"> Resume </a>
-                        </li><li>
-                            <a class="menu-item" href="/tags/"> Tags </a>
-                        </li></ul>
-                </nav><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
-                        <input type="text" placeholder="Find" id="search-input-desktop">
-                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
-                            <span class="svg-icon icon-search"></span>
-                        </a>
-                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
-                            <span class="svg-icon icon-cancel"></span>
-                        </a>
-                        <span class="search-button search-loading" id="search-loading-desktop">
-                            <span class="svg-icon icon-loading"></span>
-                        </span>
-                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
-                <span class="svg-icon icon-moon"></span>
-                </a>
-            </div>
-        </div>
-    </div><div class="mobile header" id="header-mobile">
-        <div class="header-container">
-            <div class="header-wrapper">
-                <div class="header-title">
-                    <a href="/" title="INGE4PRES RATIONAL THOUGHTS" class="header-logo"><img loading="lazy" decoding="async"
-         class="logo"
-         src="/images/gopher.png"
-         alt="/images/gopher.png"
-         title="/images/gopher.png"
-    /><span class="header-title-pre"><i class='fas fa-pencil-alt fa-fw'></i></span>INGE4PRES RATIONAL THOUGHTS<span class="header-title-post">🤓 <i class='fas fa-pencil-alt fa-fw'>Growing knowledge one post at a time</i></span></a>
-                </div>
-                <div class="menu-toggle" id="menu-toggle-mobile">
-                    <span></span><span></span><span></span>
-                </div>
-            </div>
-            <div class="menu" id="menu-mobile"><div class="search-wrapper">
-                        <div class="search mobile" id="search-mobile">
-                            <input type="text" placeholder="Find" id="search-input-mobile">
-                            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
-                                <span class="svg-icon icon-search"></span>
-                            </a>
-                            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
-                                <span class="svg-icon icon-cancel"></span>
-                            </a>
-                            <span class="search-button search-loading" id="search-loading-mobile">
-                                <span class="svg-icon icon-loading"></span>
-                            </span>
-                        </div>
-                        <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
-                            Cancel
-                        </a>
-                    </div><nav>
-                    <h2 class="display-hidden">Основная навигация</h2>
-                    <ul><li>
-                            <a class="menu-item" href="/about/" title="">About</a>
-                        </li><li>
-                            <a class="menu-item" href="/resume/" title="">Resume</a>
-                        </li><li>
-                            <a class="menu-item" href="/tags/" title="">Tags</a>
-                        </li></ul>
-                </nav>
-                <a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
-                    <span class="svg-icon icon-moon"></span>
-                </a></div>
-        </div>
-    </div><div class="search-dropdown desktop">
-    <div id="search-dropdown-desktop"></div>
-</div>
-<div class="search-dropdown mobile">
-    <div id="search-dropdown-mobile"></div>
-</div></header><main class="main">
-                <div class="container"><div class="page archive"><h2 class="single-title pulse faster">Tag - golang</h2><h3 class="group-title">2018</h3><article class="archive-item">
-                        <a href="/post/golab-2018-wrap-up/" class="archive-item-link">GoLab 2018: Wrap Up</a>
-                        <span class="archive-item-date">10-23</span>
-                    </article><h3 class="group-title">2017</h3><article class="archive-item">
-                        <a href="/post/2017-10-28-golang-concurrency-pattern/" class="archive-item-link">Golang Concurrency Patterns</a>
-                        <span class="archive-item-date">10-28</span>
-                    </article><h3 class="group-title">2016</h3><article class="archive-item">
-                        <a href="/post/2016-01-24-implement-a-generic-data-list-structure/" class="archive-item-link">Implement a generic data list structure</a>
-                        <span class="archive-item-date">01-24</span>
-                    </article><h3 class="group-title">2015</h3><article class="archive-item">
-                        <a href="/post/2015-08-02-golang-message-queue-a-simple-tcp-message-bus/" class="archive-item-link">Golang Message Queue: a simple TCP message bus</a>
-                        <span class="archive-item-date">08-02</span>
-                    </article><article class="archive-item">
-                        <a href="/post/2015-06-11-my-first-golang-web-project/" class="archive-item-link">My first Golang web project is online</a>
-                        <span class="archive-item-date">06-11</span>
-                    </article></div></div>
-                </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.88.0">Hugo</a> | Theme - <a href="https://ublogger.netlify.app/?utm_source=https://inge.4pr.es/&utm_medium=footer&utm_campaign=config&utm_term=2.0.1" target="_blank" title="uBlogger 2.0.1">uBlogger</a>
-                </div><div class="footer-line"><i class="svg-icon icon-copyright"></i><span>2012 - 2021</span><span class="author">&nbsp;<a href="/" target="_blank"></a></span></div>
-        </div>
-    </footer></div>
+    <ul id="nav-menu" class="flex w-auto mt-0 space-x-2">
+      
+      <li>
+        <a href="https://inge.4pr.es/about/" class="hover:text-blue-800 dark:hover:text-blue-300">You are what you is (F. Zappa)</a>
+      </li>
+      
+      
+      <li>
+        <a href="https://inge.4pr.es/categories/blog/" class="hover:text-blue-800 dark:hover:text-blue-300">blog</a>
+      </li>
+      
+    </ul>
+  </nav>
+</header>
+<main class="flex-1 mx-4 md:mx-12 lg:mx-24 mt-8 sm:mt-16"> 
+<article class="sm:mx-12 mb-16 prose lg:prose-lg">
+  <h1><a href="https://inge.4pr.es/post/golab-2018-wrap-up/">GoLab 2018: Wrap Up</a></h1>
+  <p>I&rsquo;m in the train back from <a href="https://www.golab.io/">GoLab 2018</a> and I am so happy that I attended this conference!
+It&rsquo;s been definitely one of most beautiful con I have attended in Italy, with tremendous speakers from all over the globe like Filippo Valsorda, Eleanor McHugh, Ron Evans and Bill Kennedy among many others; I have to say the organizers were just perfect in everything from the venue setup to the workshop organization, as if the quality of the talks ware not enough.
+I was so delighted I want to write a wrap-up immediately with my head full of ideas for the upcoming future.</p>
+<h3 id="speakers-layout">Speakers layout</h3>
+<p>It was 2 dense days with 45 minutes talks and 4 tracks, 2 each day: Patterns, Embedded (day 1); Web, DX (day 2). Before the talks a keynote each day (Eleanor McHugh and Bill Kennedy respectively), 30 minutes for lightning talks at the end of day 1, cocktails and networking at the end of day 2.</p>
+<h3 id="the-community">The community</h3>
+<p>Poeple in the Gophers community is just awesome, and the environment was welcoming and warm in every part of the con; in the afternoon of day 1 a panel on diversity and inclusion was hoste by Cassandra Salisbury and it was really good in the sense that was not the regular D&amp;I talk with practices and models to adopt to &ldquo;pretend&rdquo;
+that you are inclusive, it was actually a discussion and sharing of stories that enable a good community. Because a good community is inclusive by design, and the Go community is very good. During breaks I had the chance to shake hands and chat with many people I only had virtually met on Twitter before.</p>
+<h3 id="things-i-learnt">Things I learnt</h3>
+<p>Here&rsquo;s some of the thing I got to know thanks to the amazing talks I saw:</p>
+<ul>
+<li><a href="https://it.wikipedia.org/wiki/CERN">CERN</a> uses Go too! They rebuild their DNS service, see <a href="https://github.com/cernops/golbd">cernops/golbd</a></li>
+<li>Google created a project called <a href="https://github.com/flutter/flutter/">Flutter</a> to build native mobile apps for multiple platforms [thanks <a href="https://twitter.com/edoardo849">@edoardo849</a>]</li>
+<li>the go runtime is powerful but also can be tricky in some occasions, especially with closures; when using them =, make sure to clean up the resources they use and ensure local variable are scoped correctly to avoid data races and bugs. Always run tests with <code>-race</code> option and use channels and mutexes to orchestrate your pipelines [thanks <a href="https://twitter.com/empijei">@empijei</a>]</li>
+<li>finite state machines are not only academic lecture, you can make them solve actual problems like decoding different variants of base64 [thanks <a href="https://twitter.com/annaopss">@annaopss</a>]</li>
+<li>there are 2 packages for auto-generating Go structs code from an arbitrary input in JSON and XML format: <a href="https://github.com/bemasher/JSONGen">JSONGen</a> and <a href="https://github.com/dutchcoders/XMLGen">XMLGen</a></li>
+<li>because Go is written in Go, you can parse <code>.go</code> files before they are compiled and create your own language extensions (macro) to be then re-compiled in a final binary, crazy! [thanks Max Ghilardi, see <a href="http://github.com/cosmos72/gomacro">cosmos72/gomacro</a>]</li>
+<li><a href="https://github.com/fnproject">fnProject</a> is a serverless platform to run function-as-a-service on Oracle cloud and on your private cloud on Kubernetes, as I covered it in this <a href="https://inge.4pr.es/2018/01/30/serverless-on-kubernetes/">previous post</a></li>
+<li>you can manipulate network packets directly with Go! The Linux kernel has a feature to let programs in userspace filter packets based on custom logic, so Telefonica develop (and open sourced) a Go library to manipulate packets because C++ with <code>libevent</code> hadn&rsquo;t enough throughput, so they moved from connection-based filtering to packet-based filtering (DPI) doubling throughput with 8 times less CPU! [See <a href="https://github.com/telefonica/nfqueue">telefonica/nfqueue</a>]</li>
+<li>you can close a buffered channel immediately after sending all the items into it, and you&rsquo;ll still be able to read from it all the values; only then the <code>close(channel)</code> instruction will be magically executed by the runtime. So <a href="https://play.golang.org/p/3YYQo2WK37R">this is valid</a> [thanks <a href="https://twitter.com/goinggodotnet">@goinggodotnet</a>]</li>
+<li>instrumenting and monitoring applications in Kubernetes can be fun! When building an operator you can interact with the exported metrics directly in the controller, you can enrich your systems with distributed traces thanks to OpenTracing/OpenCensus</li>
+<li>using <a href="https://grpc.io/">gRPC</a> you can auto-generate Swagger documentation from protobuf service definitions, thus auto-generating web-browseable documentation of you service [thanks <a href="https://twitter.com/pawel_slomka">@pawel_slomka</a>]</li>
+<li><code>io.Copy()</code> from the standard library is the most efficient way of sending network data from 2 <code>net.Conn</code> instances; this thanks to <a href="http://avtok.com/2014/11/05/interface-upgrades.html">interface upgrade</a> in the Copy() implementation, ending in leveraging the kernel packet passing in the most efficient way - without involving the application at all! [thanks <a href="https://twitter.com/filosottile">@filosottile</a>]</li>
+</ul>
+<p>And these are just a few (IMO the most important) things I got to know and discover these 2 days&hellip; What a ride! Can&rsquo;t wait for next year to be back in Florence!</p>
+<p><!-- raw HTML omitted -->GoLab 2018<!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
 
-        <aside id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
-                <i class="svg-icon icon-arrow-up"></i>
-            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
-                <i class="svg-icon icon-comments-fixed"></i>
-            </a>
-        </aside><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><script src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lunr@2.3.8/lunr.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js"></script><script>window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"cookieconsent":{"content":{"dismiss":"LGTM","link":"Learn more","message":"Do you like cookies?"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":20,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"}};</script><script src="/js/theme.min.0d44909075b648ac3259c39fcf9ddb2a6e7314cb3a7374007dd582c887381740.js" integrity="sha256-DUSQkHW2SKwyWcOfz53bKm5zFMs6c3QAfdWCyIc4F0A="></script><script>
-                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-                })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+</article>
 
-	        ga('create', 'UA-55252403-1', 'auto');
-	        ga('set', 'anonymizeIp', true);
-	        ga('send', 'pageview');
-	    </script></body>
+<article class="sm:mx-12 mb-16 prose lg:prose-lg">
+  <h1><a href="https://inge.4pr.es/post/2017-10-28-golang-concurrency-pattern/">Golang Concurrency Patterns</a></h1>
+  <p>In the early days of Go the language was often tailored towards &ldquo;system programming&rdquo; due to its C-stlye syntax and ability to write high-performance applications. Few time after, Go adoption was starting to gain traction for distributed systems development and projects like etcd, docker and kubernetes revealed the power of the networking capabilities offered by the internals in the language. Along the way a lot of libraries have been built around the powerful primitives offered by Go but in my opinion there is not enough use literature around the <em><a href="https://en.wikipedia.org/wiki/Communicating_sequential_processes">Communicating Sequential Processes</a></em> implementation available through channels and goroutines, they are not even widely used in the standard library. I&rsquo;ll detail here some concurrency patterns that I found useful and hopefully they&rsquo;ll be idiomatic enough to represent a good use case for you.</p>
+<h5 id="a-premise">A premise</h5>
+<p>CSP it&rsquo;s kind of a similar feature to threading but there are some differences; to know more on CSP I really recommend watching Rob Pike&rsquo;s <a href="https://vimeo.com/49718712">excellent talk on the topic</a>.</p>
+<h4 id="my-experience">My experience</h4>
+<p>Personally it took me a while to find my way out of the issues I ran into when first using concurrency features in Go: they are definitely the most complicated part of using Go, which is on average simpler that any other language I tried. So for me, the biggest problem was to understand what it means to have a goroutine spawned and how to control its execution or get data out of it, so I put together a list of examples on how concurrent programs flow can be controlled with the primitives built in the language.</p>
+<h4 id="channel-channels-channels-everywhere">Channel, channels, channels everywhere</h4>
+<p>A channel in Go is a way to pass messages between functions and goroutines, the official definition from <a href="https://tour.golang.org/concurrency/2">A Tour of Go</a> is:</p>
+<p><em>Channels are a typed conduit through which you can send and receive values with the channel operator, <code>&lt;-</code></em></p>
+<p>So what are they good for? They are actually not very helpful without goroutines: a goroutine is a lightweigth thread managed by the Go runtime (<a href="https://tour.golang.org/concurrency/1">definition</a>), think like a background process that can be spawned and does not need to be managed directly by you, I like the concept of <em>&ldquo;run and forget&rdquo;</em>.
+The easiest concurrency pattern available is thinking of a goroutine processing some data in the background and returning them through a channel to the main thread executing our code; this can be very powerful and scale well to multiple functions and channels.</p>
+<h4 id="waitgroups">WaitGroups</h4>
+<p><a href="https://golang.org/pkg/sync/#WaitGroup">WaitGroups</a> are part of the <code>sync</code> package from the Go standard lib: they are a way for waiting the execution of goroutines to end properly and ensure all the work done in the background is completed. WaitGroups are often used with <code>defer</code> to fill in the wait queue when the goroutine exits.</p>
+<h4 id="some-examples">Some examples</h4>
+<p>For me the most difficult thing to understand when approaching concurrency was how to ensure all of my goroutines completed execution: to do this the easiest way is using WaitGroups as in <a href="https://github.com/inge4pres/blog/blob/master/golang-concurrency-patterns/waitgroup_test.go">waitgroup_test.go</a>: <code>wg.Add(1)</code> adds one item in the wait queue and <code>wg.Done()</code> removes one item from it; using <code>wg.Wait()</code> in the main process makes the process wait until the wait group is emptied.
+If you run the tests with</p>
+<pre tabindex="0"><code>go test -v . -race -run ^TestWaitGroup
+</code></pre><p>you can see the execution time when using concurrency or not. Changing the value of <code>ops</code> variable in <a href="https://github.com/inge4pres/blog/blob/master/golang-concurrency-patterns/functions_test.go#L3">functions_test.go</a> will make the tests process less or more items.</p>
+<p>With channels there are more features and gotchas that need to be taken into account:</p>
+<ul>
+<li>a read from a closed channel returns the type&rsquo;s zero-value</li>
+<li>a send to a closed channel will <code>panic</code></li>
+<li>a read and a send alone to an unbuffered channel are blocking: they will generate a deadlock if there is not a corresponding send/read operation on the other side of the channel</li>
+<li>a send on a buffered channel will block when the buffer is full and no other read is happening on the other side</li>
+</ul>
+<p>That being said, there are a couple of notable usages that I like to include in my concurrency-enabled Go software: the <a href="https://github.com/inge4pres/blog/blob/master/golang-concurrency-patterns/channels_test.go#L22">fan-out pattern</a> where an input generates multiple goroutines that perform operations in the background and the output of the concurrent goroutines is fetched by a channel in the main thread. Another pattern is <a href="https://github.com/inge4pres/blog/blob/master/golang-concurrency-patterns/channels_test.go#L36">fan-in</a>: multiple functions can return values to a channel as long as the type is consistent. Run tests with</p>
+<pre tabindex="0"><code>go test -v . -race -run ^TestChannelBuffered
+</code></pre><p>to see fan-out/fan-in patterns in action.</p>
+<p>Another interesting feature is powered by the <code>select</code> statement: you can read from multiple channels in the same function and define behavior for any given channel message, it is another sample of fan-in pattern. Using <code>select</code> will block until one of the send/receive operation is available, the operation gets chosen randomly if multiple are available at the same time. <code>select</code> has a similar syntax to <code>switch</code> so <code>case</code> and <code>default</code> are the scenario selector. Running <a href="https://github.com/inge4pres/blog/blob/master/golang-concurrency-patterns/channels_test.go#L55">multiple channels</a> lets you manage multiple types in a single point: run the test with</p>
+<pre tabindex="0"><code>go test -v . -race -run ^TestMultipleChannelsSelect$
+</code></pre><p>to check the execution of the multiple goroutines.</p>
+<h4 id="conclusions">Conclusions</h4>
+<p>My experience with Go concurrency primitives is still forming, I hope I can read and experiment more on the topic as it&rsquo;s one of Go&rsquo;s most powerful and at the same time less documented features! I&rsquo;d really love to hear feedback from the read so if you get up to this point, take a step forward and leave a comment below, I&rsquo;d really love to discuss.</p>
+<h4 id="references">References</h4>
+<ul>
+<li><a href="https://gobyexample.com/worker-pools">Worker pools</a></li>
+<li><a href="https://golangbot.com/channels/">Channels</a></li>
+<li><a href="https://www.youtube.com/watch?v=yKQOunhhf4A">Concurrency made easy - Dave Cheney</a></li>
+<li><a href="https://golang.org/doc/codewalk/sharemem/">Share memory by communicating - Codewalk</a></li>
+<li><a href="http://www.jtolds.com/writing/2016/03/go-channels-are-bad-and-you-should-feel-bad/">Go channels are bad and you should feel bad</a></li>
+</ul>
+
+</article>
+
+<article class="sm:mx-12 mb-16 prose lg:prose-lg">
+  <h1><a href="https://inge.4pr.es/post/2016-01-24-implement-a-generic-data-list-structure/">Implement a generic data list structure</a></h1>
+  <p>As a coding challenge I was asked to provide a generic list implementation using a language of my choice and using only primitive types, avoiding the use of high level built-ins. I chose <!-- raw HTML omitted -->Go<!-- raw HTML omitted --> because I want to learn it and I know it can be useful to create an abstract, generic implementation.</p>
+<p>The challenge request to implement at least 4 methods on the generic type:</p>
+<ul>
+<li>Filter() –  returns a subset of the List satisfying an operation</li>
+<li>Map() – returns the List objects’ map</li>
+<li>Reverse() – reverse the ordering of the List objects</li>
+<li>FoldLeft() – join the objects from left to right using a join character</li>
+</ul>
+<p>As a bonus question I was asked to code unit tests for the aforementioned methods and give an explanation on how the implementation guarantees concurrent access on resources.</p>
+<p>So here is my implementation: the type List has only one attribute, an array of type <code>interface{}</code></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Every type will be convertible to the <code>interface{}</code> type, but as Golang has strong types the conversion is not implicit and must be declared.</p>
+<p>Reverse() will create a new array of <code>interface{}</code> to hold the reversed list</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Map() returns the List elements’ array, so it can be accessed as a whole</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>This two function types will help define a custom operation to be used in Filter() and FoldLeft(): <!-- raw HTML omitted -->functions are types<!-- raw HTML omitted --> in Go and this enable a great level of abstraction.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Filter() will use a filter function, without the need to define it (!), and return a portion of the List data array.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>FoldLeft() will use a fold function, again not yet defined, the return a single element made of the entire list.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>You can find all the code <!-- raw HTML omitted -->here<!-- raw HTML omitted -->, any comment is welcome on how to improve the abstraction or efficiency of the implementation.</p>
+<p>The opportunity to dig into the language ability to abstract is a very helpful way to better understand the language itself, so this coding challenge was a great opportunity to learn a little bit more Go!</p>
+
+</article>
+
+<article class="sm:mx-12 mb-16 prose lg:prose-lg">
+  <h1><a href="https://inge.4pr.es/post/2015-08-02-golang-message-queue-a-simple-tcp-message-bus/">Golang Message Queue: a simple TCP message bus</a></h1>
+  <p><strong>[TL;DR]</strong></p>
+<p>I wrote a Pub/Sub message queue in <!-- raw HTML omitted -->Go<!-- raw HTML omitted -->, branch “master” is stable but missing some interesting feature like distributed memory synchronization between nodes in a cluster and encryption. Code at</p>
+<p><!-- raw HTML omitted --><a href="https://github.com/inge4pres/gmq">https://github.com/inge4pres/gmq</a><!-- raw HTML omitted --></p>
+<p>Being a cloud system engineer, my work is to design and implement distributed systems: one of the key principles in designing such architectures is <em>decoupling</em>, which means ensuring the many parts composing the system are able to share informations and complete a sequence of operations without being tied together. You can read more about cloud architectures and decoupling here.</p>
+<p>One of the most common scenario in a cloud application is a series of asynchronous operations executed by many nodes on different layers: for example a front end server tier receiving  files and a backend server tier doing analysis on them; a good practice is to have a message queue between the two serving as an orchestration component. Each web server node will post a message in the queue for every files received, each backend node will consume a message from the queue to complete his operations on the files. In this way the two tiers are independent one from each other: in case of backend failure or over-capacity, the web servers will keep receiving files and storing message in the queue. If the two operations where done synchronously, the backend failure would stop the whole system to work.</p>
+<p>A lot of <em>off-the-shelf</em> message queue software is already available, but I felt like writing my own would give me a good point of view on system programming with Go, so I wrote it, and the result is pretty awesome too. In a few days I was able to have a configurable message queue storing messages in memory, on filesystem or database (MySQL); communication is based on JSON via TCP, and the server can be configured to support a maximum number of queues, a maximum message length and queue capacity: combination of the configured parameters will have performance effects on the single node.</p>
+<p>The roadmap of “develoment” branch is:</p>
+<ul>
+<li>adding cluster mode</li>
+<li>adding memory synchronization in cluster mode</li>
+<li>adding encryption: TLS over TCP</li>
+<li>adding client authentication</li>
+</ul>
+<p>As you may have guessed from the above list, security of GMQ is not implemented at the moment, be careful!</p>
+<p>Feel free to try it out and give suggestions!</p>
+<p>Cheers 😀</p>
+
+</article>
+
+<article class="sm:mx-12 mb-16 prose lg:prose-lg">
+  <h1><a href="https://inge.4pr.es/post/2015-06-11-my-first-golang-web-project/">My first Golang web project is online</a></h1>
+  <p>It is true: I fell in love with <!-- raw HTML omitted -->Go<!-- raw HTML omitted -->, not because I love Google and his products, but because it really fits my ideology of simplicity and power in a programming language. I started experimenting with the language and thank to his web-oriented approach I quickly came up with one of the simplest single task web application I could write: a URL shortener.</p>
+<p>What is a URL shortener? It’s a service that will give you a short link for a long URL.</p>
+<p>Why should I use it? A short URL is easier to remember and to copy and paste, it lets you write more on social media where characters are limited (Twitter).</p>
+<p>Why writing one when there are plenty of them already? Other shortener have an expiration date on short links, <!-- raw HTML omitted -->4pr.es<!-- raw HTML omitted --> doesn’t!</p>
+<p>Take a look at the <!-- raw HTML omitted -->code<!-- raw HTML omitted --> and you’ll see it is very simple: it takes a URL as text input filed of a form</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>generates a random string of 6 charachters, checking that the string is not in the database</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>and keep the URL – string association in the database for further redirection; once the random short URL is visited the client gets redirected to the origianl long URL!</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>So please try it and if you have any suggestion to increase performance or security please let me know!</p>
+<p>Cheers</p>
+<p> </p>
+<p> </p>
+
+</article>
+ 
+    </main><footer class="w-full text-center p-4 text-xs text-gray-400">
+  <p>
+    Built with
+    <a
+      href="https://gohugo.io"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="underline hover:text-blue-800 dark:hover:text-blue-300"
+      >Hugo</a
+    >
+    and
+    <a
+      href="https://github.com/apvarun/showfolio-hugo-theme"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="underline hover:text-blue-800 dark:hover:text-blue-300"
+      >Showfolio</a
+    >
+  </p>
+</footer>
+
+</body>
 </html>

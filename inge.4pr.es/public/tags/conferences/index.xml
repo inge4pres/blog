@@ -1,14 +1,20 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>conferences - Tag - INGE4PRES RATIONAL THOUGHTS</title>
-        <link>https://inge.4pr.es/tags/conferences/</link>
-        <description>conferences - Tag - INGE4PRES RATIONAL THOUGHTS</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 23 Oct 2018 18:07:07 &#43;0200</lastBuildDate><atom:link href="https://inge.4pr.es/tags/conferences/" rel="self" type="application/rss+xml" /><item>
-    <title>GoLab 2018: Wrap Up</title>
-    <link>https://inge.4pr.es/post/golab-2018-wrap-up/</link>
-    <pubDate>Tue, 23 Oct 2018 18:07:07 &#43;0200</pubDate>
-    <author>inge4pres</author>
-    <guid>https://inge.4pr.es/post/golab-2018-wrap-up/</guid>
-    <description><![CDATA[I&rsquo;m in the train back from GoLab 2018 and I am so happy that I attended this conference! It&rsquo;s been definitely one of most beautiful con I have attended in Italy, with tremendous speakers from all over the globe like Filippo Valsorda, Eleanor McHugh, Ron Evans and Bill Kennedy among many others; I have to say the organizers were just perfect in everything from the venue setup to the workshop organization, as if the quality of the talks ware not enough.]]></description>
-</item></channel>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>conferences on inge4pres</title>
+    <link>https://inge.4pr.es/tags/conferences/</link>
+    <description>Recent content in conferences on inge4pres</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 23 Oct 2018 18:07:07 +0200</lastBuildDate><atom:link href="https://inge.4pr.es/tags/conferences/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GoLab 2018: Wrap Up</title>
+      <link>https://inge.4pr.es/post/golab-2018-wrap-up/</link>
+      <pubDate>Tue, 23 Oct 2018 18:07:07 +0200</pubDate>
+      
+      <guid>https://inge.4pr.es/post/golab-2018-wrap-up/</guid>
+      <description>I&amp;rsquo;m in the train back from GoLab 2018 and I am so happy that I attended this conference! It&amp;rsquo;s been definitely one of most beautiful con I have attended in Italy, with tremendous speakers from all over the globe like Filippo Valsorda, Eleanor McHugh, Ron Evans and Bill Kennedy among many others; I have to say the organizers were just perfect in everything from the venue setup to the workshop organization, as if the quality of the talks ware not enough.</description>
+    </item>
+    
+  </channel>
 </rss>

@@ -1,15 +1,21 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>ecopass - Tag - INGE4PRES RATIONAL THOUGHTS</title>
-        <link>https://inge.4pr.es/tags/ecopass/</link>
-        <description>ecopass - Tag - INGE4PRES RATIONAL THOUGHTS</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 22 May 2012 20:37:58 &#43;0000</lastBuildDate><atom:link href="https://inge.4pr.es/tags/ecopass/" rel="self" type="application/rss+xml" /><item>
-    <title>L&#39;ennesima dimostrazione dello stato ladro!</title>
-    <link>https://inge.4pr.es/post/2012-05-22-lennseima-dimostrazione-dello-stato-ladro/</link>
-    <pubDate>Tue, 22 May 2012 20:37:58 &#43;0000</pubDate>
-    <author>willywonka</author>
-    <guid>https://inge.4pr.es/post/2012-05-22-lennseima-dimostrazione-dello-stato-ladro/</guid>
-    <description><![CDATA[Come dice Oscar Giannino, giornalista e conduttore radiofonico, nonchè grande conoscitore dei meccanismi dell&rsquo;economia italiana, lo stato italiano invece di salvaguardare i propri cittadini, li deruba, li sfrutta, si prende gioco di loro; per utilizzare una frase del sempre impeccabile editorialista bisogna cercare di difendersi dallo “Stato LADRO!!!”.
-La situazione dell’economia italiana non è delle migliori, anzi, proprio oggi l’ISTAT ha pubblicato un report che indica come il reddito pro capite è uguale a quello del 1992 e fatti estremi stanno accadendo sempre più numerosi giorno dopo giorno.]]></description>
-</item></channel>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ecopass on inge4pres</title>
+    <link>https://inge.4pr.es/tags/ecopass/</link>
+    <description>Recent content in ecopass on inge4pres</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 22 May 2012 20:37:58 +0000</lastBuildDate><atom:link href="https://inge.4pr.es/tags/ecopass/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>L&#39;ennesima dimostrazione dello stato ladro!</title>
+      <link>https://inge.4pr.es/post/2012-05-22-lennseima-dimostrazione-dello-stato-ladro/</link>
+      <pubDate>Tue, 22 May 2012 20:37:58 +0000</pubDate>
+      
+      <guid>https://inge.4pr.es/post/2012-05-22-lennseima-dimostrazione-dello-stato-ladro/</guid>
+      <description>Come dice Oscar Giannino, giornalista e conduttore radiofonico, nonchè grande conoscitore dei meccanismi dell&amp;rsquo;economia italiana, lo stato italiano invece di salvaguardare i propri cittadini, li deruba, li sfrutta, si prende gioco di loro; per utilizzare una frase del sempre impeccabile editorialista bisogna cercare di difendersi dallo “Stato LADRO!!!”.
+La situazione dell’economia italiana non è delle migliori, anzi, proprio oggi l’ISTAT ha pubblicato un report che indica come il reddito pro capite è uguale a quello del 1992 e fatti estremi stanno accadendo sempre più numerosi giorno dopo giorno.</description>
+    </item>
+    
+  </channel>
 </rss>

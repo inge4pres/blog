@@ -1,14 +1,20 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>gluster - Tag - INGE4PRES RATIONAL THOUGHTS</title>
-        <link>https://inge.4pr.es/tags/gluster/</link>
-        <description>gluster - Tag - INGE4PRES RATIONAL THOUGHTS</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 11 Mar 2015 13:00:46 &#43;0000</lastBuildDate><atom:link href="https://inge.4pr.es/tags/gluster/" rel="self" type="application/rss+xml" /><item>
-    <title>GlusterFS: is it suitable for me?</title>
-    <link>https://inge.4pr.es/post/2015-03-11-glusterfs-is-it-suitable-for-me/</link>
-    <pubDate>Wed, 11 Mar 2015 13:00:46 &#43;0000</pubDate>
-    <author>inge4pres</author>
-    <guid>https://inge.4pr.es/post/2015-03-11-glusterfs-is-it-suitable-for-me/</guid>
-    <description><![CDATA[During the last years I’ve been experimenting with GlusterFS and his functionalities as distributed object store; a lot has changed in the software, overall since Red Hat acquired it. I have been using it and find it useful for many projects but not for others: what I love is the community oriented approach with a very responsive team and support for any kind of users (meaning from the 2 nodes web server to a RAID10 Infiniband cluster for high end storage).]]></description>
-</item></channel>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gluster on inge4pres</title>
+    <link>https://inge.4pr.es/tags/gluster/</link>
+    <description>Recent content in gluster on inge4pres</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 11 Mar 2015 13:00:46 +0000</lastBuildDate><atom:link href="https://inge.4pr.es/tags/gluster/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GlusterFS: is it suitable for me?</title>
+      <link>https://inge.4pr.es/post/2015-03-11-glusterfs-is-it-suitable-for-me/</link>
+      <pubDate>Wed, 11 Mar 2015 13:00:46 +0000</pubDate>
+      
+      <guid>https://inge.4pr.es/post/2015-03-11-glusterfs-is-it-suitable-for-me/</guid>
+      <description>During the last years I’ve been experimenting with GlusterFSand his functionalities as distributed object store; a lot has changed in the software, overall since Red Hat acquired it. I have been using it and find it useful for many projects but not for others: what I love is the community oriented approach with a very responsive team and support for any kind of users (meaning from the 2 nodes web server to a RAID10 Infiniband cluster for high end storage).</description>
+    </item>
+    
+  </channel>
 </rss>

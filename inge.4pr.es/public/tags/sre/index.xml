@@ -1,26 +1,34 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>SRE - Tag - INGE4PRES RATIONAL THOUGHTS</title>
-        <link>https://inge.4pr.es/tags/sre/</link>
-        <description>SRE - Tag - INGE4PRES RATIONAL THOUGHTS</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 25 Oct 2021 15:42:08 &#43;0200</lastBuildDate><atom:link href="https://inge.4pr.es/tags/sre/" rel="self" type="application/rss+xml" /><item>
-    <title>gRPC Traffic Mirroring With Ingress-Nginx on K8s</title>
-    <link>https://inge.4pr.es/post/grpc-traffic-mirroring-with-ingress-nginx-on-k8s/</link>
-    <pubDate>Mon, 25 Oct 2021 15:42:08 &#43;0200</pubDate>
-    <author>inge4pres</author>
-    <guid>https://inge.4pr.es/post/grpc-traffic-mirroring-with-ingress-nginx-on-k8s/</guid>
-    <description><![CDATA[In a previous post we saw an NGINX configuration to allow gRPC traffic mirroring.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SRE on inge4pres</title>
+    <link>https://inge.4pr.es/tags/sre/</link>
+    <description>Recent content in SRE on inge4pres</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 06 Nov 2021 15:42:08 +0200</lastBuildDate><atom:link href="https://inge.4pr.es/tags/sre/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>gRPC Traffic Mirroring With Ingress-Nginx on K8s</title>
+      <link>https://inge.4pr.es/post/grpc-traffic-mirroring-with-ingress-nginx-on-k8s/</link>
+      <pubDate>Sat, 06 Nov 2021 15:42:08 +0200</pubDate>
+      
+      <guid>https://inge.4pr.es/post/grpc-traffic-mirroring-with-ingress-nginx-on-k8s/</guid>
+      <description>In a previous post we saw an NGINX configuration to allow gRPC traffic mirroring.
 Is the same technique applicable on Kubernetes? Yes! Using the ingress-nginx ingress controller!
-Traffic mirroringUse the following configurations snippets in the ingress-nginx configMap and in the Ingress manifest to mirror all traffic to a separate gRPC server.
-ConfigMapReplace grpc-backend.company.net and grpc-mirror.company.net with the original and mirror endpoint, respectively.
-1 2 3 4 5 6 7 8 9 10 11 12  http-snippet:|server { listen 127.]]></description>
-</item><item>
-    <title>gRPC Traffic Mirroring Using NGINX</title>
-    <link>https://inge.4pr.es/post/grpc-traffic-mirroring-using-nginx/</link>
-    <pubDate>Sun, 30 May 2021 17:23:35 &#43;0200</pubDate>
-    <author>inge4pres</author>
-    <guid>https://inge.4pr.es/post/grpc-traffic-mirroring-using-nginx/</guid>
-    <description><![CDATA[Recently at work with the Optimyze team we faced the necessity of copying traffic from our current customer-facing environment to a new environment. We have assumptions and ideas about architectural changes that cannot be validated only with synthetic tests and require cloning traffic to a separate, internal testing environment.
-There is no better test than the one performed with real-world data: when you hear speaking about testing in production, a deployment of a new feature to &ldquo;see what happens&rdquo; is not what I have in mind.]]></description>
-</item></channel>
+Traffic mirroring Use the following configurations snippets in the ingress-nginx configMap and in the Ingress manifest to mirror all traffic to a separate gRPC server.
+ConfigMap Replace grpc-backend.company.net and grpc-mirror.company.net with the original and mirror endpoint, respectively.
+ http-snippet: |server { listen 127.0.0.1:9443 ssl http2; server_name grpc-backend.</description>
+    </item>
+    
+    <item>
+      <title>gRPC Traffic Mirroring Using NGINX</title>
+      <link>https://inge.4pr.es/post/grpc-traffic-mirroring-using-nginx/</link>
+      <pubDate>Sun, 30 May 2021 17:23:35 +0200</pubDate>
+      
+      <guid>https://inge.4pr.es/post/grpc-traffic-mirroring-using-nginx/</guid>
+      <description>Recently at work with the Optimyze team we faced the necessity of copying traffic from our current customer-facing environment to a new environment. We have assumptions and ideas about architectural changes that cannot be validated only with synthetic tests and require cloning traffic to a separate, internal testing environment.
+There is no better test than the one performed with real-world data: when you hear speaking about testing in production, a deployment of a new feature to &amp;ldquo;see what happens&amp;rdquo; is not what I have in mind.</description>
+    </item>
+    
+  </channel>
 </rss>

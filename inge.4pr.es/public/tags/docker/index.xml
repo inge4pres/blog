@@ -1,14 +1,20 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>docker - Tag - INGE4PRES RATIONAL THOUGHTS</title>
-        <link>https://inge.4pr.es/tags/docker/</link>
-        <description>docker - Tag - INGE4PRES RATIONAL THOUGHTS</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 25 Feb 2018 16:47:05 &#43;0100</lastBuildDate><atom:link href="https://inge.4pr.es/tags/docker/" rel="self" type="application/rss+xml" /><item>
-    <title>Continuous Delivery with Drone</title>
-    <link>https://inge.4pr.es/post/continuous-delivery-with-drone/</link>
-    <pubDate>Sun, 25 Feb 2018 16:47:05 &#43;0100</pubDate>
-    <author>inge4pres</author>
-    <guid>https://inge.4pr.es/post/continuous-delivery-with-drone/</guid>
-    <description><![CDATA[Continuous Delivery should be a solved issue: the practice is well-defined and there is a plethora of tools implementing it with more or less peculiarities, but still many struggle implementing it. The dream of a perfect continuous deployment flow from the developer to the production environment with software quality gates based on automated tests is still alive in me, I tried and tried several times with multiple implementations on multiple platforms and never got to the point where I could say: &ldquo;I&rsquo;m done, this works exactly as I wanted&rdquo;.]]></description>
-</item></channel>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>docker on inge4pres</title>
+    <link>https://inge.4pr.es/tags/docker/</link>
+    <description>Recent content in docker on inge4pres</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 25 Feb 2018 16:47:05 +0100</lastBuildDate><atom:link href="https://inge.4pr.es/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Continuous Delivery with Drone</title>
+      <link>https://inge.4pr.es/post/continuous-delivery-with-drone/</link>
+      <pubDate>Sun, 25 Feb 2018 16:47:05 +0100</pubDate>
+      
+      <guid>https://inge.4pr.es/post/continuous-delivery-with-drone/</guid>
+      <description>Continuous Delivery should be a solved issue: the practice is well-defined and there is a plethora of tools implementing it with more or less peculiarities, but still many struggle implementing it. The dream of a perfect continuous deployment flow from the developer to the production environment with software quality gates based on automated tests is still alive in me, I tried and tried several times with multiple implementations on multiple platforms and never got to the point where I could say: &amp;ldquo;I&amp;rsquo;m done, this works exactly as I wanted&amp;rdquo;.</description>
+    </item>
+    
+  </channel>
 </rss>

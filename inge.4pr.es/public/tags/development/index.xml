@@ -1,39 +1,50 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>development - Tag - INGE4PRES RATIONAL THOUGHTS</title>
-        <link>https://inge.4pr.es/tags/development/</link>
-        <description>development - Tag - INGE4PRES RATIONAL THOUGHTS</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 30 Jan 2018 20:31:34 &#43;0100</lastBuildDate><atom:link href="https://inge.4pr.es/tags/development/" rel="self" type="application/rss+xml" /><item>
-    <title>Serverless on Kubernetes</title>
-    <link>https://inge.4pr.es/post/serverless-on-kubernetes/</link>
-    <pubDate>Tue, 30 Jan 2018 20:31:34 &#43;0100</pubDate>
-    <author>inge4pres</author>
-    <guid>https://inge.4pr.es/post/serverless-on-kubernetes/</guid>
-    <description><![CDATA[Kubernetes is the de facto platform for running modern applications: its broad adoption in 2017 and the velocity of the project made it so and it&rsquo;s been accepted as the standard for many companies, from small to planet scale. It was impossible that such an extensible platform would be left out the serverless party, so here are the 4 main players offering FaaS to be run via k8s.
-A premiseIf you&rsquo;re new to serverless and FaaS and all the previous buzzwords sound like cacophony to your ears, I really recommend reading this post and watching this talk.]]></description>
-</item><item>
-    <title>Golang Concurrency Patterns</title>
-    <link>https://inge.4pr.es/post/2017-10-28-golang-concurrency-pattern/</link>
-    <pubDate>Sat, 28 Oct 2017 19:40:09 &#43;0200</pubDate>
-    <author>inge4pres</author>
-    <guid>https://inge.4pr.es/post/2017-10-28-golang-concurrency-pattern/</guid>
-    <description><![CDATA[In the early days of Go the language was often tailored towards &ldquo;system programming&rdquo; due to its C-stlye syntax and ability to write high-performance applications. Few time after, Go adoption was starting to gain traction for distributed systems development and projects like etcd, docker and kubernetes revealed the power of the networking capabilities offered by the internals in the language. Along the way a lot of libraries have been built around the powerful primitives offered by Go but in my opinion there is not enough use literature around the Communicating Sequential Processes implementation available through channels and goroutines, they are not even widely used in the standard library.]]></description>
-</item><item>
-    <title>Getting Started With Google Cloud Builder</title>
-    <link>https://inge.4pr.es/post/2017-10-01-getting-started-with-google-cloud-builder/</link>
-    <pubDate>Sun, 01 Oct 2017 21:31:52 &#43;0200</pubDate>
-    <author>inge4pres</author>
-    <guid>https://inge.4pr.es/post/2017-10-01-getting-started-with-google-cloud-builder/</guid>
-    <description><![CDATA[One of the advantages of containerized applications is the standardization, some would say &ldquo;write it once, runs everywhere&rdquo; but that&rsquo;s another motto for another product. Anyway with a new packaging technology the same problems are faced: build reproducibility, or the necessity for people doing Ops to know they are going to deploy the same exact piece of code the Dev team used in their tests. So to address this issue the container image needs to be immutable: once it&rsquo;s built, it&rsquo;s not going to be changed, ever.]]></description>
-</item><item>
-    <title>Golang Message Queue: a simple TCP message bus</title>
-    <link>https://inge.4pr.es/post/2015-08-02-golang-message-queue-a-simple-tcp-message-bus/</link>
-    <pubDate>Sun, 02 Aug 2015 16:25:54 &#43;0000</pubDate>
-    <author>inge4pres</author>
-    <guid>https://inge.4pr.es/post/2015-08-02-golang-message-queue-a-simple-tcp-message-bus/</guid>
-    <description><![CDATA[[TL;DR]
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>development on inge4pres</title>
+    <link>https://inge.4pr.es/tags/development/</link>
+    <description>Recent content in development on inge4pres</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 30 Jan 2018 20:31:34 +0100</lastBuildDate><atom:link href="https://inge.4pr.es/tags/development/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Serverless on Kubernetes</title>
+      <link>https://inge.4pr.es/post/serverless-on-kubernetes/</link>
+      <pubDate>Tue, 30 Jan 2018 20:31:34 +0100</pubDate>
+      
+      <guid>https://inge.4pr.es/post/serverless-on-kubernetes/</guid>
+      <description>Kubernetes is the de facto platform for running modern applications: its broad adoption in 2017 and the velocity of the project made it so and it&amp;rsquo;s been accepted as the standard for many companies, from small to planet scale. It was impossible that such an extensible platform would be left out the serverless party, so here are the 4 main players offering FaaS to be run via k8s.
+A premise If you&amp;rsquo;re new to serverless and FaaS and all the previous buzzwords sound like cacophony to your ears, I really recommend reading this post and watching this talk.</description>
+    </item>
+    
+    <item>
+      <title>Golang Concurrency Patterns</title>
+      <link>https://inge.4pr.es/post/2017-10-28-golang-concurrency-pattern/</link>
+      <pubDate>Sat, 28 Oct 2017 19:40:09 +0200</pubDate>
+      
+      <guid>https://inge.4pr.es/post/2017-10-28-golang-concurrency-pattern/</guid>
+      <description>In the early days of Go the language was often tailored towards &amp;ldquo;system programming&amp;rdquo; due to its C-stlye syntax and ability to write high-performance applications. Few time after, Go adoption was starting to gain traction for distributed systems development and projects like etcd, docker and kubernetes revealed the power of the networking capabilities offered by the internals in the language. Along the way a lot of libraries have been built around the powerful primitives offered by Go but in my opinion there is not enough use literature around the Communicating Sequential Processes implementation available through channels and goroutines, they are not even widely used in the standard library.</description>
+    </item>
+    
+    <item>
+      <title>Getting Started With Google Cloud Builder</title>
+      <link>https://inge.4pr.es/post/2017-10-01-getting-started-with-google-cloud-builder/</link>
+      <pubDate>Sun, 01 Oct 2017 21:31:52 +0200</pubDate>
+      
+      <guid>https://inge.4pr.es/post/2017-10-01-getting-started-with-google-cloud-builder/</guid>
+      <description>One of the advantages of containerized applications is the standardization, some would say &amp;ldquo;write it once, runs everywhere&amp;rdquo; but that&amp;rsquo;s another motto for another product. Anyway with a new packaging technology the same problems are faced: build reproducibility, or the necessity for people doing Ops to know they are going to deploy the same exact piece of code the Dev team used in their tests. So to address this issue the container image needs to be immutable: once it&amp;rsquo;s built, it&amp;rsquo;s not going to be changed, ever.</description>
+    </item>
+    
+    <item>
+      <title>Golang Message Queue: a simple TCP message bus</title>
+      <link>https://inge.4pr.es/post/2015-08-02-golang-message-queue-a-simple-tcp-message-bus/</link>
+      <pubDate>Sun, 02 Aug 2015 16:25:54 +0000</pubDate>
+      
+      <guid>https://inge.4pr.es/post/2015-08-02-golang-message-queue-a-simple-tcp-message-bus/</guid>
+      <description>[TL;DR]
 I wrote a Pub/Sub message queue in Go, branch “master” is stable but missing some interesting feature like distributed memory synchronization between nodes in a cluster and encryption. Code at
-https://github.com/inge4pres/gmq
-Being a cloud system engineer, my work is to design and implement distributed systems: one of the key principles in designing such architectures is decoupling, which means ensuring the many parts composing the system are able to share informations and complete a sequence of operations without being tied together.]]></description>
-</item></channel>
+https://github.com/inge4pres/gmqBeing a cloud system engineer, my work is to design and implement distributed systems: one of the key principles in designing such architectures is decoupling, which means ensuring the many parts composing the system are able to share informations and complete a sequence of operations without being tied together.</description>
+    </item>
+    
+  </channel>
 </rss>
