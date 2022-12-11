@@ -40,6 +40,11 @@ math:
 license: "MIT"
 ---
 
+{{< gallery caption-effect="fade" >}}
+{{< figure link="/images/posts/nginx-grpc.png" caption="gRPC NGINX" alt="gRPC protocol support in NGINX" >}}
+{{< figure link="/images/posts/grpc.png" caption="gRPC" >}}
+{{< /gallery >}}
+
 Recently at work with the [Optimyze](https://optimyze.cloud) team we faced the necessity of copying traffic from our current customer-facing environment to a new environment.
 We have assumptions and ideas about architectural changes that cannot be validated only with synthetic tests and require cloning traffic to a separate, internal testing environment.
 

@@ -1,205 +1,533 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
   <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>
-    continuous-delivery - inge4pres
-  </title><meta name="generator" content="Hugo 0.98.0" /><link
-    rel="stylesheet"
-    href="https://inge.4pr.es/css/styles.css"
-    integrity=""
-  />
-  
-  <script>
     
-    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  </script>
-  
-</head>
 
-  <body
-    class="flex flex-col min-h-screen dark:bg-gray-900 dark:text-gray-100 transition-colors duration-500"
-  ><header class="w-full px-4 pt-4 max-w-5xl mx-auto">
-  <nav class="flex items-center justify-between flex-wrap">
-    <div class="flex gap-2 items-center">
-      
-      <a href="mailto:fgualazzi@gmail.com" aria-label="EMail">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="20"
-          height="20"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-          fill="none"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-          <circle cx="12" cy="12" r="4" />
-          <path d="M16 12v1.5a2.5 2.5 0 0 0 5 0v-1.5a9 9 0 1 0 -5.5 8.28" />
-        </svg>
-      </a>
-      
-      <a href="https://inge.4pr.es/" class="flex items-center font-bold">
-        inge4pres
-      </a>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>continuous-delivery - INGE4PRES RATIONAL THOUGHTS</title>
+  <meta name="author" content="Francesco Gualazzi"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "INGE4PRES RATIONAL THOUGHTS",
+    
+    "url": "https:\/\/inge.4pr.es"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/inge.4pr.es"
+  
+  
+  
+  
+}
+</script>
+
+<meta property="og:title" content="continuous-delivery" />
+<meta property="og:image" content="https://inge.4pr.es/images/avatar.png" />
+<meta property="og:url" content="https://inge.4pr.es/tags/continuous-delivery/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="INGE4PRES RATIONAL THOUGHTS" />
+
+  <meta name="twitter:title" content="continuous-delivery" />
+  <meta name="twitter:image" content="https://inge.4pr.es/images/avatar.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@inge4pres" />
+  <meta name="twitter:creator" content="@inge4pres" />
+  <link href='https://inge.4pr.es/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.108.0">
+  <link rel="alternate" href="https://inge.4pr.es/index.xml" type="application/rss+xml" title="INGE4PRES RATIONAL THOUGHTS"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://inge.4pr.es/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://inge.4pr.es/css/highlight.min.css" /><link rel="stylesheet" href="https://inge.4pr.es/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-55252403-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://inge.4pr.es">INGE4PRES RATIONAL THOUGHTS</a>
     </div>
 
-    <ul id="nav-menu" class="flex w-auto mt-0 space-x-2">
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Resume" href="/resume">Resume</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/about">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+
+        
+
+        
+          <li>
+            <a href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="INGE4PRES RATIONAL THOUGHTS" href="https://inge.4pr.es">
+            <img class="avatar-img" src="https://inge.4pr.es/images/avatar.png" alt="INGE4PRES RATIONAL THOUGHTS" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+  <div id="modalSearch" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Search INGE4PRES RATIONAL THOUGHTS</h4>
+        </div>
+        <div class="modal-body">
+          <gcse:search></gcse:search>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
       
-      <li>
-        <a href="https://inge.4pr.es/about/" class="hover:text-blue-800 dark:hover:text-blue-300">You are what you is (F. Zappa)</a>
-      </li>
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
       
       
-      <li>
-        <a href="https://inge.4pr.es/categories/blog/" class="hover:text-blue-800 dark:hover:text-blue-300">blog</a>
-      </li>
-      
-    </ul>
-  </nav>
-</header>
-<main class="flex-1 mx-4 md:mx-12 lg:mx-24 mt-8 sm:mt-16"> 
-<article class="sm:mx-12 mb-16 prose lg:prose-lg">
-  <h1><a href="https://inge.4pr.es/post/progressive-delivery-with-kubernetes/">Progressive Delivery with Kubernetes</a></h1>
-  <p>I&rsquo;m more and more fond of finding the perfect solution to manage application delivery: dev teams want to be fast but their ops counterpart is not happy to loose control over the growing number of deployments that could cause an outage. We as an industry need to find the right balance to have features delivered in time and keep the service up and running for our users! And that&rsquo;s where progressive delivery can help!</p>
-<p>What is progressive delivery? It&rsquo;s the evolution of continuous integration and continuous delivery practices, taken to the extreme - if this is the first time you hear about it, read <a href="https://redmonk.com/jgovernor/2018/08/06/towards-progressive-delivery/">this excellent post by James Governon</a>. But as of today what are the tools that embed this practice in deployment pipelines? None that I could find ☹️&hellip; hence I started this post to share some of the techniques that you can use to achieve progresive delivery today on Kubernetes! I&rsquo;d be really glad to have any comments and discuss on the matter.</p>
-<h3 id="the-goal">The goal</h3>
-<p>The progressive delivery manifesto (if there will ever be one) should explain the rationale why delivering feature in parts is better than all at once: feedback.
-In this Agile world feedback is everything, and the only feedback that matters is your users&rsquo;; as Jez Humble puts it</p>
-<blockquote>
-<p>“Users don’t know what they want. Users know what they don’t want once you’ve built it for them.”</p>
-</blockquote>
-<p>You are not going to build anything useful if you don&rsquo;t collect your users opinion <em>while</em> building the product, that is why having a system that is able to change quickly and that can collect this feedback is so vital to success.</p>
-<h3 id="to-mesh-or-not-to-mesh">To mesh or not to mesh</h3>
-<p>The first approach to progressive delivery is via infrastructure components.
-I cheated a bit in the post intro: there actually is a tool combination that is able to implement a feature close to progressive delivery right now: it&rsquo;s <a href="https://istio.io/">Istio</a> plus <a href="https://www.spinnaker.io/">Spinnaker</a>; the network mesh in this scenario is a router for connections originating by clients between multiple versions of the same backend, whose deployed versions are managed by Spinnaker releases. The mesh could be another product (Envoy, Linkerd, Consul Connect&hellip;) but it is the necessary component that contains the logic to serve the user a specific version of the application, based on goegraphic location rules, latency or even application rules (layer 7).</p>
-<p>If you want to avoid the burden of installing and maintaining a mesh network you need to manage custom tooling to have the traffic routed for a subset of users to a specific version, <a href="https://github.com/bookingcom/shipper">Skipper</a> is a good example but comes with the restriction of not being able to manage percentage of traffic, so the percentage of user served is based only on the number of pods configured from service to service (so not ideal for small sized deployments).</p>
-<p>The other way I see right now is creating a <a href="/2018/05/05/cloud-native-software-delivery/">Kubernetes operator and a CustomResourceDefinition</a> that can interact with the Ingress resource: this is hypothetical and I am not aware of any tool that is doing this but it could be posible to configure the ingresses to serve part of the requests by a specific Service (e.g. <code>v1.2.3</code> backed by a Deployment with a proper <code>selector</code>). As far as I know the current ingress controler based on nginx does not have such feature, but I just discovered writing this line that <a href="https://docs.traefik.io/user-guide/kubernetes/#traffic-splitting">Traefik does support this</a>! It would be great to understand if Traefik can manage multiple rules at once and if it can be managed via API so that the traffic is gradually moved from service to service.</p>
-<h3 id="feature-flags">Feature flags</h3>
-<p>Of course if you move to the application things get easier in terms of programmability, problem is they tend to be more difficult to manage at scale. If you use one of the <a href="http://featureflags.io/feature-flags/">multitude of available</a> feature-flag products (also referred as <a href="https://www.martinfowler.com/articles/feature-toggles.html">feature toggles</a>) you are soon going to be able to experiment with progressive delivery capabilities; your application will most likely contain the logic required to show a specific user a feature or another. While this is intriguing, if you have more than 2 product teams this can easily become a nightmare because if each team implements its own solution of feature toggle the company as a whole can really struggle to get what type of experience is serving to its users. Change management, for as light as it can be, should still be accounting for features enabled and disabled that may cause a service disuption, even if for a small percentage of users, and when the logic for serving different versions of your system is scattered around multiple applications, this goes quickly out of control.</p>
-<p>One approach I&rsquo;ve seen succeed in using software-defined toggle is adopt a centralized, company-wide solution around an existing product: this simplifies greatly the management around features that are delivered passing through multiple services while being able to keep track of changes consitently.</p>
-<h3 id="delivering-it">Delivering it</h3>
-<p>Once you&rsquo;ve established an infrastructure for serving users based on some policies you should also have in place automation to be able to push your features out. In case you went for the infrastructure/network path you&rsquo;ll need a deployment tool that can sit between your CI artifacts and the platform running your services; on the contrary for a software-driven solution you will just need an application build and deployed regularly.
-For the former I am really struggling to find a product that suites my need, I&rsquo;ve poked around with Spinnaker, ArgoCD and Tekton Pipelines but none of them seems to have the adequate primitives to address my progressive delivery needs.
-I&rsquo;d be happy to hear from the community how this is being addressed: I&rsquo;d like to have a descriptive way of defining multiple versions of artifacts and configurations paired together (maybe via commit hash?) and have all of them deployed at the same time; I&rsquo;d also like to update the configurations of a given version while it&rsquo;s running.</p>
-<p>Seems fair right? I might need to tweak my service here and there, but I&rsquo;d like to tune it only for a specific set of features that I know are in version ABC. Now I could not find on the internet a single product that works with Kubernetes able to satisfy this requirement, so please if you happen to have something in mind leave a comment!</p>
-<h3 id="conclusion">Conclusion</h3>
-<p>As always Kubernetes is a great enabler for delivery techniques based on software, it&rsquo;s an extensible platform and the multiple uses that can lead to achieve progressive delivery just confirm it. Personally I see a lot of space for progressive delivery in the upcoming future, especially for IoT. Let&rsquo;s see what&rsquo;s next!</p>
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="tags-heading">
+              
+                <h1>continuous-delivery</h1>
+              
+              
+                <hr class="small">
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+  <div class="container" role="main">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+        <div class="posts-list">
+          
+            <article class="post-preview">
+    <a href="https://inge.4pr.es/progressive-delivery-with-kubernetes/">
+        <h2 class="post-title">Progressive Delivery with Kubernetes</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2019-05-05
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;6&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;1109&nbsp;words
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;inge4pres
+    
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        I&rsquo;m more and more fond of finding the perfect solution to manage application delivery: dev teams want to be fast but their ops counterpart is not happy to loose control over the growing number of deployments that could cause an outage. We as an industry need to find the right balance to have features delivered in time and keep the service up and running for our users! And that&rsquo;s where progressive delivery can help!
+        <a href="https://inge.4pr.es/progressive-delivery-with-kubernetes/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+        <a href="https://inge.4pr.es/tags/containers/">containers</a>&nbsp;
+        
+        <a href="https://inge.4pr.es/tags/kubernetes/">kubernetes</a>&nbsp;
+        
+        <a href="https://inge.4pr.es/tags/platform/">platform</a>&nbsp;
+        
+        <a href="https://inge.4pr.es/tags/continuous-delivery/">continuous-delivery</a>&nbsp;
+        
+    </div>
+    
 
 </article>
+          
+            <article class="post-preview">
+    <a href="https://inge.4pr.es/cloud-native-software-delivery/">
+        <h2 class="post-title">Cloud-native applications: Operator-Framework</h2>
+        
+        
+        
+    </a>
 
-<article class="sm:mx-12 mb-16 prose lg:prose-lg">
-  <h1><a href="https://inge.4pr.es/post/cloud-native-software-delivery/">Cloud-native applications: Operator-Framework</a></h1>
-  <p><strong>Cloud-native</strong>: sounds attractive right? What does it even mean? <a href="https://en.wikipedia.org/wiki/Cloud-native">Wikipedia</a> has no page on it already so anyone can give its own definition&hellip; Here&rsquo;s mine:</p>
-<p><em>A Cloud-native application has only concern on the functionalities that it has to deliver as it is completely decoupled from the infrastructure it runs on</em></p>
-<p>So how can software delivery be cloud-native? Isn&rsquo;t software delivery supposed to &ldquo;install&rdquo; software onto some infrastructure? Well if your infrastructure provider <em>is</em> cloud-native, you can transitively deliver software on it in a cloud-native way (counts of cloud-native is over 9000, so stopping here)!</p>
-<p>Recently RedHat acquired CoreOS, bold move if you ask me. CoreOS since the M&amp;A has been very quite until a week ago when the <a href="https://github.com/operator-framework">operator-framework</a> was announced through a <a href="https://coreos.com/blog/introducing-operator-framework">blog post</a>; this is a huge step forward for everyone as this new toolkit will empower the average developer with the ability to run operators on Kubernetes and package their applications as extensions to the Kubernetes API.</p>
-<p>Never heard of <a href="https://kubernetes.io/docs/concepts/api-extension/custom-resources/#customresourcedefinitions">Custom Resource Definitions</a>? You&rsquo;d better get on track as this will be driving the next-gen wave of applications that will run <em>as part</em> of the platform that delivers them, with the ability to automate their management and simplify dramatically their operations which will be tightly integrated with the cluster management itself.</p>
-<p>And as usual I&rsquo;m eager to try out this new toy and see what can be done with it: I want to build a cloud-native software delivery application that will enable CI/CD jobs to be running inside the cluster and managed by the same API server! Using a CRD for the &ldquo;Pipeline&rdquo; kind I can control the build/test/release flow of my application and moreover monitor the whole thing with the same tools with which I will monitor my application.</p>
-<h3 id="creating-cd">Creating CD³</h3>
-<p>I decided to start a new project called <a href="https://github.com/inge4pres/cdkube">CD³ (cd kube)</a>: it will be a Continuous-* software that will run in Kubernetes and will be dedicated to deliver software <em>through</em> Kubernetes. I found Weaveworks did something similar with <a href="https://github.com/weaveworks/flux/">Flux</a> and since I don&rsquo;t want to reinvent the wheel I&rsquo;ll just try and replicate some functionality of running a continer in an operator.</p>
-<p>First things first: I installed the <a href="https://github.com/operator-framework/operator-sdk">operator-sdk</a> and I have the binary in my <code>$GOPATH/bin</code>.
-Running</p>
-<pre tabindex="0"><code>$GOPATH/bin/operator-sdk new cdkube --api-version=delivery.inge.4pr.es/v1alpha1 --kind=Pipeline
-</code></pre><p>I am resulting in an auto-generated project with some scaffold code, as in <a href="https://github.com/inge4pres/cdkube/commit/bd7a1cf8790cf02169057f759e40272993673181">this commit</a>.
-Next I add some details which I think are at the core of a pipeline: the repository with code and configurations, the image to build the software and what version/name give to the resulting application artifact. When adding new items to the Spec and Status of CRD I will modify the <a href="https://github.com/inge4pres/cdkube/blob/master/pkg/apis/delivery/v1alpha1/types.go">pkg/apis/delivery/v1alpha1/types.go</a> file, then the guide suggests to run <code>operator-sdk generate k8s</code> to update the code, in fact the <code>zz_generated_deepcopy.go</code> is updated, but I don&rsquo;t see the <a href="https://github.com/inge4pres/cdkube/commit/5a17429d206475bcef85077d1f9aeb6fdda50357#diff-5cd8fbaa4e3fbb473c3e57c6fabca2f9">deploy/cr.yaml</a> changed as it should so probably there&rsquo;s a bug&hellip; Moving forward I have my operator logic to be defined now: I add some check whether the building pod is succeded and build the operator</p>
-<pre tabindex="0"><code>operator-sdk build inge4pres/cdkube:v0.0.1
-docker push inge4pres/cdkube:v0.0.1
-</code></pre><p>My operator is built, pushed to dockerhub and ready to be kicked in a k8s cluster, so I fire up one in GKE</p>
-<pre tabindex="0"><code>gcloud beta container --project &#34;inge4pres-gcp&#34; clusters create &#34;operator-framework-test&#34; --zone &#34;europe-west1-b&#34; --machine-type &#34;g1-small&#34; --image-type &#34;COS&#34; --disk-size &#34;25&#34;
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2018-05-05
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;5&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;966&nbsp;words
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;inge4pres
+    
+  
+  
+</span>
 
-gcloud container clusters get-credentials operator-framework-test --zone europe-west1-b --project inge4pres-gcp
-</code></pre><p>and when it&rsquo;s ready I can deploy the auto-generated resources to the cluster.
-An amazing result is that once the depoloyment is done I can create my CRD with the <code>kubectl</code> command and see my custom-type declared, running <code>kubectl create -f deploy/crd.yaml</code> I have a new object created in k8s</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>➜  ~ kubectl get pipeline
-</span></span><span style="display:flex;"><span>NAME            AGE
-</span></span><span style="display:flex;"><span>doing-nothing   16s
-</span></span><span style="display:flex;"><span>➜  ~ kubectl describe pipeline
-</span></span><span style="display:flex;"><span>Name:         doing-nothing
-</span></span><span style="display:flex;"><span>Namespace:    default
-</span></span><span style="display:flex;"><span>Labels:       &lt;none&gt;
-</span></span><span style="display:flex;"><span>Annotations:  &lt;none&gt;
-</span></span><span style="display:flex;"><span>API Version:  delivery.inge.4pr.es/v1alpha1
-</span></span><span style="display:flex;"><span>Kind:         Pipeline
-</span></span><span style="display:flex;"><span>Metadata:
-</span></span><span style="display:flex;"><span>  Cluster Name:
-</span></span><span style="display:flex;"><span>  Creation Timestamp:             2018-05-05T18:08:31Z
-</span></span><span style="display:flex;"><span>  Deletion Grace Period Seconds:  &lt;nil&gt;
-</span></span><span style="display:flex;"><span>  Deletion Timestamp:             &lt;nil&gt;
-</span></span><span style="display:flex;"><span>  Initializers:                   &lt;nil&gt;
-</span></span><span style="display:flex;"><span>  Resource Version:               <span style="color:#bd93f9">1528</span>
-</span></span><span style="display:flex;"><span>  Self Link:                      /apis/delivery.inge.4pr.es/v1alpha1/namespaces/default/pipelines/doing-nothing
-</span></span><span style="display:flex;"><span>  UID:                            5160a990-508f-11e8-8f06-42010a8401f8
-</span></span><span style="display:flex;"><span>Spec:
-</span></span><span style="display:flex;"><span>Spec:
-</span></span><span style="display:flex;"><span>  Build Arguments:
-</span></span><span style="display:flex;"><span>    building something...
-</span></span><span style="display:flex;"><span>    now I&#39;m <span style="color:#ff79c6">done</span>
-</span></span><span style="display:flex;"><span>  Build Commands:
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">echo</span>
-</span></span><span style="display:flex;"><span>  Build Image:     busybox
-</span></span><span style="display:flex;"><span>  Repo:            http://github.com/inge4pres/just-a-test
-</span></span><span style="display:flex;"><span>  Target Name:     tesApp
-</span></span><span style="display:flex;"><span>  Target Version:  0.1
-</span></span><span style="display:flex;"><span>Events:            &lt;none&gt;
-</span></span><span style="display:flex;"><span>➜  ~</span></span></code></pre></div>
-<p>When I deploy my operator and create the custom resource applying the manifest for a pipeline, the operator picks it up and starts a container with the name of the pipeline</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>➜  cdkube git:<span style="color:#ff79c6">(</span>master<span style="color:#ff79c6">)</span> ✗ kubectl apply -f deploy/cr.yaml
-</span></span><span style="display:flex;"><span>➜  cdkube git:<span style="color:#ff79c6">(</span>master<span style="color:#ff79c6">)</span> ✗ kubectl get po
-</span></span><span style="display:flex;"><span>NAME                      READY     STATUS    RESTARTS   AGE
-</span></span><span style="display:flex;"><span>cdkube-57bcf65584-sbvd6   1/1       Running   <span style="color:#bd93f9">0</span>          12s
-</span></span><span style="display:flex;"><span>➜  cdkube git:<span style="color:#ff79c6">(</span>master<span style="color:#ff79c6">)</span> ✗ kubectl apply -f deploy/cr.yaml
-</span></span><span style="display:flex;"><span>pipeline <span style="color:#f1fa8c">&#34;doing-nothing&#34;</span> created
-</span></span><span style="display:flex;"><span>➜  cdkube git:<span style="color:#ff79c6">(</span>master<span style="color:#ff79c6">)</span> ✗ kubectl get po
-</span></span><span style="display:flex;"><span>NAME                      READY     STATUS              RESTARTS   AGE
-</span></span><span style="display:flex;"><span>cdkube-57bcf65584-sbvd6   1/1       Running             <span style="color:#bd93f9">0</span>          29s
-</span></span><span style="display:flex;"><span>testapp                   0/1       ContainerCreating   <span style="color:#bd93f9">0</span>          2s
-</span></span><span style="display:flex;"><span>➜  cdkube git:<span style="color:#ff79c6">(</span>master<span style="color:#ff79c6">)</span> ✗ kubectl logs cdkube-57bcf65584-sbvd6
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">time</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;2018-05-05T18:42:59Z&#34;</span> <span style="color:#8be9fd;font-style:italic">level</span><span style="color:#ff79c6">=</span>info <span style="color:#8be9fd;font-style:italic">msg</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;Go Version: go1.10.2&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">time</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;2018-05-05T18:42:59Z&#34;</span> <span style="color:#8be9fd;font-style:italic">level</span><span style="color:#ff79c6">=</span>info <span style="color:#8be9fd;font-style:italic">msg</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;Go OS/Arch: linux/amd64&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">time</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;2018-05-05T18:42:59Z&#34;</span> <span style="color:#8be9fd;font-style:italic">level</span><span style="color:#ff79c6">=</span>info <span style="color:#8be9fd;font-style:italic">msg</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;operator-sdk Version: 0.0.5+git&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">time</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;2018-05-05T18:42:59Z&#34;</span> <span style="color:#8be9fd;font-style:italic">level</span><span style="color:#ff79c6">=</span>info <span style="color:#8be9fd;font-style:italic">msg</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;starting pipelines controller&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">time</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;2018-05-05T18:43:21Z&#34;</span> <span style="color:#8be9fd;font-style:italic">level</span><span style="color:#ff79c6">=</span>info <span style="color:#8be9fd;font-style:italic">msg</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;build still running, status of builder container: Pending&#34;</span>
-</span></span><span style="display:flex;"><span>➜  cdkube git:<span style="color:#ff79c6">(</span>master<span style="color:#ff79c6">)</span> ✗ kubectl get po
-</span></span><span style="display:flex;"><span>NAME                      READY     STATUS      RESTARTS   AGE
-</span></span><span style="display:flex;"><span>cdkube-57bcf65584-sbvd6   1/1       Running     <span style="color:#bd93f9">0</span>          49s
-</span></span><span style="display:flex;"><span>testapp                   0/1       Completed   <span style="color:#bd93f9">2</span>          22s</span></span></code></pre></div>
-<p>and if I get the <code>testapp</code> logs I can see the pipeline execution</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>➜  cdkube git:<span style="color:#ff79c6">(</span>master<span style="color:#ff79c6">)</span> ✗ kubectl logs testapp
-</span></span><span style="display:flex;"><span>building something... now I&#39;m <span style="color:#ff79c6">done</span></span></span></code></pre></div>
-<p>Bonus: if the custom resource is deleted with <code>kubectl delete -f deploy/cr.yaml</code> the pod <code>testapp</code> gets terminated automatically! I don&rsquo;t know if this magic is done by Kubernetes or by the Operator Framework, but sure I love it as it will enable my resources to be managed with the k8s API just like any other.</p>
-<p>I still need to tune the logic of handling the container as I didn&rsquo;t expect the restarts to happen, but hey this looks amazing! In a couple of hours I have an operator that can spawn containers when instructed to do so by custom manifests representing a pipeline!</p>
-<p>Stay tuned 😎</p>
+
+    </p>
+    <div class="post-entry">
+        
+        Cloud-native: sounds attractive right? What does it even mean? Wikipedia has no page on it already so anyone can give its own definition&hellip; Here&rsquo;s mine:
+A Cloud-native application has only concern on the functionalities that it has to deliver as it is completely decoupled from the infrastructure it runs on
+So how can software delivery be cloud-native? Isn&rsquo;t software delivery supposed to &ldquo;install&rdquo; software onto some infrastructure? Well if your infrastructure provider is cloud-native, you can transitively deliver software on it in a cloud-native way (counts of cloud-native is over 9000, so stopping here)!
+        <a href="https://inge.4pr.es/cloud-native-software-delivery/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+        <a href="https://inge.4pr.es/tags/platform/">platform</a>&nbsp;
+        
+        <a href="https://inge.4pr.es/tags/continuous-delivery/">continuous-delivery</a>&nbsp;
+        
+        <a href="https://inge.4pr.es/tags/software/">software</a>&nbsp;
+        
+    </div>
+    
 
 </article>
- 
-    </main><footer class="w-full text-center p-4 text-xs text-gray-400">
-  <p>
-    Built with
-    <a
-      href="https://gohugo.io"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="underline hover:text-blue-800 dark:hover:text-blue-300"
-      >Hugo</a
-    >
-    and
-    <a
-      href="https://github.com/apvarun/showfolio-hugo-theme"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="underline hover:text-blue-800 dark:hover:text-blue-300"
-      >Showfolio</a
-    >
-  </p>
-</footer>
+          
+        </div>
+        
+      </div>
+    </div>
+  </div>
 
-</body>
+      
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+		
+		  <a href="mailto:fgualazzi@gmail.com" title="Email me">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a href="https://github.com/inge4pres" title="GitHub">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a href="https://gitlab.com/inge4pres" title="GitLab">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-gitlab fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a href="https://twitter.com/inge4pres" title="Twitter">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a href="https://linkedin.com/in/francescogualazzi" title="LinkedIn">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a href="https://stackoverflow.com/users/4628081/francesco-gualazzi" title="StackOverflow">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-stack-overflow fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a href="https://soundcloud.com/Fringe" title="SoundCloud">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-soundcloud fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a href="https://open.spotify.com/user/inge4pres" title="Spotify">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-spotify fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="/tags/continuous-delivery/index.xml" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              <a href="inge.4pr.es">Francesco Gualazzi</a>
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2021
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://inge.4pr.es">INGE4PRES RATIONAL THOUGHTS</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.108.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://inge.4pr.es/js/main.js"></script>
+<script src="https://inge.4pr.es/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://inge.4pr.es/js/load-photoswipe.js"></script>
+
+
+
+<script>
+  (function() {
+    var cx = '001356843333597088882:wro9yfh1c0g';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+
+
+
+
+
+
+<script type="text/javascript">
+$(function(){
+  $('#show-comments').on('click', function(){
+    var disqus_shortname = 'inge4pres';
+      
+    (function() {
+      var disqus = document.createElement('script'); 
+      disqus.type = 'text/javascript'; 
+      disqus.async = true;
+      disqus.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(disqus);
+    })();
+      
+    $(this).hide(); 
+    });
+  });
+      
+</script>
+<script id="dsq-count-scr" src="//inge4pres.disqus.com/count.js" async></script>
+
+
+
+
+    
+  </body>
 </html>
+

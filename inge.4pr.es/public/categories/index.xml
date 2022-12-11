@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on inge4pres</title>
+    <title>Categories on INGE4PRES RATIONAL THOUGHTS</title>
     <link>https://inge.4pr.es/categories/</link>
-    <description>Recent content in Categories on inge4pres</description>
+    <description>Recent content in Categories on INGE4PRES RATIONAL THOUGHTS</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <managingEditor>fgualazzi@gmail.com (Francesco Gualazzi)</managingEditor>
+    <webMaster>fgualazzi@gmail.com (Francesco Gualazzi)</webMaster>
     <lastBuildDate>Sat, 06 Nov 2021 15:42:08 +0200</lastBuildDate><atom:link href="https://inge.4pr.es/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>tech</title>
       <link>https://inge.4pr.es/categories/tech/</link>
       <pubDate>Sat, 06 Nov 2021 15:42:08 +0200</pubDate>
-      
+      <author>fgualazzi@gmail.com (Francesco Gualazzi)</author>
       <guid>https://inge.4pr.es/categories/tech/</guid>
       <description></description>
     </item>
@@ -20,7 +21,7 @@
       <title>work</title>
       <link>https://inge.4pr.es/categories/work/</link>
       <pubDate>Sun, 05 May 2019 15:00:51 +0200</pubDate>
-      
+      <author>fgualazzi@gmail.com (Francesco Gualazzi)</author>
       <guid>https://inge.4pr.es/categories/work/</guid>
       <description></description>
     </item>
@@ -29,7 +30,7 @@
       <title>culture</title>
       <link>https://inge.4pr.es/categories/culture/</link>
       <pubDate>Tue, 23 Oct 2018 18:07:07 +0200</pubDate>
-      
+      <author>fgualazzi@gmail.com (Francesco Gualazzi)</author>
       <guid>https://inge.4pr.es/categories/culture/</guid>
       <description></description>
     </item>
@@ -38,7 +39,7 @@
       <title>kubernetes</title>
       <link>https://inge.4pr.es/categories/kubernetes/</link>
       <pubDate>Tue, 30 Jan 2018 20:31:34 +0100</pubDate>
-      
+      <author>fgualazzi@gmail.com (Francesco Gualazzi)</author>
       <guid>https://inge.4pr.es/categories/kubernetes/</guid>
       <description></description>
     </item>
@@ -47,7 +48,7 @@
       <title>serverless</title>
       <link>https://inge.4pr.es/categories/serverless/</link>
       <pubDate>Tue, 30 Jan 2018 20:31:34 +0100</pubDate>
-      
+      <author>fgualazzi@gmail.com (Francesco Gualazzi)</author>
       <guid>https://inge.4pr.es/categories/serverless/</guid>
       <description></description>
     </item>
@@ -56,7 +57,7 @@
       <title>social</title>
       <link>https://inge.4pr.es/categories/social/</link>
       <pubDate>Sun, 28 May 2017 17:04:10 +0200</pubDate>
-      
+      <author>fgualazzi@gmail.com (Francesco Gualazzi)</author>
       <guid>https://inge.4pr.es/categories/social/</guid>
       <description></description>
     </item>
@@ -65,7 +66,7 @@
       <title>music</title>
       <link>https://inge.4pr.es/categories/music/</link>
       <pubDate>Mon, 26 Nov 2012 16:14:41 +0000</pubDate>
-      
+      <author>fgualazzi@gmail.com (Francesco Gualazzi)</author>
       <guid>https://inge.4pr.es/categories/music/</guid>
       <description></description>
     </item>
@@ -74,7 +75,7 @@
       <title>politics</title>
       <link>https://inge.4pr.es/categories/politics/</link>
       <pubDate>Mon, 20 Aug 2012 17:45:06 +0000</pubDate>
-      
+      <author>fgualazzi@gmail.com (Francesco Gualazzi)</author>
       <guid>https://inge.4pr.es/categories/politics/</guid>
       <description></description>
     </item>
@@ -83,7 +84,7 @@
       <title>blog</title>
       <link>https://inge.4pr.es/categories/blog/</link>
       <pubDate>Fri, 18 May 2012 00:39:03 +0000</pubDate>
-      
+      <author>fgualazzi@gmail.com (Francesco Gualazzi)</author>
       <guid>https://inge.4pr.es/categories/blog/</guid>
       <description></description>
     </item>

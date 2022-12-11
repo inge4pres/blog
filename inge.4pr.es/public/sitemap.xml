@@ -5,7 +5,7 @@
     <loc>https://inge.4pr.es/categories/</loc>
     <lastmod>2021-11-06T15:42:08+02:00</lastmod>
   </url><url>
-    <loc>https://inge.4pr.es/post/grpc-traffic-mirroring-with-ingress-nginx-on-k8s/</loc>
+    <loc>https://inge.4pr.es/grpc-traffic-mirroring-with-ingress-nginx-on-k8s/</loc>
     <lastmod>2021-11-06T15:42:08+02:00</lastmod>
   </url><url>
     <loc>https://inge.4pr.es/tags/infrastructure/</loc>
@@ -29,10 +29,10 @@
     <loc>https://inge.4pr.es/categories/tech/</loc>
     <lastmod>2021-11-06T15:42:08+02:00</lastmod>
   </url><url>
-    <loc>https://inge.4pr.es/post/grpc-traffic-mirroring-using-nginx/</loc>
+    <loc>https://inge.4pr.es/grpc-traffic-mirroring-using-nginx/</loc>
     <lastmod>2021-05-30T17:23:35+02:00</lastmod>
   </url><url>
-    <loc>https://inge.4pr.es/post/micro-committing-with-git/</loc>
+    <loc>https://inge.4pr.es/micro-committing-with-git/</loc>
     <lastmod>2021-04-03T17:10:26+01:00</lastmod>
   </url><url>
     <loc>https://inge.4pr.es/tags/practices/</loc>
@@ -44,7 +44,7 @@
     <loc>https://inge.4pr.es/tags/cka/</loc>
     <lastmod>2019-11-01T15:56:42+01:00</lastmod>
   </url><url>
-    <loc>https://inge.4pr.es/post/cka-exam-experience/</loc>
+    <loc>https://inge.4pr.es/cka-exam-experience/</loc>
     <lastmod>2019-11-01T15:56:42+01:00</lastmod>
   </url><url>
     <loc>https://inge.4pr.es/tags/containers/</loc>
@@ -56,7 +56,7 @@
     <loc>https://inge.4pr.es/tags/platform/</loc>
     <lastmod>2019-05-05T15:00:51+02:00</lastmod>
   </url><url>
-    <loc>https://inge.4pr.es/post/progressive-delivery-with-kubernetes/</loc>
+    <loc>https://inge.4pr.es/progressive-delivery-with-kubernetes/</loc>
     <lastmod>2019-05-05T15:00:51+02:00</lastmod>
   </url><url>
     <loc>https://inge.4pr.es/categories/work/</loc>
@@ -68,19 +68,19 @@
     <loc>https://inge.4pr.es/categories/culture/</loc>
     <lastmod>2018-10-23T18:07:07+02:00</lastmod>
   </url><url>
-    <loc>https://inge.4pr.es/post/golab-2018-wrap-up/</loc>
+    <loc>https://inge.4pr.es/golab-2018-wrap-up/</loc>
     <lastmod>2018-10-23T18:07:07+02:00</lastmod>
   </url><url>
     <loc>https://inge.4pr.es/tags/golang/</loc>
     <lastmod>2018-10-23T18:07:07+02:00</lastmod>
   </url><url>
-    <loc>https://inge.4pr.es/post/cloud-native-software-delivery/</loc>
+    <loc>https://inge.4pr.es/cloud-native-software-delivery/</loc>
     <lastmod>2018-05-05T15:08:30+02:00</lastmod>
   </url><url>
     <loc>https://inge.4pr.es/tags/software/</loc>
     <lastmod>2018-05-05T15:08:30+02:00</lastmod>
   </url><url>
-    <loc>https://inge.4pr.es/post/continuous-delivery-with-drone/</loc>
+    <loc>https://inge.4pr.es/continuous-delivery-with-drone/</loc>
     <lastmod>2018-02-25T16:47:05+01:00</lastmod>
   </url><url>
     <loc>https://inge.4pr.es/tags/devops/</loc>
@@ -101,10 +101,10 @@
     <loc>https://inge.4pr.es/categories/serverless/</loc>
     <lastmod>2018-01-30T20:31:34+01:00</lastmod>
   </url><url>
-    <loc>https://inge.4pr.es/post/serverless-on-kubernetes/</loc>
+    <loc>https://inge.4pr.es/serverless-on-kubernetes/</loc>
     <lastmod>2018-01-30T20:31:34+01:00</lastmod>
   </url><url>
-    <loc>https://inge.4pr.es/post/2017-10-28-golang-concurrency-pattern/</loc>
+    <loc>https://inge.4pr.es/2017-10-28-golang-concurrency-pattern/</loc>
     <lastmod>2017-10-28T19:40:09+02:00</lastmod>
   </url><url>
     <loc>https://inge.4pr.es/resume/</loc>
@@ -116,13 +116,13 @@
     <loc>https://inge.4pr.es/tags/gcp/</loc>
     <lastmod>2017-10-01T21:31:52+02:00</lastmod>
   </url><url>
-    <loc>https://inge.4pr.es/post/2017-10-01-getting-started-with-google-cloud-builder/</loc>
+    <loc>https://inge.4pr.es/2017-10-01-getting-started-with-google-cloud-builder/</loc>
     <lastmod>2017-10-01T21:31:52+02:00</lastmod>
   </url><url>
     <loc>https://inge.4pr.es/tags/culture/</loc>
     <lastmod>2017-05-28T17:04:10+02:00</lastmod>
   </url><url>
-    <loc>https://inge.4pr.es/post/2017-05-28-devops-you-re-doing-it-wrong/</loc>
+    <loc>https://inge.4pr.es/2017-05-28-devops-you-re-doing-it-wrong/</loc>
     <lastmod>2017-05-28T17:04:10+02:00</lastmod>
   </url><url>
     <loc>https://inge.4pr.es/tags/enterprise/</loc>
@@ -131,7 +131,7 @@
     <loc>https://inge.4pr.es/categories/social/</loc>
     <lastmod>2017-05-28T17:04:10+02:00</lastmod>
   </url><url>
-    <loc>https://inge.4pr.es/post/2016-12-03-automate-tls-management-on-aws-with-letsencrypt/</loc>
+    <loc>https://inge.4pr.es/2016-12-03-automate-tls-management-on-aws-with-letsencrypt/</loc>
     <lastmod>2016-12-03T15:34:48+01:00</lastmod>
   </url><url>
     <loc>https://inge.4pr.es/tags/aws/</loc>
@@ -143,16 +143,16 @@
     <loc>https://inge.4pr.es/tags/tls/</loc>
     <lastmod>2016-12-03T15:34:48+01:00</lastmod>
   </url><url>
-    <loc>https://inge.4pr.es/post/2016-11-17-4pres-goes-serverless/</loc>
+    <loc>https://inge.4pr.es/2016-11-17-4pres-goes-serverless/</loc>
     <lastmod>2016-11-17T18:28:23+01:00</lastmod>
   </url><url>
     <loc>https://inge.4pr.es/about/</loc>
     <lastmod>2016-10-12T15:27:36+02:00</lastmod>
   </url><url>
-    <loc>https://inge.4pr.es/post/2016-10-10-moving-the-blog-to-hugo/</loc>
+    <loc>https://inge.4pr.es/2016-10-10-moving-the-blog-to-hugo/</loc>
     <lastmod>2016-10-10T20:07:35+02:00</lastmod>
   </url><url>
-    <loc>https://inge.4pr.es/post/2016-09-18-a-benchmark-of-aws-efs/</loc>
+    <loc>https://inge.4pr.es/2016-09-18-a-benchmark-of-aws-efs/</loc>
     <lastmod>2016-09-18T17:26:17+00:00</lastmod>
   </url><url>
     <loc>https://inge.4pr.es/tags/benchmark/</loc>
@@ -167,7 +167,7 @@
     <loc>https://inge.4pr.es/tags/filesystem/</loc>
     <lastmod>2016-09-18T17:26:17+00:00</lastmod>
   </url><url>
-    <loc>https://inge.4pr.es/post/2016-04-06-aws-iam-policy-to-let-users-manage-their-own-mfa/</loc>
+    <loc>https://inge.4pr.es/2016-04-06-aws-iam-policy-to-let-users-manage-their-own-mfa/</loc>
     <lastmod>2016-04-06T19:51:33+00:00</lastmod>
   </url><url>
     <loc>https://inge.4pr.es/tags/iam/</loc>
@@ -188,7 +188,7 @@
     <loc>https://inge.4pr.es/tags/design/</loc>
     <lastmod>2016-01-24T16:40:37+00:00</lastmod>
   </url><url>
-    <loc>https://inge.4pr.es/post/2016-01-24-implement-a-generic-data-list-structure/</loc>
+    <loc>https://inge.4pr.es/2016-01-24-implement-a-generic-data-list-structure/</loc>
     <lastmod>2016-01-24T16:40:37+00:00</lastmod>
   </url><url>
     <loc>https://inge.4pr.es/tags/geek/</loc>
@@ -203,19 +203,19 @@
     <loc>https://inge.4pr.es/tags/virtualization/</loc>
     <lastmod>2016-01-24T15:42:29+00:00</lastmod>
   </url><url>
-    <loc>https://inge.4pr.es/post/2016-01-24-virtualize-an-old-windows-pc/</loc>
+    <loc>https://inge.4pr.es/2016-01-24-virtualize-an-old-windows-pc/</loc>
     <lastmod>2016-01-24T15:42:29+00:00</lastmod>
   </url><url>
     <loc>https://inge.4pr.es/tags/windows/</loc>
     <lastmod>2016-01-24T15:42:29+00:00</lastmod>
   </url><url>
-    <loc>https://inge.4pr.es/post/2015-08-02-golang-message-queue-a-simple-tcp-message-bus/</loc>
+    <loc>https://inge.4pr.es/2015-08-02-golang-message-queue-a-simple-tcp-message-bus/</loc>
     <lastmod>2015-08-02T16:25:54+00:00</lastmod>
   </url><url>
     <loc>https://inge.4pr.es/tags/go/</loc>
     <lastmod>2015-06-11T12:15:34+00:00</lastmod>
   </url><url>
-    <loc>https://inge.4pr.es/post/2015-06-11-my-first-golang-web-project/</loc>
+    <loc>https://inge.4pr.es/2015-06-11-my-first-golang-web-project/</loc>
     <lastmod>2015-06-11T12:15:34+00:00</lastmod>
   </url><url>
     <loc>https://inge.4pr.es/tags/shortener/</loc>
@@ -227,7 +227,7 @@
     <loc>https://inge.4pr.es/tags/gluster/</loc>
     <lastmod>2015-03-11T13:00:46+00:00</lastmod>
   </url><url>
-    <loc>https://inge.4pr.es/post/2015-03-11-glusterfs-is-it-suitable-for-me/</loc>
+    <loc>https://inge.4pr.es/2015-03-11-glusterfs-is-it-suitable-for-me/</loc>
     <lastmod>2015-03-11T13:00:46+00:00</lastmod>
   </url><url>
     <loc>https://inge.4pr.es/tags/storage/</loc>
@@ -245,7 +245,7 @@
     <loc>https://inge.4pr.es/tags/linux/</loc>
     <lastmod>2014-12-19T17:20:13+00:00</lastmod>
   </url><url>
-    <loc>https://inge.4pr.es/post/2014-12-19-set-up-a-private-masterslave-dns-using-bind/</loc>
+    <loc>https://inge.4pr.es/2014-12-19-set-up-a-private-masterslave-dns-using-bind/</loc>
     <lastmod>2014-12-19T17:20:13+00:00</lastmod>
   </url><url>
     <loc>https://inge.4pr.es/tags/admin/</loc>
@@ -254,16 +254,16 @@
     <loc>https://inge.4pr.es/tags/bash/</loc>
     <lastmod>2014-12-11T16:57:14+00:00</lastmod>
   </url><url>
-    <loc>https://inge.4pr.es/post/2014-12-11-happy-birthday-server/</loc>
+    <loc>https://inge.4pr.es/2014-12-11-happy-birthday-server/</loc>
     <lastmod>2014-12-11T16:57:14+00:00</lastmod>
   </url><url>
     <loc>https://inge.4pr.es/tags/server/</loc>
     <lastmod>2014-12-11T16:57:14+00:00</lastmod>
   </url><url>
-    <loc>https://inge.4pr.es/post/2014-10-15-a-smooth-migration-to-the-cloud/</loc>
+    <loc>https://inge.4pr.es/2014-10-15-a-smooth-migration-to-the-cloud/</loc>
     <lastmod>2014-10-15T18:15:28+00:00</lastmod>
   </url><url>
-    <loc>https://inge.4pr.es/post/2013-11-11-backup-and-restore-crontabs/</loc>
+    <loc>https://inge.4pr.es/2013-11-11-backup-and-restore-crontabs/</loc>
     <lastmod>2013-11-11T10:27:38+00:00</lastmod>
   </url><url>
     <loc>https://inge.4pr.es/tags/cron/</loc>
@@ -281,40 +281,40 @@
     <loc>https://inge.4pr.es/tags/zabbix/</loc>
     <lastmod>2013-10-07T15:50:25+00:00</lastmod>
   </url><url>
-    <loc>https://inge.4pr.es/post/2013-10-07-zabbix-a-powerful-yet-simple-monitoring-software/</loc>
+    <loc>https://inge.4pr.es/2013-10-07-zabbix-a-powerful-yet-simple-monitoring-software/</loc>
     <lastmod>2013-10-07T15:50:25+00:00</lastmod>
   </url><url>
-    <loc>https://inge.4pr.es/post/2013-02-28-quando-si-dice-problem-solving/</loc>
+    <loc>https://inge.4pr.es/2013-02-28-quando-si-dice-problem-solving/</loc>
     <lastmod>2013-02-28T20:18:29+00:00</lastmod>
   </url><url>
     <loc>https://inge.4pr.es/tags/ipad-mini-music-spot-tv/</loc>
     <lastmod>2012-11-26T16:14:41+00:00</lastmod>
   </url><url>
-    <loc>https://inge.4pr.es/post/2012-11-26-ipad-mini-la-musica-dello-spot-tv/</loc>
+    <loc>https://inge.4pr.es/2012-11-26-ipad-mini-la-musica-dello-spot-tv/</loc>
     <lastmod>2012-11-26T16:14:41+00:00</lastmod>
   </url><url>
     <loc>https://inge.4pr.es/categories/music/</loc>
     <lastmod>2012-11-26T16:14:41+00:00</lastmod>
   </url><url>
-    <loc>https://inge.4pr.es/post/2012-10-05-universita-facolta-di-psicologia/</loc>
+    <loc>https://inge.4pr.es/2012-10-05-universita-facolta-di-psicologia/</loc>
     <lastmod>2012-10-05T16:40:53+00:00</lastmod>
   </url><url>
-    <loc>https://inge.4pr.es/post/2012-08-20-ho-capito-il-significato-della-parola-islam/</loc>
+    <loc>https://inge.4pr.es/2012-08-20-ho-capito-il-significato-della-parola-islam/</loc>
     <lastmod>2012-08-20T17:45:06+00:00</lastmod>
   </url><url>
     <loc>https://inge.4pr.es/categories/politics/</loc>
     <lastmod>2012-08-20T17:45:06+00:00</lastmod>
   </url><url>
-    <loc>https://inge.4pr.es/post/2012-07-30-musica-e-linguaggio-uninvoluzione-al-passo-coi-tempi/</loc>
+    <loc>https://inge.4pr.es/2012-07-30-musica-e-linguaggio-uninvoluzione-al-passo-coi-tempi/</loc>
     <lastmod>2012-07-30T20:20:26+00:00</lastmod>
   </url><url>
-    <loc>https://inge.4pr.es/post/2012-07-10-discorsi-economici-finiti-in-un-mashup/</loc>
+    <loc>https://inge.4pr.es/2012-07-10-discorsi-economici-finiti-in-un-mashup/</loc>
     <lastmod>2012-07-10T18:10:10+00:00</lastmod>
   </url><url>
-    <loc>https://inge.4pr.es/post/2012-07-09-ferro-da-stiro-che-passione/</loc>
+    <loc>https://inge.4pr.es/2012-07-09-ferro-da-stiro-che-passione/</loc>
     <lastmod>2012-07-09T20:46:10+00:00</lastmod>
   </url><url>
-    <loc>https://inge.4pr.es/post/2012-05-23-vivere-le-proprie-passioni-con-passione/</loc>
+    <loc>https://inge.4pr.es/2012-05-23-vivere-le-proprie-passioni-con-passione/</loc>
     <lastmod>2012-05-23T19:07:34+00:00</lastmod>
   </url><url>
     <loc>https://inge.4pr.es/tags/ecopass/</loc>
@@ -323,19 +323,19 @@
     <loc>https://inge.4pr.es/tags/equitalia/</loc>
     <lastmod>2012-05-22T20:37:58+00:00</lastmod>
   </url><url>
-    <loc>https://inge.4pr.es/post/2012-05-22-lennseima-dimostrazione-dello-stato-ladro/</loc>
+    <loc>https://inge.4pr.es/2012-05-22-lennseima-dimostrazione-dello-stato-ladro/</loc>
     <lastmod>2012-05-22T20:37:58+00:00</lastmod>
   </url><url>
     <loc>https://inge.4pr.es/tags/multa/</loc>
     <lastmod>2012-05-22T20:37:58+00:00</lastmod>
   </url><url>
-    <loc>https://inge.4pr.es/post/2012-05-21-privacy-e-riservatezza-il-digital-divide/</loc>
+    <loc>https://inge.4pr.es/2012-05-21-privacy-e-riservatezza-il-digital-divide/</loc>
     <lastmod>2012-05-21T17:30:54+00:00</lastmod>
   </url><url>
     <loc>https://inge.4pr.es/categories/blog/</loc>
     <lastmod>2012-05-18T00:39:03+00:00</lastmod>
   </url><url>
-    <loc>https://inge.4pr.es/post/2012-05-18-blog-re-start/</loc>
+    <loc>https://inge.4pr.es/2012-05-18-blog-re-start/</loc>
     <lastmod>2012-05-18T00:39:03+00:00</lastmod>
   </url>
 </urlset>

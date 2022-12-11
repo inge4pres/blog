@@ -12,7 +12,7 @@ comment: false
 
 #### 11/2022 - now()  » Senior Software Engineer
 ##### [Elastic Observability](https://elastic.co/observability)
-After Optimyze [joins forces with Elastic](https://www.elastic.co/blog/elastic-and-optimyze-join-forces-to-deliver-always-on-continuous-profiling-of-infrastructure-applications-and-services),
+When Optimyze [joins forces with Elastic](https://www.elastic.co/blog/elastic-and-optimyze-join-forces-to-deliver-always-on-continuous-profiling-of-infrastructure-applications-and-services),
 I keep working with the same wonderful team, with the goal of integrating Prodfiler into the Elastic stack.
 Prodfiler is now Universal Profiling: the same amazing technology, backed by a different data store.
 I focus on the backend integration and data collection, trying to improve storage efficiency and keep continuous profiling
@@ -60,7 +60,7 @@ In 2012 I started developing backend software with J2EE and in 2014 I introduced
 
 #### 8/2009 - 3/2014  » Audio Engineer
 ##### freelance
-Working with audio equipment to achieve best audio quality for live events; I was audio designer for some bands based in Milan, working with them in studio recordings and during live sets.
+Working with audio equipment to achieve the best audio quality for live events; I was an audio designer for some bands based in Milan, working with them in studio recordings and during live sets.
 
 # Education and certifications
 

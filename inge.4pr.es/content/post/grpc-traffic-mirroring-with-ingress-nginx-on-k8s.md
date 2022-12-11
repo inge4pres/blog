@@ -40,6 +40,11 @@ math:
 
 license: ""
 ---
+{{< gallery caption-effect="fade" >}}
+{{< figure link="/images/posts/nginx-grpc.png" caption="gRPC NGINX" alt="gRPC protocol support in NGINX" >}}
+{{< figure link="/images/posts/grpc.png" caption="gRPC" >}}
+{{< figure link="/images/posts/k8s.png" caption="k8s" >}}
+{{< /gallery >}}
 
 In a [previous post](https://inge.4pr.es/post/grpc-traffic-mirroring-using-nginx/) we saw an NGINX configuration to allow gRPC traffic mirroring.
 

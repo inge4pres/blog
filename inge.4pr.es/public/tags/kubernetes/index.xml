@@ -1,50 +1,54 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>kubernetes on inge4pres</title>
+    <title>kubernetes on INGE4PRES RATIONAL THOUGHTS</title>
     <link>https://inge.4pr.es/tags/kubernetes/</link>
-    <description>Recent content in kubernetes on inge4pres</description>
+    <description>Recent content in kubernetes on INGE4PRES RATIONAL THOUGHTS</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <managingEditor>fgualazzi@gmail.com (Francesco Gualazzi)</managingEditor>
+    <webMaster>fgualazzi@gmail.com (Francesco Gualazzi)</webMaster>
     <lastBuildDate>Sat, 06 Nov 2021 15:42:08 +0200</lastBuildDate><atom:link href="https://inge.4pr.es/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>gRPC Traffic Mirroring With Ingress-Nginx on K8s</title>
-      <link>https://inge.4pr.es/post/grpc-traffic-mirroring-with-ingress-nginx-on-k8s/</link>
+      <link>https://inge.4pr.es/grpc-traffic-mirroring-with-ingress-nginx-on-k8s/</link>
       <pubDate>Sat, 06 Nov 2021 15:42:08 +0200</pubDate>
-      
-      <guid>https://inge.4pr.es/post/grpc-traffic-mirroring-with-ingress-nginx-on-k8s/</guid>
-      <description>In a previous post we saw an NGINX configuration to allow gRPC traffic mirroring.
+      <author>fgualazzi@gmail.com (Francesco Gualazzi)</author>
+      <guid>https://inge.4pr.es/grpc-traffic-mirroring-with-ingress-nginx-on-k8s/</guid>
+      <description>gRPC NGINX
+gRPC
+k8s
+In a previous post we saw an NGINX configuration to allow gRPC traffic mirroring.
 Is the same technique applicable on Kubernetes? Yes! Using the ingress-nginx ingress controller!
 Traffic mirroring Use the following configurations snippets in the ingress-nginx configMap and in the Ingress manifest to mirror all traffic to a separate gRPC server.
 ConfigMap Replace grpc-backend.company.net and grpc-mirror.company.net with the original and mirror endpoint, respectively.
- http-snippet: |server { listen 127.0.0.1:9443 ssl http2; server_name grpc-backend.</description>
+http-snippet: | server { listen 127.</description>
     </item>
     
     <item>
       <title>CKA exam experience and preparation</title>
-      <link>https://inge.4pr.es/post/cka-exam-experience/</link>
+      <link>https://inge.4pr.es/cka-exam-experience/</link>
       <pubDate>Fri, 01 Nov 2019 15:56:42 +0100</pubDate>
-      
-      <guid>https://inge.4pr.es/post/cka-exam-experience/</guid>
+      <author>fgualazzi@gmail.com (Francesco Gualazzi)</author>
+      <guid>https://inge.4pr.es/cka-exam-experience/</guid>
       <description>Yes! Yesterday I received an awesome email stating that I cleared the Certified Kubernetes Administrator exam! 😎 Here I want to report my experience in preparing and taking the exam, hopefully this info can help others Kubernetes practitioners get the certification too.
 Preparation I consider myself lucky because for the past two years I had the chance to use Kubernetes working at lastminute.com; on top this on-the-job training I went through a lot of studying and practicing because the exam itself has a lot of content.</description>
     </item>
     
     <item>
       <title>Progressive Delivery with Kubernetes</title>
-      <link>https://inge.4pr.es/post/progressive-delivery-with-kubernetes/</link>
+      <link>https://inge.4pr.es/progressive-delivery-with-kubernetes/</link>
       <pubDate>Sun, 05 May 2019 15:00:51 +0200</pubDate>
-      
-      <guid>https://inge.4pr.es/post/progressive-delivery-with-kubernetes/</guid>
+      <author>fgualazzi@gmail.com (Francesco Gualazzi)</author>
+      <guid>https://inge.4pr.es/progressive-delivery-with-kubernetes/</guid>
       <description>I&amp;rsquo;m more and more fond of finding the perfect solution to manage application delivery: dev teams want to be fast but their ops counterpart is not happy to loose control over the growing number of deployments that could cause an outage. We as an industry need to find the right balance to have features delivered in time and keep the service up and running for our users! And that&amp;rsquo;s where progressive delivery can help!</description>
     </item>
     
     <item>
       <title>Serverless on Kubernetes</title>
-      <link>https://inge.4pr.es/post/serverless-on-kubernetes/</link>
+      <link>https://inge.4pr.es/serverless-on-kubernetes/</link>
       <pubDate>Tue, 30 Jan 2018 20:31:34 +0100</pubDate>
-      
-      <guid>https://inge.4pr.es/post/serverless-on-kubernetes/</guid>
+      <author>fgualazzi@gmail.com (Francesco Gualazzi)</author>
+      <guid>https://inge.4pr.es/serverless-on-kubernetes/</guid>
       <description>Kubernetes is the de facto platform for running modern applications: its broad adoption in 2017 and the velocity of the project made it so and it&amp;rsquo;s been accepted as the standard for many companies, from small to planet scale. It was impossible that such an extensible platform would be left out the serverless party, so here are the 4 main players offering FaaS to be run via k8s.
 A premise If you&amp;rsquo;re new to serverless and FaaS and all the previous buzzwords sound like cacophony to your ears, I really recommend reading this post and watching this talk.</description>
     </item>

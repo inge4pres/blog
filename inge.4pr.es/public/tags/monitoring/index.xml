@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>monitoring on inge4pres</title>
+    <title>monitoring on INGE4PRES RATIONAL THOUGHTS</title>
     <link>https://inge.4pr.es/tags/monitoring/</link>
-    <description>Recent content in monitoring on inge4pres</description>
+    <description>Recent content in monitoring on INGE4PRES RATIONAL THOUGHTS</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <managingEditor>fgualazzi@gmail.com (Francesco Gualazzi)</managingEditor>
+    <webMaster>fgualazzi@gmail.com (Francesco Gualazzi)</webMaster>
     <lastBuildDate>Mon, 07 Oct 2013 15:50:25 +0000</lastBuildDate><atom:link href="https://inge.4pr.es/tags/monitoring/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Zabbix: a powerful yet simple monitoring software</title>
-      <link>https://inge.4pr.es/post/2013-10-07-zabbix-a-powerful-yet-simple-monitoring-software/</link>
+      <link>https://inge.4pr.es/2013-10-07-zabbix-a-powerful-yet-simple-monitoring-software/</link>
       <pubDate>Mon, 07 Oct 2013 15:50:25 +0000</pubDate>
-      
-      <guid>https://inge.4pr.es/post/2013-10-07-zabbix-a-powerful-yet-simple-monitoring-software/</guid>
+      <author>fgualazzi@gmail.com (Francesco Gualazzi)</author>
+      <guid>https://inge.4pr.es/2013-10-07-zabbix-a-powerful-yet-simple-monitoring-software/</guid>
       <description>It may come in mind to any IT system engineer to know what is the status of the network, server by server, instance by instance; it happened to me when I was given the responsibility to manage my company’s infrastructure and I was wondering which tool could have helped to do the job.
 I chose Zabbix to monitor my infrastructure because:
- despite it’s a bit difficult to install (you need a PHP enabled web server, a database and a C compiler), you will benefit a very user-friendly web interface with lots of functionalities native agents for major OS release are already complied: FreeBSD, Linux, Windows, etc… Compiling to other OS just requires a “configure &amp;amp;&amp;amp; make &amp;amp;&amp;amp; make install” it offers many monitoring methods via a unique interface: you can group SNMP, JMX, HTTP monitoring in one shot it has multi-step HTTP/HTTPS monitoring, simulating different browsers and clients you can build nice infographics bundling all kind of monitored datas you can manage users and roles to give access to the web interface at your company’s employees you can build custom monitoring scripts to your needs  Well let’s see some action now: I would like to post a short tutorial on how to build a custom script to monitor resources used by a Glassfish application server.</description>
+despite it’s a bit difficult to install (you need a PHP enabled web server, a database and a C compiler), you will benefit a very user-friendly web interface with lots of functionalities native agents for major OS release are already complied: FreeBSD, Linux, Windows, etc… Compiling to other OS just requires a “configure &amp;amp;&amp;amp; make &amp;amp;&amp;amp; make install” it offers many monitoring methods via a unique interface: you can group SNMP, JMX, HTTP monitoring in one shot it has multi-step HTTP/HTTPS monitoring, simulating different browsers and clients you can build nice infographics bundling all kind of monitored datas you can manage users and roles to give access to the web interface at your company’s employees you can build custom monitoring scripts to your needs Well let’s see some action now: I would like to post a short tutorial on how to build a custom script to monitor resources used by a Glassfish application server.</description>
     </item>
     
   </channel>
