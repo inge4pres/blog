@@ -1,0 +1,120 @@
+baseurl = "https://inge.4pr.es"
+DefaultContentLanguage = "en"
+title = "INGE4PRES RATIONAL THOUGHTS"
+
+theme = "beautifulhugo"
+pygmentsStyle = "trac"
+pygmentsUseClasses = true
+pygmentsCodeFences = true
+pygmentsCodefencesGuessSyntax = true
+#pygmentsUseClassic = true
+#pygmentOptions = "linenos=inline"
+disqusShortname = "inge4pres"
+googleAnalytics = "UA-55252403-1"
+
+[Params]
+  homeTitle = "Francesco Gualazzi" # Set a different text for the header on the home page
+  subtitle = "Infrastructure-aware software engineer"
+  mainSections = ["post","posts"]
+  logo = "images/avatar.png" # Expecting square dimensions
+  favicon = "favicon.ico"
+  dateFormat = "2006-01-02"
+  commit = false
+  rss = true
+  comments = true
+  readingTime = true
+  wordCount = true
+  useHLJS = true
+  socialShare = true
+  delayDisqus = true
+  showRelatedPosts = true
+#  hideAuthor = true
+  gcse = "001356843333597088882:wro9yfh1c0g" # Get your code from google.com/cse. Make sure to go to "Look and Feel" and change Layout to "Full Width" and Theme to "Classic"
+
+[permalinks]
+    post = '/:slugorfilename'
+
+#[[Params.bigimg]]
+#  src = "img/triangle.jpg"
+#  desc = "Triangle"
+#[[Params.bigimg]]
+#  src = "img/sphere.jpg"
+#  desc = "Sphere"
+#  # position: see values of CSS background-position.
+#  position = "center top"
+#[[Params.bigimg]]
+#  src = "img/hexagon.jpg"
+#  desc = "Hexagon"
+
+[Author]
+  # Set only your "username" for default hosts and full URLs otherwise (e.g., "https://MyGitLab.org/username")
+  name = "Francesco Gualazzi"
+  website = "inge.4pr.es"
+  email = "fgualazzi@gmail.com"
+#  facebook = "username"
+  github = "inge4pres"
+  gitlab = "inge4pres"
+#  bitbucket = "username"
+  twitter = "inge4pres"
+#  reddit = "username"
+  linkedin = "francescogualazzi"
+#  xing = "username"
+  stackoverflow = "users/4628081/francesco-gualazzi"
+#  snapchat = "username"
+#  instagram = "username"
+#  youtube = "user/username" # or channel/channelname
+  soundcloud = "Fringe"
+  spotify = "inge4pres"
+#  bandcamp = "username"
+#  itchio = "username"
+#  vk = "username"
+#  paypal = "username"
+#  telegram = "username"
+#  500px = "username"
+#  codepen = "username"
+#  mastodon = "url"
+#  kaggle = "username"
+#  weibo = "username"
+#  slack = "username"
+#  discord = "invite code (https://discord.gg/XXXXXXX)"
+#  strava = "userid"
+
+[[menu.main]]
+    name = "Blog"
+    url = ""
+    weight = 1
+
+[[menu.main]]
+    identifier = "Resume"
+    name = "Resume"
+    url = "/resume"
+    weight = 2
+
+[[menu.main]]
+    name = "About"
+    identifier = "About"
+    url = "/about"
+    weight = 3
+
+#[[menu.main]]
+#    parent = "samples"
+#    name = "Big Image Sample"
+#    url = "post/2017-03-07-bigimg-sample"
+#    weight = 1
+#
+#[[menu.main]]
+#    parent = "samples"
+#    name = "Math Sample"
+#    url = "post/2017-03-05-math-sample"
+#    weight = 2
+#
+#[[menu.main]]
+#    parent = "samples"
+#    name = "Code Sample"
+#    url = "post/2016-03-08-code-sample"
+#    weight = 3
+
+[[menu.main]]
+    name = "Tags"
+    url = "tags"
+    weight = 4
