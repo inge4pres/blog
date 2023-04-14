@@ -30,6 +30,7 @@ googleAnalytics = "UA-55252403-1"
   showRelatedPosts = true
 #  hideAuthor = true
   gcse = "001356843333597088882:wro9yfh1c0g" # Get your code from google.com/cse. Make sure to go to "Look and Feel" and change Layout to "Full Width" and Theme to "Classic"
+  since = 2012
 
 [permalinks]
     post = '/:slugorfilename'
@@ -85,36 +86,29 @@ googleAnalytics = "UA-55252403-1"
     weight = 1
 
 [[menu.main]]
-    identifier = "Resume"
+    identifier = "resume"
     name = "Resume"
     url = "/resume"
     weight = 2
 
 [[menu.main]]
+    identifier = "about"
     name = "About"
-    identifier = "About"
     url = "/about"
     weight = 3
 
-#[[menu.main]]
-#    parent = "samples"
-#    name = "Big Image Sample"
-#    url = "post/2017-03-07-bigimg-sample"
-#    weight = 1
-#
-#[[menu.main]]
-#    parent = "samples"
-#    name = "Math Sample"
-#    url = "post/2017-03-05-math-sample"
-#    weight = 2
-#
-#[[menu.main]]
-#    parent = "samples"
-#    name = "Code Sample"
-#    url = "post/2016-03-08-code-sample"
-#    weight = 3
+[[menu.main]]
+    identifier = "projects"
+    name = "Projects"
+    weight = 4
+
+[[menu.main]]
+    parent = "projects"
+    name = "4pr.es links"
+    url = "https://go.4pr.es"
+    weight = 1
 
 [[menu.main]]
     name = "Tags"
     url = "tags"
-    weight = 4
+    weight = 5

@@ -8,14 +8,16 @@ comment: false
 ---
 # Bio
 
-I'm a passionate technology enthusiast, an engineer in love with Computer Science and a part-time musician and writer; I started my career in IT as a sysadmin and became a Go developer in 2013 when approaching distributed systems. 
+I'm a passionate technology enthusiast, an engineer in love with Computer Science and a part-time musician and writer; I started my career in IT as a sysadmin and became a Go developer in 2013 when approaching distributed systems.
+Since then, I grew my interests in SRE and Software Engineering.
+
 I like to study how things work, understand the mechanics of technology products. In my spare time I play drums, bass guitar and acoustic guitar, and sometimes try and write some music; writing small poems is also a passion of mine, as it helps me find a different meaning to things.
 
 # Background
 
 I attended Scientific High School, graduated in Industrial Engineering at Politecnico Milano and started working in Computer Science a few months later. 
 I really feel thankful towards my college education because it introduced me to the real-world side of science; computing and mathematics above all, Open Source, curiosity and love for music are the foundation of my life. 
-I also worked several years as self-taught audio engineer: I really enjoyed helping people find the best possible sound.
+I also worked for several years as a self-taught audio engineer: I really enjoyed helping people find the best possible sound for their music.
 
 # Get in touch
 

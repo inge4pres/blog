@@ -15,8 +15,10 @@ comment: false
 When Optimyze [joins forces with Elastic](https://www.elastic.co/blog/elastic-and-optimyze-join-forces-to-deliver-always-on-continuous-profiling-of-infrastructure-applications-and-services),
 I keep working with the same wonderful team, with the goal of integrating Prodfiler into the Elastic stack.
 Prodfiler is now Universal Profiling: the same amazing technology, backed by a different data store.
+
 I focus on the backend integration and data collection, trying to improve storage efficiency and keep continuous profiling
 affordable.
+I also keep improving and supporting the integration of our continuous profiler with various orchestration platforms (Kubernetes, Nomad, ECS).
 
 #### 7/2020 - 10/2022  » Senior Software Engineer
 ##### [optimyze.cloud](https://optimyze.cloud/)
