@@ -78,7 +78,7 @@ In the next section of the post, I will highlight some of the things I found int
 Finding the right pricing model for something that is highly abundant in the market is no easy task.
 While I would love to let anyone access 4pr.es for _free_, this is not sustainable at scale.
 
-I figured out the est choice would be to allow for a free tier, and lower the price to the minimum to buy uniquely
+I figured out the best choice would be to allow for a free tier, and lower the price to the minimum to buy uniquely
 personalized links.
 
 The free tier allows trying out the service, without any charges: the shortened link expires after 6 months, it supports
