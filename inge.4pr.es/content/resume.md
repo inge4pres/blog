@@ -10,7 +10,7 @@ comment: false
 
 # Work experiences
 
-#### 11/2022 - now()  » Senior Software Engineer
+#### Nov 2021 - now()  » Senior Software Engineer
 ##### [Elastic Observability](https://elastic.co/observability)
 When Optimyze [joins forces with Elastic](https://www.elastic.co/blog/elastic-and-optimyze-join-forces-to-deliver-always-on-continuous-profiling-of-infrastructure-applications-and-services),
 I keep working with the same wonderful team, with the goal of integrating Prodfiler into the Elastic stack.
@@ -20,72 +20,77 @@ I focus on the backend integration and data collection, trying to improve storag
 affordable.
 I also keep improving and supporting the integration of our continuous profiler with various orchestration platforms (Kubernetes, Nomad, ECS).
 
-#### 7/2020 - 10/2022  » Senior Software Engineer
+#### Jun 2020 - Nov 2021  » Senior Software Engineer
 ##### [optimyze.cloud](https://optimyze.cloud/)
 We are a startup building Prodfiler: the lowest-overhead, always-on continuous-profiling tool for all your software stacks.
 Prodfiler gives a holistic view of CPU consumption across all your fleets, supporting multiple platforms and languages.
 I contribute to the product and leverage my previous working to bake reliability into our product and architectural decisions.
 
-#### 9/2018 - 6/2020  » Site Reliability Engineer 
-##### [lastminute.com](https://careers.lastminute.com/ "lastminute.com careers") 
+#### Sep 2018 - Jun 2020  » Site Reliability Engineer 
+##### [lastminute.com](https://technology.lastminute.com/ "lastminute.com tech blog") 
 I join the SRE team within Platform to work more closely on the company cloud platforms both on-premise and in public clouds.
 Main focus is developing software in Go to automate the platform based on Linux, containers and Kubernetes.
 
-#### 9/2017 - 8/2018  » DevOps Engineer
-##### [lastminute.com](https://careers.lastminute.com/ "lastminute.com careers")
+#### Sep 2017 - Aug 2018  » DevOps Engineer
+##### [lastminute.com](https://technology.lastminute.com/ "lastminute.com tech blog")
 Contributing mainly to the development of a CI/CD platform to enable developers to test, build and deploy software with ease and confidence; we are part of the Platform area and we collaborate with SREs and DBAs to provide developers automated services to consume infrastructure. 
 The end-user platform runs on Kubernetes and we leverage Jenkins and Docker containers to shorten the development feedback loop and continuously improve product quality.
 Here I have the opportunity to sharpen my software engineering skills growing the use of TDD practices and adopting SOLID design principles, developing in Groovy, Java and Go. 
 
-#### 11/2016 - 8/2017  » DevOps Tech Lead 
+#### Nov 2016 - Aug 2017  » DevOps Tech Lead 
 ##### [Accenture DVO](http://www.accenture.com/us-en/accenture-digital-video)
 Within a team of 7, my job is to define a medium term strategy on monitoring tools and have it implemented. 
 We aim to reduce the MTTR, improve the incident detection and the application performance analysis; we write plugins and APIs (mainly in Python) to make this tools interact seamlessly between each others and with other teams.
 
-#### 11/2015 - 10/2016  » DevOps Engineer
+#### Nov 2015 - Oct 2016  » DevOps Engineer
 ##### [Accenture DVO](http://www.accenture.com/us-en/accenture-digital-video)
 Contributing to the operations for a Digital Video platform running on multiple cloud providers and serving 30 million end users worldwide. 
 We aim at 0% downtime for our clients using high-availability techniques and continuous improvement practices. 
 We develop our own monitoring, analytics and intelligence tool based on Splunk. 
 We provide developers isolated test environments on AWS cloud and manage continuous delivery pipelines with automated testing and deployment.
 
-#### 6/2010 - 10/2015  » Systems Engineer
+#### Jun 2010 - Oct 2015  » Systems Engineer
 ##### [Metel](http://www.metel.it)
 Working on an e-procurement platform and a proprietary EDI format to help businesses digitalize supply chain management. 
-My job is to manage and maintain the IT infrastructure serving the core-business services both on-premise and on the Amazon AWS cloud platform. 
-Daily activities span from infrastructure event monitoring to middleware and application deployment. 
-In 2012 I started developing backend software with J2EE and in 2014 I introduced Go in the company primarily for systems programming.
+My job is to manage and maintain the IT infrastructure serving the core-business services both on-premise and on the 
+AWS cloud platform. 
+Daily activities span from infrastructure event monitoring to middleware and application deployments. 
+In 2012, I started developing backend software for the company, evolving the existing J2EE stack.
+In 2014, I introduced Go in the company primarily for systems programming: I created a software to manage AWS resources,
+with a web GUI to help other departments in the company onboard the new AWS experience.
+Terraform was not yet available.
 
-#### 1/2014 - 9/2014  » Technical writer
+
+#### Jan 2014 - Sep 2014  » Technical writer
 ##### [miamammausalinux.org](http://www.miamammausalinux.org)
 
 
-#### 8/2009 - 3/2014  » Audio Engineer
+#### Aug 2009 - Mar 2014  » Audio Engineer
 ##### freelance
 Working with audio equipment to achieve the best audio quality for live events; I was an audio designer for some bands based in Milan, working with them in studio recordings and during live sets.
 
 # Education and certifications
 
-###### 10/2019 Certified Kubernetes Administrator
+###### Oct 2019 - Certified Kubernetes Administrator
 _Cloud Native Computing Foundation_
 
-###### 2/2017 AWS SysOps Administrator - Associate Level
+###### Feb 2017 - AWS SysOps Administrator - Associate Level
 _Amazon Web Services_
 
-###### 8/2012 Oracle 11g Performance Tuning  
+###### Aug 2012 - Oracle 11g Performance Tuning  
 _Oracle University Rome (trainer: Alessandro Colonna)_
 
-###### 7/2009 Bachelor Degree in Industrial Engineering
+###### Jul 2009 - Bachelor Degree in Industrial Engineering
 _Politecnico di Milano_
 
-###### 7/2004 High School Degree
+###### Jul 2004 - High School Degree
 _Scientific Lyceum “Falcone e Borsellino” - Arese (Milan, Italy)_
 
 # Love to work on
 * Continuous Integration and Delivery practices 
 * infrastructure design and cost optimization
 * cloud computing and distributed systems design and implementation 
-* monitoring and incident response 
+* observability and incident response
 
 * __Lang__ Go, Rust, Java, Python, Groovy, BASH
 
