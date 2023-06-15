@@ -5,7 +5,7 @@ date: 2021-05-30T17:23:35+02:00
 lastmod: 2021-05-30T17:23:35+02:00
 draft: false
 author: "inge4pres"
-description: "An NGINX configuration trick to mirror traffic to gRPC backends"
+subtitle: "An NGINX configuration trick to mirror traffic to gRPC backends"
 
 page:
   theme: "wide"

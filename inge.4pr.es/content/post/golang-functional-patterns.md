@@ -18,7 +18,7 @@ draft: true
 ---
 
 Often I get asked by coworkers why Go does not have language builtins for filtering a slice or map/reducing a collection of structs; my instinct at first is to reply with **"because you don't need them!"** but then I try to be more gentle and softly go with a "you can implement your own".
-One of the core principle in the Go philosophy is _simplicity_ and most of the functional patterns that come from working with Streams in the JVM world are far from simple.
+One of the core principles in the Go philosophy is _simplicity_ and most of the functional patterns that come from working with Streams in the JVM world are far from simple.
 Plus, for the average software craftsman, approaching functional programming means having to deal with complex category theory concepts and shifting away from the comfortable way of modeling software like real-world objects interacting one with each other.
 Go does not have this dichotomy baked in the language, it gives you enough freedom to allow both object-oriented and functional programming and comes with enough power to still have good performance from both styles; furthermore you are also given all the tooling to understand which solution works better (`testing` package with benchmark functions).
 
@@ -104,4 +104,6 @@ PASS
 ok  	github.com/inge4pres/golang-functional-patterns	6.406s
 ``` 
 
-Ouch! From the benchmark tests we can see that the object oriented version performs better: faster, lighter and less allocations per operation!
+Ouch!
+From the benchmarks, we can see that the object-oriented version performs better:
+it's faster, lighter and performs fewer allocations! But why?
