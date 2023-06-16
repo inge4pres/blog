@@ -285,22 +285,27 @@ Below a list of common actions to improve your systems.
        being kept
 
 Remember: all the improvements above should be introduced only with the promise of not creating a disservice to users.
-There may be situations where a huge performance gian is changing the functionality of a product. As an Engineer, this
-is
-exciting.
-But before delivering such change, you must discuss if it is tolerable for the business to incur into a functional
-change of the system, even if it can achieve an incredible performance boost.
+There may be situations where a huge performance gian is changing the functionality of a product.
+As an Engineer, the prospect of delivering the improvement is exciting.
+But before rolling out such a change to production, you must discuss if it is tolerable for the business to incur into a
+functional change of the system, even if it can achieve an amazing performance boost.
 
-As an example: consider improving a search application for an e-commerce product: you manage to cu the P95
-latency into half, but without preserving the expected ordering of items. The efficiency improvement in itself is
-great, but may not be suited for the business, because the ordering affects revenues.
+As an example: consider improving a search application for an e-commerce product: with some changes, you manage to cut
+the P95 latency into half, but without preserving the expected ordering of items.
+This change impacts the business, because items' ordering contributes to revenues.
+The efficiency improvement in itself is great, but cannot be adopted because it is unsuited for the system.
 
 Be conscious that the goal is optimizing the system, reduce its environmental and monetary cost while keeping the exact
 same functionalities. Prefer small iterations, little gains can compound drastically over time.
 
+#### Wrap around
+
 When you have introduced an improvement in your system, you go back to the "Run" phase.
 And the cycle repeats: you make a new ROSTI, where you may be creating a new SPO, or trying to work on an existing one
 by making it more challenging.
+
+It is up to each organization to decide if the cycles should be continuous or have a regular cadence. It is often better
+to set a cadence prior to start any iteration. Setting quarterly or bi-monthly periods may be a good habit.
 
 ## Conclusion
 
