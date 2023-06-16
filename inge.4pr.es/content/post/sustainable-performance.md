@@ -3,7 +3,7 @@ title: "Sustainable Performance"
 author: "inge4pres"
 type: ""
 date: 2023-06-02T21:38:28+02:00
-subtitle: Craft software while looking after on our planet
+subtitle: Craft software while looking after our planet
 
 categories:
 
