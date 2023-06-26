@@ -19,8 +19,8 @@ tags:
 ---
 
 I mentioned _sustainable performance_ in a [previous post](./improving-4pres-links.md), telling that it
-"could be a blog post on its own", and after noting interest in the matter from people I highly respect,
-I decided to make the post.
+"could be a blog post on its own", and after noting interest on the matter from people I highly respect,
+I decided to write this post.
 
 ## What is sustainable performance?
 
@@ -38,23 +38,23 @@ Should we apply any of these actions, what are going to be the effects?
 Here is where sustainable performance can help.
 
 **Sustainable performance is a methodology to create software systems that are _good enough_ while reducing
-their impact on the planet.**
+their impact on the environment.**
 
-What _good enough_ means is that they respect quantitative measure of quality.
-What I mean with "impact on the planet" is that any software will indirectly deplete some Earth resources through the
-machines it runs on, either directly, by consuming more electricity in existing machines, or indirectly, requiring more
+"Good enough" means that the systems respect quantitative measures of quality.
+"Impact on the environment" is what any software will cause eventually: depleting some Earth resources through the
+machines it runs on.
+It will do so directly, by consuming more electricity in existing machines, or indirectly, requiring more
 rare-earth minerals to build new machines to increase datacenters' capacity.
 
 The methodology is influenced both by my previous experiences in operations and my more recent software engineering
-career,
-working on a continuous-profiling tool with an amazing group of people.
+career, working on a continuous-profiling tool with an amazing group of people.
 
 At its core, sustainable performance is an iterative, finite set of steps that will ensure your systems deliver what
 is expected from them, while keeping under control the consumed resources.
 It provides actionable items that you can apply to any codebase and infrastructure to develop and run more
 earth-friendly software.
 
-## The need for sustainable performance
+### The need for sustainable performance
 
 Software has eaten the world.
 There is nothing in today's civilized world that is not in contact with a piece of software.
@@ -64,23 +64,27 @@ However, this rapid expansion poses a challenge in terms of the environmental im
 computing resources. As we strive for technological advancements, it becomes imperative to develop more efficient
 software that optimizes resource utilization, reduces energy consumption, and minimizes carbon footprint.
 
-Wherever our systems are deployed, either it be a public Cloud managed machine or your home laboratory,
+Wherever our systems are deployed, either it be a public Cloud datacenter, or a machine in your home laboratory,
 we should always try to **do more with less**.
 
-## Where to start
+### Where to start
 
-Performance and efficiency should not be the end goal of a software product, at least not when creating one from
-scratch. These become _essential_ though when scaling up the business powered by said software.
+By building performant and efficient systems, we can be one step closer to better environment-friendly software.
 
-With this concept in mind, we should try to introduce as soon as
-possible [SLO](https://sre.google/sre-book/service-level-objectives/)s in our product, with a clear focus on measuring
-**the quality of users' interaction with our products through our systems**.
+Nevertheless, performance and efficiency should not be the end goal of a software craft, especially when creating it
+from scratch.
+These become _essential_ though when scaling up the business powered by said software.
 
-We need a way to **understand if we're creating systems that serves their purpose _before_ improving the systems**.
+You should try to introduce as soon as possible
+[Service Level Objectives](https://sre.google/sre-book/service-level-objectives/) in our product,
+with a clear focus on measuring **the quality of users' interaction with our products through our systems**.
 
-In this, SLOs and SLIs are a great tool to detect if we are respecting our users' expectations. Adopt SLOs to quantify
-how the product is performing on delivering its business logic, so you can then validate that the changes you are
-introducing to improve systems performance are not degrading the quality of the product.
+We need a way to understand if we're **creating systems that serve their purpose _before_ improving the systems**.
+
+In this, SLOs and SLIs are a great tool to detect if we are respecting our users' expectations.
+Adopting SLOs allows quantifying how the product is delivering its business logic,
+so you can then validate that the changes you are introducing to improve systems performance are not degrading
+the quality of the product.
 
 ## ROSTI drives sustainable performance
 
@@ -101,8 +105,9 @@ with their own area of expertise or specific placement in the industry.
 
 #### Run
 
-The initial step is to run the software while monitoring key performance metrics. This involves executing the
-application under realistic conditions to assess its current performance levels.
+The initial step is to run the software and collect key performance metrics while exercising its functionalities.
+This involves executing the application under realistic conditions to assess its current performance levels,
+while collecting data on how the software executes.
 
 You may be running a production environment with a real user base that consumes your applications, or you may be testing
 in an isolated environment a new system that works transparently for the average human; it really doesn't matter.
@@ -112,43 +117,43 @@ The important thing is that you should _see something run first_, and then proce
 
 - Deploy your system to _any_ infrastructure as a starting point
 - If possible, adopt Canary Releases or other Continuous Delivery practices such
-  as [Progressive Delivery](./progressive-delivery-with-kubernetes.md)
-  so you can iterate with speed and safety and experiment in production multiple small changes very frequently
+  as [Progressive Delivery](./progressive-delivery-with-kubernetes.md),
+  so you can iterate with speed and safety and experiment in production with small, frequent changes
 - Understand if the facilities where you are running it provide telemetry:
     * Cloud provider with native monitoring APIs
     * Operative system with granular telemetry data
     * Libraries and dependencies that provide statistics on their internals or a way to hook into them
-- Exercise your system with synthetic data if necessary
+- Exercise the system with synthetic data if necessary
 - Collect disparate sets of metrics that will let you know how your system behaves under various conditions:
-    * Spot tail latencies, detect if they are due to resource contention
-    * Understand and pinpoint failures to their root causes
+    * Spot tail latencies, flag them if they are recurring issues
+    * Take note of possible failure modes and verify if you can detect their behavior
 
 #### Observe
 
-With a continuously-running system we can now _observe_ what it does during its evolution.
+With a continuously-running system, we can now _observe_ what it does during its evolution.
 We should focus on understanding the behavior of the system, how it varies when exposed to different conditions,
 identifying performance bottlenecks and areas of inefficiency.
 
 The scope of this stage is to understand if the data we are gathering can help us pinpoint specific parts of the
-codebase
-or system configurations that contribute to suboptimal performance.
+codebase or system configurations that contribute to suboptimal performance.
 We are not hunting down improvements just yet, we need to be absolutely sure that we _can_ do it first.
 
 Carefully analyze the gathered data, try to make sense of the information gathered from different sources to form a
-complete view
-of the system's behavior. "Complete" means that you want to be able to dissect how the system behaves both North-South
-(e.g. from users requests to a database connection) and East-West (between same-level, interconnected components).
+complete view of the system's behavior. "Complete" means that you want to be able to dissect how the system behaves both
+North-South (e.g. from users requests to a database connection) and East-West (between same-level, interconnected
+components).
 At the same time, you want to be able to look at macro-aggregated data as well as introspect specific components'
 behavior.
 
 - Review metrics aggregation rules: are we losing too much information? Or are we keeping unnecessary data?
 - Add ad-hoc telemetry to sensible components: if you are inspecting a database, you may want to gather more data on
   disk usage than when you are working on a graphic design application.
-- Write benchmark tests and use micro-benchmarks during development to spot areas of improvement
+- Write benchmark tests and use micro-benchmarks during development to spot areas of improvement across the codebase
 - If you are working with networked applications or a microservice architecture, adopt distributed tracing:
   [OpenTelemetry](https://opentelemetry.io/docs/concepts/signals/traces/),
   [AWS X-ray](https://aws.amazon.com/xray/), [Zipkin](https://zipkin.io/), etc...
-- Use profiling tools when iterating on code during development, to understand how various implementations can differ in
+- Adopt profiling tools when iterating on code during development, to understand how various implementations can differ
+  in
   execution or
   resource usage: `perf` on Linux, [`async-profiler`](https://github.com/async-profiler/async-profiler) for JVM,
   [`pprof`](https://github.com/google/pprof) for
@@ -160,7 +165,7 @@ behavior.
   time: [Universal Profiling](https://www.elastic.co/observability/universal-profiling),
   [Parca](https://www.parca.dev/), [Pyroscope](https://github.com/grafana/pyroscope), etc...
 
-_Disclaimer_: I work on a team building Universal Profiling, one of the tools mentioned above.
+_Disclaimer_: I work in the team building Universal Profiling, one of the tools mentioned above.
 This post is not meant to advertise it over other continuous profiling solutions.
 
 #### Split
@@ -169,7 +174,7 @@ In the split phase, the goal is to isolate the performance issues into distinct 
 This process enables focused analysis and targeted optimization efforts on specific areas, ensuring a more efficient and
 effective approach to performance improvement.
 
-The most sensible approach to gain improvements is "divide and conquer": don't expect to achieve huge gains at once,
+The most sensible approach to gain improvements is "divide and conquer": don't expect to achieve huge gains all at once,
 but rather segregate the problematic parts of your software into logical units that can be tackled in isolation.
 
 - Identify low-hanging fruits: these are typically very small, but frequent, units of execution. For example, if you are
@@ -194,7 +199,7 @@ You should already have defined SLOs in terms of availability over a month,
 error rate threshold, or any other business metric.
 
 Now you need to define performance targets.
-We can call these targets **SPO**s: **_Service Performance Objectives_**.
+We can call these targets **_Service Performance Objectives_**, or **SPO**s in short.
 Their purpose is to let you improve the system's efficiency _while keeping existing SLOs in place_,
 thus retaining all the business value currently provided, but reducing the consumption of resources.
 
