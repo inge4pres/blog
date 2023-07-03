@@ -2,7 +2,7 @@
 title: "Sustainable Performance"
 author: "inge4pres"
 type: ""
-date: 2023-07-03T21:38:28+02:00
+date: 2023-07-02T21:38:28+02:00
 subtitle: Craft software while looking after our planet
 
 categories:
@@ -110,9 +110,10 @@ that the next phases will be possible.
 There are no strict criteria of validation for a stage to be called successful: similarly to most modern methodologies,
 setting a good cadence is more important than the actual results obtained at each iteration.
 Thus, prefer multiple short ROSTI iterations over a long, "perfection-achieving" redesign of the system.
-The latter is not only impractical, it is often impossible to achieve.
+The first is proven to be better in the long run, as practicing multiple times improves the quality of results.
+The latter is not only impractical, it is often impossible to achieve. 
 
-![ROSTI](/images/posts/sustainable-performance-rosti.png)
+![ROSTI methodology graph](/images/posts/sustainable-performance-rosti.png)
 
 #### Run
 
@@ -300,8 +301,8 @@ Below a list of common actions to improve your systems.
        being kept
 
 Remember: all the improvements above should be introduced only with the promise of not creating a disservice to users.
-There may be situations where a huge performance gian is changing the functionality of a product.
-As an Engineer, the prospect of delivering the improvement is exciting.
+There may be situations where a huge performance gain is changing the functionality of a product.
+As an Engineer, the prospect of delivering such improvement is exciting.
 But before rolling out such a change to production, you must discuss if it is tolerable for the business to incur into a
 functional change of the system, even if it can achieve an amazing performance boost.
 
