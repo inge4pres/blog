@@ -2,7 +2,7 @@
 title: "Sustainable Performance"
 author: "inge4pres"
 type: ""
-date: 2023-06-02T21:38:28+02:00
+date: 2023-07-03T21:38:28+02:00
 subtitle: Craft software while looking after our planet
 
 categories:
@@ -33,14 +33,15 @@ How do you define what _full potential_ means? Great user experience? Maximum th
 
 What can be changed to improve the status quo? Switch to a different algorithm or data structure? Change the compiler?
 Run on different hardware?
-Should we apply any of these actions, what are going to be the effects?
+Should we apply any of these actions, what effects are we going to produce?
 
 Here is where sustainable performance can help.
 
-**Sustainable performance is a methodology to create software systems that are _good enough_ while reducing
+**Sustainable performance is a methodology to create software systems that are _good enough_ for users, while minimizing
 their impact on the environment.**
 
-"Good enough" means that the systems respect quantitative measures of quality.
+"Good enough for users" means that the systems respect quantitative measures of quality, as it delivers all the
+expected features to its consumers.
 "Impact on the environment" is what any software will cause eventually: depleting some Earth resources through the
 machines it runs on.
 It will do so directly, by consuming more electricity in existing machines, or indirectly, requiring more
@@ -50,7 +51,7 @@ The methodology is influenced both by my previous experiences in operations and 
 career, working on a continuous-profiling tool with an amazing group of people.
 
 At its core, sustainable performance is an iterative, finite set of steps that will ensure your systems deliver what
-is expected from them, while keeping under control the consumed resources.
+is expected, while keeping under control the consumed resources.
 It provides actionable items that you can apply to any codebase and infrastructure to develop and run more
 earth-friendly software.
 
@@ -67,19 +68,19 @@ software that optimizes resource utilization, reduces energy consumption, and mi
 Wherever our systems are deployed, either it be a public Cloud datacenter, or a machine in your home laboratory,
 we should always try to **do more with less**.
 
-### Where to start
-
 By building performant and efficient systems, we can be one step closer to better environment-friendly software.
 
-Nevertheless, performance and efficiency should not be the end goal of a software craft, especially when creating it
-from scratch.
-These become _essential_ though when scaling up the business powered by said software.
+### How to get started
 
-You should try to introduce as soon as possible
-[Service Level Objectives](https://sre.google/sre-book/service-level-objectives/) in our product,
+Performance and efficiency should not be the end goal of any software craft, especially when creating a new system
+from scratch.
+They become _essential_ though when we want to scale up the business powered by said software.
+
+We should try to introduce as soon as possible
+[Service Level Objectives](https://sre.google/sre-book/service-level-objectives/) in our products,
 with a clear focus on measuring **the quality of users' interaction with our products through our systems**.
 
-We need a way to understand if we're **creating systems that serve their purpose _before_ improving the systems**.
+We need a way to understand if we're **creating systems that serve their purpose _before_ improving them**.
 
 In this, SLOs and SLIs are a great tool to detect if we are respecting our users' expectations.
 Adopting SLOs allows quantifying how the product is delivering its business logic,
@@ -102,6 +103,16 @@ to achieve sustainable performance:
 Below, I present each stage with an example list of practical items that will help your system be more
 sustainable-performant. The list does not pretend to be exhaustive at all, and I am sure anyone can add more items
 with their own area of expertise or specific placement in the industry.
+
+At each stage, we can assess our maturity and understand if we need to take action to change some parts of the system so
+that the next phases will be possible.
+
+There are no strict criteria of validation for a stage to be called successful: similarly to most modern methodologies,
+setting a good cadence is more important than the actual results obtained at each iteration.
+Thus, prefer multiple short ROSTI iterations over a long, "perfection-achieving" redesign of the system.
+The latter is not only impractical, it is often impossible to achieve.
+
+![ROSTI](/images/posts/sustainable-performance-rosti.png)
 
 #### Run
 
@@ -181,9 +192,8 @@ but rather segregate the problematic parts of your software into logical units t
   developing a chat application, likely the most common operation is to broadcast a message from one to multiple users
 - Detect patterns across applications or components that refer to a unique source (e.g. a shared library)
 - Have a clear understanding if a subsystem is being "slow" and/or "inefficient": it's important to determine if you
-  have
-  saturated I/O, CPU, or both! And the tools that you use to observe should be telling you. Use the information at your
-  disposal to detect where to cut the boundary of your investigation.
+  have saturated I/O, CPU, or both! And the tools that you use to observe should be telling you. Use the information at
+  your disposal to detect where to cut the boundary of your investigation.
 
 #### Target
 
