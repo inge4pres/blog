@@ -4,13 +4,10 @@ author: "inge4pres"
 type: ""
 draft: false
 date: 2023-04-15T23:03:05+02:00
-subtitle: ""
+subtitle: Revamping a toy project and making it a product
 
 page:
     theme: "wide"
-
-description: |
-    Revamping a toy project and making it ready for public use.
 
 tags:
   - product
