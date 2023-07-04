@@ -18,7 +18,7 @@ tags:
 
 ---
 
-I mentioned _sustainable performance_ in a [previous post](./improving-4pres-links.md), telling that it
+I mentioned _sustainable performance_ in a [previous post](/improving-4pres-links/), telling that it
 "could be a blog post on its own", and after noting interest on the matter from people I highly respect,
 I decided to write this post.
 
