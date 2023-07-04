@@ -42,18 +42,18 @@ their impact on the environment.**
 
 "Good enough for users" means that the systems respect quantitative measures of quality, as it delivers all the
 expected features to its consumers.
-"Impact on the environment" is what any software will cause eventually: depleting some Earth resources through the
+"Impact on the environment" is what any software will cause eventually, depleting some Earth resources through the
 machines it runs on.
 It will do so directly, by consuming more electricity in existing machines, or indirectly, requiring more
 rare-earth minerals to build new machines to increase datacenters' capacity.
-
-The methodology is influenced both by my previous experiences in operations and my more recent software engineering
-career, working on a continuous-profiling tool with an amazing group of people.
 
 At its core, sustainable performance is an iterative, finite set of steps that will ensure your systems deliver what
 is expected, while keeping under control the consumed resources.
 It provides actionable items that you can apply to any codebase and infrastructure to develop and run more
 earth-friendly software.
+
+The methodology is influenced both by my previous experiences in operations and my more recent software engineering
+career, working on a continuous-profiling tool with an amazing group of people.
 
 ### The need for sustainable performance
 
@@ -208,9 +208,10 @@ but rather segregate the problematic parts of your software into logical units t
 - Identify low-hanging fruits: these are typically very small, but frequent, units of execution. For example, if you are
   developing a chat application, likely the most common operation is to broadcast a message from one to multiple users
 - Detect patterns across applications or components that refer to a unique source (e.g. a shared library)
-- Have a clear understanding if a subsystem is being "slow" and/or "inefficient": it's important to determine if you
-  have saturated I/O, CPU, or both! And the tools that you use to observe should be telling you. Use the information at
-  your disposal to detect where to cut the boundary of your investigation.
+- Have a clear understanding if a subsystem is being "slow" and/or "inefficient": when defining boundaries, 
+  it's important to determine if you have saturated I/O, CPU, or both!
+  The tools that you use to observe should be telling you.
+  Use the information at your disposal to detect where to cut the boundary of your investigation.
 
 #### Target
 
@@ -232,21 +233,22 @@ thus retaining all the business value currently provided, but reducing the consu
 
 Similarly to how SLOs are built upon SLIs, we will create **Service Performance Indicators** (SPI): using the
 data collected from our systems, we will create quantitative measures of how the system is performing in a certain area.
-Each SPO will then refer to an SPI in its definition.
+The SPI will target only one of the components individuated in the "Split" phase.
+Each SPO will refer to a single SPI in its definition.
 
 - Review the list of existing SLIs, detect if some of them are already indicative of performance-related metrics
 - Build SPIs to track down the performance behavior of the system
 - Create SPOs _on top_ of existing SLOs
 - Communicate the existence of the SPOs and your commitment to fulfill them
 
-For example, if we want to create an SPO for a cache service in a video website, we may want to track the SPI
-"total cache memory usage over requests per second". We then go ahead and define a threshold for the SPI, say
-it's `123`.
+For example, if we want to create an SPO for a cache service deployed at a video streaming website, we may want to 
+track the SPI "total cache memory usage over requests per second".
+We then go ahead and define a threshold for the SPI, say it's `123`.
 
 The SPO will then be defined as
 
 > keep the "total cache memory usage over requests per second" SLI below 123 for 95%
-> of the time in a month
+> of the time over a month
 
 Just like SLOs, the time period for which you perform the measurement can vary.
 
@@ -260,7 +262,7 @@ Common SPI/SPO definitions we could be using:
   stateful service)
 * use no more than 5 GB of ephemeral disk for each replica of service X, for 99% of the month
 
-Note: in the first iteration, you can size the SPOs almost arbitrarily, and it's usually better to start
+Note: in the first ROSTI iteration, you can size the SPOs almost arbitrarily, and it's usually better to start
 with relaxed SPI thresholds.
 It is crucial that once set, **you never make pejorative adjustments** to SPOs: you always have room to
 make them more challenging when further improving the system.
@@ -333,7 +335,8 @@ This change impacts the business, because items' ordering contributes to revenue
 The efficiency improvement in itself is great, but cannot be adopted because it is unsuited for the system.
 
 Be conscious that the goal is optimizing the system, reduce its environmental and monetary cost while keeping the exact
-same functionalities. Prefer small iterations, little gains can compound drastically over time.
+same functionalities.
+As already mentioned: prefer small iterations, little gains can compound drastically over time.
 
 #### Wrap around
 
