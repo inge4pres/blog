@@ -70,6 +70,22 @@ we should always try to **do more with less**.
 
 By building performant and efficient systems, we can be one step closer to better environment-friendly software.
 
+### The goal of sustainable performance
+
+Note that throughout the post, we will never mention the word _sustainability_ alone: this is intentional.
+
+We should not conflate sustainable performance with _sustainability programs_:
+carbon-neutrality is great, but it's not the right point to build upon if we want to improve the status quo.
+
+Sustainability programs have the goal of offsetting carbon emissions caused by datacenters with CO2 credits, collected
+either by purchasing them on an open market, or by performing activities that will somehow compensate CO2 production.
+While this is a great intent, it surely does not scale as well as avoiding CO2 emissions in the first place.
+
+A sloppy workload running in a datacenter that offsets part or all of its CO2 emissions is only partially helping
+in building a more sustainable future.
+We need to face the reality that only by changing how systems operate internally we can create long-term, sustainable
+habits for our system to operate and grow at planet scale.
+
 ### How to get started
 
 Performance and efficiency should not be the end goal of any software craft, especially when creating a new system
@@ -110,7 +126,7 @@ that the next phases will be possible.
 There are no strict criteria of validation for a stage to be called successful: similarly to most modern methodologies,
 setting a good cadence is more important than the actual results obtained at each iteration.
 Thus, prefer multiple short ROSTI iterations over a long, "perfection-achieving" redesign of the system.
-The first is proven to be better in the long run, as practicing multiple times improves the quality of results.
+The first way is proven to be better in the long run, as practicing multiple times improves the quality of results.
 The latter is not only impractical, it is often impossible to achieve. 
 
 ![ROSTI methodology graph](/images/posts/sustainable-performance-rosti.png)
@@ -129,7 +145,7 @@ The important thing is that you should _see something run first_, and then proce
 
 - Deploy your system to _any_ infrastructure as a starting point
 - If possible, adopt Canary Releases or other Continuous Delivery practices such
-  as [Progressive Delivery](./progressive-delivery-with-kubernetes.md),
+  as [Progressive Delivery](/progressive-delivery-with-kubernetes/),
   so you can iterate with speed and safety and experiment in production with small, frequent changes
 - Understand if the facilities where you are running it provide telemetry:
     * Cloud provider with native monitoring APIs
@@ -206,20 +222,25 @@ It is important to note a key aspect: performance improvements must honor a two-
 On one hand, they free up some CPU cycles or disk/RAM usage, making room for other parts of the business to grow and
 scale more seamlessly. On the other hand, they must respect the existing business purpose of the system.
 
-You should already have defined SLOs in terms of availability over a month,
-error rate threshold, or any other business metric.
+You should already have defined SLOs in terms of availability over a month, error rate threshold, or any other
+business metric.
 
-Now you need to define performance targets.
+Now we need to define performance targets.
 We can call these targets **_Service Performance Objectives_**, or **SPO**s in short.
-Their purpose is to let you improve the system's efficiency _while keeping existing SLOs in place_,
+Their purpose is to improve the system's efficiency _while keeping existing SLOs in place_,
 thus retaining all the business value currently provided, but reducing the consumption of resources.
 
+Similarly to how SLOs are built upon SLIs, we will create **Service Performance Indicators** (SPI): using the
+data collected from our systems, we will create quantitative measures of how the system is performing in a certain area.
+Each SPO will then refer to an SPI in its definition.
+
 - Review the list of existing SLIs, detect if some of them are already indicative of performance-related metrics
+- Build SPIs to track down the performance behavior of the system
 - Create SPOs _on top_ of existing SLOs
 - Communicate the existence of the SPOs and your commitment to fulfill them
 
-For example, if you want to create an SPO for a cache service in a video website, you may want to track the SLI
-"total cache memory usage over requests per second". You then go ahead and define a threshold for the SLI, say
+For example, if we want to create an SPO for a cache service in a video website, we may want to track the SPI
+"total cache memory usage over requests per second". We then go ahead and define a threshold for the SPI, say
 it's `123`.
 
 The SPO will then be defined as
@@ -229,7 +250,7 @@ The SPO will then be defined as
 
 Just like SLOs, the time period for which you perform the measurement can vary.
 
-Common SPOs you could be using:
+Common SPI/SPO definitions we could be using:
 
 * P95 latency of RPC "xyz" should be lower than 5 seconds, for 99.9% of each month (this SPOs could be a "subsection" of
   an existing SLO)
@@ -239,8 +260,8 @@ Common SPOs you could be using:
   stateful service)
 * use no more than 5 GB of ephemeral disk for each replica of service X, for 99% of the month
 
-Note: in the first iteration, you can size your SPOs almost arbitrarily, and it's usually better to start
-with relaxed SLI thresholds.
+Note: in the first iteration, you can size the SPOs almost arbitrarily, and it's usually better to start
+with relaxed SPI thresholds.
 It is crucial that once set, **you never make pejorative adjustments** to SPOs: you always have room to
 make them more challenging when further improving the system.
 
@@ -249,12 +270,12 @@ make them more challenging when further improving the system.
 You may be thinking: "Finally! This is where it gets interesting". Please think twice.
 The improvement phase is equally important as the previous ones, not more important.
 
-On your first ROSTI, the previous phases are actually more important as they will likely require
+The first time running a ROSTI, the previous phases are actually more important as they will likely require
 a more thought-through process and a bigger effort to be set in place.
-You won't be able to make a system better if you don't know _what_ to improve, and _which data you need_
-to validate your assumptions.
+We won't be able to make a system better if we don't know _what_ to improve, and _which data we need_
+to validate our assumptions.
 
-In this last phase, you are going to analyze all the segregated components and explore several possibilities of
+In this last phase, we are going to analyze all the segregated components and explore several possibilities of
 improving their status. This may include code optimizations, resource utilization enhancements, architectural changes,
 or any other optimization techniques.
 
@@ -267,8 +288,8 @@ The goals of the "Improve" phase are two:
 
 Below a list of common actions to improve your systems.
 
-- Review your architecture: sometimes, an external service could be a shared library—you may replace an expensive
-  network call with a CPU context switch
+- Review the architecture: sometimes, an external service could be a shared library—you may replace an expensive
+  network call with a more efficient CPU context switch
 
 - Code optimizations (in order of efficacy in my experience):
     1. find a more efficient replacement for third party libraries, e.g. more efficient serialization/deserialization,
@@ -321,7 +342,8 @@ And the cycle repeats: you make a new ROSTI, where you may be creating a new SPO
 by making it more challenging.
 
 It is up to each organization to decide if the cycles should be continuous or have a regular cadence. It is often better
-to set a cadence prior to start any iteration. Setting quarterly or bi-monthly periods may be a good habit.
+to set a cadence prior to start any iteration. Setting quarterly or bi-monthly periods may be a good habit to start
+with.
 
 ## Conclusion
 
@@ -341,7 +363,7 @@ applications that not only delight our users but also contribute to a more susta
 By embracing the ROSTI methodology and incorporating the aforementioned techniques, IT practitioners can play a vital
 role in reducing the environmental impact of software systems while delivering high-performance applications.
 
-I think it's imperative that we prioritize sustainable performance to ensure a greener and more efficient future on
+I think it is imperative that we prioritize sustainable performance to ensure a greener and more efficient future on
 Earth.
 
 ## Related projects to watch
@@ -350,3 +372,8 @@ Earth.
   Kubernetes
 * [Green Software Foundation](https://greensoftware.foundation/articles/what-is-green-software)
 * [OpenCost](https://www.opencost.io/) cloud-native cost allocation tool
+
+## Special thanks
+
+Thank you 🙏 to [Sean Heelan](https://twitter.com/seanhn) and [Tommaso Preverio](https://twitter.com/TommasoPreviero)
+for reviewing the draft of this post and providing feedback. 
