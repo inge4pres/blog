@@ -26,7 +26,7 @@ I hope I can spread with this post how it works and how it can be pragmatically 
 [Embedding](https://go.dev/doc/effective_go#embedding) is a powerful feature of the Go language that allows to compose types together,
 "bundling" new types that inherit the properties or behavior of the embedded types.
 These new types can have their own methods, or they can override the methods of the embedded types: 
-this feature is called _method overriding_ and it's existence is not often known by many Go programmers.
+this feature is called _method overriding_ and its existence is not often known by many Go programmers.
 
 From whom approaches Go coming from Java, embedding may resemble inheritance, but it's actually not the same thing in terms of syntax, semantics and memory layout.
 When doing inheritance in Java, inherited classes are always allocated in memory as a standalone object, and referenced by the parent class.
