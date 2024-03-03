@@ -16,7 +16,7 @@ tags:
 - design-patterns
 ---
 
-I was introduced to type embedding(or embedding, in short) by Filippo Valsorda in one of his talks.
+I was introduced to type embedding (or embedding, in short) by Filippo Valsorda in one of his talks.
 
 Apparently this is a lesser known (and lesser used) feature of the Go language, altough it's been around since the beginning.
 I hope I can spread with this post how it works and how it can be pragmatically helpful to create more expressive and reusable code.
