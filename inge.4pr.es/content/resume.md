@@ -17,14 +17,16 @@ I keep working with the same wonderful team, with the goal of integrating Prodfi
 Prodfiler is now Universal Profiling: the same amazing technology, backed by a different data store.
 
 I focus on the backend integration and data collection, trying to improve storage efficiency and keep continuous profiling
-affordable.
-I also keep improving and supporting the integration of our continuous profiler with various orchestration platforms (Kubernetes, Nomad, ECS).
+affordable. I also keep improving and supporting the integration of our continuous profiler with various orchestration platforms (Kubernetes, Nomad, ECS).
 
 #### Jun 2020 - Nov 2021  » Senior Software Engineer
 ##### [optimyze.cloud](https://optimyze.cloud/)
 We are a startup building Prodfiler: the lowest-overhead, always-on continuous-profiling tool for all your software stacks.
 Prodfiler gives a holistic view of CPU consumption across all your fleets, supporting multiple platforms and languages.
 I contribute to the product and leverage my previous working to bake reliability into our product and architectural decisions.
+
+Our SaaS product goes GA on August 2021, being the first product of its kind to be available on the market.
+The platform was built on Kubernetes with a focus on performance and reliability.
 
 #### Sep 2018 - Jun 2020  » Site Reliability Engineer 
 ##### [lastminute.com](https://technology.lastminute.com/ "lastminute.com tech blog") 
