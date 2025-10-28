@@ -10,7 +10,15 @@ comment: false
 
 # Work experiences
 
-#### Nov 2021 - now()  » Senior Software Engineer
+#### May 2024 - now()  » Principal Software Engineer
+##### [Elastic Observability](https://elastic.co/observability)
+I join the Observability Ingest team, whose responsibility is Observability data intake for the Elastic stack.
+Our goal is to provide the best systems to receive, transform and store in Elasticsearch the telemetry signals emitted by applications.
+
+We expand the adoption of OpenTelemetry and build on top of event-driven architecture and an internal development platform based on Kubernetes.
+We keep maintaining the legacy APM infrastructure and deliver Observability backends that are resilient and fault-tolerant.
+
+#### Nov 2021 - Apr 2024  » Senior Software Engineer
 ##### [Elastic Observability](https://elastic.co/observability)
 When Optimyze [joins forces with Elastic](https://www.elastic.co/blog/elastic-and-optimyze-join-forces-to-deliver-always-on-continuous-profiling-of-infrastructure-applications-and-services),
 I keep working with the same wonderful team, with the goal of integrating Prodfiler into the Elastic stack.
