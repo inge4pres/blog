@@ -102,15 +102,15 @@ _Scientific Lyceum “Falcone e Borsellino” - Arese (Milan, Italy)_
 * cloud computing and distributed systems design and implementation 
 * observability and incident response
 
-* __Lang__ Go, Rust, Java, Python, Groovy, BASH
+* __Lang__ Zig, Go, Rust
 
 * __OS__ RHEL/CentOS, Fedora, Debian/Ubuntu, OS X
 
 * __Cloud__ AWS, DigitalOcean, GCP, Kubernetes, Cloudflare
 
-* __DB__ MySQL, Oracle 11gR2, REDIS, Clickhouse
+* __DB__ MySQL, Oracle 11gR2, REDIS, Clickhouse, ScyllaDB
 
-* __Product__ HTTPd, NGINX, Varnish, Jenkins, GOCD, ELK, Zabbix, Splunk, Ansible, Packer, Terraform, Consul, Docker
+* __Product__ Kubernetes,  Terraform, Consul, Docker, Packer, NGINX, Varnish, Jenkins, GOCD, ELK, Zabbix, Splunk, Ansible
 
 # Interests and Hobbies
 I play drums quite well and bass guitar at a low level, I listen to lots of music and I am trying to expand my musical culture more and more, with discs from the 70s-80s and also contemporary artists. I love running, it makes me feel free, and enjoy swimming in pool and sea.
