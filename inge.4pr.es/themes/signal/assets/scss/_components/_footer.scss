@@ -1,0 +1,67 @@
+// _components/_footer.scss
+
+.site-footer {
+  border-top: 1px solid var(--border-subtle);
+  padding-block: var(--space-8);
+  margin-top: var(--space-12);
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+
+    @media (max-width: 600px) {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+
+  &__col {
+    flex: 1;
+
+    &--center { text-align: center; }
+    &--right  { text-align: right; }
+
+    @media (max-width: 600px) {
+      text-align: center !important;
+    }
+  }
+
+  &__copy {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+  }
+
+  &__rss {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    transition: color var(--transition);
+
+    &:hover { color: var(--accent-warm); }
+  }
+
+  &__social {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    justify-content: flex-end;
+
+    @media (max-width: 600px) {
+      justify-content: center;
+    }
+  }
+
+  &__social-link {
+    color: var(--text-muted);
+    display: flex;
+    transition: color var(--transition);
+
+    &:hover { color: var(--accent); }
+  }
+}

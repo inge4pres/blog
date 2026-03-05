@@ -1,0 +1,9 @@
+name = "Signal"
+license = "MIT"
+licenselink = ""
+description = "Custom theme for inge.4pr.es — software engineering, observability, performance"
+homepage = "https://inge.4pr.es"
+min_version = "0.120.0"
+
+[author]
+  name = "Francesco Gualazzi"

@@ -1,0 +1,7 @@
+{{- if and site.Config.Services.Disqus.Shortname (not .Params.nocomment) }}
+<div class="comments">
+  <hr class="section-divider">
+  <h3 class="comments__title">Comments</h3>
+  {{ template "_internal/disqus.html" . }}
+</div>
+{{- end }}

@@ -1,0 +1,26 @@
+{{ define "main" }}
+<section class="hero">
+  <div class="container hero__inner">
+    {{- with .Site.Params.logo }}
+    <img src="{{ $.Site.BaseURL }}{{ . }}" alt="{{ $.Site.Params.homeTitle | default $.Site.Title }}" class="hero__avatar">
+    {{- end }}
+    <div class="hero__text">
+      <h1 class="hero__title">{{ .Site.Params.homeTitle | default .Site.Title }}</h1>
+      <p class="hero__subtitle">{{ .Site.Params.subtitle }}</p>
+    </div>
+  </div>
+</section>
+
+<section class="posts-section">
+  <div class="container">
+    <div class="post-grid">
+      {{- $paginator := .Paginate (where site.RegularPages "Type" "in" site.Params.mainSections) }}
+      {{- range $paginator.Pages }}
+        {{ partial "post-card.html" . }}
+      {{- end }}
+    </div>
+
+    {{- template "_internal/pagination.html" . }}
+  </div>
+</section>
+{{ end }}

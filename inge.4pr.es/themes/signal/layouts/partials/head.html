@@ -1,0 +1,57 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+
+{{- /* Favicon */}}
+<link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+<link rel="shortcut icon" href="/favicon/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+<link rel="manifest" href="/favicon/site.webmanifest" />
+
+{{- /* Canonical URL */}}
+<link rel="canonical" href="{{ .Permalink }}">
+
+{{- /* RSS */}}
+{{ range .AlternativeOutputFormats -}}
+  <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink }}" title="{{ $.Site.Title }}">
+{{ end -}}
+
+{{- /* Meta description */}}
+<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Summary | truncate 160 }}{{ end }}">
+
+{{- /* Open Graph */}}
+<meta property="og:type"        content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+<meta property="og:title"       content="{{ .Title }}">
+<meta property="og:description" content="{{ with .Description }}{{ with $.Description }}{{ . }}{{ else }}{{ $.Summary | truncate 160 }}{{ end }}{{ else }}{{ .Summary | truncate 160 }}{{ end }}">
+<meta property="og:url"         content="{{ .Permalink }}">
+<meta property="og:site_name"   content="{{ .Site.Title }}">
+{{- with .Site.Params.logo }}
+<meta property="og:image" content="{{ $.Site.BaseURL }}{{ . }}">
+{{- end }}
+
+{{- /* Twitter card */}}
+<meta name="twitter:card"        content="summary">
+<meta name="twitter:title"       content="{{ .Title }}">
+<meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Summary | truncate 160 }}{{ end }}">
+{{- with .Site.Params.twitter }}
+<meta name="twitter:site" content="@{{ . }}">
+{{- end }}
+
+{{- /* Theme init — runs before CSS to prevent flash */}}
+<script>
+  (function(){
+    var s = localStorage.getItem('signal-theme');
+    var t = s || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', t);
+  })();
+</script>
+
+{{- /* Compiled CSS via Hugo Pipes + Dart Sass */}}
+{{- $opts := dict "outputStyle" "compressed" "transpiler" "dartsass" }}
+{{- with resources.Get "scss/main.scss" | toCSS $opts | fingerprint }}
+  <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">
+{{- end }}
+
+{{- /* Google Analytics */}}
+{{ partial "analytics.html" . }}

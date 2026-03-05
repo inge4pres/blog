@@ -1,0 +1,16 @@
+<div class="post-meta">
+  <time datetime="{{ .Date.Format "2006-01-02" }}" class="post-meta__item">
+    {{- .Date.Format "2006-01-02" -}}
+  </time>
+
+  {{- with site.Params.homeTitle }}
+  <span class="post-meta__sep">&middot;</span>
+  <span class="post-meta__item">{{ . }}</span>
+  {{- end }}
+
+  <span class="post-meta__sep">&middot;</span>
+  <span class="post-meta__item">{{ .ReadingTime }} min read</span>
+
+  <span class="post-meta__sep">&middot;</span>
+  <span class="post-meta__item">{{ .WordCount }} words</span>
+</div>

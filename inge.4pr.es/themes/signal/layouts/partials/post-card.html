@@ -1,0 +1,27 @@
+<article class="post-card">
+  <a href="{{ .RelPermalink }}" class="post-card__link" aria-label="{{ .Title }}">
+    {{- with .Params.tags }}
+    <div class="post-card__tags">
+      {{- range first 3 . -}}
+      <span class="tag">#{{ . }}</span>
+      {{- end -}}
+    </div>
+    {{- end }}
+
+    <h2 class="post-card__title">{{ .Title }}</h2>
+
+    {{- with .Summary }}
+    <p class="post-card__excerpt">{{ . | truncate 160 | plainify }}</p>
+    {{- end }}
+
+    <div class="post-card__meta">
+      <time datetime="{{ .Date.Format "2006-01-02" }}" class="post-card__date">
+        {{- .Date.Format "2006-01-02" -}}
+      </time>
+      <span class="post-card__sep">&middot;</span>
+      <span class="post-card__reading-time">{{ .ReadingTime }} min</span>
+      <span class="post-card__sep">&middot;</span>
+      <span class="post-card__wordcount">{{ .WordCount }}w</span>
+    </div>
+  </a>
+</article>

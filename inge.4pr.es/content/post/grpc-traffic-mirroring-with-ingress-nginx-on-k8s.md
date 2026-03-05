@@ -1,12 +1,10 @@
 ---
 title: "gRPC Traffic Mirroring With Ingress-Nginx on K8s"
-subtitle: ""
+subtitle: "How to test gRPC service with production data in testing environments, cloning (or \"shadowing\") traffic via NGINX"
 date: 2021-11-06T15:42:08+02:00
 lastmod: 2021-11-06T15:42:08+02:00
 draft: false
 author: "inge4pres"
-subtitle: |
-    How to test gRPC service with production data in testing environments, cloning (or "shadowing") traffic via NGINX
 
 page:
     theme: "wide"

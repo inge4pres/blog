@@ -1,0 +1,13 @@
+// main.scss — Signal theme entry point
+
+@use 'tokens';
+@use 'reset';
+@use 'typography';
+@use 'layout';
+@use 'syntax';
+@use '_components/header';
+@use '_components/footer';
+@use '_components/post-card';
+@use '_components/post-single';
+@use '_components/tags';
+@use '_components/pagination';

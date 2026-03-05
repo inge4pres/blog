@@ -1,0 +1,12 @@
+{{ define "main" }}
+<div class="prose-container" style="padding-block: var(--space-16); text-align: center;">
+  <p class="post-meta" style="justify-content: center; margin-bottom: var(--space-4);">404</p>
+  <h1 style="margin-bottom: var(--space-4);">Page not found</h1>
+  <p style="color: var(--text-secondary); margin-bottom: var(--space-8);">
+    The page you're looking for doesn't exist or has been moved.
+  </p>
+  <a href="{{ .Site.BaseURL }}" class="tag tag--lg" style="text-decoration: none;">
+    &larr; Back to home
+  </a>
+</div>
+{{ end }}

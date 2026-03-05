@@ -1,11 +1,10 @@
 ---
 title: "gRPC Traffic Mirroring Using NGINX"
-subtitle: "Unveiling the power of mirror, grpc and proxy modules"
+subtitle: "An NGINX configuration trick to mirror traffic to gRPC backends"
 date: 2021-05-30T17:23:35+02:00
 lastmod: 2021-05-30T17:23:35+02:00
 draft: false
 author: "inge4pres"
-subtitle: "An NGINX configuration trick to mirror traffic to gRPC backends"
 
 page:
   theme: "wide"

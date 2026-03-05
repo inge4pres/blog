@@ -1,0 +1,21 @@
+{{ define "main" }}
+<section class="list-page">
+  <div class="container">
+    <header class="list-page__header">
+      <h1 class="list-page__title">{{ .Title }}</h1>
+      {{- with .Description }}
+      <p class="list-page__desc">{{ . }}</p>
+      {{- end }}
+    </header>
+
+    <div class="post-grid">
+      {{- $paginator := .Paginate .Pages }}
+      {{- range $paginator.Pages }}
+        {{ partial "post-card.html" . }}
+      {{- end }}
+    </div>
+
+    {{- template "_internal/pagination.html" . }}
+  </div>
+</section>
+{{ end }}

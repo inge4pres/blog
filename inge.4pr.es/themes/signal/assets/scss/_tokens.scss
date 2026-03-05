@@ -1,0 +1,54 @@
+// _tokens.scss — CSS custom property design tokens
+
+:root {
+  // Fonts
+  --font-sans: system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', ui-monospace, 'Courier New', monospace;
+
+  // Type scale (1.25 modular ratio)
+  --text-sm:   0.8rem;
+  --text-base: 1.125rem;
+  --text-lg:   1.4rem;
+  --text-xl:   1.75rem;
+  --text-2xl:  2.2rem;
+  --text-3xl:  2.75rem;
+
+  // Spacing scale
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  // Light mode color tokens
+  --bg-primary:     #f9fafb;
+  --bg-secondary:   #f1f5f9;
+  --bg-code:        #1e2433;
+  --text-primary:   #111827;
+  --text-secondary: #4b5563;
+  --text-muted:     #9ca3af;
+  --accent:         #0ea5e9;
+  --accent-warm:    #f97316;
+  --border:         #e2e8f0;
+  --border-subtle:  #f1f5f9;
+
+  // Derived
+  --radius:         6px;
+  --transition:     150ms ease;
+}
+
+[data-theme="dark"] {
+  --bg-primary:     #0d1117;
+  --bg-secondary:   #161b22;
+  --bg-code:        #1e2433;
+  --text-primary:   #e6edf3;
+  --text-secondary: #8b949e;
+  --text-muted:     #6e7681;
+  --accent:         #38bdf8;
+  --accent-warm:    #fb923c;
+  --border:         #30363d;
+  --border-subtle:  #21262d;
+}

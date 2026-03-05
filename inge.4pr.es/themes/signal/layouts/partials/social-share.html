@@ -1,0 +1,24 @@
+{{- if .Site.Params.socialShare }}
+<div class="social-share">
+  <span class="social-share__label">Share</span>
+
+  <a href="https://twitter.com/intent/tweet?url={{ .Permalink | urlquery }}&text={{ .Title | urlquery }}"
+     target="_blank" rel="noopener" class="social-share__link">
+    Twitter
+  </a>
+
+  <span class="social-share__sep">&middot;</span>
+
+  <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ .Permalink | urlquery }}"
+     target="_blank" rel="noopener" class="social-share__link">
+    LinkedIn
+  </a>
+
+  <span class="social-share__sep">&middot;</span>
+
+  <button class="social-share__link social-share__copy" data-url="{{ .Permalink }}"
+          onclick="navigator.clipboard.writeText(this.dataset.url).then(()=>{this.textContent='Copied!';setTimeout(()=>{this.textContent='Copy link'},2000)})">
+    Copy link
+  </button>
+</div>
+{{- end }}

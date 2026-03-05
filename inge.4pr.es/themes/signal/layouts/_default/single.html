@@ -1,0 +1,36 @@
+{{ define "main" }}
+<article class="post-single">
+  <div class="prose-container">
+
+    {{- with .Params.tags }}
+    <div class="tags post-single__tags">
+      {{- range . -}}
+      <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" class="tag">#{{ . }}</a>
+      {{- end -}}
+    </div>
+    {{- end }}
+
+    <h1 class="post-single__title">{{ .Title }}</h1>
+
+    {{- with .Params.subtitle }}
+    <p class="post-single__subtitle">{{ . }}</p>
+    {{- end }}
+
+    {{ partial "post-meta.html" . }}
+
+    <hr class="section-divider">
+
+    <div class="prose">
+      {{ .Content }}
+    </div>
+
+    <hr class="section-divider">
+
+    {{ partial "social-share.html" . }}
+
+    {{ partial "related-posts.html" . }}
+
+    {{ partial "comments.html" . }}
+  </div>
+</article>
+{{ end }}
