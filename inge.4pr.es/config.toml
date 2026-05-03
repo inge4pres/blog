@@ -94,6 +94,12 @@ googleAnalytics = "UA-55252403-1"
     parent = "projects"
     name = "4pr.es links"
     url = "https://go.4pr.es"
+    weight = 2
+
+[[menu.main]]
+    parent = "projects"
+    name = "Zig OTel SDK"
+    url = "https://github.com/zig-o11y/opentelemetry-sdk"
     weight = 1
 
 [[menu.main]]

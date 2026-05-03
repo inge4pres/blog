@@ -10,7 +10,12 @@ comment: false
 
 # Work experiences
 
-#### May 2024 - now()  » Principal Software Engineer
+#### March 2026 - Now() » Software Engineer
+##### [Stealthium](https://stealthium.io)
+As world grows AI adoption, offering a GPU via the web exposes providers to all sorts of threats: privilege escalation, data exfiltration, remote commend execution, and so on.
+At Stealthium we provide the security layer for your AI workloads, a Rust + eBPF agent that hooks into hypervisors and extract security and observability events to detect and stop bad actors from performing malicious use of training and inference infrastructure.
+
+#### May 2024 - March 2026  » Principal Software Engineer
 ##### [Elastic Observability](https://elastic.co/observability)
 I join the Observability Ingest team, whose responsibility is Observability data intake for the Elastic stack.
 Our goal is to provide the best systems to receive, transform and store in Elasticsearch the telemetry signals emitted by applications.
