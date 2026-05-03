@@ -10,7 +10,7 @@ comment: false
 
 # Work experiences
 
-#### March 2026 - Now() » Software Engineer
+#### March 2026 - Now() » Senior Software Engineer
 ##### [Stealthium](https://stealthium.io)
 As world grows AI adoption, offering a GPU via the web exposes providers to all sorts of threats: privilege escalation, data exfiltration, remote commend execution, and so on.
 At Stealthium we provide the security layer for your AI workloads, a Rust + eBPF agent that hooks into hypervisors and extract security and observability events to detect and stop bad actors from performing malicious use of training and inference infrastructure.
